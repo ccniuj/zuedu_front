@@ -1,0 +1,53 @@
+==> 🌎  Listening on port 3000. Open up http://localhost:3000/ in your browser.
+webpack built 7a5f90ac2b288b25fb55 in 72ms
+Hash: 7a5f90ac2b288b25fb55
+Version: webpack 1.13.1
+Time: 72ms
+    Asset     Size  Chunks             Chunk Names
+bundle.js  22.3 kB       0  [emitted]  main
+chunk    {0} bundle.js (main) 40 bytes [rendered]
+    [0] multi main 40 bytes {0} [built] [2 errors]
+
+ERROR in multi main
+Module not found: Error: Cannot resolve 'file' or 'directory' ./index in /Users/davidjuin0519
+ @ multi main
+
+ERROR in multi main
+Module not found: Error: Cannot resolve module 'webpack-hot-middleware/client' in /Users/davidjuin0519
+ @ multi main
+==> 🌎  Listening on port 3001. Open up http://localhost:3001/ in your browser.
+webpack built 7a5f90ac2b288b25fb55 in 66ms
+Hash: 7a5f90ac2b288b25fb55
+Version: webpack 1.13.1
+Time: 66ms
+    Asset     Size  Chunks             Chunk Names
+bundle.js  22.3 kB       0  [emitted]  main
+chunk    {0} bundle.js (main) 40 bytes [rendered]
+    [0] multi main 40 bytes {0} [built] [2 errors]
+
+ERROR in multi main
+Module not found: Error: Cannot resolve 'file' or 'directory' ./index in /Users/davidjuin0519
+ @ multi main
+
+ERROR in multi main
+Module not found: Error: Cannot resolve module 'webpack-hot-middleware/client' in /Users/davidjuin0519
+ @ multi main
+==> 🌎  Listening on port 3001. Open up http://localhost:3001/ in your browser.
+webpack built 7a5f90ac2b288b25fb55 in 74ms
+Hash: 7a5f90ac2b288b25fb55
+Version: webpack 1.13.1
+Time: 74ms
+    Asset     Size  Chunks             Chunk Names
+bundle.js  22.3 kB       0  [emitted]  main
+chunk    {0} bundle.js (main) 40 bytes [rendered]
+    [0] multi main 40 bytes {0} [built] [2 errors]
+
+ERROR in multi main
+Module not found: Error: Cannot resolve 'file' or 'directory' ./index in /Users/davidjuin0519
+ @ multi main
+
+ERROR in multi main
+Module not found: Error: Cannot resolve module 'webpack-hot-middleware/client' in /Users/davidjuin0519
+ @ multi main
+==> 🌎  Listening on port 3001. Open up http://localhost:3001/ in your browser.
+webpack built 856152a928fade746074 in 4484ms
