@@ -10,9 +10,9 @@ function receiveProducts(products) {
 
 export function getAllProducts() {
   return dispatch => {
-    shop.getProducts(products => {
-      dispatch(receiveProducts(products))
-    })
+    fetch('http://localhost:3000/products').
+      then(res => res.json()).
+      then(products => dispatch(receiveProducts(products)))
   }
 }
 

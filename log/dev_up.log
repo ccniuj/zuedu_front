@@ -51,3 +51,47 @@ Module not found: Error: Cannot resolve module 'webpack-hot-middleware/client' i
  @ multi main
 ==> 🌎  Listening on port 3001. Open up http://localhost:3001/ in your browser.
 webpack built 856152a928fade746074 in 4484ms
+==> 🌎  Listening on port 3001. Open up http://localhost:3001/ in your browser.
+webpack built 856152a928fade746074 in 4731ms
+==> 🌎  Listening on port 3001. Open up http://localhost:3001/ in your browser.
+webpack built 856152a928fade746074 in 6389ms
+webpack building...
+webpack built 36dfd28e329279c0ab8b in 749ms
+webpack building...
+webpack built e3408abe4926f64f2b5f in 394ms
+==> 🌎  Listening on port 3001. Open up http://localhost:3001/ in your browser.
+webpack built 3fdc8cfdd8cce8633e18 in 5420ms
+webpack building...
+webpack built 1a7a017bee8092e19314 in 548ms
+webpack building...
+webpack built 1a7a017bee8092e19314 in 203ms
+webpack building...
+webpack built 1a7a017bee8092e19314 in 219ms
+webpack building...
+webpack built b686cde33a662cd7bd86 in 707ms
+webpack building...
+webpack built 8e79c442612492f4f15d in 513ms
+webpack building...
+webpack built 996c428e550547706100 in 627ms
+webpack building...
+webpack built 430d5b4e5b3a13f6cb42 in 632ms
+webpack building...
+webpack built ad3855be9ea851fa5aee in 1135ms
+webpack building...
+webpack built c97fe8188e97f7635af4 in 645ms
+webpack building...
+webpack built e379b3f449bf46d0df60 in 641ms
+webpack building...
+webpack built 6a70a7c3cfae9804f310 in 636ms
+==> 🌎  Listening on port 3001. Open up http://localhost:3001/ in your browser.
+webpack built 12c4df96a566af59f1cb in 4992ms
+==> 🌎  Listening on port 3001. Open up http://localhost:3001/ in your browser.
+webpack built 12c4df96a566af59f1cb in 5305ms
+==> 🌎  Listening on port 3001. Open up http://localhost:3001/ in your browser.
+webpack built 12c4df96a566af59f1cb in 5531ms
+==> 🌎  Listening on port 3001. Open up http://localhost:3001/ in your browser.
+webpack built 12c4df96a566af59f1cb in 4609ms
+==> 🌎  Listening on port 3001. Open up http://localhost:3001/ in your browser.
+webpack built 12c4df96a566af59f1cb in 5217ms
+==> 🌎  Listening on port 3001. Open up http://localhost:3001/ in your browser.
+webpack built 12c4df96a566af59f1cb in 4813ms

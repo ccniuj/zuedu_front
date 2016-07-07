@@ -9,7 +9,7 @@ export default class ProductItem extends Component {
       <div
         style={{ marginBottom: 20 }}>
         <Product
-          title={product.title}
+          name={product.name}
           price={product.price} />
         <button
           onClick={this.props.onAddToCartClicked}
@@ -23,7 +23,7 @@ export default class ProductItem extends Component {
 
 ProductItem.propTypes = {
   product: PropTypes.shape({
-    title: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     inventory: PropTypes.number.isRequired
   }).isRequired,

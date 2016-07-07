@@ -10,7 +10,7 @@ export default class Cart extends Component {
       <em>Please add some products to cart.</em> :
       products.map(product =>
         <Product
-          title={product.title}
+          name={product.name}
           price={product.price}
           quantity={product.quantity}
           key={product.id}/>
