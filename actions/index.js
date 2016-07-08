@@ -56,13 +56,17 @@ export function checkout(products) {
     dispatch({
       type: types.CHECKOUT_REQUEST
     })
-    shop.buyProducts(products, () => {
-      dispatch({
+    fetch('http://localhost:3000/orders/new.json', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include'
+    }).
+      then(res => res.json()).
+      then(() => dispatch({
         type: types.CHECKOUT_SUCCESS,
         cart
-      })
-      // Replace the line above with line below to rollback on failure:
-      // dispatch({ type: types.CHECKOUT_FAILURE, cart })
-    })
+      }))
   }
 }
