@@ -1,5 +1,6 @@
 import {
-  LOGIN_REQUEST
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS
 } from '../constants/ActionTypes'
 
 const initialState = {
@@ -9,7 +10,9 @@ const initialState = {
 export default function user(state = initialState, action) {
   switch (action.type) {
     case LOGIN_REQUEST:
-      return { user_id: action.user_id }
+      return initialState
+    case LOGIN_SUCCESS:
+      return Object.assign({}, { user_id: action.user_id })
     default:
       return initialState
   }

@@ -1,6 +1,6 @@
 import * as types from '../constants/ActionTypes'
 
-function receiveProducts(products) {
+export function receiveProducts(products) {
   return {
     type: types.RECEIVE_PRODUCTS,
     products: products
@@ -77,5 +77,46 @@ export function login(user_id, password) {
       user_id,
       password
     })
+    fetch('http://localhost:3000/users/sign_in.json', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include',
+      method: 'POST',
+      body: JSON.stringify(
+        {
+          user: 
+            {
+              email: user_id,
+              password: password
+            }
+        })
+    }).
+      then(res => res.json()).
+      then(() => dispatch({
+        type: types.LOGIN_SUCCESS,
+        user_id
+      }))
+  }
+}
+
+export function logout() {
+  return dispatch => {
+    dispatch({
+      type: types.LOGOUT_REQUEST,
+    })
+    fetch('http://localhost:3000/users/sign_out.json', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include',
+      method: 'DELETE',
+    }).
+      then(res => res.json()).
+      then(() => dispatch({
+        type: types.LOGOUT_SUCCESS
+      }))
   }
 }

@@ -1,21 +1,18 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { addToCart, getAllProducts } from '../actions'
+import { getAllProducts } from '../actions/dashboard'
 import { getVisibleProducts } from '../reducers/products'
 import ProductItem from '../components/ProductItem'
 import ProductsList from '../components/ProductsList'
 
-class ProductsContainer extends Component {
+class DashboardProductsContainer extends Component {
   componentDidMount() {
     this.props.getAllProducts()
   }
   render() {
     const { products } = this.props
-    const style = {
-      paddingTop: '50px'
-    }
     return (
-      <div className='container' style={style}>
+      <div className='container'>
         <ProductsList title="課程">
           {products.map(product =>
             <ProductItem
@@ -29,14 +26,14 @@ class ProductsContainer extends Component {
   }
 }
 
-ProductsContainer.propTypes = {
+DashboardProductsContainer.propTypes = {
   products: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     inventory: PropTypes.number.isRequired
   })).isRequired,
-  addToCart: PropTypes.func.isRequired
+  getAllProducts: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {
@@ -47,5 +44,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { addToCart, getAllProducts }
-)(ProductsContainer)
+  { getAllProducts }
+)(DashboardProductsContainer)
