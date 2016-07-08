@@ -69,3 +69,13 @@ export function checkout(products) {
       }))
   }
 }
+
+export function login(user_id, password) {
+  return dispatch => {
+    dispatch({
+      type: types.LOGIN_REQUEST,
+      user_id,
+      password
+    })
+  }
+}
