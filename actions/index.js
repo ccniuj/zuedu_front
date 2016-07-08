@@ -10,7 +10,13 @@ function receiveProducts(products) {
 
 export function getAllProducts() {
   return dispatch => {
-    fetch('http://localhost:3000/products').
+    fetch('http://localhost:3000/products.json', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include'
+    }).
       then(res => res.json()).
       then(products => dispatch(receiveProducts(products)))
   }
@@ -26,7 +32,19 @@ function addToCartUnsafe(productId) {
 export function addToCart(productId) {
   return (dispatch, getState) => {
     if (getState().products.byId[productId].inventory > 0) {
-      dispatch(addToCartUnsafe(productId))
+      fetch('http://localhost:3000/line_items.json', {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        method: 'POST',
+        body: JSON.stringify({
+                product_id: productId
+              })
+      }).
+        then(res => res.json()).
+        then(() => dispatch(addToCartUnsafe(productId)))
     }
   }
 }
