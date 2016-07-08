@@ -7,12 +7,17 @@ import Cart from '../components/Cart'
 class CartContainer extends Component {
   render() {
     const { products, total } = this.props
+    const style = {
+      paddingTop: '50px'
+    }
 
     return (
-      <Cart
-        products={products}
-        total={total}
-        onCheckoutClicked={() => this.props.checkout()} />
+      <div className='container' style={style}>
+        <Cart
+          products={products}
+          total={total}
+          onCheckoutClicked={() => this.props.checkout()} />
+      </div>
     )
   }
 }

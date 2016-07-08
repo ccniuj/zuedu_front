@@ -8,16 +8,20 @@ import ProductsList from '../components/ProductsList'
 class ProductsContainer extends Component {
   render() {
     const { products } = this.props
-    console.log(products)
+    const style = {
+      paddingTop: '50px'
+    }
     return (
-      <ProductsList title="Products">
-        {products.map(product =>
-          <ProductItem
-            key={product.id}
-            product={product}
-            onAddToCartClicked={() => this.props.addToCart(product.id)} />
-        )}
-      </ProductsList>
+      <div className='container' style={style}>
+        <ProductsList title="課程">
+          {products.map(product =>
+            <ProductItem
+              key={product.id}
+              product={product}
+              onAddToCartClicked={() => this.props.addToCart(product.id)} />
+          )}
+        </ProductsList>
+      </div>
     )
   }
 }
