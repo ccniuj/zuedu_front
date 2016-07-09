@@ -1,4 +1,5 @@
 import * as types from '../constants/ActionTypes'
+import { browserHistory } from 'react-router'
 
 export function receiveProducts(products) {
   return {
@@ -93,11 +94,20 @@ export function login(user_id, password) {
             }
         })
     }).
-      then(res => res.json()).
-      then(() => dispatch({
-        type: types.LOGIN_SUCCESS,
-        user_id
-      }))
+      then(handleErrors).
+      then(() => {
+        dispatch({
+          type: types.LOGIN_SUCCESS,
+          user_id
+        })
+        browserHistory.push('/dashboard')
+      }).
+      catch((err) => {
+        console.log(err)
+        dispatch({
+          type: types.LOGIN_FAILURE
+        })
+      })
   }
 }
 
@@ -114,9 +124,25 @@ export function logout() {
       credentials: 'include',
       method: 'DELETE',
     }).
-      then(res => res.json()).
-      then(() => dispatch({
-        type: types.LOGOUT_SUCCESS
-      }))
+      then(handleErrors).
+      then(() => {
+        dispatch({
+          type: types.LOGOUT_SUCCESS
+        })
+        browserHistory.push('/')
+      }).
+      catch((err) => {
+        console.log(err)
+        dispatch({
+          type: types.LOGOUT_FAILURE
+        })
+      })
   }
+}
+
+function handleErrors(response) {
+  if (!response.ok) {
+    throw Error(response.statusText);
+  }
+  return response
 }
