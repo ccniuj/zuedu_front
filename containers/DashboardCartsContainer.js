@@ -9,11 +9,10 @@ class DashboardCartsContainer extends Component {
     const { products, total } = this.props
 
     return (
-      <div className='container'>
-        <Cart
-          products={products}
-          total={total}
-          onCheckoutClicked={() => this.props.checkout()} />
+      <div className='container-fluid'>
+        <div className='col-md-12 col-xs-12'>
+          <h3>購物車</h3>
+        </div>
       </div>
     )
   }

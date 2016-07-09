@@ -1,15 +1,14 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { getForm } from '../actions/dashboard'
+import { getForm, submitForm } from '../actions/dashboard'
 import { product } from '../reducers/dashboard'
 
 class DashboardProductForm extends Component {
   componentDidMount() {
     const { params, getForm } = this.props
-    this.props.getForm(params.type, params.id)
+    this.props.getForm(params.type, 'products', params.id)
   }
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
     const { name, price, description, inventory } = nextProps.product
     this.refs.name.value = name
     this.refs.price.value = price
@@ -17,14 +16,19 @@ class DashboardProductForm extends Component {
     this.refs.inventory.value = inventory
   }
   render() {
-    const { product } = this.props
+    const { product, submitForm } = this.props
     return (
       <div className='container'>
         <div className='col-md-6 col-xs-6'>
           <h3>課程</h3>
           <form onSubmit={ e => {
                 e.preventDefault()
-                login(this.refs.email.value, this.refs.pwd.value)
+                submitForm(product.type, 'products', product.id, {
+                  name: this.refs.name.value,
+                  price: this.refs.price.value,
+                  inventory: this.refs.inventory.value,
+                  description: this.refs.description.value
+                })
               }}
             >
             <label htmlFor='id'>編號</label><br/>
@@ -58,8 +62,8 @@ class DashboardProductForm extends Component {
 
 DashboardProductForm.propTypes = {
   dashboard: PropTypes.shape({
-    product: PropTypes.shape({
-      form: PropTypes.string.isRequired,
+    form: PropTypes.shape({
+      type: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
       price: PropTypes.number.isRequired,
@@ -70,12 +74,11 @@ DashboardProductForm.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    // product: product(state.dashboard.product, { type: 'LOAD_FORM' })
-    product: state.dashboard.product
+    product: state.dashboard.form
   }
 }
 
 export default connect(
   mapStateToProps,
-  { getForm }
+  { getForm, submitForm }
 )(DashboardProductForm)

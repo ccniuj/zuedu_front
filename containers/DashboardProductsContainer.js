@@ -1,40 +1,47 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { getAllProducts } from '../actions/dashboard'
-import { getVisibleProducts } from '../reducers/products'
-import ProductItem from '../components/ProductItem'
-import ProductsList from '../components/ProductsList'
+import { Link } from 'react-router'
+import { getList, deleteForm } from '../actions/dashboard'
 import { Table } from 'react-bootstrap'
 
 class DashboardProductsContainer extends Component {
   componentDidMount() {
-    this.props.getAllProducts()
+    this.props.getList('products')
   }
   render() {
-    const { products } = this.props
+    const { products, deleteForm } = this.props
     return (
-      <div className='container'>
-        <h3>課程</h3>
-        <Table responsive condensed>
-          <thead>
-            <tr>
-              <th>編號</th>
-              <th>名稱</th>
-              <th>價格</th>
-              <th>庫存</th>
-            </tr>
-          </thead>
-          <tbody>
-            { products.map((product) => 
+      <div className='container-fluid'>
+        <div className='col-md-12 col-xs-12'>
+          <h3>課程</h3>
+          <Table responsive condensed>
+            <thead>
               <tr>
-                <td>{product.id}</td>
-                <td>{product.name}</td>
-                <td>{product.price}</td>
-                <td>{product.inventory}</td>
+                <th>編號</th>
+                <th>名稱</th>
+                <th>價格</th>
+                <th>庫存</th>
+                <th></th>
               </tr>
-            )}
-          </tbody>
-        </Table>
+            </thead>
+            <tbody>
+              { products.map((product) => 
+                <tr key={product.id}>
+                  <td>
+                    <Link to={`${window.location.pathname}/edit/${product.id}`}>
+                      {product.id}
+                    </Link>
+                  </td>
+                  <td>{product.name}</td>
+                  <td>{product.price}</td>
+                  <td>{product.inventory}</td>
+                  <td><a className='btn btn-danger btn-sm' onClick={() => deleteForm('products', product.id) }>刪除</a></td>
+                </tr>
+              )}
+            </tbody>
+          </Table>
+          <Link className='btn btn-success' to={`${window.location.pathname}/new`}>新增</Link>
+        </div>
       </div>
     )
   }
@@ -47,16 +54,16 @@ DashboardProductsContainer.propTypes = {
     price: PropTypes.number.isRequired,
     inventory: PropTypes.number.isRequired
   })).isRequired,
-  getAllProducts: PropTypes.func.isRequired
+  getList: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {
   return {
-    products: getVisibleProducts(state.products)
+    products: state.dashboard.list
   }
 }
 
 export default connect(
   mapStateToProps,
-  { getAllProducts }
+  { getList, deleteForm }
 )(DashboardProductsContainer)
