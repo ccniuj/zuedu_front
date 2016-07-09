@@ -24,7 +24,9 @@ export default class NavbarInstance extends Component {
             <MenuItem eventKey={3.2}>Another action</MenuItem>
             <MenuItem eventKey={3.3}>Something else here</MenuItem>
             <MenuItem divider />
-            <MenuItem eventKey={3.3}>Separated link</MenuItem>
+            <LinkContainer to={{ pathname: '/login' }}>
+              <MenuItem eventKey={3.3}>管理者登入</MenuItem>
+            </LinkContainer>
           </NavDropdown>
         </Nav>
       </Navbar>

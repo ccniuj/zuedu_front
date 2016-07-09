@@ -5,6 +5,7 @@ import Home from './components/Home'
 import Dashboard from './containers/Dashboard'
 import DashboardProductsContainer from './containers/DashboardProductsContainer'
 import DashboardCartsContainer from './containers/DashboardCartsContainer'
+import DashboardProductForm from './containers/DashboardProductForm'
 import ProductsContainer from './containers/ProductsContainer'
 import CartContainer from './containers/CartContainer'
 import LoginContainer from './containers/LoginContainer'
@@ -19,6 +20,7 @@ export default (
     </Route>
     <Route path='/dashboard' component={Dashboard}>
       <Route path='/dashboard/products' component={DashboardProductsContainer} />
+      <Route path='/dashboard/products/:type(/:id)' component={DashboardProductForm} />
       <Route path='/dashboard/carts' component={DashboardCartsContainer} />
     </Route>
   </Route>
