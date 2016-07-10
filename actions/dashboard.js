@@ -66,21 +66,21 @@ export function getForm(type, resource, id='') {
 
 export function submitForm(type, resource, id, payload) {
   return dispatch => {
-    let config = {}
+    let fetch_config = {}
     if (type=='new') {
-      config['path'] = `/${resource}.json`
-      config['method'] = 'POST'
+      fetch_config['path'] = `/${resource}.json`
+      fetch_config['method'] = 'POST'
     } else {
-      config['path'] = `/${resource}/${id}.json`
-      config['method'] = 'PUT'
+      fetch_config['path'] = `/${resource}/${id}.json`
+      fetch_config['method'] = 'PUT'
     }
-    fetch(`${config.domain}/dashboard${config.path}`, {
+    fetch(`${config.domain}/dashboard${fetch_config.path}`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       credentials: 'include',
-      method: config.method,
+      method: fetch_config.method,
       body: JSON.stringify( { [resource]: payload } )
     }).
       then(handleErrors).
