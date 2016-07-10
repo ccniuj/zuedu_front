@@ -54,7 +54,6 @@ namespace :deploy do
     on roles :all do
       within release_path do
         execute :npm, :install
-        execute :webpack, '--progress'
       end
     end
   end
