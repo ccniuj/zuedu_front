@@ -1,10 +1,11 @@
 import * as types from '../constants/ActionTypes'
 import { handleErrors } from './index'
 import { browserHistory } from 'react-router'
+import config from 'Config'
 
 export function getList(resource) {
   return dispatch => {
-    fetch(`http://localhost:3000/dashboard/${resource}.json`, {
+    fetch(`${config.domain}/dashboard/${resource}.json`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -37,7 +38,7 @@ export function getForm(type, resource, id='') {
       dispatch({
         type: 'GET_EDIT_FORM_REQUEST'
       })
-      fetch(`http://localhost:3000/dashboard/${resource}/${id}/edit`, {
+      fetch(`${config.domain}/dashboard/${resource}/${id}/edit`, {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -73,7 +74,7 @@ export function submitForm(type, resource, id, payload) {
       config['path'] = `/${resource}/${id}.json`
       config['method'] = 'PUT'
     }
-    fetch(`http://localhost:3000/dashboard${config.path}`, {
+    fetch(`${config.domain}/dashboard${config.path}`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -100,7 +101,7 @@ export function submitForm(type, resource, id, payload) {
 
 export function deleteForm(resource, id) {
   return dispatch => {
-    fetch(`http://localhost:3000/dashboard/${resource}/${id}.json`, {
+    fetch(`${config.domain}/dashboard/${resource}/${id}.json`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'

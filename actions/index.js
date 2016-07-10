@@ -1,5 +1,6 @@
 import * as types from '../constants/ActionTypes'
 import { browserHistory } from 'react-router'
+import config from 'Config'
 
 export function receiveProducts(products) {
   return {
@@ -10,7 +11,7 @@ export function receiveProducts(products) {
 
 export function getAllProducts() {
   return dispatch => {
-    fetch('http://localhost:3000/products.json', {
+    fetch(`${config.domain}/products.json`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -32,7 +33,7 @@ function addToCartUnsafe(productId) {
 export function addToCart(productId) {
   return (dispatch, getState) => {
     if (getState().products.byId[productId].inventory > 0) {
-      fetch('http://localhost:3000/line_items.json', {
+      fetch(`${config.domain}/line_items.json`, {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -56,7 +57,7 @@ export function checkout(products) {
     dispatch({
       type: types.CHECKOUT_REQUEST
     })
-    fetch('http://localhost:3000/orders/new.json', {
+    fetch(`${config.domain}/orders/new.json`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -78,7 +79,7 @@ export function login(user_id, password) {
       user_id,
       password
     })
-    fetch('http://localhost:3000/users/sign_in.json', {
+    fetch(`${config.domain}/users/sign_in.json`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -116,7 +117,7 @@ export function logout() {
     dispatch({
       type: types.LOGOUT_REQUEST,
     })
-    fetch('http://localhost:3000/users/sign_out.json', {
+    fetch(`${config.domain}/users/sign_out.json`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'

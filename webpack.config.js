@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+var env = process.env.ENV ? process.env.ENV : 'production';
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -11,6 +12,9 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
     publicPath: '/static/'
+  },
+  externals: {
+    'Config': JSON.stringify(require('./config.json')[env])
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),

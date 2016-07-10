@@ -9,6 +9,7 @@ import thunk from 'redux-thunk'
 import reducer from './reducers'
 import Root from './containers/Root'
 import { getAllProducts } from './actions'
+import config from 'Config'
 
 const middleware = process.env.NODE_ENV === 'production' ?
   [ thunk ] :
