@@ -8,6 +8,11 @@ const formInitialState = {
     price: 0,
     inventory: 0,
     description: ''
+  },
+  carts: {
+    type: '',
+    id: 0,
+    line_items: []
   }
 }
 

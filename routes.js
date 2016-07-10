@@ -6,6 +6,7 @@ import Dashboard from './containers/Dashboard'
 import DashboardProductsContainer from './containers/DashboardProductsContainer'
 import DashboardCartsContainer from './containers/DashboardCartsContainer'
 import DashboardProductForm from './containers/DashboardProductForm'
+import DashboardCartForm from './containers/DashboardCartForm'
 import ProductsContainer from './containers/ProductsContainer'
 import CartContainer from './containers/CartContainer'
 import LoginContainer from './containers/LoginContainer'
@@ -22,6 +23,7 @@ export default (
       <Route path='/dashboard/products' component={DashboardProductsContainer} />
       <Route path='/dashboard/products/:type(/:id)' component={DashboardProductForm} />
       <Route path='/dashboard/carts' component={DashboardCartsContainer} />
+      <Route path='/dashboard/carts/:type(/:id)' component={DashboardCartForm} />
     </Route>
   </Route>
 )

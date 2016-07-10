@@ -1,17 +1,44 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { checkout } from '../actions'
-import { getTotal, getCartProducts } from '../reducers'
-import Cart from '../components/Cart'
+import { Link } from 'react-router'
+import { getList, deleteForm } from '../actions/dashboard'
+import { Table } from 'react-bootstrap'
 
 class DashboardCartsContainer extends Component {
+  componentDidMount() {
+    this.props.getList('carts')
+  }
   render() {
-    const { products, total } = this.props
+    const { carts, deleteForm } = this.props
 
     return (
       <div className='container-fluid'>
         <div className='col-md-12 col-xs-12'>
           <h3>購物車</h3>
+          <Table responsive condensed>
+            <thead>
+              <tr>
+                <th>編號</th>
+                <th>項數</th>
+                <th>金額</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              { carts.map((cart) => 
+                <tr key={cart.id}>
+                  <td>
+                    <Link to={`${window.location.pathname}/edit/${cart.id}`}>
+                      {cart.id}
+                    </Link>
+                  </td>
+                  <td>{cart.count}</td>
+                  <td>{cart.price}</td>
+                  <td><a className='btn btn-danger btn-sm' onClick={() => deleteForm('carts', cart.id) }>刪除</a></td>
+                </tr>
+              )}
+            </tbody>
+          </Table>
         </div>
       </div>
     )
@@ -19,24 +46,19 @@ class DashboardCartsContainer extends Component {
 }
 
 DashboardCartsContainer.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    quantity: PropTypes.number.isRequired
+  carts: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired
   })).isRequired,
-  total: PropTypes.string,
-  checkout: PropTypes.func.isRequired
+  getList: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {
   return {
-    products: getCartProducts(state),
-    total: getTotal(state)
+    carts: state.dashboard.list
   }
 }
 
 export default connect(
   mapStateToProps,
-  { checkout }
+  { getList, deleteForm }
 )(DashboardCartsContainer)

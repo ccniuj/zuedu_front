@@ -50,9 +50,6 @@ class DashboardProductsContainer extends Component {
 DashboardProductsContainer.propTypes = {
   products: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    inventory: PropTypes.number.isRequired
   })).isRequired,
   getList: PropTypes.func.isRequired
 }

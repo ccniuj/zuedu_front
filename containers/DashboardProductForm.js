@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { getForm, submitForm } from '../actions/dashboard'
-import { product } from '../reducers/dashboard'
 
 class DashboardProductForm extends Component {
   componentDidMount() {
