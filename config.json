@@ -3,6 +3,6 @@
     "domain": "http://localhost:3000"
   },
   "production": {
-    "domain": "http://114.34.175.159:3004"
+    "domain": "http://114.34.175.159:3011"
   }
 }
