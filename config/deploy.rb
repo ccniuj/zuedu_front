@@ -6,6 +6,7 @@ set :repo_url, 'git@github.com:davidjuin0519/zuedu_front.git'
 set :deploy_to, '/var/app/zuedu_front'
 set :branch, 'master'
 set :keep_releases, 5
+set :npm_flags, ''
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -49,11 +50,21 @@ namespace :deploy do
     end
   end
 
-  desc "Install node modules and build webpack bundle"
+  desc "Restart server in daemon mode"
   task :finished do
     on roles :all do
       within release_path do
-        execute :npm, :install
+        execute :forever, 'stop production'
+        execute :forever, 'start --append --uid production server.js'
+      end
+    end
+  end
+
+  desc "Start server in daemon mode"
+  task :start do
+    on roles :all do
+      within release_path do
+        execute :forever, 'start --append --uid production server.js'
       end
     end
   end
