@@ -54,8 +54,8 @@ namespace :deploy do
   task :finished do
     on roles :all do
       within release_path do
-        execute :forever, 'stop production'
-        execute :forever, 'start --append --uid production server.js'
+        execute :forever, 'stop zuedu_front'
+        execute :forever, 'start --append --uid zuedu_front server.js'
       end
     end
   end
@@ -64,7 +64,7 @@ namespace :deploy do
   task :start do
     on roles :all do
       within release_path do
-        execute :forever, 'start --append --uid production server.js'
+        execute :forever, 'start --append --uid zuedu_front server.js'
       end
     end
   end
