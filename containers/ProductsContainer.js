@@ -10,7 +10,7 @@ class ProductsContainer extends Component {
     return store.dispatch(getAllProducts())
   }
   componentDidMount() {
-    // this.props.getAllProducts()
+    this.props.getAllProducts()
   }
   render() {
     const { products } = this.props

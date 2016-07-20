@@ -46,7 +46,11 @@ app.get('*', (req, res) => {
       const func = comp.fetchData ? comp.fetchData({ store }) : Promise.resolve()
 
       func.
-      then(action => action ? store.dispatch(action) : '').
+      then(action => {
+        if (action) {
+          store.dispatch(action)
+        }
+      }).
       then(() => {
         let reduxState = encodeURI(JSON.stringify(store.getState()))
         let html = renderToString(

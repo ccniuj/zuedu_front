@@ -1,7 +1,7 @@
 import * as types from '../constants/ActionTypes'
 import { browserHistory } from 'react-router'
-import config from '../config'
 import request from 'superagent'
+import config from '../config'
 // import { fetch } from 'whatwg-fetch'
 
 export function receiveProducts(products) {
@@ -21,7 +21,9 @@ export function getAllProducts() {
         set('Content-Type', 'application/json').
         end((err, res) => {
           if (!err) {
-            resolve(receiveProducts(JSON.parse(res.text)))
+            let data = JSON.parse(res.text)
+            dispatch(receiveProducts(data))
+            resolve(receiveProducts(data))
           } else {
             reject(err)
           }
