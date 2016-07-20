@@ -11,6 +11,18 @@ export function receiveProducts(products) {
   }
 }
 
+export function serverRender() {
+  return {
+    type: 'SET_SERVER_RENDER_FLAG_TRUE'
+  }
+}
+
+export function clientRender() {
+  return {
+    type: 'SET_SERVER_RENDER_FLAG_FALSE'
+  }
+}
+
 export function getAllProducts() {
   return (dispatch, getState) => {
     return new Promise((resolve, reject) => {

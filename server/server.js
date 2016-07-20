@@ -10,13 +10,11 @@ import webpackConfig from '../webpack.config'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { Provider } from 'react-redux'
-
 import configureStore from '../store/configureStore'
-// import App from '../common/containers/App'
-// import { fetchCounter } from '../common/api/counter'
 
 import { match, RouterContext } from 'react-router'
 import routes from '../routes'
+import { serverRender } from '../actions'
 
 const app = new Express()
 const port = 3001
@@ -50,6 +48,7 @@ app.get('*', (req, res) => {
         if (action) {
           store.dispatch(action)
         }
+        store.dispatch(serverRender())
       }).
       then(() => {
         let reduxState = encodeURI(JSON.stringify(store.getState()))

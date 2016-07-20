@@ -6,12 +6,24 @@ import user from './user'
 import dashboard from './dashboard'
 
 export default combineReducers({
+  serverRender,
   cart,
   products,
   user,
   dashboard,
   routing
 })
+
+function serverRender(state=false, action) {
+  switch (action.type) {
+    case 'SET_SERVER_RENDER_FLAG_TRUE':
+      return true
+    case 'SET_SERVER_RENDER_FLAG_FALSE':
+      return false
+    default:
+      return state
+  }
+}
 
 function getAddedIds(state) {
   return fromCart.getAddedIds(state.cart)

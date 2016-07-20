@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { addToCart, getAllProducts } from '../actions'
+import { addToCart, getAllProducts, clientRender } from '../actions'
 import { getVisibleProducts } from '../reducers/products'
 import ProductItem from '../components/ProductItem'
 import ProductsList from '../components/ProductsList'
@@ -10,7 +10,11 @@ class ProductsContainer extends Component {
     return store.dispatch(getAllProducts())
   }
   componentDidMount() {
-    this.props.getAllProducts()
+    if (this.props.serverRender) {
+      this.props.clientRender()
+    } else {
+      this.props.getAllProducts()
+    }
   }
   render() {
     const { products } = this.props
@@ -44,11 +48,12 @@ ProductsContainer.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    products: getVisibleProducts(state.products)
+    products: getVisibleProducts(state.products),
+    serverRender: state.serverRender
   }
 }
 
 export default connect(
   mapStateToProps,
-  { addToCart, getAllProducts }
+  { addToCart, getAllProducts, clientRender }
 )(ProductsContainer)
