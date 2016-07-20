@@ -1,7 +1,7 @@
 import * as types from '../constants/ActionTypes'
 import { handleErrors } from './index'
 import { browserHistory } from 'react-router'
-import config from 'Config'
+// import config from 'Config'
 
 export function getList(resource) {
   return dispatch => {

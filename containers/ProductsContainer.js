@@ -6,8 +6,11 @@ import ProductItem from '../components/ProductItem'
 import ProductsList from '../components/ProductsList'
 
 class ProductsContainer extends Component {
+  static fetchData({ store }) {
+    return store.dispatch(getAllProducts())
+  }
   componentDidMount() {
-    this.props.getAllProducts()
+    // this.props.getAllProducts()
   }
   render() {
     const { products } = this.props

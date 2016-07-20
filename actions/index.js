@@ -1,6 +1,8 @@
 import * as types from '../constants/ActionTypes'
 import { browserHistory } from 'react-router'
-import config from 'Config'
+import config from '../config'
+import request from 'superagent'
+// import { fetch } from 'whatwg-fetch'
 
 export function receiveProducts(products) {
   return {
@@ -10,16 +12,34 @@ export function receiveProducts(products) {
 }
 
 export function getAllProducts() {
-  return dispatch => {
-    fetch(`${config.domain}/products.json`, {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      credentials: 'include'
-    }).
-      then(res => res.json()).
-      then(products => dispatch(receiveProducts(products)))
+  return (dispatch, getState) => {
+    return new Promise((resolve, reject) => {
+      request.
+        get(`${config.domain}/products.json`).
+        withCredentials().
+        set('Accept', 'application/json').
+        set('Content-Type', 'application/json').
+        end((err, res) => {
+          if (!err) {
+            resolve(receiveProducts(JSON.parse(res.text)))
+          } else {
+            reject(err)
+          }
+        })
+    })
+
+    // fetch(`${config.domain}/products.json`, {
+    //   headers: {
+    //     'Accept': 'application/json',
+    //     'Content-Type': 'application/json'
+    //   },
+    //   credentials: 'include'
+    // }).
+    //   then(res => {
+    //     console.log(res.json())
+    //     res.json()
+    //   }).
+    //   then(products => dispatch(receiveProducts(products)))
   }
 }
 

@@ -6,8 +6,12 @@
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon.png">
   </head>
   <body>
-    <div id="root">
-    </div>
-    <script src="/static/bundle.js"></script>
+    <div id="root"><%- html %></div>
+    <script type="text/javascript" charset="utf-8">
+      window.__REDUX_STATE__ = '<%= reduxState %>';
+    </script>
+    <% scriptSrcs.forEach(function(src){ %>
+      <script src="<%= src %>"></script>
+    <% }) %>
   </body>
 </html>
