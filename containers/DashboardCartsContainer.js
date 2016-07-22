@@ -28,7 +28,7 @@ class DashboardCartsContainer extends Component {
               { carts.map((cart) => 
                 <tr key={cart.id}>
                   <td>
-                    <Link to={`${window.location.pathname}/edit/${cart.id}`}>
+                    <Link to={`${this.props.route.path}/edit/${cart.id}`}>
                       {cart.id}
                     </Link>
                   </td>
@@ -54,7 +54,8 @@ DashboardCartsContainer.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    carts: state.dashboard.list
+    carts: state.dashboard.list,
+    serverRender: state.serverRender
   }
 }
 

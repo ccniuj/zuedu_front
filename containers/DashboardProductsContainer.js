@@ -25,10 +25,10 @@ class DashboardProductsContainer extends Component {
               </tr>
             </thead>
             <tbody>
-              { products.map((product) => 
+              { products.map(product => 
                 <tr key={product.id}>
                   <td>
-                    <Link to={`${window.location.pathname}/edit/${product.id}`}>
+                    <Link to={`${this.props.route.path}/edit/${product.id}`}>
                       {product.id}
                     </Link>
                   </td>
@@ -40,7 +40,7 @@ class DashboardProductsContainer extends Component {
               )}
             </tbody>
           </Table>
-          <Link className='btn btn-success' to={`${window.location.pathname}/new`}>新增</Link>
+          <Link className='btn btn-success' to={`${this.props.route.path}/new`}>新增</Link>
         </div>
       </div>
     )
@@ -56,7 +56,8 @@ DashboardProductsContainer.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    products: state.dashboard.list
+    products: state.dashboard.list,
+    serverRender: state.serverRender
   }
 }
 
