@@ -19,7 +19,8 @@
   "dependencies": {
     "babel-polyfill": "^6.3.14",
     "babel-register": "^6.9.0",
-    "node-fetch": "^1.5.3",
+    "ejs": "^2.4.2",
+    "express": "^4.14.0",
     "path": "^0.12.7",
     "qs": "^6.2.0",
     "react": "^0.14.7",
@@ -32,8 +33,7 @@
     "redux": "^3.2.1",
     "redux-thunk": "^1.0.3",
     "superagent": "^2.1.0",
-    "webpack": "^1.13.1",
-    "whatwg-fetch": "^1.0.0"
+    "webpack": "^1.13.1"
   },
   "devDependencies": {
     "babel-core": "^6.3.15",
