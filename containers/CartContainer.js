@@ -13,7 +13,8 @@ class CartContainer extends Component {
     if (this.props.serverRender) {
       this.props.clientRender()
     } else {
-      this.props.getCart()
+      this.props.getAllProducts().
+        then(() => this.props.getCart())
     }
   }
   render() {
@@ -54,5 +55,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps,
-  { checkout, getCart, clientRender }
+  { checkout, getAllProducts, getCart, clientRender }
 )(CartContainer)

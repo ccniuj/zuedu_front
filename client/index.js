@@ -21,7 +21,6 @@ if (window.__REDUX_STATE__) {
   } catch (e) {
   }
 }
-console.log(reduxState)
 const store = configureStore(reduxState)
 const history = syncHistoryWithStore(browserHistory, store)
 

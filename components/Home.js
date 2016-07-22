@@ -1,7 +1,13 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { clientRender } from '../actions'
 
 export default class Home extends Component {
+  componentDidMount() {
+    if (this.props.serverRender) {
+      this.props.clientRender()
+    }
+  }
   render() {
     const style = {
       paddingTop: '50px',
@@ -21,4 +27,10 @@ export default class Home extends Component {
 Home.propTypes = {
 }
 
-export default connect()(Home)
+function mapStateToProps(state) {
+  return {
+    serverRender: state.serverRender
+  }
+}
+
+export default connect(mapStateToProps, { clientRender })(Home)
