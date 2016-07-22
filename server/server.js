@@ -17,7 +17,7 @@ import routes from '../routes'
 import { serverRender } from '../actions'
 
 const app = new Express()
-const port = 3034
+const port = 3012
 
 const compiler = webpack(webpackConfig)
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }))
