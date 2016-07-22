@@ -17,12 +17,12 @@ import routes from '../routes'
 import { serverRender } from '../actions'
 
 const app = new Express()
-const port = 3012
+const port = 3034
 
 const compiler = webpack(webpackConfig)
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }))
 app.use(webpackHotMiddleware(compiler))
-app.use(Express.static(path.join(__dirname, 'public')))
+app.use(Express.static(path.join(__dirname, '..', 'public')))
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
