@@ -2,12 +2,18 @@ import * as types from '../constants/ActionTypes'
 import { browserHistory } from 'react-router'
 import request from 'superagent'
 import config from '../config'
-// import { fetch } from 'whatwg-fetch'
 
 export function receiveProducts(products) {
   return {
     type: types.RECEIVE_PRODUCTS,
-    products: products
+    products
+  }
+}
+
+export function receiveCart(cart) {
+  return {
+    type: 'RECEIVE_CART',
+    cart
   }
 }
 
@@ -23,14 +29,20 @@ export function clientRender() {
   }
 }
 
-export function getAllProducts() {
+export function getAllProducts(cookie) {
   return (dispatch, getState) => {
     return new Promise((resolve, reject) => {
+      let headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+      if (cookie) {
+        headers['cookie'] = cookie
+      }
       request.
         get(`${config.domain}/products.json`).
         withCredentials().
-        set('Accept', 'application/json').
-        set('Content-Type', 'application/json').
+        set(headers).
         end((err, res) => {
           if (!err) {
             let data = JSON.parse(res.text)
@@ -41,19 +53,33 @@ export function getAllProducts() {
           }
         })
     })
+  }
+}
 
-    // fetch(`${config.domain}/products.json`, {
-    //   headers: {
-    //     'Accept': 'application/json',
-    //     'Content-Type': 'application/json'
-    //   },
-    //   credentials: 'include'
-    // }).
-    //   then(res => {
-    //     console.log(res.json())
-    //     res.json()
-    //   }).
-    //   then(products => dispatch(receiveProducts(products)))
+export function getCart(cookie) {
+  return (dispatch, getState) => {
+    return new Promise((resolve, reject) => {
+      let headers = {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+      if (cookie) {
+        headers['cookie'] = cookie
+      }
+      request.
+        get(`${config.domain}/carts.json`).
+        withCredentials().
+        set(headers).
+        end((err, res) => {
+          if (!err) {
+            let data = JSON.parse(res.text)
+            dispatch(receiveCart(data))
+            resolve(receiveCart(data))
+          } else {
+            reject(err)
+          }
+        })
+    })
   }
 }
 

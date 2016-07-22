@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
 
 export default class Home extends Component {
   render() {
@@ -19,3 +20,5 @@ export default class Home extends Component {
 
 Home.propTypes = {
 }
+
+export default connect()(Home)

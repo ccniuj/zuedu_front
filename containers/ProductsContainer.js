@@ -6,8 +6,8 @@ import ProductItem from '../components/ProductItem'
 import ProductsList from '../components/ProductsList'
 
 class ProductsContainer extends Component {
-  static fetchData({ store }) {
-    return store.dispatch(getAllProducts())
+  static fetchData({ store, cookie }) {
+    return store.dispatch(getAllProducts(cookie))
   }
   componentDidMount() {
     if (this.props.serverRender) {

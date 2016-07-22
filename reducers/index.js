@@ -6,11 +6,11 @@ import user from './user'
 import dashboard from './dashboard'
 
 export default combineReducers({
-  serverRender,
-  cart,
   products,
+  cart,
   user,
   dashboard,
+  serverRender,
   routing
 })
 

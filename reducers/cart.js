@@ -36,12 +36,16 @@ function quantityById(state = initialState.quantityById, action) {
 
 export default function cart(state = initialState, action) {
   switch (action.type) {
+    case 'RECEIVE_CART':
+      let ids = action.cart.line_items.map(item => item.product_id)
+      let quatities = Object.assign({}, ...action.cart.line_items.map(item => Object.assign({}, { [item.product_id]: item.quantity })))
+      return Object.assign({}, { addedIds: ids }, { quantityById: quatities })
     case CHECKOUT_REQUEST:
-      return initialState
+      return state
     case CHECKOUT_SUCCESS:
-      return initialState
+      return state
     case CHECKOUT_FAILURE:
-      return action.cart
+      return state
     default:
       return {
         addedIds: addedIds(state.addedIds, action),
