@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 import { checkout, getAllProducts, getCart, clientRender } from '../actions'
 import { getTotal, getCartProducts } from '../reducers'
 import Cart from '../components/Cart'
@@ -22,13 +23,20 @@ class CartContainer extends Component {
     const style = {
       paddingTop: '50px'
     }
+    const hasProducts = products.length > 0
+    const link = hasProducts ? 
+      <Link to='/order'
+        disabled={hasProducts ? '' : 'disabled'}>
+        結帳
+      </Link> :
+      <div/>
 
     return (
       <div className='container' style={style}>
         <Cart
           products={products}
-          total={total}
-          onCheckoutClicked={() => this.props.checkout()} />
+          total={total} />
+        { link }
       </div>
     )
   }

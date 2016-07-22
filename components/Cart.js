@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react'
+import { Link } from 'react-router'
 import Product from './Product'
 
 export default class Cart extends Component {
   render() {
-    const { products, total, onCheckoutClicked } = this.props
+    const { products, total } = this.props
 
     const hasProducts = products.length > 0
     const nodes = !hasProducts ?
@@ -21,10 +22,6 @@ export default class Cart extends Component {
         <h3>購物車</h3>
         <div>{nodes}</div>
         <p>Total: &#36;{total}</p>
-        <button onClick={onCheckoutClicked}
-          disabled={hasProducts ? '' : 'disabled'}>
-          Checkout
-        </button>
       </div>
     )
   }
@@ -32,6 +29,5 @@ export default class Cart extends Component {
 
 Cart.propTypes = {
   products: PropTypes.array,
-  total: PropTypes.string,
-  onCheckoutClicked: PropTypes.func
+  total: PropTypes.string
 }
