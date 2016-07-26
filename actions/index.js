@@ -12,20 +12,20 @@ export function receiveProducts(products) {
 
 export function receiveCart(cart) {
   return {
-    type: 'RECEIVE_CART',
+    type: types.RECEIVE_CART,
     cart
   }
 }
 
 export function serverRender() {
   return {
-    type: 'SET_SERVER_RENDER_FLAG_TRUE'
+    type: types.SET_SERVER_RENDER_FLAG_TRUE
   }
 }
 
 export function clientRender() {
   return {
-    type: 'SET_SERVER_RENDER_FLAG_FALSE'
+    type: types.SET_SERVER_RENDER_FLAG_FALSE
   }
 }
 

@@ -21,7 +21,7 @@ export function getList(resource) {
       catch(err => {
         console.log(err)
         dispatch({
-          type: 'GET_EDIT_FORM_FAILURE'
+          type: types.GET_EDIT_FORM_FAILURE
         })
       })
   }
@@ -31,12 +31,12 @@ export function getForm(type, resource, id='') {
   return dispatch => {
     if (type=='new') {
       dispatch({
-        type: 'GET_NEW_FORM_SUCCESS',
+        type: types.GET_NEW_FORM_SUCCESS,
         resource
       })
     } else {
       dispatch({
-        type: 'GET_EDIT_FORM_REQUEST'
+        type: types.GET_EDIT_FORM_REQUEST
       })
       fetch(`${config.domain}/dashboard/${resource}/${id}/edit`, {
         headers: {
@@ -49,7 +49,7 @@ export function getForm(type, resource, id='') {
         then(res => res.json()).
         then(data => {
           dispatch({
-            type: 'GET_EDIT_FORM_SUCCESS',
+            type: types.GET_EDIT_FORM_SUCCESS,
             resource,
             data
           })
@@ -57,7 +57,7 @@ export function getForm(type, resource, id='') {
         catch(err => {
           console.log(err)
           dispatch({
-            type: 'GET_EDIT_FORM_FAILURE'
+            type: types.GET_EDIT_FORM_FAILURE
           })
         })
     }
@@ -86,13 +86,13 @@ export function submitForm(type, resource, id, payload) {
       then(handleErrors).
       then(() => {
         dispatch({
-          type: 'SUBMIT_FORM_SUCCESS'
+          type: types.SUBMIT_FORM_SUCCESS
         })
         browserHistory.push(`/dashboard/${resource}`)
       }).
       catch(err => {
         dispatch({
-          type: 'SUBMIT_FORM_FAILURE'
+          type: types.SUBMIT_FORM_FAILURE
         })
         console.log(err)
       })
@@ -112,14 +112,14 @@ export function deleteForm(resource, id) {
       then(handleErrors).
       then(() => {
         dispatch({
-          type: 'DELETE_FORM_SUCCESS'
+          type: types.DELETE_FORM_SUCCESS
         })
         dispatch(getList(resource))
         browserHistory.push(`/dashboard/${resource}`)
       }).
       catch(err => {
         dispatch({
-          type: 'DELETE_FORM_FAILURE'
+          type: types.DELETE_FORM_FAILURE
         })
         console.log(err)
       })
