@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 import { routerReducer as routing } from 'react-router-redux'
 import cart, * as fromCart from './cart'
 import products, * as fromProducts from './products'
+import orders from './orders'
 import user from './user'
 import dashboard from './dashboard'
 
@@ -9,6 +10,7 @@ export default combineReducers({
   products,
   cart,
   user,
+  orders,
   dashboard,
   serverRender,
   routing

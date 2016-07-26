@@ -25,7 +25,7 @@ class CartContainer extends Component {
     }
     const hasProducts = products.length > 0
     const link = hasProducts ? 
-      <Link to='/order'
+      <Link to='/orders/new'
         disabled={hasProducts ? '' : 'disabled'}>
         結帳
       </Link> :

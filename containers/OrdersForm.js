@@ -1,21 +1,31 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { getAllProducts, getCart, clientRender } from '../actions'
+import { getForm, submitForm, getAllProducts, getCart, clientRender } from '../actions'
 import { getTotal, getCartProducts } from '../reducers'
 import Cart from '../components/Cart'
 
-class OrderContainer extends Component {
+class OrdersForm extends Component {
   componentDidMount() {
-    if (this.props.serverRender) {
-      this.props.clientRender()
+    const { 
+      params, 
+      serverRender, 
+      clientRender, 
+      cart, 
+      getAllProducts, 
+      getCart, 
+      getForm } = this.props
+
+    if (serverRender) {
+      clientRender()
     }
-    if (this.props.cart.addedIds.length==0) {
-      this.props.getAllProducts().
-        then(() => this.props.getCart())
+    if (cart.addedIds.length==0) {
+      getAllProducts().
+        then(() => getCart())
     }
+    getForm(params.type, 'orders', null)
   }
   render() {
-    const { products, total } = this.props
+    const { products, orders, total, submitForm } = this.props
     const style = {
       paddingTop: '50px'
     }
@@ -29,7 +39,7 @@ class OrderContainer extends Component {
             total={total} />
           <form onSubmit={ e => {
                 e.preventDefault()
-                submitForm(order.type, 'orders', null, {
+                submitForm(orders.form.type, 'orders', null, {
                   last_name: this.refs.last_name.value,
                   first_name: this.refs.first_name.value,
                   email: this.refs.email.value,
@@ -64,7 +74,7 @@ class OrderContainer extends Component {
   }
 }
 
-OrderContainer.propTypes = {
+OrdersForm.propTypes = {
   products: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
@@ -78,6 +88,7 @@ const mapStateToProps = (state) => {
   return {
     cart: state.cart,
     products: getCartProducts(state),
+    orders: state.orders,
     total: getTotal(state),
     serverRender: state.serverRender
   }
@@ -85,5 +96,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps,
-  { getAllProducts, getCart, clientRender }
-)(OrderContainer)
+  { getForm, submitForm, getAllProducts, getCart, clientRender }
+)(OrdersForm)

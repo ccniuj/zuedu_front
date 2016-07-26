@@ -201,6 +201,78 @@ export function logout() {
   }
 }
 
+export function getForm(type, resource, id='') {
+  return dispatch => {
+    if (type=='new') {
+      dispatch({
+        type: `GET_${resource.toUpperCase()}_NEW_FORM_SUCCESS`,
+        resource
+      })
+    } else {
+      dispatch({
+        type: `GET_${resource.toUpperCase()}_EDIT_FORM_REQUEST`
+      })
+      fetch(`${config.domain}/${resource}/${id}/edit`, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include'
+      }).
+        then(handleErrors).
+        then(res => res.json()).
+        then(data => {
+          dispatch({
+            type: `GET_${resource.toUpperCase()}_EDIT_FORM_SUCCESS`,
+            resource,
+            data
+          })
+        }).
+        catch(err => {
+          console.log(err)
+          dispatch({
+            type: `GET_${resource.toUpperCase()}_EDIT_FORM_FAILURE`
+          })
+        })
+    }
+  }
+}
+
+export function submitForm(type, resource, id, payload) {
+  return dispatch => {
+    let fetch_config = {}
+    if (type=='new') {
+      fetch_config['path'] = `/${resource}.json`
+      fetch_config['method'] = 'POST'
+    } else {
+      fetch_config['path'] = `/${resource}/${id}.json`
+      fetch_config['method'] = 'PUT'
+    }
+    fetch(`${config.domain}${fetch_config.path}`, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include',
+      method: fetch_config.method,
+      body: JSON.stringify( { [resource]: payload } )
+    }).
+      then(handleErrors).
+      then(() => {
+        dispatch({
+          type: `SUBMIT_${resource.toUpperCase()}_FORM_SUCCESS`
+        })
+        // browserHistory.push(`/${resource}`)
+      }).
+      catch(err => {
+        dispatch({
+          type: `SUBMIT_${resource.toUpperCase()}_FORM_FAILURE`
+        })
+        console.log(err)
+      })
+  }
+}
+
 function handleErrors(response) {
   if (!response.ok) {
     throw Error(response.statusText);
