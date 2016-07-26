@@ -3,7 +3,7 @@ import { handleErrors } from './index'
 import { browserHistory } from 'react-router'
 import config from '../config'
 
-export function getList(resource) {
+export function getDashboardList(resource) {
   return dispatch => {
     fetch(`${config.domain}/dashboard/${resource}.json`, {
       headers: {
@@ -15,28 +15,28 @@ export function getList(resource) {
       then(handleErrors).
       then(res => res.json()).
       then(data => dispatch({
-        type: 'GET_LIST_SUCCESS',
+        type: types.GET_DASHBOARD_LIST_SUCCESS,
         data
       })).
       catch(err => {
         console.log(err)
         dispatch({
-          type: types.GET_EDIT_FORM_FAILURE
+          type: types.GET_DASHBOARD_EDIT_FORM_FAILURE
         })
       })
   }
 }
 
-export function getForm(type, resource, id='') {
+export function getDashboardForm(type, resource, id='') {
   return dispatch => {
     if (type=='new') {
       dispatch({
-        type: types.GET_NEW_FORM_SUCCESS,
+        type: types.GET_DASHBOARD_NEW_FORM_SUCCESS,
         resource
       })
     } else {
       dispatch({
-        type: types.GET_EDIT_FORM_REQUEST
+        type: types.GET_DASHBOARD_EDIT_FORM_REQUEST
       })
       fetch(`${config.domain}/dashboard/${resource}/${id}/edit`, {
         headers: {
@@ -49,7 +49,7 @@ export function getForm(type, resource, id='') {
         then(res => res.json()).
         then(data => {
           dispatch({
-            type: types.GET_EDIT_FORM_SUCCESS,
+            type: types.GET_DASHBOARD_EDIT_FORM_SUCCESS,
             resource,
             data
           })
@@ -57,14 +57,14 @@ export function getForm(type, resource, id='') {
         catch(err => {
           console.log(err)
           dispatch({
-            type: types.GET_EDIT_FORM_FAILURE
+            type: types.GET_DASHBOARD_EDIT_FORM_FAILURE
           })
         })
     }
   }
 }
 
-export function submitForm(type, resource, id, payload) {
+export function submitDashboardForm(type, resource, id, payload) {
   return dispatch => {
     let fetch_config = {}
     if (type=='new') {
@@ -86,20 +86,20 @@ export function submitForm(type, resource, id, payload) {
       then(handleErrors).
       then(() => {
         dispatch({
-          type: types.SUBMIT_FORM_SUCCESS
+          type: types.SUBMIT_DASHBOARD_FORM_SUCCESS
         })
         browserHistory.push(`/dashboard/${resource}`)
       }).
       catch(err => {
         dispatch({
-          type: types.SUBMIT_FORM_FAILURE
+          type: types.SUBMIT_DASHBOARD_FORM_FAILURE
         })
         console.log(err)
       })
   }
 }
 
-export function deleteForm(resource, id) {
+export function deleteDashboardForm(resource, id) {
   return dispatch => {
     fetch(`${config.domain}/dashboard/${resource}/${id}.json`, {
       headers: {
@@ -112,14 +112,14 @@ export function deleteForm(resource, id) {
       then(handleErrors).
       then(() => {
         dispatch({
-          type: types.DELETE_FORM_SUCCESS
+          type: types.DELETE_DASHBOARD_FORM_SUCCESS
         })
-        dispatch(getList(resource))
+        dispatch(getDashboardList(resource))
         browserHistory.push(`/dashboard/${resource}`)
       }).
       catch(err => {
         dispatch({
-          type: types.DELETE_FORM_FAILURE
+          type: types.DELETE_DASHBOARD_FORM_FAILURE
         })
         console.log(err)
       })

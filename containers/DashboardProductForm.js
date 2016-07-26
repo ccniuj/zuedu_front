@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { getForm, submitForm } from '../actions/dashboard'
+import { getDashboardForm, submitDashboardForm } from '../actions/dashboard'
 
 class DashboardProductForm extends Component {
   componentDidMount() {
-    const { params, getForm } = this.props
-    this.props.getForm(params.type, 'products', params.id)
+    const { params, getDashboardForm } = this.props
+    this.props.getDashboardForm(params.type, 'products', params.id)
   }
   componentWillReceiveProps(nextProps) {
     const { name, price, description, inventory } = nextProps.product
@@ -15,14 +15,14 @@ class DashboardProductForm extends Component {
     this.refs.inventory.value = inventory
   }
   render() {
-    const { product, submitForm } = this.props
+    const { product, submitDashboardForm } = this.props
     return (
       <div className='container'>
         <div className='col-md-6 col-xs-6'>
           <h3>課程</h3>
           <form onSubmit={ e => {
                 e.preventDefault()
-                submitForm(product.type, 'products', product.id, {
+                submitDashboardForm(product.type, 'products', product.id, {
                   name: this.refs.name.value,
                   price: this.refs.price.value,
                   inventory: this.refs.inventory.value,
@@ -79,5 +79,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { getForm, submitForm }
+  { getDashboardForm, submitDashboardForm }
 )(DashboardProductForm)

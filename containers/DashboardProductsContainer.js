@@ -1,15 +1,15 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { getList, deleteForm } from '../actions/dashboard'
+import { getDashboardList, deleteDashboardForm } from '../actions/dashboard'
 import { Table } from 'react-bootstrap'
 
 class DashboardProductsContainer extends Component {
   componentDidMount() {
-    this.props.getList('products')
+    this.props.getDashboardList('products')
   }
   render() {
-    const { products, deleteForm } = this.props
+    const { products, deleteDashboardForm } = this.props
     return (
       <div className='container-fluid'>
         <div className='col-md-12 col-xs-12'>
@@ -35,7 +35,7 @@ class DashboardProductsContainer extends Component {
                   <td>{product.name}</td>
                   <td>{product.price}</td>
                   <td>{product.inventory}</td>
-                  <td><a className='btn btn-danger btn-sm' onClick={() => deleteForm('products', product.id) }>刪除</a></td>
+                  <td><a className='btn btn-danger btn-sm' onClick={() => deleteDashboardForm('products', product.id) }>刪除</a></td>
                 </tr>
               )}
             </tbody>
@@ -51,7 +51,7 @@ DashboardProductsContainer.propTypes = {
   products: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
   })).isRequired,
-  getList: PropTypes.func.isRequired
+  getDashboardList: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {
@@ -63,5 +63,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { getList, deleteForm }
+  { getDashboardList, deleteDashboardForm }
 )(DashboardProductsContainer)
