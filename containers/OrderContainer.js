@@ -55,6 +55,9 @@ class OrderContainer extends Component {
             <br/>
             <input className='btn btn-success btn-block' type='submit' value='確定' />
           </form>
+          信用卡測試卡號: 4311-9522-2222-2222<br/>
+          信用卡測試安全碼: 222<br/>
+          信用卡測試有效年月: 設定在未來時間即可<br/>
         </div>
       </div>
     )
