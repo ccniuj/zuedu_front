@@ -1,15 +1,15 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { getList, deleteForm } from '../actions/dashboard'
+import { getDashboardList, deleteDashboardForm } from '../actions/dashboard'
 import { Table } from 'react-bootstrap'
 
 class DashboardCartsContainer extends Component {
   componentDidMount() {
-    this.props.getList('carts')
+    this.props.getDashboardList('carts')
   }
   render() {
-    const { carts, deleteForm } = this.props
+    const { carts, deleteDashboardForm } = this.props
 
     return (
       <div className='container-fluid'>
@@ -34,7 +34,7 @@ class DashboardCartsContainer extends Component {
                   </td>
                   <td>{cart.count}</td>
                   <td>{cart.price}</td>
-                  <td><a className='btn btn-danger btn-sm' onClick={() => deleteForm('carts', cart.id) }>刪除</a></td>
+                  <td><a className='btn btn-danger btn-sm' onClick={() => deleteDashboardForm('carts', cart.id) }>刪除</a></td>
                 </tr>
               )}
             </tbody>
@@ -49,7 +49,7 @@ DashboardCartsContainer.propTypes = {
   carts: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired
   })).isRequired,
-  getList: PropTypes.func.isRequired
+  getDashboardList: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => {
@@ -61,5 +61,5 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps,
-  { getList, deleteForm }
+  { getDashboardList, deleteDashboardForm }
 )(DashboardCartsContainer)
