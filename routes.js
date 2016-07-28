@@ -20,7 +20,7 @@ export default (
       <Route path='/products' component={ProductsContainer} />
       <Route path="/cart" component={CartContainer} />
       <Route path="/orders" component={OrdersContainer} />
-      <Route path="/orders/:type" component={OrdersForm} />
+      <Route path="/orders/:type(/:id)" component={OrdersForm} />
       <Route path='/login' component={LoginContainer} />
     </Route>
     <Route path='/dashboard' component={Dashboard}>

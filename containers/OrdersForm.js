@@ -22,7 +22,16 @@ class OrdersForm extends Component {
       getAllProducts().
         then(() => getCart())
     }
-    getForm(params.type, 'orders', null)
+    getForm(params.type, 'orders', params.id)
+  }
+  componentWillReceiveProps(nextProps) {
+    const { first_name, last_name, email, address } = nextProps.orders.form
+    if (nextProps.orders.form.type!='new') {
+      this.refs.first_name.value = first_name
+      this.refs.last_name.value = last_name
+      this.refs.email.value = email
+      this.refs.address.value = address
+    }
   }
   componentDidUpdate() {
     if (Object.keys(this.props.orders.allpay).length != 0 ) {
@@ -32,18 +41,24 @@ class OrdersForm extends Component {
   render() {
     const { products, orders, total, submitForm } = this.props
     const _payload = orders.allpay.payload ? orders.allpay.payload : {}
+    const disabled = (orders.form.type=='new' ? '' : 'disabled')
 
     const style = {
       paddingTop: '50px'
     }
 
+
     return (
       <div className='container' style={style}>
         <div className='col-md-6 col-xs-6'>
           <h3>訂單</h3>
-          <Cart
-            products={products}
-            total={total} />
+          {
+            orders.form.type=='new'
+            ? <Cart
+                products={products}
+                total={total} />
+            : <div/>
+          }
           <form onSubmit={ e => {
                 e.preventDefault()
                 submitForm(orders.form.type, 'orders', null, {
@@ -55,22 +70,26 @@ class OrdersForm extends Component {
               }}
             >
             <label htmlFor='last_name'>姓</label>
-            <input ref='last_name' type='text' name='last_name' placeholder='輸入姓' style={{width: '100%'}} />
+            <input ref='last_name' type='text' name='last_name' style={{width: '100%'}} disabled={disabled} />
             <br/>
             <br/>
             <label htmlFor='first_name'>名</label>
-            <input ref='first_name' type='text' name='first_name' placeholder='輸入名' style={{width: '100%'}} />
+            <input ref='first_name' type='text' name='first_name' style={{width: '100%'}} disabled={disabled} />
             <br/>
             <br/>
             <label htmlFor='email'>信箱</label>
-            <input ref='email' type='text' name='email' placeholder='輸入信箱' style={{width: '100%'}} />
+            <input ref='email' type='text' name='email' style={{width: '100%'}} disabled={disabled} />
             <br/>
             <br/>
             <label htmlFor='address'>運送地址</label>
-            <input ref='address' type='text' name='address' placeholder='輸入運送地址' style={{width: '100%'}} />
+            <input ref='address' type='text' name='address' style={{width: '100%'}} disabled={disabled} />
             <br/>
             <br/>
-            <input className='btn btn-success btn-block' type='submit' value='確定' />
+            {
+              orders.form.type=='new'
+              ? <input className='btn btn-success btn-block' type='submit' value='確定' />
+              : <div/>
+            }
           </form>
           信用卡測試卡號: 4311-9522-2222-2222<br/>
           信用卡測試安全碼: 222<br/>

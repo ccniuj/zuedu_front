@@ -14,8 +14,9 @@ export function form(state = {}, action) {
   switch (action.type) {
     case types.GET_ORDERS_NEW_FORM_SUCCESS:
       return Object.assign({}, { type: 'new' })
-    case types.GET_ORDERS_EDIT_FORM_SUCCESS:
-      return Object.assign({}, action.data, { type: 'edit' })
+    case types.GET_ORDERS_SHOW_FORM_SUCCESS:
+      console.log('show!')
+      return Object.assign({}, action.data, { type: 'show' })
     case types.SUBMIT_ORDERS_FORM_SUCCESS:
       return state
     default:

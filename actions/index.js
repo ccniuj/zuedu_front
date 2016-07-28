@@ -229,14 +229,14 @@ export function getForm(type, resource, id='') {
   return dispatch => {
     if (type=='new') {
       dispatch({
-        type: `GET_${resource.toUpperCase()}_NEW_FORM_SUCCESS`,
+        type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_SUCCESS`,
         resource
       })
     } else {
       dispatch({
-        type: `GET_${resource.toUpperCase()}_EDIT_FORM_REQUEST`
+        type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_REQUEST`
       })
-      fetch(`${config.domain}/${resource}/${id}/edit`, {
+      fetch(`${config.domain}/${resource}/${id}`, {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -247,7 +247,7 @@ export function getForm(type, resource, id='') {
         then(res => res.json()).
         then(data => {
           dispatch({
-            type: `GET_${resource.toUpperCase()}_EDIT_FORM_SUCCESS`,
+            type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_SUCCESS`,
             resource,
             data
           })
@@ -255,7 +255,7 @@ export function getForm(type, resource, id='') {
         catch(err => {
           console.log(err)
           dispatch({
-            type: `GET_${resource.toUpperCase()}_EDIT_FORM_FAILURE`
+            type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_FAILURE`
           })
         })
     }
