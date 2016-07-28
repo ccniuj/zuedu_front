@@ -258,11 +258,19 @@ export function submitForm(type, resource, id, payload) {
       body: JSON.stringify( { [resource]: payload } )
     }).
       then(handleErrors).
-      then(() => {
+      then(res => {
         dispatch({
           type: `SUBMIT_${resource.toUpperCase()}_FORM_SUCCESS`
         })
         // browserHistory.push(`/${resource}`)
+        return res
+      }).
+      then(res => {
+        const redirect_url = res.headers.get('Location')
+        if (redirect_url) {
+          dispatch(getAllpayForm(redirect_url))
+        }
+        return res
       }).
       catch(err => {
         dispatch({
@@ -270,6 +278,72 @@ export function submitForm(type, resource, id, payload) {
         })
         console.log(err)
       })
+  }
+}
+
+export function getAllpayForm(redirect_url) {
+  return dispatch => {
+    fetch(redirect_url, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include'
+    }).
+      then(handleErrors).
+      then(res => res.json()).
+      then(params => {
+        dispatch({
+          type: types.GET_ALLPAY_FORM_SUCCESS,
+          params
+        })
+        // dispatch(submitAllpayForm(res))
+        // browserHistory.push(`/${resource}`)
+      }).
+      catch(err => {
+        dispatch({
+          type: types.GET_ALLPAY_FORM_FAILURE
+        })
+        console.log(err)
+      })
+  }
+}
+
+export function submitAllpayForm(params) {
+  return dispatch => {
+    let data_arr = []
+    for (var key in params.payload) {
+      data_arr.push(`${key}=${params.payload[key]}`)
+    }
+    let data = data_arr.join('&')
+
+    // let xhr = new XMLHttpRequest()
+    // xhr.open('POST', 'http://payment-stage.allpay.com.tw/Cashier/AioCheckOut')
+    // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+    // xhr.send(data)
+
+    // fetch(params.url, {
+    //   headers: {
+    //     'Content-Type': 'application/x-www-form-urlencoded'
+    //   },
+    //   method: 'POST',
+    //   // mode: 'no-cors',
+    //   body: data
+    // }).
+    //   then(res => res.text()).
+    //   then(res => {
+    //     console.log(res)
+    //     debugger
+    //     // window.history.pushState({html: res, pageTitle: 'bar'}, "", 'foo');
+    //     return res
+    //   }).
+    //   then(handleErrors).
+    //   catch(err => {
+    //     dispatch({
+    //       type: types.SUBMIT_ALLPAY_FORM_FAILURE
+    //     })
+    //     console.log(err)
+    //   })
   }
 }
 

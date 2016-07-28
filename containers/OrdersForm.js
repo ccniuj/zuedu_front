@@ -24,8 +24,15 @@ class OrdersForm extends Component {
     }
     getForm(params.type, 'orders', null)
   }
+  componentDidUpdate() {
+    if (Object.keys(this.props.orders.allpay).length != 0 ) {
+      document.getElementById('allpay').submit()
+    }
+  }
   render() {
     const { products, orders, total, submitForm } = this.props
+    const _payload = orders.allpay.payload ? orders.allpay.payload : {}
+
     const style = {
       paddingTop: '50px'
     }
@@ -68,6 +75,13 @@ class OrdersForm extends Component {
           信用卡測試卡號: 4311-9522-2222-2222<br/>
           信用卡測試安全碼: 222<br/>
           信用卡測試有效年月: 設定在未來時間即可<br/>
+          <form id='allpay' action={orders.allpay.url} method='post' style={{display: 'none'}}>
+            {
+              Object.keys(_payload).map( (key, i) => {
+                return <input key={i} type="text" name={key} defaultValue={_payload[key]} />
+              })
+            }
+          </form>
         </div>
       </div>
     )
