@@ -9,6 +9,7 @@ import DashboardProductForm from './containers/DashboardProductForm'
 import DashboardCartForm from './containers/DashboardCartForm'
 import ProductsContainer from './containers/ProductsContainer'
 import CartContainer from './containers/CartContainer'
+import OrdersContainer from './containers/OrdersContainer'
 import OrdersForm from './containers/OrdersForm'
 import LoginContainer from './containers/LoginContainer'
 
@@ -18,6 +19,7 @@ export default (
       <IndexRoute component={Home} />
       <Route path='/products' component={ProductsContainer} />
       <Route path="/cart" component={CartContainer} />
+      <Route path="/orders" component={OrdersContainer} />
       <Route path="/orders/:type" component={OrdersForm} />
       <Route path='/login' component={LoginContainer} />
     </Route>

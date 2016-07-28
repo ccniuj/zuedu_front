@@ -201,6 +201,30 @@ export function logout() {
   }
 }
 
+export function getList(resource) {
+  return dispatch => {
+    fetch(`${config.domain}/${resource}.json`, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include'
+    }).
+      then(handleErrors).
+      then(res => res.json()).
+      then(data => dispatch({
+        type: `GET_${resource.toUpperCase()}_LIST_SUCCESS`,
+        data
+      })).
+      catch(err => {
+        console.log(err)
+        dispatch({
+          type: `GET_${resource.toUpperCase()}_LIST_FAILURE`
+        })
+      })
+  }
+}
+
 export function getForm(type, resource, id='') {
   return dispatch => {
     if (type=='new') {
