@@ -5,7 +5,7 @@ export default {
     domain: "http://localhost:3000"
   },
   staging: {
-    domain: "http://114.34.175.159:3011"
+    domain: "http://www.zu-edu.com:3010"
   },
   production: {
     domain: "http://www.zu-edu.com:3000"
