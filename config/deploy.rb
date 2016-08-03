@@ -3,7 +3,6 @@ lock '3.5.0'
 
 set :application, 'zuedu_front'
 set :repo_url, 'git@github.com:davidjuin0519/zuedu_front.git'
-set :deploy_to, '/var/app/zuedu_front'
 set :branch, 'master'
 set :keep_releases, 5
 set :npm_flags, ''
