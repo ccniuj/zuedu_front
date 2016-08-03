@@ -49,24 +49,24 @@ namespace :deploy do
     end
   end
 
-  desc "Restart server in daemon mode"
-  task :finished do
-    on roles :all do
-      within release_path do
-        stage = fetch :stage
-        execute :forever, 'stop zuedu_front'
-        execute "ENV=#{stage.to_s}", :forever, 'start --append --uid zuedu_front server/index.js'
-      end
-    end
-  end
+  # desc "Restart server in daemon mode"
+  # task :finished do
+  #   on roles :all do
+  #     within release_path do
+  #       stage = fetch :stage
+  #       execute :forever, 'stop zuedu_front'
+  #       execute "ENV=#{stage.to_s}", :forever, 'start --append --uid zuedu_front server/index.js'
+  #     end
+  #   end
+  # end
 
-  desc "Start server in daemon mode"
-  task :start do
-    on roles :all do
-      within release_path do
-        stage = fetch :stage
-        execute "ENV=#{stage.to_s}", :forever, 'start --append --uid zuedu_front server/index.js'
-      end
-    end
-  end
+  # desc "Start server in daemon mode"
+  # task :start do
+  #   on roles :all do
+  #     within release_path do
+  #       stage = fetch :stage
+  #       execute "ENV=#{stage.to_s}", :forever, 'start --append --uid zuedu_front server/index.js'
+  #     end
+  #   end
+  # end
 end
