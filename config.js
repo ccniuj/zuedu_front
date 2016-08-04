@@ -8,6 +8,6 @@ export default {
     domain: "http://www.zu-edu.com:3010"
   },
   production: {
-    domain: "http://www.zu-edu.com:3000"
+    domain: "http://api.zu-edu.com"
   }
 }[env]
