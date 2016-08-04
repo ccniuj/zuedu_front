@@ -349,7 +349,13 @@ export function submitForm(type, resource, id, payload) {
         // browserHistory.push(`/${resource}`)
         return res
       }).
-      then(handleRedirection).
+      then(res => {
+        const redirect_url = res.headers.get('Location')
+        if (redirect_url) {
+          dispatch(getAllpayForm(redirect_url))
+        }
+        return res
+      }).
       catch(err => {
         dispatch({
           type: `SUBMIT_${resource.toUpperCase()}_FORM_FAILURE`
@@ -430,12 +436,4 @@ function handleErrors(response) {
     throw Error(response.statusText);
   }
   return response
-}
-
-function handleRedirection(res) {
-  const redirect_url = res.headers.get('Location')
-  if (redirect_url) {
-    dispatch(getAllpayForm(redirect_url))
-  }
-  return res
 }
