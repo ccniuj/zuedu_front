@@ -172,6 +172,37 @@ export function login(user_id, password) {
   }
 }
 
+export function checkMemberLogin() {
+  return dispatch => {
+    dispatch({
+      type: types.CHECK_MEMBER_LOGIN_REQUEST
+    })
+    fetch(`${config.domain}/members/get_member`, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include'
+    }).
+      then(handleErrors).
+      then(res => res.json()).
+      then(data => {
+        if(data.member) {
+          dispatch({
+            type: types.CHECK_MEMBER_LOGIN_SUCCESS,
+            member: data.member,
+          })
+        }
+      }).
+      catch((err) => {
+        console.log(err)
+        dispatch({
+          type: types.CHECK_MEMBER_LOGIN_FAILURE
+        })
+      })
+  }
+}
+
 export function logout() {
   return dispatch => {
     dispatch({
@@ -196,6 +227,35 @@ export function logout() {
         console.log(err)
         dispatch({
           type: types.LOGOUT_FAILURE
+        })
+      })
+  }
+}
+
+export function memberLogout() {
+  return dispatch => {
+    dispatch({
+      type: types.MEMBER_LOGOUT_REQUEST,
+    })
+    fetch(`${config.domain}/members/sign_out.json`, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include',
+      method: 'DELETE',
+    }).
+      then(handleErrors).
+      then(() => {
+        dispatch({
+          type: types.MEMBER_LOGOUT_SUCCESS
+        })
+        browserHistory.push('/')
+      }).
+      catch((err) => {
+        console.log(err)
+        dispatch({
+          type: types.MEMBER_LOGOUT_FAILURE
         })
       })
   }
@@ -289,13 +349,7 @@ export function submitForm(type, resource, id, payload) {
         // browserHistory.push(`/${resource}`)
         return res
       }).
-      then(res => {
-        const redirect_url = res.headers.get('Location')
-        if (redirect_url) {
-          dispatch(getAllpayForm(redirect_url))
-        }
-        return res
-      }).
+      then(handleRedirection).
       catch(err => {
         dispatch({
           type: `SUBMIT_${resource.toUpperCase()}_FORM_FAILURE`
@@ -376,4 +430,12 @@ function handleErrors(response) {
     throw Error(response.statusText);
   }
   return response
+}
+
+function handleRedirection(res) {
+  const redirect_url = res.headers.get('Location')
+  if (redirect_url) {
+    dispatch(getAllpayForm(redirect_url))
+  }
+  return res
 }

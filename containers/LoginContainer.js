@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { login } from '../actions'
+import config from '../config'
 
 class Login extends Component {
   render() {

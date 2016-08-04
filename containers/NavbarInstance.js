@@ -1,10 +1,28 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap'
+import { checkMemberLogin, memberLogout } from '../actions'
+import config from '../config'
 
-export default class NavbarInstance extends Component {
+class NavbarInstance extends Component {
+  componentDidMount() {
+    this.props.checkMemberLogin()
+  }
   render() {
+    const loginLink = (this.props.member.id == '') 
+      ? <NavItem eventKey={3} href={`${config.domain}/members/auth/facebook`}>
+          fb登入
+        </NavItem>
+      : <NavItem eventKey={3} onClick={this.props.memberLogout}>
+          fb登出
+        </NavItem>
+
+    const dropdownTitle = (this.props.member.id == '') 
+      ? '選單'
+      : this.props.member.name
+
     return (
       <Navbar fixedTop inverse>
         <Navbar.Header>
@@ -19,13 +37,13 @@ export default class NavbarInstance extends Component {
           <LinkContainer to={{ pathname: '/cart' }}>
             <NavItem eventKey={2} href="#">購物車</NavItem>
           </LinkContainer>
-          <NavDropdown eventKey={3} title="選單" id="basic-nav-dropdown">
-            <MenuItem eventKey={3.1}>Action</MenuItem>
-            <MenuItem eventKey={3.2}>Another action</MenuItem>
-            <MenuItem eventKey={3.3}>Something else here</MenuItem>
+          { loginLink }
+          <NavDropdown eventKey={4} title={dropdownTitle} id="basic-nav-dropdown">
+            <MenuItem eventKey={4.1}>Action</MenuItem>
+            <MenuItem eventKey={4.2}>Another action</MenuItem>
             <MenuItem divider />
             <LinkContainer to={{ pathname: '/login' }}>
-              <MenuItem eventKey={3.3}>管理者登入</MenuItem>
+              <MenuItem eventKey={4.3}>管理者登入</MenuItem>
             </LinkContainer>
           </NavDropdown>
         </Nav>
@@ -33,3 +51,14 @@ export default class NavbarInstance extends Component {
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    member: state.member
+  }
+}
+
+export default connect(mapStateToProps, {
+  checkMemberLogin,
+  memberLogout
+})(NavbarInstance)

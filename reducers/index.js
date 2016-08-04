@@ -4,12 +4,14 @@ import cart, * as fromCart from './cart'
 import products, * as fromProducts from './products'
 import orders from './orders'
 import user from './user'
+import member from './member'
 import dashboard from './dashboard'
 
 export default combineReducers({
   products,
   cart,
   user,
+  member,
   orders,
   dashboard,
   serverRender,
