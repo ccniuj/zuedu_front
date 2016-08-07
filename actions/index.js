@@ -285,40 +285,72 @@ export function getList(resource) {
   }
 }
 
-export function getForm(type, resource, id='') {
+export function getForm(type, resource, id='', cookie) {
   return dispatch => {
-    if (type=='new') {
-      dispatch({
-        type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_SUCCESS`,
-        resource
-      })
-    } else {
-      dispatch({
-        type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_REQUEST`
-      })
-      fetch(`${config.domain}/${resource}/${id}`, {
-        headers: {
+    return new Promise((resolve, reject) => {
+      if (type=='new') {
+        dispatch({
+          type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_SUCCESS`,
+          resource
+        })
+      } else {
+        dispatch({
+          type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_REQUEST`
+        })
+
+        let headers = {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
-        },
-        credentials: 'include'
-      }).
-        then(handleErrors).
-        then(res => res.json()).
-        then(data => {
-          dispatch({
-            type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_SUCCESS`,
-            resource,
-            data
+        }
+        if (cookie) {
+          headers['cookie'] = cookie
+        }
+        request.
+          get(`${config.domain}/${resource}/${id}.json`).
+          withCredentials().
+          set(headers).
+          end((err, res) => {
+            if (!err) {
+              let data = JSON.parse(res.text)
+              dispatch({
+                type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_SUCCESS`,
+                resource,
+                data
+              })
+              resolve()
+            } else {
+              console.log(err)
+              dispatch({
+                type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_FAILURE`
+              })
+              reject(err)
+            }
           })
-        }).
-        catch(err => {
-          console.log(err)
-          dispatch({
-            type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_FAILURE`
-          })
-        })
-    }
+      }
+
+      // fetch(`${config.domain}/${resource}/${id}`, {
+      //   headers: {
+      //     'Accept': 'application/json',
+      //     'Content-Type': 'application/json'
+      //   },
+      //   credentials: 'include'
+      // }).
+      //   then(handleErrors).
+      //   then(res => res.json()).
+      //   then(data => {
+      //     dispatch({
+      //       type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_SUCCESS`,
+      //       resource,
+      //       data
+      //     })
+      //   }).
+      //   catch(err => {
+      //     console.log(err)
+      //     dispatch({
+      //       type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_FAILURE`
+      //     })
+      //   })
+    })
   }
 }
 

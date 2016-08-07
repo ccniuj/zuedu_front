@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 import { addToCart, getAllProducts, clientRender } from '../actions'
 import { getVisibleProducts } from '../reducers/products'
 import ProductItem from '../components/ProductItem'
-import ProductsList from '../components/ProductsList'
 
 class ProductsContainer extends Component {
   static fetchData({ store, cookie }) {
@@ -15,22 +15,28 @@ class ProductsContainer extends Component {
     } else {
       this.props.getAllProducts()
     }
+    $(this.refs.products).fadeIn(1500)
   }
   render() {
     const { products } = this.props
     const style = {
-      paddingTop: '50px'
+      paddingTop: '50px',
+      minHeight: '500px'
     }
     return (
       <div className='container' style={style}>
-        <ProductsList title="課程">
-          {products.map(product =>
-            <ProductItem
-              key={product.id}
-              product={product}
-              onAddToCartClicked={() => this.props.addToCart(product.id)} />
-          )}
-        </ProductsList>
+        <div style={{ display: 'none' }} ref='products'>
+          <center><h3>課程</h3></center>
+          { 
+            products.map(product =>
+              <Link to={`/products/${product.id}`} key={product.id}>
+                <ProductItem
+                  product={product}
+                  onAddToCartClicked={() => this.props.addToCart(product.id)} />
+              </Link>
+            )
+          }
+        </div>
       </div>
     )
   }

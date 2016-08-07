@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import { RECEIVE_PRODUCTS, ADD_TO_CART } from '../constants/ActionTypes'
+import * as types from '../constants/ActionTypes'
 
 function products(state, action) {
   switch (action.type) {
@@ -42,9 +43,21 @@ function visibleIds(state = [], action) {
   }
 }
 
+export function form(state = {}, action) {
+  switch (action.type) {
+    case types.GET_PRODUCTS_SHOW_FORM_SUCCESS:
+      return Object.assign({}, action.data, { type: 'show' })
+    case types.SUBMIT_PRODUCTS_FORM_SUCCESS:
+      return state
+    default:
+      return state
+  }
+}
+
 export default combineReducers({
   byId,
-  visibleIds
+  visibleIds,
+  form
 })
 
 export function getProduct(state, id) {

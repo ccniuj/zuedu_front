@@ -34,6 +34,7 @@ const scriptSrcs = [
 app.get('*', (req, res) => {
   const store = configureStore()
   const cookie = req.headers.cookie
+  const params = req.url.split('/').slice(-1)
 
   match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
     if (error) {
@@ -43,7 +44,7 @@ app.get('*', (req, res) => {
     } else if (renderProps) {
       const comp = renderProps.components[renderProps.components.length - 1].WrappedComponent
       const func = comp.fetchData 
-                   ? comp.fetchData({ store, cookie }) 
+                   ? comp.fetchData({ store, cookie, params }) 
                    : Promise.resolve()
 
       func.
