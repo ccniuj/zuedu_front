@@ -24,20 +24,33 @@ class NavbarInstance extends Component {
       : this.props.member.name
 
     return (
-      <Navbar fixedTop inverse>
+      <Navbar fixedTop>
         <Navbar.Header>
-          <Navbar.Brand>
-            <Link to="/">築優教育</Link>
-          </Navbar.Brand>
+            <Link to="/">
+              <img className='navbar-logo' src='/images/logo.png' />
+            </Link>
         </Navbar.Header>
         <Nav pullRight>
+          <LinkContainer to={{ pathname: '/about' }}>
+            <NavItem eventKey={1} href="#">關於</NavItem>
+          </LinkContainer>
           <LinkContainer to={{ pathname: '/products' }}>
-            <NavItem eventKey={1} href="#">課程</NavItem>
+            <NavItem eventKey={2} href="#">課程介紹</NavItem>
           </LinkContainer>
-          <LinkContainer to={{ pathname: '/cart' }}>
-            <NavItem eventKey={2} href="#">購物車</NavItem>
+          <LinkContainer to={{ pathname: '/fqa' }}>
+            <NavItem eventKey={3} href="#">常見問題</NavItem>
           </LinkContainer>
-          { loginLink }
+          <LinkContainer to={{ pathname: '/contact' }}>
+            <NavItem eventKey={5} href="#">聯絡我們</NavItem>
+          </LinkContainer>
+          {
+            // <LinkContainer to={{ pathname: '/cart' }}>
+            //   <NavItem eventKey={6} href="#">購物車</NavItem>
+            // </LinkContainer>
+          }
+          { 
+            //loginLink 
+          }
           <NavDropdown eventKey={4} title={dropdownTitle} id="basic-nav-dropdown">
             <MenuItem eventKey={4.1}>Action</MenuItem>
             <MenuItem eventKey={4.2}>Another action</MenuItem>

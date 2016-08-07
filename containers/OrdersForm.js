@@ -117,7 +117,7 @@ OrdersForm.propTypes = {
   total: PropTypes.string
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     cart: state.cart,
     products: getCartProducts(state),
