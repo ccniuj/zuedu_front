@@ -6,16 +6,17 @@ export default class ProductItem extends Component {
     const { product } = this.props
 
     return (
-      <div
-        style={{ marginBottom: 20 }}>
+      <div className='col-xs-6 text-center'>
         <Product
           name={product.name}
           price={product.price} />
-        <button
-          onClick={this.props.onAddToCartClicked}
-          disabled={product.inventory > 0 ? '' : 'disabled'}>
-          {product.inventory > 0 ? 'Add to cart' : 'Sold Out'}
-        </button>
+        {
+          // <button
+          //   onClick={this.props.onAddToCartClicked}
+          //   disabled={product.inventory > 0 ? '' : 'disabled'}>
+          //   {product.inventory > 0 ? 'Add to cart' : 'Sold Out'}
+          // </button>
+        }
       </div>
     )
   }

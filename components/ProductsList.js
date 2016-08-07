@@ -4,7 +4,7 @@ export default class ProductsList extends Component {
   render() {
     return (
       <div>
-        <h3>{this.props.title}</h3>
+        <center><h3>{this.props.title}</h3></center>
         <div>{this.props.children}</div>
       </div>
     )
