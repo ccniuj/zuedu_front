@@ -30,9 +30,7 @@ class ProductsContainer extends Component {
           { 
             products.map(product =>
               <Link to={`/products/${product.id}`} key={product.id}>
-                <ProductItem
-                  product={product}
-                  onAddToCartClicked={() => this.props.addToCart(product.id)} />
+                <ProductItem product={product} />
               </Link>
             )
           }
@@ -48,8 +46,7 @@ ProductsContainer.propTypes = {
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     inventory: PropTypes.number.isRequired
-  })).isRequired,
-  addToCart: PropTypes.func.isRequired
+  })).isRequired
 }
 
 function mapStateToProps(state) {
@@ -61,5 +58,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { addToCart, getAllProducts, clientRender }
+  { getAllProducts, clientRender }
 )(ProductsContainer)

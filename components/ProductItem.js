@@ -10,13 +10,6 @@ export default class ProductItem extends Component {
         <Product
           name={product.name}
           price={product.price} />
-        {
-          // <button
-          //   onClick={this.props.onAddToCartClicked}
-          //   disabled={product.inventory > 0 ? '' : 'disabled'}>
-          //   {product.inventory > 0 ? 'Add to cart' : 'Sold Out'}
-          // </button>
-        }
       </div>
     )
   }
@@ -27,6 +20,5 @@ ProductItem.propTypes = {
     name: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
     inventory: PropTypes.number.isRequired
-  }).isRequired,
-  onAddToCartClicked: PropTypes.func.isRequired
+  }).isRequired
 }
