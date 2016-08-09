@@ -2,12 +2,14 @@ import {
   ADD_TO_CART,
   CHECKOUT_REQUEST,
   CHECKOUT_SUCCESS,
-  CHECKOUT_FAILURE
+  CHECKOUT_FAILURE,
+  RECEIVE_CART
 } from '../constants/ActionTypes'
 
 const initialState = {
   addedIds: [],
-  quantityById: {}
+  quantityById: {},
+  form: {}
 }
 
 function addedIds(state = initialState.addedIds, action) {
@@ -34,12 +36,12 @@ function quantityById(state = initialState.quantityById, action) {
   }
 }
 
-export default function cart(state = initialState, action) {
+export default function form(state = initialState, action) {
   switch (action.type) {
-    case 'RECEIVE_CART':
+    case RECEIVE_CART:
       let ids = action.cart.line_items.map(item => item.product_id)
       let quatities = Object.assign({}, ...action.cart.line_items.map(item => Object.assign({}, { [item.product_id]: item.quantity })))
-      return Object.assign({}, { addedIds: ids }, { quantityById: quatities })
+      return Object.assign({}, { addedIds: ids }, { quantityById: quatities }, { form: action.cart })
     case CHECKOUT_REQUEST:
       return state
     case CHECKOUT_SUCCESS:
@@ -47,10 +49,7 @@ export default function cart(state = initialState, action) {
     case CHECKOUT_FAILURE:
       return state
     default:
-      return {
-        addedIds: addedIds(state.addedIds, action),
-        quantityById: quantityById(state.quantityById, action)
-      }
+      return state
   }
 }
 

@@ -15,7 +15,7 @@ class ProductsContainer extends Component {
     } else {
       this.props.getAllProducts()
     }
-    $(this.refs.products).fadeIn(1500)
+    $(this.refs.products).fadeIn(500)
   }
   render() {
     const { products } = this.props

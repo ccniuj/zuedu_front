@@ -17,7 +17,7 @@ import routes from '../routes'
 import { serverRender } from '../actions'
 
 const app = new Express()
-const port = 3012
+const port = 3001
 
 const compiler = webpack(webpackConfig)
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }))
@@ -34,7 +34,7 @@ const scriptSrcs = [
 app.get('*', (req, res) => {
   const store = configureStore()
   const cookie = req.headers.cookie
-  const params = req.url.split('/').slice(-1)
+  const params = req.url.split('/').slice(2)
 
   match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
     if (error) {
