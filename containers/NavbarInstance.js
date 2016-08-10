@@ -11,8 +11,9 @@ class NavbarInstance extends Component {
     this.props.checkMemberLogin()
   }
   render() {
+    const redirect_url = this.props.location.pathname
     const loginLink = (this.props.member.id == '') 
-      ? <NavItem eventKey={3} href={`${config.domain}/members/auth/facebook`}>
+      ? <NavItem eventKey={3} href={`${config.domain}/members/auth/facebook?redirect_url=${redirect_url}`}>
           fb登入
         </NavItem>
       : <NavItem eventKey={3} onClick={this.props.memberLogout}>
@@ -48,9 +49,7 @@ class NavbarInstance extends Component {
             //   <NavItem eventKey={6} href="#">購物車</NavItem>
             // </LinkContainer>
           }
-          { 
-            //loginLink 
-          }
+          { loginLink }
           <NavDropdown eventKey={4} title={dropdownTitle} id="basic-nav-dropdown">
             <MenuItem eventKey={4.1}>Action</MenuItem>
             <MenuItem eventKey={4.2}>Another action</MenuItem>
@@ -67,7 +66,8 @@ class NavbarInstance extends Component {
 
 const mapStateToProps = state => {
   return {
-    member: state.member
+    member: state.member,
+    serverRender: state.serverRender
   }
 }
 

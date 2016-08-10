@@ -5,10 +5,10 @@ import Footer from '../components/Footer'
 
 export default class App extends Component {
   render() {
-    const { children } = this.props
+    const { children, location } = this.props
     return (
       <div>
-        <NavbarInstance />
+        <NavbarInstance location={location}  />
         {children}
         <Footer />
       </div>
