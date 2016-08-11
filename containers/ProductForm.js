@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 import { addToCart, getCart, getForm, submitForm, clientRender, getAllProducts } from '../actions'
 import config from '../config'
 
@@ -65,7 +65,11 @@ class ProductForm extends Component {
                 <h4>我要報名</h4>
                 剩餘名額：{  product.inventory }<br/>
                 人數：<input ref='quantity' type='text' defaultValue='1' />
-                <button onClick={() => addToCart(product.id, parseInt(this.refs.quantity.value))}>報名</button>    
+                <button 
+                  onClick={ 
+                    () => addToCart(product.id, parseInt(this.refs.quantity.value)).
+                            then(() => browserHistory.push(`${location.pathname}/applicants`) )
+                  }>報名</button>
               </div>
         }
       </div>

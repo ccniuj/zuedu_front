@@ -1,36 +1,62 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { getForm, getCart, clientRender } from '../actions'
+import { getForm, submitForm, getList, getCart, clientRender } from '../actions'
 
 class ApplicantsContainer extends Component {
-  static fetchData({ store, cookie, params }) {
-    return store.dispatch(getForm('show', 'products', params, cookie)).
-             then(() => store.dispatch(getCart(cookie)))
+  constructor(props) {
+    super(props)
+    this.submitApplicants = () => this._submitApplicants()
+
   }
-  
   componentDidMount() {
-    const { getForm, getCart, clientRender, serverRender, params } = this.props
+    const { member, getForm, getList, clientRender, serverRender, params } = this.props
 
     if (serverRender) {
       clientRender()
-    } else {
-      getForm('show', 'products', params.id).
-        then(() => getCart())
     }
+
+    getForm('show', 'products', params.id).
+      then(() => getList('applicants', { product_id: params.id }))
+
+  }
+  _submitApplicants() {
+    const { applicants, submitForm, getList, params } = this.props
+
+    const submits = applicants.map(applicant => {
+      const payload = {
+        name:         this.refs[`applicant_${applicant.id}`].name.value,
+        phone_number: this.refs[`applicant_${applicant.id}`].phone_number.value
+      }
+      return submitForm('edit', 'applicants', applicant.id, payload)
+    })
+
+    // Promise.all(submits).then(() => console.log(''))
   }
   render() {
     const style = {
       paddingTop: '50px',
       minHeight: '500px'
     }
-    const { product } = this.props
+    const { product, applicants } = this.props
 
     return (
       <div className='container' style={style}>
         <div>
           <center><h3>報名</h3></center>
           { product.id }
+          <br />
+          {
+            applicants.map(applicant => 
+              <form ref={`applicant_${applicant.id}`} key={applicant.id}>
+                { applicant.id }<br />
+                姓名：<input type='text' name='name' defaultValue={applicant.name} /><br/>
+                電話：<input type='text' name='phone_number' defaultValue={applicant.phone_number} /><br/>
+              </form>
+            )
+          }
+          <input type='submit' onClick={() => this.submitApplicants()} value='儲存' />
+          <input type='submit' onClick={() => console.log('check')} value='結帳' />
         </div>
       </div>
     )
@@ -42,6 +68,7 @@ ApplicantsContainer.propTypes = {
 
 function mapStateToProps(state) {
   return {
+    applicants: state.member.applicants,
     product: state.products.form,
     serverRender: state.serverRender
   }
@@ -49,5 +76,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { getForm, clientRender }
+  { getForm, submitForm, getList, clientRender }
 )(ApplicantsContainer)

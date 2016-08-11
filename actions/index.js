@@ -94,7 +94,7 @@ function addToCartUnsafe(productId, quantity) {
 export function addToCart(productId, quantity=1) {
   return (dispatch, getState) => {
     if (getState().products.byId[productId].inventory > 0) {
-      fetch(`${config.domain}/line_items.json`, {
+      return fetch(`${config.domain}/line_items.json`, {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -263,9 +263,17 @@ export function memberLogout() {
   }
 }
 
-export function getList(resource) {
+export function getList(resource, query) {
   return dispatch => {
-    fetch(`${config.domain}/${resource}.json`, {
+    let url = `${config.domain}/${resource}.json`
+    if (query) {
+      url += '?'
+      for (let key in query) {
+        url += `${key}=${query[key]}&`
+      }
+    }
+
+    fetch(url, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -329,29 +337,6 @@ export function getForm(type, resource, id='', cookie) {
             }
           })
       }
-
-      // fetch(`${config.domain}/${resource}/${id}`, {
-      //   headers: {
-      //     'Accept': 'application/json',
-      //     'Content-Type': 'application/json'
-      //   },
-      //   credentials: 'include'
-      // }).
-      //   then(handleErrors).
-      //   then(res => res.json()).
-      //   then(data => {
-      //     dispatch({
-      //       type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_SUCCESS`,
-      //       resource,
-      //       data
-      //     })
-      //   }).
-      //   catch(err => {
-      //     console.log(err)
-      //     dispatch({
-      //       type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_FAILURE`
-      //     })
-      //   })
     })
   }
 }
@@ -366,7 +351,7 @@ export function submitForm(type, resource, id, payload) {
       fetch_config['path'] = `/${resource}/${id}.json`
       fetch_config['method'] = 'PUT'
     }
-    fetch(`${config.domain}${fetch_config.path}`, {
+    return fetch(`${config.domain}${fetch_config.path}`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -380,7 +365,6 @@ export function submitForm(type, resource, id, payload) {
         dispatch({
           type: `SUBMIT_${resource.toUpperCase()}_FORM_SUCCESS`
         })
-        // browserHistory.push(`/${resource}`)
         return res
       }).
       then(res => {
@@ -415,8 +399,6 @@ export function getAllpayForm(redirect_url) {
           type: types.GET_ALLPAY_FORM_SUCCESS,
           params
         })
-        // dispatch(submitAllpayForm(res))
-        // browserHistory.push(`/${resource}`)
       }).
       catch(err => {
         dispatch({
@@ -434,34 +416,6 @@ export function submitAllpayForm(params) {
       data_arr.push(`${key}=${params.payload[key]}`)
     }
     let data = data_arr.join('&')
-
-    // let xhr = new XMLHttpRequest()
-    // xhr.open('POST', 'http://payment-stage.allpay.com.tw/Cashier/AioCheckOut')
-    // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-    // xhr.send(data)
-
-    // fetch(params.url, {
-    //   headers: {
-    //     'Content-Type': 'application/x-www-form-urlencoded'
-    //   },
-    //   method: 'POST',
-    //   // mode: 'no-cors',
-    //   body: data
-    // }).
-    //   then(res => res.text()).
-    //   then(res => {
-    //     console.log(res)
-    //     debugger
-    //     // window.history.pushState({html: res, pageTitle: 'bar'}, "", 'foo');
-    //     return res
-    //   }).
-    //   then(handleErrors).
-    //   catch(err => {
-    //     dispatch({
-    //       type: types.SUBMIT_ALLPAY_FORM_FAILURE
-    //     })
-    //     console.log(err)
-    //   })
   }
 }
 
