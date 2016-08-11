@@ -56,7 +56,7 @@ class ApplicantsContainer extends Component {
             )
           }
           <input type='submit' onClick={() => this.submitApplicants()} value='儲存' />
-          <input type='submit' onClick={() => console.log('check')} value='結帳' />
+          <Link to='/orders/new'>付款</Link>
         </div>
       </div>
     )
