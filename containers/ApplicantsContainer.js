@@ -31,7 +31,7 @@ class ApplicantsContainer extends Component {
       return submitForm('edit', 'applicants', applicant.id, payload)
     })
 
-    // Promise.all(submits).then(() => console.log(''))
+    Promise.all(submits).then(() => getList('applicants', { product_id: params.id }))
   }
   render() {
     const style = {
