@@ -27,9 +27,9 @@ function addedIds(state = initialState.addedIds, action) {
 function quantityById(state = initialState.quantityById, action) {
   switch (action.type) {
     case ADD_TO_CART:
-      const { productId, quantity } = action
+      const { productId } = action
       return Object.assign({}, state, {
-        [productId]: (state[productId] || 0) + quantity
+        [productId]: (state[productId] || 0) + 1
       })
     default:
       return state
@@ -39,9 +39,12 @@ function quantityById(state = initialState.quantityById, action) {
 export default function form(state = initialState, action) {
   switch (action.type) {
     case RECEIVE_CART:
-      let ids = action.cart.line_items.map(item => item.product_id)
-      let quatities = Object.assign({}, ...action.cart.line_items.map(item => Object.assign({}, { [item.product_id]: item.quantity })))
-      return Object.assign({}, { addedIds: ids }, { quantityById: quatities }, { form: action.cart })
+      let quantities = action.cart.line_items.reduce((res, cur) => {
+         res[cur.product_id] = res[cur.product_id] ? res[cur.product_id]+1 : 1
+         return res
+      }, {})
+      let ids = Object.keys(quantities).map(q => parseInt(q))
+      return Object.assign({}, { addedIds: ids }, { quantityById: quantities }, { form: action.cart })
     case CHECKOUT_REQUEST:
       return state
     case CHECKOUT_SUCCESS:

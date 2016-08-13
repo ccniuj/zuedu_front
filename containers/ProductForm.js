@@ -9,6 +9,19 @@ class ProductForm extends Component {
     return store.dispatch(getForm('show', 'products', params, cookie)).
              then(() => store.dispatch(getCart(cookie)))
   }
+
+  constructor(props) {
+    super(props)
+    this.addProducts = () => this._addProducts()
+  }
+
+  _addProducts() {
+    const { product, addToCart, location } = this.props
+    let n = parseInt(this.refs.quantity.value)
+    let adds = Array(n).fill().map( _ => addToCart(product.id))
+    
+    Promise.all(adds).then(() => browserHistory.push('/cart')) 
+  }
   
   componentDidMount() {
     const { 
@@ -58,18 +71,14 @@ class ProductForm extends Component {
             ?
               <div>
                 <h4>已報名{cart.quantityById[product.id]}位</h4>
-                <Link to={`/products/${product.id}/applicants`}>填寫報名資料</Link>
+                <Link to='/cart'>填寫報名資料</Link>
               </div>
             :
               <div>
                 <h4>我要報名</h4>
                 剩餘名額：{  product.inventory }<br/>
                 人數：<input ref='quantity' type='text' defaultValue='1' />
-                <button 
-                  onClick={ 
-                    () => addToCart(product.id, parseInt(this.refs.quantity.value)).
-                            then(() => browserHistory.push(`${location.pathname}/applicants`) )
-                  }>報名</button>
+                <button onClick={this.addProducts}>報名</button>
               </div>
         }
       </div>

@@ -19,11 +19,11 @@ class CartContainer extends Component {
     }
   }
   render() {
-    const { products, total } = this.props
+    const { applicants, total } = this.props
     const style = {
       paddingTop: '50px'
     }
-    const hasProducts = products.length > 0
+    const hasProducts = applicants.length > 0
     const link = hasProducts ? 
       <Link to='/orders/new'
         disabled={hasProducts ? '' : 'disabled'}>
@@ -33,9 +33,15 @@ class CartContainer extends Component {
 
     return (
       <div className='container' style={style}>
-        <Cart
-          products={products}
-          total={total} />
+        {
+          applicants.map(applicant => 
+            <form ref={`applicant_${applicant.id}`} key={applicant.id}>
+              { applicant.id }<br />
+              姓名：<input type='text' name='name' defaultValue={applicant.name} /><br/>
+              電話：<input type='text' name='phone_number' defaultValue={applicant.phone_number} /><br/>
+            </form>
+          )
+        }
         { link }
       </div>
     )
@@ -43,19 +49,18 @@ class CartContainer extends Component {
 }
 
 CartContainer.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.shape({
+  applicants: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    quantity: PropTypes.number.isRequired
+    unit_price: PropTypes.number.isRequired
   })).isRequired,
   total: PropTypes.string,
   checkout: PropTypes.func.isRequired
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-    products: getCartProducts(state),
+    applicants: state.cart.form.line_items,
     total: getTotal(state),
     serverRender: state.serverRender
   }
