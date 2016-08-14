@@ -359,6 +359,31 @@ export function submitForm(type, resource, id, payload) {
   }
 }
 
+export function deleteForm(resource, id) {
+  return dispatch => {
+    return fetch(`${config.domain}/${resource}/${id}.json`, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include',
+      method: 'DELETE'
+    }).
+      then(handleErrors).
+      then(() => {
+        dispatch({
+          type: `DELETE_${resource.toUpperCase()}_FORM_SUCCESS`
+        })
+      }).
+      catch(err => {
+        dispatch({
+          type: `DELETE_${resource.toUpperCase()}_FORM_FAILURE`
+        })
+        console.log(err)
+      })
+  }
+}
+
 export function getAllpayForm(redirect_url) {
   return dispatch => {
     fetch(redirect_url, {

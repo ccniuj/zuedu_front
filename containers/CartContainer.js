@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { submitForm, getAllProducts, getCart, clientRender } from '../actions'
+import { addToCart, submitForm, deleteForm, getAllProducts, getCart, clientRender } from '../actions'
 import { getTotal, getCartProducts } from '../reducers'
 import Cart from '../components/Cart'
 import ApplicantForm from '../components/ApplicantForm'
@@ -24,9 +24,10 @@ class CartContainer extends Component {
     }
   }
   _submitApplicants() {
-    const { applicants, submitForm, getCart, params } = this.props
+    const { applicants, submitForm, deleteForm, getCart, params } = this.props
     const submits = applicants.map(applicant => {
       let attributes = [
+        'product_id',
         'name', 
         'birth', 
         'gender', 
@@ -46,7 +47,7 @@ class CartContainer extends Component {
     Promise.all(submits).then(() => getCart())
   }
   render() {
-    const { applicants, total } = this.props
+    const { products, applicants, total, addToCart, deleteForm, getCart } = this.props
     const style = {
       paddingTop: '50px',
       minHeight: '600px'
@@ -56,11 +57,15 @@ class CartContainer extends Component {
     return (
       <div className='container' style={style}>
         <center><h3>購物車</h3></center>
+        <input type='submit' onClick={() => addToCart(Object.keys(products)[0]).then(() => getCart())} value='新增' />
         {
           applicants.map(applicant => 
             <ApplicantForm ref={`applicant_${applicant.id}`} 
-                           key={applicant.id} 
-                           applicant={applicant} />
+                           key={applicant.id}
+                           products={products} 
+                           applicant={applicant}
+                           onDelete={deleteForm}
+                           onDeleteCallback={getCart} />
           )
         }
         <input type='submit' onClick={() => this.submitApplicants()} value='儲存' />
@@ -81,6 +86,7 @@ CartContainer.propTypes = {
 
 const mapStateToProps = state => {
   return {
+    products: state.products.byId,
     applicants: state.cart.form.line_items,
     total: getTotal(state),
     serverRender: state.serverRender
@@ -89,5 +95,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getAllProducts, submitForm, getCart, clientRender }
+  { getAllProducts, submitForm, deleteForm, getCart, clientRender, addToCart }
 )(CartContainer)

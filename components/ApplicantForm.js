@@ -2,13 +2,20 @@ import React, { Component } from 'react'
 
 export default class ApplicantForm extends Component {
   render() {
-    const { applicant } = this.props
+    const { products, applicant, onDelete, onDeleteCallback } = this.props
 
     return (
       <div className='row'>
         <div className='col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3 applicant-form'>
           <form ref='form'>
-            <center><h3>{ applicant.product_name }</h3></center>
+            課程名稱：
+            <select name='product_id' defaultValue={applicant.product_id}>
+              {
+                Object.keys(products).map(id => 
+                  <option key={id} value={id}>{products[id].name}</option>
+                )
+              }
+            </select><br/>
             姓名：
             <input type='text' name='name' defaultValue={applicant.name} /><br/>
             生日：
@@ -43,7 +50,9 @@ export default class ApplicantForm extends Component {
             <br/>
             備註：
             <input type='text' name='note' defaultValue={applicant.note} />
+            <br/>
           </form>
+          <input type='submit' onClick={() => onDelete('line_items', applicant.id).then(() => onDeleteCallback())} value='刪除' />
         </div>
       </div>
     )
