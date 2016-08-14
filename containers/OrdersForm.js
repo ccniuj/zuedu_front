@@ -44,7 +44,8 @@ class OrdersForm extends Component {
     const disabled = (orders.form.type=='new' ? '' : 'disabled')
 
     const style = {
-      paddingTop: '50px'
+      paddingTop: '50px',
+      minHeight: '600px'
     }
 
 

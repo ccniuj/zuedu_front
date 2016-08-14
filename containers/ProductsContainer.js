@@ -21,7 +21,7 @@ class ProductsContainer extends Component {
     const { products } = this.props
     const style = {
       paddingTop: '50px',
-      minHeight: '500px'
+      minHeight: '600px'
     }
     return (
       <div className='container' style={style}>

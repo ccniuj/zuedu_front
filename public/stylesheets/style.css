@@ -12,7 +12,6 @@ body {
   height: 320px;
 }
 
-
 .navbar-logo {
   height: 50px;
 }
@@ -54,4 +53,12 @@ body {
   background-color: #8bc34a;
   min-height: 200px;
   margin-bottom: 20px;
+}
+
+.login-form, .applicant-form {
+  background-color: #fff;
+  box-shadow: 10px 10px 20px #888888; 
+  margin-top: 30px;
+  margin-bottom: 30px;
+  padding: '50px'
 }

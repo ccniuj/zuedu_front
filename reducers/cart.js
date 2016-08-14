@@ -9,7 +9,9 @@ import {
 const initialState = {
   addedIds: [],
   quantityById: {},
-  form: {}
+  form: {
+    line_items: []
+  }
 }
 
 function addedIds(state = initialState.addedIds, action) {

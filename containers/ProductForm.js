@@ -19,7 +19,7 @@ class ProductForm extends Component {
     const { product, addToCart, location } = this.props
     let n = parseInt(this.refs.quantity.value)
     let adds = Array(n).fill().map( _ => addToCart(product.id))
-    
+
     Promise.all(adds).then(() => browserHistory.push('/cart')) 
   }
   
@@ -49,7 +49,7 @@ class ProductForm extends Component {
     const { addToCart, product, cart, member, submitForm, location } = this.props
     const style = {
       paddingTop: '50px',
-      minHeight: '500px'
+      minHeight: '600px'
     }
     const redirect_url = location.pathname
 

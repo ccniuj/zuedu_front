@@ -11,7 +11,8 @@ class OrdersContainer extends Component {
   render() {
     const { orders } = this.props
     const style = {
-      paddingTop: '50px'
+      paddingTop: '50px',
+      minHeight: '600px'
     }
     return (
       <div className='container-fluid' style={style}>

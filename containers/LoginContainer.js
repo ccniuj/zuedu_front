@@ -8,18 +8,12 @@ class Login extends Component {
     const { login } = this.props
     const style = {
       paddingTop: '50px',
-    }
-    const form_style = {
-      backgroundColor: '#fff',
-      boxShadow: '10px 10px 20px #888888',
-      marginTop: '30px',
-      marginBottom: '30px',
-      padding: '50px'
+      minHeight: '600px'
     }
     return (
       <div className='container' style={style}>
         <div className='row'>
-          <div className='col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3' style={form_style}>
+          <div className='col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3 login-form'>
             <form onSubmit={ e => {
                   e.preventDefault()
                   login(this.refs.email.value, this.refs.pwd.value)

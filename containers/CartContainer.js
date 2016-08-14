@@ -4,6 +4,7 @@ import { Link } from 'react-router'
 import { submitForm, getAllProducts, getCart, clientRender } from '../actions'
 import { getTotal, getCartProducts } from '../reducers'
 import Cart from '../components/Cart'
+import ApplicantForm from '../components/ApplicantForm'
 
 class CartContainer extends Component {
   static fetchData({ store, cookie }) {
@@ -24,7 +25,6 @@ class CartContainer extends Component {
   }
   _submitApplicants() {
     const { applicants, submitForm, getCart, params } = this.props
-
     const submits = applicants.map(applicant => {
       let attributes = [
         'name', 
@@ -37,7 +37,7 @@ class CartContainer extends Component {
         'note' 
       ]
       let arr = attributes.map( key => {
-        return { [key]: this.refs[`applicant_${applicant.id}`][key].value }
+        return { [key]: this.refs[`applicant_${applicant.id}`].refs.form[key].value }
       })
       const payload = Object.assign({}, ...arr)
       return submitForm('edit', 'line_items', applicant.id, payload)
@@ -48,26 +48,19 @@ class CartContainer extends Component {
   render() {
     const { applicants, total } = this.props
     const style = {
-      paddingTop: '50px'
+      paddingTop: '50px',
+      minHeight: '600px'
     }
     const hasProducts = applicants.length > 0
 
     return (
       <div className='container' style={style}>
+        <center><h3>購物車</h3></center>
         {
           applicants.map(applicant => 
-            <form ref={`applicant_${applicant.id}`} key={applicant.id}>
-              { applicant.id }<br />
-              <input type='text' name='id' defaultValue={applicant.id} style={{display: 'none'}} />
-              姓名：<input type='text' name='name' defaultValue={applicant.name} /><br/>
-              生日：<input type='text' name='birth' defaultValue={applicant.birth} /><br/>
-              性別：<input type='text' name='gender' defaultValue={applicant.gender} /><br/>
-              身分證字號：<input type='text' name='ss_number' defaultValue={applicant.ss_number} /><br/>
-              學校：<input type='text' name='school' defaultValue={applicant.school} /><br/>
-              年級：<input type='text' name='grade' defaultValue={applicant.grade} /><br/>
-              飲食需求：<input type='text' name='food_preference' defaultValue={applicant.food_preference} /><br/>
-              備註：<input type='text' name='note' defaultValue={applicant.note} />
-            </form>
+            <ApplicantForm ref={`applicant_${applicant.id}`} 
+                           key={applicant.id} 
+                           applicant={applicant} />
           )
         }
         <input type='submit' onClick={() => this.submitApplicants()} value='儲存' />

@@ -7,7 +7,8 @@ class Dashboard extends Component {
   render() {
     const { children } = this.props
     const style = {
-      paddingTop: '50px'
+      paddingTop: '50px',
+      minHeight: '600px'
     }
     return (
       <div>

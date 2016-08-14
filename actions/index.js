@@ -110,28 +110,6 @@ export function addToCart(productId) {
   }
 }
 
-// export function checkout(products) {
-//   return (dispatch, getState) => {
-//     const cart = getState().cart
-
-//     dispatch({
-//       type: types.CHECKOUT_REQUEST
-//     })
-//     fetch(`${config.domain}/orders/new.json`, {
-//       headers: {
-//         'Accept': 'application/json',
-//         'Content-Type': 'application/json'
-//       },
-//       credentials: 'include'
-//     }).
-//       then(res => res.json()).
-//       then(() => dispatch({
-//         type: types.CHECKOUT_SUCCESS,
-//         cart
-//       }))
-//   }
-// }
-
 export function login(user_id, password) {
   return dispatch => {
     dispatch({

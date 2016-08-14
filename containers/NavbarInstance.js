@@ -11,18 +11,30 @@ class NavbarInstance extends Component {
     this.props.checkMemberLogin()
   }
   render() {
-    const redirect_url = this.props.location.pathname
-    const loginLink = (this.props.member.id == '') 
-      ? <NavItem eventKey={3} href={`${config.domain}/members/auth/facebook?redirect_url=${redirect_url}`}>
+    const { location, member, memberLogout } = this.props
+    const redirect_url = location.pathname
+    const loginLink = (member.id == '') 
+      ? 
+        <NavItem eventKey={3} href={`${config.domain}/members/auth/facebook?redirect_url=${redirect_url}`}>
           fb登入
         </NavItem>
-      : <NavItem eventKey={3} onClick={this.props.memberLogout}>
+      : 
+        <NavItem eventKey={3} onClick={memberLogout}>
           fb登出
         </NavItem>
 
-    const dropdownTitle = (this.props.member.id == '') 
-      ? '選單'
-      : this.props.member.name
+    const dropdown = (member.id == '')
+      ? <div />
+      : 
+        <NavDropdown eventKey={4} title={member.name} id="basic-nav-dropdown">
+          <LinkContainer to={{ pathname: '/cart' }}>
+            <MenuItem eventKey={4.1} >購物車</MenuItem>
+          </LinkContainer>
+          <MenuItem divider />
+          <LinkContainer to={{ pathname: '/login' }}>
+            <MenuItem eventKey={4.3}>管理者登入</MenuItem>
+          </LinkContainer>
+        </NavDropdown>
 
     return (
       <Navbar fixedTop>
@@ -33,31 +45,19 @@ class NavbarInstance extends Component {
         </Navbar.Header>
         <Nav pullRight>
           <LinkContainer to={{ pathname: '/about' }}>
-            <NavItem eventKey={1} href="#">關於</NavItem>
+            <NavItem eventKey={1} href="#">關於我們</NavItem>
           </LinkContainer>
           <LinkContainer to={{ pathname: '/products' }}>
             <NavItem eventKey={2} href="#">課程介紹</NavItem>
           </LinkContainer>
-          <LinkContainer to={{ pathname: '/fqa' }}>
+          <LinkContainer to={{ pathname: '/faq' }}>
             <NavItem eventKey={3} href="#">常見問題</NavItem>
           </LinkContainer>
           <LinkContainer to={{ pathname: '/contact' }}>
             <NavItem eventKey={5} href="#">聯絡我們</NavItem>
           </LinkContainer>
-          {
-            // <LinkContainer to={{ pathname: '/cart' }}>
-            //   <NavItem eventKey={6} href="#">購物車</NavItem>
-            // </LinkContainer>
-          }
           { loginLink }
-          <NavDropdown eventKey={4} title={dropdownTitle} id="basic-nav-dropdown">
-            <MenuItem eventKey={4.1}>Action</MenuItem>
-            <MenuItem eventKey={4.2}>Another action</MenuItem>
-            <MenuItem divider />
-            <LinkContainer to={{ pathname: '/login' }}>
-              <MenuItem eventKey={4.3}>管理者登入</MenuItem>
-            </LinkContainer>
-          </NavDropdown>
+          { dropdown }
         </Nav>
       </Navbar>
     )
