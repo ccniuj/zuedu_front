@@ -86,7 +86,7 @@ export function getCart(cookie) {
 function addToCartUnsafe(productId) {
   return {
     type: types.ADD_TO_CART,
-    productId
+    productId,
   }
 }
 

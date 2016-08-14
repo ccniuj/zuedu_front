@@ -6,7 +6,7 @@ function products(state, action) {
   switch (action.type) {
     case ADD_TO_CART:
       return Object.assign({}, state, {
-        inventory: state.inventory - action.quantity
+        inventory: state.inventory - 1
       })
     default:
       return state

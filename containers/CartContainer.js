@@ -57,7 +57,7 @@ class CartContainer extends Component {
     return (
       <div className='container' style={style}>
         <center><h3>購物車</h3></center>
-        <input type='submit' onClick={() => addToCart(Object.keys(products)[0]).then(() => getCart())} value='新增' />
+        <input type='submit' onClick={() => addToCart(parseInt(Object.keys(products)[0])).then(() => getCart())} value='新增' />
         {
           applicants.map(applicant => 
             <ApplicantForm ref={`applicant_${applicant.id}`} 
