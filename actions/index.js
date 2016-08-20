@@ -106,6 +106,8 @@ export function addToCart(productId) {
       }).
         then(res => res.json()).
         then(() => dispatch(addToCartUnsafe(productId)))
+    } else {
+      return Promise.reject('This product has no inventory.')
     }
   }
 }
