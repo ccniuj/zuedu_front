@@ -22,6 +22,7 @@ class OrdersContainer extends Component {
             <thead>
               <tr>
                 <th>編號</th>
+                <th>課程</th>
               </tr>
             </thead>
             <tbody>
@@ -31,6 +32,15 @@ class OrdersContainer extends Component {
                     <Link to={`${this.props.route.path}/show/${order.id}`}>
                       {order.id}
                     </Link>
+                  </td>
+                  <td>
+                    { order.line_items.map(item => 
+                      <span key={item.id}>
+                        <Link to={`/orders/show/${order.id}`}>
+                          {`${item.name} - ${item.product_name} `}
+                        </Link><br/>
+                      </span>
+                    )}
                   </td>
                 </tr>
               )}

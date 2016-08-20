@@ -41,25 +41,43 @@ class OrdersForm extends Component {
   render() {
     const { products, orders, total, submitForm } = this.props
     const _payload = orders.allpay.payload ? orders.allpay.payload : {}
-    const disabled = (orders.form.type=='new' ? '' : 'disabled')
+    const disabled = (orders.form.type=='show' ? 'disabled' : '')
 
     const style = {
       paddingTop: '50px',
       minHeight: '600px'
     }
 
+    let cart
+    let submit_btn
+    let allpay_form
+    switch(orders.form.type) {
+      case 'show':
+        cart = <div/>
+        submit_btn = <div/>
+        allpay_form = <div/>
+        break
+      default: 
+        cart = <Cart products={products} total={total} />
+        submit_btn = <input className='btn btn-success btn-block' type='submit' value='確定' />
+        allpay_form = <form id='allpay' action={orders.allpay.url} method='post' style={{display: 'none'}}>
+            信用卡測試卡號: 4311-9522-2222-2222<br/>
+            信用卡測試安全碼: 222<br/>
+            信用卡測試有效年月: 設定在未來時間即可<br/>
+            {
+              Object.keys(_payload).map( (key, i) => {
+                return <input key={i} type="text" name={key} defaultValue={_payload[key]} />
+              })
+            }
+          </form>
+        break
+    }
 
     return (
       <div className='container' style={style}>
         <div className='col-md-6 col-xs-6'>
           <h3>訂單</h3>
-          {
-            orders.form.type=='new'
-            ? <Cart
-                products={products}
-                total={total} />
-            : <div/>
-          }
+          { cart }
           <form onSubmit={ e => {
                 e.preventDefault()
                 submitForm(orders.form.type, 'orders', null, {
@@ -68,8 +86,7 @@ class OrdersForm extends Component {
                   email: this.refs.email.value,
                   address: this.refs.address.value
                 })
-              }}
-            >
+              }}>
             <label htmlFor='last_name'>姓</label>
             <input ref='last_name' type='text' name='last_name' style={{width: '100%'}} disabled={disabled} />
             <br/>
@@ -86,22 +103,9 @@ class OrdersForm extends Component {
             <input ref='address' type='text' name='address' style={{width: '100%'}} disabled={disabled} />
             <br/>
             <br/>
-            {
-              orders.form.type=='new'
-              ? <input className='btn btn-success btn-block' type='submit' value='確定' />
-              : <div/>
-            }
+            { submit_btn }
           </form>
-          信用卡測試卡號: 4311-9522-2222-2222<br/>
-          信用卡測試安全碼: 222<br/>
-          信用卡測試有效年月: 設定在未來時間即可<br/>
-          <form id='allpay' action={orders.allpay.url} method='post' style={{display: 'none'}}>
-            {
-              Object.keys(_payload).map( (key, i) => {
-                return <input key={i} type="text" name={key} defaultValue={_payload[key]} />
-              })
-            }
-          </form>
+          { allpay_form }
         </div>
       </div>
     )

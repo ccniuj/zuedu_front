@@ -30,6 +30,9 @@ class NavbarInstance extends Component {
           <LinkContainer to={{ pathname: '/cart' }}>
             <MenuItem eventKey={4.1} >購物車</MenuItem>
           </LinkContainer>
+          <LinkContainer to={{ pathname: '/orders' }}>
+            <MenuItem eventKey={4.2} >訂單</MenuItem>
+          </LinkContainer>
           <MenuItem divider />
           <LinkContainer to={{ pathname: '/login' }}>
             <MenuItem eventKey={4.3}>管理者登入</MenuItem>
