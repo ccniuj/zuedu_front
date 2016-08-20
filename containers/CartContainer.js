@@ -53,23 +53,29 @@ class CartContainer extends Component {
       minHeight: '600px'
     }
     const hasProducts = applicants.length > 0
+    let btns = applicants.length > 0 
+      ? 
+        <div>
+          <input type='submit' className='btn btn-success' onClick={() => this.submitApplicants()} value='儲存' />
+          <Link className='btn btn-primary' to='/orders/new'>結帳</Link>
+        </div>
+      : <div/>
 
     return (
       <div className='container' style={style}>
         <center><h3>購物車</h3></center>
-        <input type='submit' onClick={() => addToCart(parseInt(Object.keys(products)[0])).then(() => getCart())} value='新增' />
-        {
-          applicants.map(applicant => 
+        <input type='submit' className='btn btn-info' onClick={() => addToCart(parseInt(Object.keys(products)[0])).then(() => getCart(), err => console.log(err))} value='新增' />
+        <br/>
+        { applicants.map(applicant => 
             <ApplicantForm ref={`applicant_${applicant.id}`} 
                            key={applicant.id}
+                           type='edit'
                            products={products} 
                            applicant={applicant}
                            onDelete={deleteForm}
                            onDeleteCallback={getCart} />
-          )
-        }
-        <input type='submit' onClick={() => this.submitApplicants()} value='儲存' />
-        <Link to='/orders/new'>結帳</Link>
+        )}
+        { btns }
       </div>
     )
   }

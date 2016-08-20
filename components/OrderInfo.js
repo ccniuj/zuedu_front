@@ -39,8 +39,8 @@ export default class OrderInfo extends Component {
     }
 
     return (
-      <div>
-        <h3>訂單</h3>
+      <div className='col-xs-6 col-xs-offset-3'>
+        <center><h3>{`訂單 ${orders.form.id}`}</h3></center>
         <form onSubmit={ e => {
               e.preventDefault()
               submitForm(orders.form.type, 'orders', null, {

@@ -10,7 +10,7 @@ export function list(state = [], action) {
   }
 }
 
-export function form(state = {}, action) {
+export function form(state = { line_items: [] }, action) {
   switch (action.type) {
     case types.GET_ORDERS_NEW_FORM_SUCCESS:
       return Object.assign({}, { type: 'new' })

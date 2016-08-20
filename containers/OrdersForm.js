@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getForm, submitForm, getAllProducts, getCart, clientRender } from '../actions'
 import { getTotal, getCartProducts } from '../reducers'
 import OrderInfo from '../components/OrderInfo'
+import ApplicantForm from '../components/ApplicantForm'
 
 class OrdersForm extends Component {
   getChildContext() {
@@ -47,9 +48,13 @@ class OrdersForm extends Component {
 
     return (
       <div className='container' style={style}>
-        <div className='col-md-6 col-xs-6'>
-          <OrderInfo />
-        </div>
+        <OrderInfo />
+        { this.props.orders.form.line_items.map(applicant => 
+          <ApplicantForm
+            key={applicant.id}
+            type='show'
+            applicant={applicant} />
+        )}
       </div>
     )
   }
