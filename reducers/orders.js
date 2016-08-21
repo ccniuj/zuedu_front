@@ -13,9 +13,9 @@ export function list(state = [], action) {
 export function form(state = { line_items: [] }, action) {
   switch (action.type) {
     case types.GET_ORDERS_NEW_FORM_SUCCESS:
-      return Object.assign({}, { type: 'new' })
+      return Object.assign({}, state, action.data, { type: 'new' })
     case types.GET_ORDERS_SHOW_FORM_SUCCESS:
-      return Object.assign({}, action.data, { type: 'show' })
+      return Object.assign({}, state,  action.data, { type: 'show' })
     case types.SUBMIT_ORDERS_FORM_SUCCESS:
       return state
     default:

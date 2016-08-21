@@ -46,10 +46,15 @@ class OrdersForm extends Component {
       minHeight: '600px'
     }
 
+    const { cart, orders } = this.props
+    const line_items = orders.type == 'new' 
+      ? cart.line_items 
+      : orders.form.line_items
+
     return (
       <div className='container' style={style}>
         <OrderInfo />
-        { this.props.orders.form.line_items.map(applicant => 
+        { line_items.map(applicant => 
           <ApplicantForm
             key={applicant.id}
             type='show'
