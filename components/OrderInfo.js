@@ -2,18 +2,20 @@ import React, { Component, PropTypes} from 'react'
 
 export default class OrderInfo extends Component {
   componentWillReceiveProps(_, nextContext) {
-    const { first_name, last_name, email, address } = nextContext.orders.form
+    const form = nextContext.orders.form
+    const attrs = [ 'first_name', 'last_name', 'email', 'address', 'payment']
+
     if (nextContext.orders.form.type!='new') {
-      this.refs.first_name.value = first_name
-      this.refs.last_name.value = last_name
-      this.refs.email.value = email
-      this.refs.address.value = address
+      attrs.forEach(attr => {
+        this.refs[attr].value = form[attr]
+      })
     }
   }
   render() {
     const { products, orders, total, submitForm } = this.context
     const _payload = orders.allpay.payload ? orders.allpay.payload : {}
-    const disabled = (orders.form.type=='show' ? 'disabled' : '')
+    const disabled = orders.form.type=='show' ? 'disabled' : ''
+    const order_name = orders.form.type=='new' ? '新增訂單' : `訂單 ${orders.form.id}`
 
     let submit_btn
     let allpay_form
@@ -40,14 +42,15 @@ export default class OrderInfo extends Component {
 
     return (
       <div className='col-xs-6 col-xs-offset-3'>
-        <center><h3>{`訂單 ${orders.form.id}`}</h3></center>
+        <center><h3>{order_name}</h3></center>
         <form onSubmit={ e => {
               e.preventDefault()
               submitForm(orders.form.type, 'orders', null, {
                 last_name: this.refs.last_name.value,
                 first_name: this.refs.first_name.value,
                 email: this.refs.email.value,
-                address: this.refs.address.value
+                address: this.refs.address.value,
+                payment: this.refs.payment.value
               })
             }}>
           <label htmlFor='last_name'>姓</label>
@@ -56,6 +59,13 @@ export default class OrderInfo extends Component {
           <br/>
           <label htmlFor='first_name'>名</label>
           <input ref='first_name' type='text' name='first_name' style={{width: '100%'}} disabled={disabled} />
+          <br/>
+          <br/>
+          <label htmlFor='payment'>付款方式</label>
+          <select ref='payment' name='payment' style={{width: '100%'}} disabled={disabled}>
+            <option value='Credit'>信用卡</option>
+            <option value='CVS'>超商代碼</option>
+          </select>
           <br/>
           <br/>
           <label htmlFor='email'>信箱</label>
