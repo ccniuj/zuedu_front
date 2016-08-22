@@ -43,6 +43,8 @@ class ProductForm extends Component {
     if (Object.keys(products)==0) {
       getAllProducts()
     }
+
+    LineIt.loadButton()
   }
 
   render() {
@@ -57,6 +59,8 @@ class ProductForm extends Component {
       <div className='container' style={style}>
         <center><h3>{ product.name }</h3></center>
         { product.description }
+        <br/>
+        <div className="line-it-button" style={{display: 'none'}} data-type="share-b" data-lang="zh-Hant" />
         {
           member.id == '' 
           ? 
