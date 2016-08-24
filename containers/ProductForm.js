@@ -60,7 +60,21 @@ class ProductForm extends Component {
         <center><h3>{ product.name }</h3></center>
         { product.description }
         <br/>
-        <div className="line-it-button" style={{display: 'none'}} data-type="share-b" data-lang="zh-Hant" />
+        <div className="line-it-button" 
+             style={{display: 'none'}} 
+             data-type="share-b" 
+             data-lang="zh-Hant" />
+        <div className="fb-share-button" 
+             data-href={`${redirect_url}`} 
+             data-layout="button" 
+             data-size="small" 
+             data-mobile-iframe="false">
+          <a className="fb-xfbml-parse-ignore" 
+             target="_blank"
+             href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">
+            Share
+          </a>
+        </div>
         {
           member.id == '' 
           ? 
