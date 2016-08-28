@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { clientRender } from '../actions'
 
-export default class Home extends Component {
+class Home extends Component {
   constructor(props) {
     super(props)
     this.state = { member: 700, n1: 0, n2: 0, year: 0 }
