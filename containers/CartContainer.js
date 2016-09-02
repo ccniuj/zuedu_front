@@ -35,7 +35,9 @@ class CartContainer extends Component {
         'school', 
         'grade', 
         'food_preference', 
-        'note' 
+        'note',
+        'parent_phone_number',
+        'parent_email' 
       ]
       let arr = attributes.map( key => {
         return { [key]: this.refs[`applicant_${applicant.id}`].refs.form[key].value }

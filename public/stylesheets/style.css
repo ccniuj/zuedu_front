@@ -60,5 +60,15 @@ body {
   box-shadow: 10px 10px 20px #888888; 
   margin-top: 30px;
   margin-bottom: 30px;
-  padding: '50px'
+  padding: 10px;
+}
+
+.applicant-form-label {
+  font-weight: 900;
+  margin-bottom: 0px;
+}
+
+.applicant-form-input {
+  width: 100%;
+  height: 25px;
 }
