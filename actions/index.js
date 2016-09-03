@@ -356,7 +356,7 @@ export function submitForm(type, resource, id, payload) {
         dispatch({
           type: `SUBMIT_${resource.toUpperCase()}_FORM_FAILURE`
         })
-        console.log(err)
+        return Promise.reject(err)
       })
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 import { getForm, submitForm, getAllProducts, getCart, clientRender } from '../actions'
 import { getTotal, getCartProducts } from '../reducers'
 import OrderInfo from '../components/OrderInfo'
@@ -45,21 +46,28 @@ class OrdersForm extends Component {
       paddingTop: '50px',
       minHeight: '600px'
     }
-
     const { cart, orders } = this.props
-    const line_items = orders.type == 'new' 
-      ? cart.line_items 
-      : orders.form.line_items
+    let line_items = orders.form.type == 'new' 
+    ? cart.form.line_items 
+    : orders.form.line_items
 
     return (
       <div className='container' style={style}>
         <OrderInfo />
-        { line_items.map(applicant => 
-          <ApplicantForm
-            key={applicant.id}
-            type='show'
-            applicant={applicant} />
-        )}
+        <div style={{ clear: 'both' }} />
+        <div className='col-xs-8 col-xs-offset-2' style={{textAlign: 'center'}}>
+          <h4><center>報名資訊</center></h4>
+          <Link to='/cart' className='btn btn-sm btn-warning pull-right' style={{marginTop: '-35px'}}>修改</Link>
+        </div>
+        <div style={{ clear: 'both' }} />
+        { 
+          line_items.map(applicant => 
+            <ApplicantForm
+              key={applicant.id}
+              type='show'
+              applicant={applicant} />
+          )
+        }
       </div>
     )
   }

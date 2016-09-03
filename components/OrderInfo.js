@@ -26,7 +26,7 @@ export default class OrderInfo extends Component {
         allpay_form = <div/>
         break
       default:
-        submit_btn = <input className='btn btn-success btn-block' type='submit' value='確定' />
+        submit_btn = <input className='btn btn-success' type='submit' value='確定' />
         allpay_form = <form id='allpay' action={orders.allpay.url} method='post' style={{display: 'none'}}>
             信用卡測試卡號: 4311-9522-2222-2222<br/>
             信用卡測試安全碼: 222<br/>
@@ -41,44 +41,40 @@ export default class OrderInfo extends Component {
     }
 
     return (
-      <div className='col-xs-6 col-xs-offset-3'>
+      <div className='row'>
         <center><h3>{order_name}</h3></center>
-        <form onSubmit={ e => {
-              e.preventDefault()
-              submitForm(orders.form.type, 'orders', null, {
-                last_name: this.refs.last_name.value,
-                first_name: this.refs.first_name.value,
-                email: this.refs.email.value,
-                address: this.refs.address.value,
-                payment: this.refs.payment.value
-              })
-            }}>
-          <label htmlFor='last_name'>姓</label>
-          <input ref='last_name' type='text' name='last_name' style={{width: '100%'}} disabled={disabled} />
-          <br/>
-          <br/>
-          <label htmlFor='first_name'>名</label>
-          <input ref='first_name' type='text' name='first_name' style={{width: '100%'}} disabled={disabled} />
-          <br/>
-          <br/>
-          <label htmlFor='payment'>付款方式</label>
-          <select ref='payment' name='payment' style={{width: '100%'}} disabled={disabled}>
-            <option value='Credit'>信用卡</option>
-            <option value='CVS'>超商代碼</option>
-          </select>
-          <br/>
-          <br/>
-          <label htmlFor='email'>信箱</label>
-          <input ref='email' type='text' name='email' style={{width: '100%'}} disabled={disabled} />
-          <br/>
-          <br/>
-          <label htmlFor='address'>運送地址</label>
-          <input ref='address' type='text' name='address' style={{width: '100%'}} disabled={disabled} />
-          <br/>
-          <br/>
-          { submit_btn }
-        </form>
-        { allpay_form }
+        <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 orderinfo-form'>
+          <form onSubmit={ e => {
+                e.preventDefault()
+                submitForm(orders.form.type, 'orders', null, {
+                  last_name: this.refs.last_name.value,
+                  first_name: this.refs.first_name.value,
+                  email: this.refs.email.value,
+                  address: this.refs.address.value,
+                  payment: this.refs.payment.value
+                })
+              }}>
+            <div className='col-xs-6'>
+              <h6 className='orderinfo-form-label'>姓<span style={{color: 'red'}}>*</span></h6>
+              <input className='orderinfo-form-input' ref='last_name' type='text' name='last_name' disabled={disabled} />
+              <h6 className='orderinfo-form-label'>付款方式<span style={{color: 'red'}}>*</span></h6>
+              <select className='orderinfo-form-input' ref='payment' name='payment' disabled={disabled}>
+                <option value='Credit'>信用卡</option>
+                <option value='CVS'>超商代碼</option>
+              </select>
+              <h6 className='orderinfo-form-label'>信箱<span style={{color: 'red'}}>*</span></h6>
+              <input className='orderinfo-form-input' ref='email' type='text' name='email' disabled={disabled} />
+            </div>
+            <div className='col-xs-6'>
+              <h6 className='orderinfo-form-label'>名<span style={{color: 'red'}}>*</span></h6>
+              <input className='orderinfo-form-input' ref='first_name' type='text' name='first_name' disabled={disabled} />
+              <h6 className='orderinfo-form-label'>運送地址<span style={{color: 'red'}}>*</span></h6>
+              <textarea className='orderinfo-form-input' ref='address' name='address' disabled={disabled}></textarea>
+            </div>
+            { submit_btn }
+          </form>
+          { allpay_form }
+        </div>
       </div>
     )
   }

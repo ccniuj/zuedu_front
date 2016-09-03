@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 import { addToCart, submitForm, deleteForm, getAllProducts, getCart, clientRender } from '../actions'
 import { getTotal, getCartProducts } from '../reducers'
 import Cart from '../components/Cart'
@@ -46,7 +46,7 @@ class CartContainer extends Component {
       return submitForm('edit', 'line_items', applicant.id, payload)
     })
 
-    Promise.all(submits).then(() => getCart())
+    return Promise.all(submits).then(() => getCart(), err => Promise.reject(err))
   }
   render() {
     const { products, applicants, total, addToCart, deleteForm, getCart } = this.props
@@ -55,25 +55,37 @@ class CartContainer extends Component {
       minHeight: '600px'
     }
     const hasProducts = applicants.length > 0
-    let btns = applicants.length > 0 
-      ? 
-        <div>
-          <input type='submit' className='btn btn-success' onClick={() => this.submitApplicants()} value='儲存' />
-          <Link className='btn btn-primary' to='/orders/new'>結帳</Link>
-        </div>
-      : <div/>
 
     return (
       <div className='container' style={style}>
         <center><h3>購物車</h3></center>
-        <input type='submit' className='btn btn-info' onClick={() => addToCart(parseInt(Object.keys(products)[0])).then(() => getCart(), err => console.log(err))} value='新增' />
-        <p>
-          請輸入學生及聯絡人資料，並選擇這位學生要參加的梯次。
-          若要團報，請先填寫一位學生的資料，點選“＋”按鈕；再填寫另一位學生的資料。
-          “確定” 所有學生都填完以後，才點 “一次” 右邊的 確認送出，進行繳費 按鈕。
-          若資料輸入途中不慎將網頁關閉，資料將會自動儲存到您的個人帳戶中，可以在個人後台內點選並繼續進行報名。
-          紅色星號為必填欄位
-        </p>
+        <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 cart-btns'>
+          <ul>
+            <li>請輸入學生及聯絡人資料，並選擇這位學生要參加的梯次。</li>
+            <li>若要團報，請先填寫一位學生的資料，點選“新增”按鈕；再填寫另一位學生的資料。</li>
+          </ul>
+          <input type='submit' className='btn btn-info btn-sm' onClick={() => addToCart(parseInt(Object.keys(products)[0])).then(() => getCart(), err => console.log(err))} value='新增' />
+          { 
+            applicants.length > 0 
+            ? <input type='submit' 
+                     className='btn btn-info btn-sm pull-right' 
+                     onClick={() => this.submitApplicants().
+                       then(() => browserHistory.push('/orders/new'), 
+                            err => console.log(err) )} 
+                     value='結帳' />
+            : <div/>
+          }
+          { 
+            applicants.length > 0 
+            ? <input type='submit' 
+                     className='btn btn-success btn-sm pull-right' 
+                     onClick={() => this.submitApplicants().
+                        then( null, 
+                              err => console.log(err) )} 
+                     value='儲存' />
+            : <div/>
+          }
+        </div>
         { applicants.map(applicant => 
             <ApplicantForm ref={`applicant_${applicant.id}`} 
                            key={applicant.id}
@@ -83,7 +95,6 @@ class CartContainer extends Component {
                            onDelete={deleteForm}
                            onDeleteCallback={getCart} />
         )}
-        { btns }
       </div>
     )
   }
