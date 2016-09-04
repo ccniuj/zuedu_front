@@ -423,9 +423,9 @@ export function submitAllpayForm(params) {
   }
 }
 
-function handleErrors(response) {
-  if (!response.ok) {
-    throw Error(response.statusText);
+function handleErrors(res) {
+  if (!res.ok) {
+    return res.json().then(err => Promise.reject(err.message));
   }
-  return response
+  return res
 }
