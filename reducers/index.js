@@ -6,6 +6,7 @@ import orders from './orders'
 import user from './user'
 import member from './member'
 import dashboard from './dashboard'
+import alert from './alert'
 
 export default combineReducers({
   products,
@@ -14,6 +15,7 @@ export default combineReducers({
   member,
   orders,
   dashboard,
+  alert,
   serverRender,
   routing
 })

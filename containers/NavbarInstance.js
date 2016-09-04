@@ -9,6 +9,13 @@ import config from '../config'
 class NavbarInstance extends Component {
   componentDidMount() {
     this.props.checkMemberLogin()
+    $(this.refs.alert).hide()
+  }
+  componentWillReceiveProps(nextProps) {
+    if (this.props.alert.timestamp != nextProps.alert.timestamp) {
+      this.refs.alert.innerHTML = `<span>${nextProps.alert.message}</span>`
+      $(this.refs.alert).fadeIn('slow', () => setTimeout(() => $(this.refs.alert).fadeOut('slow'), 2000))
+    }
   }
   render() {
     const { location, member, memberLogout } = this.props
@@ -62,6 +69,7 @@ class NavbarInstance extends Component {
           { loginLink }
           { dropdown }
         </Nav>
+        <div id='alert' ref='alert'/>
       </Navbar>
     )
   }
@@ -70,7 +78,8 @@ class NavbarInstance extends Component {
 const mapStateToProps = state => {
   return {
     member: state.member,
-    serverRender: state.serverRender
+    serverRender: state.serverRender,
+    alert: state.alert
   }
 }
 

@@ -3,6 +3,20 @@ body {
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif', 'Meiryo';
 }
 
+#alert {
+  position: fixed;
+  width: 100%;
+  top: 80px;
+  left: 0px;
+  text-align: center;
+}
+
+#alert > span {
+  width: 100px;
+  height:20px;
+  background-color: #ff8e8e;
+}
+
 .row {
   margin-right: 0px;
   margin-left: 0px;
