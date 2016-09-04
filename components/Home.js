@@ -43,81 +43,79 @@ class Home extends Component {
         <div className='row'>
           <div id="carousel-example-generic" className="carousel slide" data-ride="carousel">
             {/* Indicators */}
-            <ol className="carousel-indicators">
-              <li data-target="#carousel-example-generic" data-slide-to={0} className="active" />
-              <li data-target="#carousel-example-generic" data-slide-to={1} />
-              <li data-target="#carousel-example-generic" data-slide-to={2} />
-            </ol>
+            {
+            // <ol className="carousel-indicators">
+            //   <li data-target="#carousel-example-generic" data-slide-to={0} className="active" />
+            //   <li data-target="#carousel-example-generic" data-slide-to={1} />
+            //   <li data-target="#carousel-example-generic" data-slide-to={2} />
+            // </ol>
+            }
             {/* Wrapper for slides */}
             <div className="carousel-inner" role="listbox">
               <div className="item active">
-                <img src="https://scontent-tpe1-1.xx.fbcdn.net/t31.0-8/13112981_1706155963001405_7548779658806243038_o.jpg" alt="..." />
+                <img src="/images/landing.png" alt="..." />
                 <div className="carousel-caption">
-                  <h3>ZU創意教學</h3>
-                </div>
-              </div>
-              <div className="item">
-                <img src="https://scontent-tpe1-1.xx.fbcdn.net/t31.0-8/12240353_1640340669582935_61700781934000110_o.png" alt="..." />
-                <div className="carousel-caption">
-                  <h3>ZU創意教學</h3>
-                </div>
-              </div>
-              <div className="item">
-                <img src="https://scontent-tpe1-1.xx.fbcdn.net/t31.0-8/12303921_1643137342636601_8917072545562626113_o.jpg" alt="..." />
-                <div className="carousel-caption">
-                  <h3>ZU創意教學</h3>
+                  <h1>ZU築優教育</h1>
+                  <h1>首創整合教學</h1>
+                  <h2>程式 x 電路 x 3D繪圖 x 實驗</h2>
                 </div>
               </div>
             </div>
             {/* Controls */}
-            <a className="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-              <span className="glyphicon glyphicon-chevron-left" aria-hidden="true" />
-              <span className="sr-only">Previous</span>
-            </a>
-            <a className="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-              <span className="glyphicon glyphicon-chevron-right" aria-hidden="true" />
-              <span className="sr-only">Next</span>
-            </a>
+            {
+            // <a className="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            //   <span className="glyphicon glyphicon-chevron-left" aria-hidden="true" />
+            //   <span className="sr-only">Previous</span>
+            // </a>
+            // <a className="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            //   <span className="glyphicon glyphicon-chevron-right" aria-hidden="true" />
+            //   <span className="sr-only">Next</span>
+            // </a>
+            }
           </div>
         </div>
         <div className='row text-center home-numbers-container'>
           <div ref='numbers' style={{ display: 'none' }}>
-            <div className='col-xs-3'>
-              <h1>{this.state.member}</h1>
-              <h3>學員</h3>
+            <div className='col-xs-3 home-number'>
+              <span>{this.state.member}</span>
+              <span>學員</span>
+              <img src='/images/icon_wreath.png' />
             </div>
-            <div className='col-xs-3'>
-              <h1>{this.state.n1}</h1>
-              <h3>數字1</h3>
+            <div className='col-xs-3 home-number'>
+              <span>{this.state.n1}</span>
+              <span>數字1</span>
+              <img src='/images/icon_wreath.png' />
             </div>
-            <div className='col-xs-3'>
-              <h1>{this.state.n2}</h1>
-              <h3>數字2</h3>
+            <div className='col-xs-3 home-number'>
+              <span>{this.state.n2}</span>
+              <span>數字2</span>
+              <img src='/images/icon_wreath.png' />
             </div>
-            <div className='col-xs-3'>
-              <h1>{this.state.year}</h1>
-              <h3>年營隊經驗</h3>
+            <div className='col-xs-3 home-number'>
+              <span>{this.state.year}</span>
+              <span>年營隊經驗</span>
+              <img src='/images/icon_wreath.png' />
             </div>
           </div>
         </div>
         <div className='row home-features-container'>
           <div ref='features' style={{ display: 'none' }}>
-            <center><h2>三大特色</h2></center>
+            <center><h2>ZU教學 三大特色</h2></center>
             <div className='col-xs-4'>
               <div className='home-feature'>
-                <img src='https://scontent-tpe1-1.xx.fbcdn.net/t31.0-8/13925626_1744064692543865_3001181317949238363_o.jpg' />
+                <img src='/images/feature_left.png' />
               </div>
               <center><h4>ZUBOX</h4></center>
             </div>
             <div className='col-xs-4'>
               <div className='home-feature'>
-                <img src='https://scontent-tpe1-1.xx.fbcdn.net/t31.0-8/13653258_1744695019147499_8304026447925702789_o.jpg' />
+                <img src='/images/feature_middle.png' />
               </div>
               <center><h4>圖像思考</h4></center>
             </div>
             <div className='col-xs-4'>
               <div className='home-feature'>
-                <img src='https://scontent-tpe1-1.xx.fbcdn.net/t31.0-8/13913612_1743134102636924_4870047607245446251_o.jpg' />
+                <img src='/images/feature_right.png' />
               </div>
               <center><h4>沈浸教學</h4></center>
             </div>

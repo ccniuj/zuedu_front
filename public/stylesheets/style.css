@@ -22,12 +22,20 @@ body {
   margin-left: 0px;
 }
 
+.carousel-caption > h1, h2 {
+  color: black;
+}
+
 .item {
-  height: 320px;
+  height: 400px;
+}
+
+.item > img {
+  opacity: 0.5;
 }
 
 .navbar-logo {
-  height: 50px;
+  height: 60px;
 }
 
 .footer-container {
@@ -38,7 +46,32 @@ body {
 }
 
 .footer-logo {
-  height: 50px;
+  height: 100px;
+}
+
+.home-landing > img {
+  width: 100%;
+  opacity: 0.5;
+}
+
+.home-number > span {
+  position: absolute;
+  top: 25%;
+  font-size: 4vw;
+  color: white;
+  margin: 0px auto;
+  left: 0px;
+  right: 0px;
+}
+
+.home-number > span:nth-child(2) {
+  top: 50%;
+  font-size: 2vw;
+}
+
+.home-number img {
+  position: relative;
+  width: 100%;
 }
 
 .home-feature {
@@ -51,7 +84,7 @@ body {
 }
 
 .home-numbers-container {
-  background-color: #ffc107;
+  background-color: #00a0ea;
   padding-top: 30px;
   padding-bottom: 30px;
   min-height: 200px;
