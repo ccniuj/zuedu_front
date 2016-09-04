@@ -55,7 +55,7 @@ class OrdersForm extends Component {
       <div className='container' style={style}>
         <OrderInfo />
         <div style={{ clear: 'both' }} />
-        <div className='col-xs-8 col-xs-offset-2' style={{textAlign: 'center'}}>
+        <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2' style={{textAlign: 'center'}}>
           <h4><center>報名資訊</center></h4>
           <Link to='/cart' className='btn btn-sm btn-warning pull-right' style={{marginTop: '-35px'}}>修改</Link>
         </div>

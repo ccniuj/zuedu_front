@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link, browserHistory } from 'react-router'
 import { addToCart, getCart, getForm, submitForm, clientRender, getAllProducts } from '../actions'
 import config from '../config'
+import LineIt from '../lib/lineit'
 
 class ProductForm extends Component {
   static fetchData({ store, cookie, params }) {
@@ -13,6 +14,8 @@ class ProductForm extends Component {
   constructor(props) {
     super(props)
     this.addProducts = () => this._addProducts()
+    this.loadFbBtn = () => this._loadFbBtn()
+    this.loadLineBtn = () => this._loadLineBtn()
   }
 
   _addProducts() {
@@ -22,7 +25,21 @@ class ProductForm extends Component {
 
     Promise.all(adds).then(() => browserHistory.push('/cart')) 
   }
-  
+
+  _loadFbBtn() {
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=1535205933369498";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  }
+
+  _loadLineBtn() {
+    LineIt()
+  }
+
   componentDidMount() {
     const { 
       params,
@@ -44,15 +61,8 @@ class ProductForm extends Component {
       getAllProducts()
     }
 
-    // LineIt.loadButton()
-
-    (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=1535205933369498";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+    this.loadFbBtn()
+    this.loadLineBtn()
   }
 
   render() {
@@ -66,13 +76,12 @@ class ProductForm extends Component {
     return (
       <div className='container' style={style}>
         <center><h3>{ product.name }</h3></center>
-        { product.description }
-        <br/>
+        <img className='product-cover' src='/images/product_1.png' />
         {
-        // <div className="line-it-button" 
-        //      style={{display: 'none'}} 
-        //      data-type="share-b" 
-        //      data-lang="zh-Hant" />
+        <div className="line-it-button" 
+             style={{display: 'none'}} 
+             data-type="share-b" 
+             data-lang="zh-Hant" />
         }
         <div id="fb-root"></div>
         <div className="fb-share-button" 
@@ -86,6 +95,8 @@ class ProductForm extends Component {
             Share
           </a>
         </div>
+        <h4>課程介紹</h4>
+        <div dangerouslySetInnerHTML={{ __html: product.description }} />
         <div id="notice" className="modal fade" role="dialog">
           <div className="modal-dialog">
             <div className="modal-content">

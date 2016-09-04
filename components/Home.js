@@ -5,16 +5,16 @@ import { clientRender } from '../actions'
 class Home extends Component {
   constructor(props) {
     super(props)
-    this.state = { member: 700, n1: 0, n2: 0, year: 0 }
+    this.state = { n1: 0, n2: 0, n3: 0, n4: 0 }
     this.countToNumber = (numbers, duration) => this._countToNumber(numbers, duration)
   }
   componentDidMount() {
     if (this.props.serverRender) {
       this.props.clientRender()
     }
-    $(this.refs.numbers).fadeIn(1500)
+    $(this.refs.numbers).fadeIn(500)
     $(this.refs.features).fadeIn(1500)
-    this.countToNumber({member: 1000, n1: 300, n2: 50, year: 5}, 500)
+    this.countToNumber({n1: 300, n2: 9, n3: 5, n4: 2}, 500)
   }
   _countToNumber(numbers, duration) {
     let ds = {}
@@ -77,23 +77,23 @@ class Home extends Component {
         <div className='row text-center home-numbers-container'>
           <div ref='numbers' style={{ display: 'none' }}>
             <div className='col-xs-3 home-number'>
-              <span>{this.state.member}</span>
+              <span>{this.state.n1}+</span>
               <span>學員</span>
               <img src='/images/icon_wreath.png' />
             </div>
             <div className='col-xs-3 home-number'>
-              <span>{this.state.n1}</span>
-              <span>數字1</span>
+              <span>{this.state.n2}成</span>
+              <span>學生滿意度</span>
               <img src='/images/icon_wreath.png' />
             </div>
             <div className='col-xs-3 home-number'>
-              <span>{this.state.n2}</span>
-              <span>數字2</span>
+              <span>{this.state.n3}年</span>
+              <span>營隊經驗</span>
               <img src='/images/icon_wreath.png' />
             </div>
             <div className='col-xs-3 home-number'>
-              <span>{this.state.year}</span>
-              <span>年營隊經驗</span>
+              <span>{this.state.n4}門</span>
+              <span>主題課程</span>
               <img src='/images/icon_wreath.png' />
             </div>
           </div>
