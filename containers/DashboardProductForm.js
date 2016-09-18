@@ -17,8 +17,8 @@ class DashboardProductForm extends Component {
   render() {
     const { product, submitDashboardForm } = this.props
     return (
-      <div className='container'>
-        <div className='col-md-6 col-xs-6'>
+      <div className='container-fluid'>
+        <div className='col-md-9 col-xs-9'>
           <h3>課程</h3>
           <form onSubmit={ e => {
                 e.preventDefault()

@@ -15,7 +15,6 @@ const formInitialState = {
     id: 0,
     line_items: []
   },
-  orders: {}
 }
 
 export function list(state = [], action) {

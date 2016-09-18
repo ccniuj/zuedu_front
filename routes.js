@@ -7,9 +7,13 @@ import Faq from './containers/Faq'
 import Home from './components/Home'
 import Dashboard from './containers/Dashboard'
 import DashboardProductsContainer from './containers/DashboardProductsContainer'
-import DashboardCartsContainer from './containers/DashboardCartsContainer'
 import DashboardProductForm from './containers/DashboardProductForm'
+import DashboardCartsContainer from './containers/DashboardCartsContainer'
 import DashboardCartForm from './containers/DashboardCartForm'
+import DashboardMembersContainer from './containers/DashboardMembersContainer'
+import DashboardMemberForm from './containers/DashboardMemberForm'
+import DashboardOrdersContainer from './containers/DashboardOrdersContainer'
+import DashboardOrderForm from './containers/DashboardOrderForm'
 import ProductsContainer from './containers/ProductsContainer'
 import ProductForm from './containers/ProductForm'
 import CartContainer from './containers/CartContainer'
@@ -36,6 +40,10 @@ export default (
       <Route path='/dashboard/products/:type(/:id)' component={DashboardProductForm} />
       <Route path='/dashboard/carts' component={DashboardCartsContainer} />
       <Route path='/dashboard/carts/:type(/:id)' component={DashboardCartForm} />
+      <Route path='/dashboard/members' component={DashboardMembersContainer} />
+      <Route path='/dashboard/members/:type(/:id)' component={DashboardMemberForm} />
+      <Route path='/dashboard/orders' component={DashboardOrdersContainer} />
+      <Route path='/dashboard/orders/:type(/:id)' component={DashboardOrderForm} />
     </Route>
   </Route>
 )
