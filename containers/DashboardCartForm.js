@@ -16,14 +16,8 @@ class DashboardCartForm extends Component {
     return (
       <div className='container-fluid'>
         <div className='col-md-9 col-xs-9'>
-          <h3>課程</h3>
-          <form onSubmit={ e => {
-                e.preventDefault()
-                submitDashboardForm(cart.type, 'carts', cart.id, {
-                  price: this.refs.price.value
-                })
-              }}
-            >
+          <h3>購物車</h3>
+          <form>
             <label htmlFor='id'>編號</label><br/>
             {cart.id}
             <br/>
@@ -39,7 +33,7 @@ class DashboardCartForm extends Component {
                 </tr>
               </thead>
               <tbody>
-                { cart.line_items.map((item) => 
+                { cart.line_items.map(item => 
                   <tr key={item.id}>
                     <td>{item.name}</td>
                     <td>{item.unit_price}</td>

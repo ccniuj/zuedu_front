@@ -9,7 +9,7 @@ class DashboardMembersContainer extends Component {
     this.props.getDashboardList('members')
   }
   render() {
-    const { members, deleteDashboardForm } = this.props
+    const { members, getDashboardList, deleteDashboardForm } = this.props
     return (
       <div className='container-fluid'>
         <div className='col-md-12 col-xs-12'>
@@ -31,7 +31,11 @@ class DashboardMembersContainer extends Component {
                     </Link>
                   </td>
                   <td>{member.name}</td>
-                  <td><a className='btn btn-danger btn-sm' onClick={() => deleteDashboardForm('members', member.id) }>刪除</a></td>
+                  <td><a className='btn btn-danger btn-sm' 
+                         onClick={
+                           () => deleteDashboardForm('members', member.id).
+                             then(() => getDashboardList('members')) 
+                         }>刪除</a></td>
                 </tr>
               )}
             </tbody>

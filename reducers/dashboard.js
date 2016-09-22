@@ -8,13 +8,21 @@ const formInitialState = {
     name: '',
     price: 0,
     inventory: 0,
-    description: ''
+    description: '',
+    product_details: []
   },
   carts: {
     type: '',
     id: 0,
     line_items: []
   },
+  product_details: {
+    type: '',
+    id: 0,
+    description: '',
+    from: '',
+    to: ''
+  }
 }
 
 export function list(state = [], action) {

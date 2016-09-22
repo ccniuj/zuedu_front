@@ -9,7 +9,7 @@ class DashboardOrdersContainer extends Component {
     this.props.getDashboardList('orders')
   }
   render() {
-    const { orders, deleteDashboardForm } = this.props
+    const { orders, getDashboardList, deleteDashboardForm } = this.props
     return (
       <div className='container-fluid'>
         <div className='col-md-12 col-xs-12'>
@@ -33,7 +33,11 @@ class DashboardOrdersContainer extends Component {
                   </td>
                   <td>{order.name}</td>
                   <td>{order.payment}</td>
-                  <td><a className='btn btn-danger btn-sm' onClick={() => deleteDashboardForm('orders', order.id) }>刪除</a></td>
+                  <td><a className='btn btn-danger btn-sm' 
+                         onClick={
+                           () => deleteDashboardForm('orders', order.id).
+                             then(() => getDashboardList('orders'))
+                         }>刪除</a></td>
                 </tr>
               )}
             </tbody>

@@ -74,7 +74,7 @@ export function submitDashboardForm(type, resource, id, payload) {
       fetch_config['path'] = `/${resource}/${id}.json`
       fetch_config['method'] = 'PUT'
     }
-    fetch(`${config.domain}/dashboard${fetch_config.path}`, {
+    return fetch(`${config.domain}/dashboard${fetch_config.path}`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -88,7 +88,6 @@ export function submitDashboardForm(type, resource, id, payload) {
         dispatch({
           type: types.SUBMIT_DASHBOARD_FORM_SUCCESS
         })
-        browserHistory.push(`/dashboard/${resource}`)
       }).
       catch(err => {
         dispatch({
@@ -101,7 +100,7 @@ export function submitDashboardForm(type, resource, id, payload) {
 
 export function deleteDashboardForm(resource, id) {
   return dispatch => {
-    fetch(`${config.domain}/dashboard/${resource}/${id}.json`, {
+    return fetch(`${config.domain}/dashboard/${resource}/${id}.json`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -114,8 +113,6 @@ export function deleteDashboardForm(resource, id) {
         dispatch({
           type: types.DELETE_DASHBOARD_FORM_SUCCESS
         })
-        dispatch(getDashboardList(resource))
-        browserHistory.push(`/dashboard/${resource}`)
       }).
       catch(err => {
         dispatch({

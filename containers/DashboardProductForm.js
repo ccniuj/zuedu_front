@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { getDashboardForm, submitDashboardForm } from '../actions/dashboard'
+import { Link, browserHistory } from 'react-router'
+import { getDashboardForm, submitDashboardForm, deleteDashboardForm } from '../actions/dashboard'
+import { Table } from 'react-bootstrap'
 
 class DashboardProductForm extends Component {
   componentDidMount() {
@@ -15,7 +17,7 @@ class DashboardProductForm extends Component {
     this.refs.inventory.value = inventory
   }
   render() {
-    const { product, submitDashboardForm } = this.props
+    const { params, product, getDashboardForm, submitDashboardForm, deleteDashboardForm, route } = this.props
     return (
       <div className='container-fluid'>
         <div className='col-md-9 col-xs-9'>
@@ -27,7 +29,7 @@ class DashboardProductForm extends Component {
                   price: this.refs.price.value,
                   inventory: this.refs.inventory.value,
                   description: this.refs.description.value
-                })
+                }).then(() => browserHistory.push('/dashboard/products'))
               }}
             >
             <label htmlFor='id'>編號</label><br/>
@@ -35,9 +37,40 @@ class DashboardProductForm extends Component {
             <br/>
             <br/>
             <label htmlFor='name'>名稱</label>
-            <input ref='name' type='text' name='name' placeholder='輸入名稱' style={{width: '100%'}} devalue={product.name} />
+            <input ref='name' type='text' name='name' placeholder='輸入名稱' style={{width: '100%'}} defaultValue={product.name} />
             <br/>
             <br/>
+            <h4>場次列表</h4>
+            <Link className='btn btn-xs btn-success' to={`/dashboard/product_details/new/${product.id}`}>新增</Link>
+            <br/>
+            <Table responsive condensed>
+              <thead>
+                <tr>
+                  <th>場次</th>
+                  <th>開始日期</th>
+                  <th>結束日期</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                { product.product_details.map(pd => 
+                  <tr key={pd.id}>
+                    <td>
+                      <Link to={`/dashboard/product_details/edit/${pd.id}`}>
+                        {pd.description}
+                      </Link>
+                    </td>
+                    <td>{pd.from}</td>
+                    <td>{pd.to}</td>
+                    <td><a className='btn btn-danger btn-xs'
+                          onClick={
+                            () => deleteDashboardForm('product_details', pd.id).
+                              then(() => getDashboardForm(params.type, 'products', product.id))
+                          }>刪除</a></td>
+                  </tr>
+                )}
+              </tbody>
+            </Table>
             <label htmlFor='price'>價格</label>
             <input ref='price' type='text' name='price' placeholder='輸入價格' style={{width: '100%'}} defaultValue={product.price} />
             <br/>
@@ -72,12 +105,18 @@ DashboardProductForm.propTypes = {
 }
 
 function mapStateToProps(state) {
+  let _state
+  if (typeof(state.dashboard.form.product_details)==='undefined') {
+    _state = Object.assign({}, state.dashboard.form, { product_details: [] } )
+  } else {
+    _state = state.dashboard.form
+  }
   return {
-    product: state.dashboard.form
+    product: _state
   }
 }
 
 export default connect(
   mapStateToProps,
-  { getDashboardForm, submitDashboardForm }
+  { getDashboardForm, submitDashboardForm, deleteDashboardForm }
 )(DashboardProductForm)

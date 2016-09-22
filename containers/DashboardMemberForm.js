@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
 import { getDashboardForm, submitDashboardForm } from '../actions/dashboard'
 
 class DashboardMemberForm extends Component {
@@ -24,7 +25,7 @@ class DashboardMemberForm extends Component {
                 submitDashboardForm(member.type, 'members', member.id, {
                   name: this.refs.name.value,
                   email: this.refs.email.value
-                })
+                }).then(() => browserHistory.push('/dashboard/members'))
               }}
             >
             <label htmlFor='id'>編號</label><br/>
