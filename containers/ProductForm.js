@@ -210,7 +210,15 @@ class ProductForm extends Component {
             :
               <div>
                 <h4>我要報名</h4>
-                剩餘名額：{  product.inventory }<br/>
+                <select>
+                  {
+                    product.product_details.map(pd =>
+                      <option key={pd.id} value={pd.id}>{pd.description}</option>
+                    )
+                  }
+                </select>
+                <br/>
+                剩餘名額：{ product.inventory }<br/>
                 人數：<input ref='quantity' type='text' defaultValue='1' />
                 <button className="btn btn-info" data-toggle="modal" data-target="#notice">報名</button>
               </div>

@@ -43,7 +43,7 @@ function visibleIds(state = [], action) {
   }
 }
 
-export function form(state = {}, action) {
+export function form(state = { product_details: [] }, action) {
   switch (action.type) {
     case types.GET_PRODUCTS_SHOW_FORM_SUCCESS:
       return Object.assign({}, action.data, { type: 'show' })
