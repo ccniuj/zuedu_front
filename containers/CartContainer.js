@@ -24,7 +24,7 @@ class CartContainer extends Component {
     }
   }
   _submitApplicants() {
-    const { applicants, submitForm, deleteForm, getCart, params } = this.props
+    const { applicants, submitForm, getCart } = this.props
     const submits = applicants.map(applicant => {
       let attributes = [
         'product_id',
@@ -96,13 +96,18 @@ class CartContainer extends Component {
           }
         </div>
         { applicants.map(applicant => 
-            <ApplicantForm ref={`applicant_${applicant.id}`} 
-                           key={applicant.id}
-                           type='edit'
-                           products={products} 
-                           applicant={applicant}
-                           onDelete={deleteForm}
-                           onDeleteCallback={getCart} />
+            <div className='row'>
+              <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 applicant-form'>
+                <ApplicantForm ref={`applicant_${applicant.id}`} 
+                               key={applicant.id}
+                               type='edit'
+                               products={products} 
+                               applicant={applicant}
+                               showDeleteBtn={true}
+                               onDelete={deleteForm}
+                               onDeleteCallback={getCart} />
+              </div>
+            </div>
         )}
       </div>
     )

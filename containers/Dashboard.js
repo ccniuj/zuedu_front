@@ -20,6 +20,7 @@ class Dashboard extends Component {
               <Link to="/dashboard/carts" className="list-group-item">購物車</Link>
               <Link to="/dashboard/members" className="list-group-item">會員</Link>
               <Link to="/dashboard/orders" className="list-group-item">訂單</Link>
+              <Link to="/dashboard/applicants" className="list-group-item">報名資料</Link>
             </div>
           </div>
           <div className='col-md-9 col-xs-9'>

@@ -62,10 +62,14 @@ class OrdersForm extends Component {
         <div style={{ clear: 'both' }} />
         { 
           line_items.map(applicant => 
-            <ApplicantForm
-              key={applicant.id}
-              type='show'
-              applicant={applicant} />
+            <div className='row'>
+              <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 applicant-form'>
+                <ApplicantForm
+                  key={applicant.id}
+                  type='show'
+                  applicant={applicant} />
+              </div>
+            </div>
           )
         }
       </div>

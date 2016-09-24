@@ -15,6 +15,8 @@ import DashboardMembersContainer from './containers/DashboardMembersContainer'
 import DashboardMemberForm from './containers/DashboardMemberForm'
 import DashboardOrdersContainer from './containers/DashboardOrdersContainer'
 import DashboardOrderForm from './containers/DashboardOrderForm'
+import DashboardApplicantsContainer from './containers/DashboardApplicantsContainer'
+import DashboardApplicantForm from './containers/DashboardApplicantForm'
 import ProductsContainer from './containers/ProductsContainer'
 import ProductForm from './containers/ProductForm'
 import CartContainer from './containers/CartContainer'
@@ -46,6 +48,8 @@ export default (
       <Route path='/dashboard/members/:type(/:id)' component={DashboardMemberForm} />
       <Route path='/dashboard/orders' component={DashboardOrdersContainer} />
       <Route path='/dashboard/orders/:type(/:id)' component={DashboardOrderForm} />
+      <Route path='/dashboard/applicants' component={DashboardApplicantsContainer} />
+      <Route path='/dashboard/applicants/:type(/:id)' component={DashboardApplicantForm} />
     </Route>
   </Route>
 )

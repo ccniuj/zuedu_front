@@ -38,7 +38,7 @@ export function getDashboardForm(type, resource, id='') {
       dispatch({
         type: types.GET_DASHBOARD_EDIT_FORM_REQUEST
       })
-      fetch(`${config.domain}/dashboard/${resource}/${id}/edit`, {
+      return fetch(`${config.domain}/dashboard/${resource}/${id}/edit`, {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'
