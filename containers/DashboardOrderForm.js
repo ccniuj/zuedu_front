@@ -60,6 +60,14 @@ class DashboardOrderForm extends Component {
             {order.payment}
             <br/>
             <br/>
+            <label htmlFor='status'>狀態</label><br/>
+            {
+              order.transactions 
+              ? order.transactions[0].params ? '已繳費' : '未繳費'
+              : ''
+            }
+            <br/>
+            <br/>
             <input className='btn btn-success btn-block' type='submit' value='確定' />
           </form>
         </div>
