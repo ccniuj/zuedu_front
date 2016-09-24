@@ -21,7 +21,8 @@ class ProductForm extends Component {
   _addProducts() {
     const { product, addToCart, location } = this.props
     let n = parseInt(this.refs.quantity.value)
-    let adds = Array(n).fill().map( _ => addToCart(product.id))
+    let d = parseInt(this.refs.product_detail.value)
+    let adds = Array(n).fill().map( _ => addToCart(product.id, d))
 
     Promise.all(adds).then(() => browserHistory.push('/cart')) 
   }
@@ -210,7 +211,7 @@ class ProductForm extends Component {
             :
               <div>
                 <h4>我要報名</h4>
-                <select>
+                <select ref='product_detail'>
                   {
                     product.product_details.map(pd =>
                       <option key={pd.id} value={pd.id}>{pd.description}</option>

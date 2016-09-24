@@ -138,6 +138,14 @@ body {
   height: 25px;
 }
 
+.applicant-form-dropdown {
+  width: 50%;
+}
+
+.applicant-form-dropdown-margin {
+  height: 6px;
+}
+
 textarea.orderinfo-form-input {
   height: 70px;
 }

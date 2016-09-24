@@ -83,14 +83,15 @@ export function getCart(cookie) {
   }
 }
 
-function addToCartUnsafe(productId) {
+function addToCartUnsafe(productId, productDetailId) {
   return {
     type: types.ADD_TO_CART,
     productId,
+    productDetailId
   }
 }
 
-export function addToCart(productId) {
+export function addToCart(productId, productDetailId) {
   return (dispatch, getState) => {
     if (getState().products.byId[productId].inventory > 0) {
       return fetch(`${config.domain}/line_items.json`, {
@@ -101,11 +102,12 @@ export function addToCart(productId) {
         credentials: 'include',
         method: 'POST',
         body: JSON.stringify({
-                product_id: productId
+                product_id: productId,
+                product_detail_id: productDetailId
               })
       }).
         then(res => res.json()).
-        then(() => dispatch(addToCartUnsafe(productId)))
+        then(() => dispatch(addToCartUnsafe(productId, productDetailId)))
     } else {
       return Promise.reject('This product has no inventory.')
     }

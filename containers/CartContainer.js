@@ -28,6 +28,7 @@ class CartContainer extends Component {
     const submits = applicants.map(applicant => {
       let attributes = [
         'product_id',
+        'product_detail_id',
         'name', 
         'birth', 
         'gender', 
@@ -55,6 +56,7 @@ class CartContainer extends Component {
       minHeight: '600px'
     }
     const hasProducts = applicants.length > 0
+    const defaultProductId = parseInt(Object.keys(products)[0])
 
     return (
       <div className='container' style={style}>
@@ -64,7 +66,14 @@ class CartContainer extends Component {
             <li>請輸入學生及聯絡人資料，並選擇這位學生要參加的梯次。</li>
             <li>若要團報，請先填寫一位學生的資料，點選“新增”按鈕；再填寫另一位學生的資料。</li>
           </ul>
-          <input type='submit' className='btn btn-info btn-sm' onClick={() => addToCart(parseInt(Object.keys(products)[0])).then(() => getCart(), err => console.log(err))} value='新增' />
+          <input type='submit' 
+                 className='btn btn-info btn-sm' 
+                 onClick={
+                           () => addToCart(defaultProductId, 
+                                     products[defaultProductId].product_details[0].id).
+                                   then(() => getCart(), err => console.log(err))
+                         } 
+                 value='新增' />
           { 
             applicants.length > 0 
             ? <input type='submit' 
