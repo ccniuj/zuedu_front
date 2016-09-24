@@ -122,3 +122,29 @@ export function deleteDashboardForm(resource, id) {
       })
   }
 }
+
+export function notifyMember(resource, type, id) {
+  return dispatch => {
+    return fetch(`${config.domain}/dashboard/${resource}/${type}.json`, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include',
+      method: 'POST',
+      body: JSON.stringify( { id } )
+    }).
+      then(handleErrors).
+      then(() => {
+        dispatch({
+          type: `NOTITY_${resource.toUpperCase()}_${type.toUpperCase()}_SUCCESS`
+        })
+      }).
+      catch(err => {
+        dispatch({
+          type: `NOTITY_${resource.toUpperCase()}_${type.toUpperCase()}_FAILURE`
+        })
+        console.log(err)
+      })
+  }
+}

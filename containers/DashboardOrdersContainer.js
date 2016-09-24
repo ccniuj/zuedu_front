@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { getDashboardList, deleteDashboardForm } from '../actions/dashboard'
+import { getDashboardList, deleteDashboardForm, notifyMember } from '../actions/dashboard'
 import { Table } from 'react-bootstrap'
 
 class DashboardOrdersContainer extends Component {
@@ -9,7 +9,7 @@ class DashboardOrdersContainer extends Component {
     this.props.getDashboardList('orders')
   }
   render() {
-    const { orders, getDashboardList, deleteDashboardForm } = this.props
+    const { orders, getDashboardList, deleteDashboardForm, notifyMember } = this.props
     return (
       <div className='container-fluid'>
         <div className='col-md-12 col-xs-12'>
@@ -33,7 +33,11 @@ class DashboardOrdersContainer extends Component {
                   </td>
                   <td>{order.name}</td>
                   <td>{order.payment}</td>
-                  <td><a className='btn btn-danger btn-sm' 
+                  <td><a className='btn btn-primary btn-sm' 
+                         onClick={
+                           () => notifyMember('orders', 'remind', order.id)
+                         }>寄信</a>&nbsp;&nbsp;
+                  <a className='btn btn-danger btn-sm' 
                          onClick={
                            () => deleteDashboardForm('orders', order.id).
                              then(() => getDashboardList('orders'))
@@ -64,5 +68,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { getDashboardList, deleteDashboardForm }
+  { getDashboardList, deleteDashboardForm, notifyMember }
 )(DashboardOrdersContainer)
