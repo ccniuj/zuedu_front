@@ -11,8 +11,6 @@ export default class ApplicantForm extends Component {
   }
   componentWillReceiveProps(nextProps) {
     let attributes = [
-      'product_id',
-      'product_detail_id',
       'name', 
       'birth', 
       'gender', 
@@ -24,6 +22,9 @@ export default class ApplicantForm extends Component {
       'parent_phone_number',
       'parent_email' 
     ]
+    if (nextProps.type == 'edit') {
+      attributes.push('product_id', 'product_detail_id')
+    }
     attributes.map( col => {
       this.refs[col].value = nextProps.applicant[col]
     })
