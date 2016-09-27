@@ -96,10 +96,9 @@ class CartContainer extends Component {
           }
         </div>
         { applicants.map(applicant => 
-            <div className='row'>
+            <div key={applicant.id} className='row'>
               <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 applicant-form'>
                 <ApplicantForm ref={`applicant_${applicant.id}`} 
-                               key={applicant.id}
                                type='edit'
                                products={products} 
                                applicant={applicant}
