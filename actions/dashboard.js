@@ -149,9 +149,9 @@ export function notifyMember(resource, type, id) {
   }
 }
 
-export function download_csv(resource) {
+export function download_csv(resource, cols) {
   return dispatch => {
-    return fetch(`${config.domain}/dashboard/${resource}/download`, {
+    return fetch(`${config.domain}/dashboard/${resource}/download?cols=${cols.join(',')}`, {
       credentials: 'include'
     }).
       then(handleErrors).
