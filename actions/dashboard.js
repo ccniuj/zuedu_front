@@ -148,3 +148,13 @@ export function notifyMember(resource, type, id) {
       })
   }
 }
+
+export function download_csv(resource) {
+  return dispatch => {
+    return fetch(`${config.domain}/dashboard/${resource}/download`, {
+      credentials: 'include'
+    }).
+      then(handleErrors).
+      then(res => res.json())
+  }
+}

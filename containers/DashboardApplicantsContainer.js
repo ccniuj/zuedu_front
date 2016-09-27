@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { getDashboardList, deleteDashboardForm } from '../actions/dashboard'
+import { getDashboardList, deleteDashboardForm, download_csv } from '../actions/dashboard'
 import { Table } from 'react-bootstrap'
 
 class DashboardApplicantsContainer extends Component {
@@ -9,7 +9,7 @@ class DashboardApplicantsContainer extends Component {
     this.props.getDashboardList('line_items')
   }
   render() {
-    const { applicants, getDashboardList, deleteDashboardForm } = this.props
+    const { applicants, getDashboardList, deleteDashboardForm, download_csv } = this.props
     return (
       <div className='container-fluid'>
         <div className='col-md-12 col-xs-12'>
@@ -55,6 +55,18 @@ class DashboardApplicantsContainer extends Component {
               )}
             </tbody>
           </Table>
+          <input className='btn btn-success' type='submit' value='匯出表單'
+            onClick={
+              () => download_csv('line_items').
+                then(data => {
+                  let a         = document.createElement('a')
+                  a.href        = `data:attachment/csv,${encodeURI(data.csv)}`
+                  a.target      = '_blank'
+                  a.download    = 'line_items.csv'
+                  document.body.appendChild(a)
+                  a.click()
+                })
+            } />
         </div>
       </div>
     )
@@ -77,5 +89,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { getDashboardList, deleteDashboardForm }
+  { getDashboardList, deleteDashboardForm, download_csv }
 )(DashboardApplicantsContainer)
