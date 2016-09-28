@@ -6,6 +6,15 @@ import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap'
 
 class DashboardNavbarInstance extends Component {
+  componentDidMount() {
+    $(this.refs.alert).hide()
+  }
+  componentWillReceiveProps(nextProps) {
+    if (this.props.alert.timestamp != nextProps.alert.timestamp) {
+      this.refs.alert.innerHTML = `<span>${nextProps.alert.message}</span>`
+      $(this.refs.alert).fadeIn('slow', () => setTimeout(() => $(this.refs.alert).fadeOut('slow'), 2000))
+    }
+  }
   render() {
     return (
       <Navbar fixedTop>
@@ -23,6 +32,7 @@ class DashboardNavbarInstance extends Component {
             <MenuItem eventKey={3.3} onClick={this.props.logout}>登出</MenuItem>
           </NavDropdown>
         </Nav>
+        <div id='alert' ref='alert'/>
       </Navbar>
     )
   }
@@ -32,8 +42,12 @@ DashboardNavbarInstance.propTypes = {
   logout: PropTypes.func.isRequired
 }
 
-export default connect(
-  null,
-  { logout }
-)(DashboardNavbarInstance)
+const mapStateToProps = state => {
+  return {
+    alert: state.alert
+  }
+}
 
+export default connect(mapStateToProps, { 
+  logout 
+})(DashboardNavbarInstance)

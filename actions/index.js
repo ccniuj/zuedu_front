@@ -425,7 +425,7 @@ export function submitAllpayForm(params) {
   }
 }
 
-function handleErrors(res) {
+export function handleErrors(res) {
   if (!res.ok) {
     return res.json().then(err => Promise.reject(err.message));
   }

@@ -5,7 +5,7 @@ import config from '../config'
 
 export function getDashboardList(resource) {
   return dispatch => {
-    fetch(`${config.domain}/dashboard/${resource}.json`, {
+    return fetch(`${config.domain}/dashboard/${resource}.json`, {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
@@ -91,9 +91,10 @@ export function submitDashboardForm(type, resource, id, payload) {
       }).
       catch(err => {
         dispatch({
-          type: types.SUBMIT_DASHBOARD_FORM_FAILURE
+          type: types.SUBMIT_DASHBOARD_FORM_FAILURE,
+          message: err
         })
-        console.log(err)
+        return Promise.reject(err)
       })
   }
 }

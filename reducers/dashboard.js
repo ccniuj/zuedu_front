@@ -22,6 +22,14 @@ const formInitialState = {
     description: '',
     from: '',
     to: ''
+  },
+  discounts: {
+    type: '',
+    id: 0,
+    name: '',
+    discount_type: 'absolute',
+    prerequisite: 0,
+    factor: 0
   }
 }
 

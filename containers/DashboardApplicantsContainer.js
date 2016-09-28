@@ -29,10 +29,7 @@ class DashboardApplicantsContainer extends Component {
       created_at: '建立日期',
       updated_at: '更新日期'
     }
-    return Object.keys(cols).map(key => <div className='col-xs-4'><input ref={`${key}`} type='checkbox' defaultChecked />&nbsp;{cols[key]}&nbsp;&nbsp;</div>)
-  }
-  getCheckedCols() {
-    debugger
+    return Object.keys(cols).map(key => <div className='col-xs-4' key={key}><input ref={`${key}`} type='checkbox' defaultChecked />&nbsp;{cols[key]}&nbsp;&nbsp;</div>)
   }
   render() {
     const { applicants, getDashboardList, deleteDashboardForm, download_csv } = this.props
@@ -88,10 +85,10 @@ class DashboardApplicantsContainer extends Component {
                  onClick={
                    () => download_csv('line_items', Object.keys(this.refs).filter(r => this.refs[r].checked)).
                      then(data => {
-                       let a         = document.createElement('a')
-                       a.href        = `data:attachment/csv,${encodeURI(data.csv)}`
-                       a.target      = '_blank'
-                       a.download    = 'line_items.csv'
+                       let a = document.createElement('a')
+                       a.href = `data:attachment/csv,${encodeURI(data.csv)}`
+                       a.target = '_blank'
+                       a.download = 'line_items.csv'
                        document.body.appendChild(a)
                        a.click()
                      })

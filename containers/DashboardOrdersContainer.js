@@ -36,8 +36,11 @@ class DashboardOrdersContainer extends Component {
                   <td>{order.payment}</td>
                   <td>{
                     order.transactions 
-                    ? order.transactions[0].params ? '已繳費' : '未繳費'
-                    : ''}</td>
+                    ?
+                      order.transactions.length > 0 
+                      ? order.transactions[0].params ? '已繳費' : '未繳費'
+                      : ''
+                    : '' }</td>
                   <td><a className='btn btn-primary btn-sm' 
                          onClick={
                            () => notifyMember('orders', 'remind', order.id)

@@ -3,7 +3,7 @@ import React, { Component, PropTypes} from 'react'
 export default class OrderInfo extends Component {
   componentWillReceiveProps(_, nextContext) {
     const form = nextContext.orders.form
-    const attrs = [ 'first_name', 'last_name', 'email', 'address', 'payment']
+    const attrs = [ 'first_name', 'last_name', 'email', 'address', 'payment', 'discount_key']
 
     if (nextContext.orders.form.type!='new') {
       attrs.forEach(attr => {
@@ -51,7 +51,8 @@ export default class OrderInfo extends Component {
                   first_name: this.refs.first_name.value,
                   email: this.refs.email.value,
                   address: this.refs.address.value,
-                  payment: this.refs.payment.value
+                  payment: this.refs.payment.value,
+                  discount_key: this.refs.discount_key.value
                 })
               }}>
             <div className='col-xs-6'>
@@ -62,6 +63,7 @@ export default class OrderInfo extends Component {
                 <option value='Credit'>信用卡</option>
                 <option value='CVS'>超商代碼</option>
               </select>
+              <div className='orderinfo-form-dropdown-margin' />
               <h6 className='orderinfo-form-label'>信箱<span style={{color: 'red'}}>*</span></h6>
               <input className='orderinfo-form-input' ref='email' type='text' name='email' disabled={disabled} />
             </div>
@@ -69,8 +71,12 @@ export default class OrderInfo extends Component {
               <h6 className='orderinfo-form-label'>名<span style={{color: 'red'}}>*</span></h6>
               <input className='orderinfo-form-input' ref='first_name' type='text' name='first_name' disabled={disabled} />
               <h6 className='orderinfo-form-label'>運送地址<span style={{color: 'red'}}>*</span></h6>
-              <textarea className='orderinfo-form-input' ref='address' name='address' disabled={disabled}></textarea>
+              <input className='orderinfo-form-input' ref='address' type='text' name='address' disabled={disabled} />
+              <h6 className='orderinfo-form-label'>折扣代碼</h6>
+              <input className='orderinfo-form-input' ref='discount_key' type='text' name='discount_key' disabled={disabled} />
             </div>
+            <div style={{ clear: 'both' }} />
+            <br/>
             { submit_btn }
           </form>
           { allpay_form }

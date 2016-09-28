@@ -1,5 +1,7 @@
 import {
-  SUBMIT_LINE_ITEMS_FORM_FAILURE
+  SUBMIT_LINE_ITEMS_FORM_FAILURE,
+  SUBMIT_ORDERS_FORM_FAILURE,
+  SUBMIT_DASHBOARD_FORM_FAILURE
 } from '../constants/ActionTypes'
 
 const initialState = {
@@ -10,7 +12,10 @@ const initialState = {
 export default function alert(state = initialState, action) {
   switch (action.type) {
     case SUBMIT_LINE_ITEMS_FORM_FAILURE:
+    case SUBMIT_ORDERS_FORM_FAILURE:
+    case SUBMIT_DASHBOARD_FORM_FAILURE:
       return Object.assign( {}, { message: action.message, timestamp: new Date().getTime() } )
+      break
     default:
       return state
   }
