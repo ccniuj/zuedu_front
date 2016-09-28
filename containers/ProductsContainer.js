@@ -27,13 +27,7 @@ class ProductsContainer extends Component {
       <div className='container' style={style}>
         <div style={{ display: 'none' }} ref='products'>
           <center><h3>課程</h3></center>
-          { 
-            products.map(product =>
-              <Link to={`/products/${product.id}`} key={product.id}>
-                <ProductItem product={product} />
-              </Link>
-            )
-          }
+          { products.map(product => <ProductItem product={product} key={product.id} />)}
         </div>
       </div>
     )

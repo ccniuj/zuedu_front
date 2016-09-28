@@ -58,6 +58,7 @@ class DashboardDiscountForm extends Component {
             <input ref='factor' type='text' name='factor' placeholder='輸入總金額/總折扣' style={{width: '100%'}} defaultValue={discount.factor} />
             <br/>
             <br/>
+            <input type="time" name="time" />
             <input className='btn btn-success btn-block' type='submit' value='確定' />
           </form>
         </div>

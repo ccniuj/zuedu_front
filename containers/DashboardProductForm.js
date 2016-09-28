@@ -10,11 +10,12 @@ class DashboardProductForm extends Component {
     this.props.getDashboardForm(params.type, 'products', params.id)
   }
   componentWillReceiveProps(nextProps) {
-    const { name, price, description, inventory } = nextProps.product
-    this.refs.name.value = name
-    this.refs.price.value = price
-    this.refs.description.value = description
-    this.refs.inventory.value = inventory
+    let exclusion = ['id', 'product_details', 'type']
+    Object.keys(nextProps.product).forEach(key => {
+      if (!exclusion.includes(key)) {
+        this.refs[key].value = nextProps.product[key]
+      }
+    })
   }
   render() {
     const { params, product, getDashboardForm, submitDashboardForm, deleteDashboardForm, route } = this.props
@@ -24,12 +25,12 @@ class DashboardProductForm extends Component {
           <h3>課程</h3>
           <form onSubmit={ e => {
                 e.preventDefault()
-                submitDashboardForm(product.type, 'products', product.id, {
-                  name: this.refs.name.value,
-                  price: this.refs.price.value,
-                  inventory: this.refs.inventory.value,
-                  description: this.refs.description.value
-                }).then(() => browserHistory.push('/dashboard/products'))
+                submitDashboardForm(product.type, 'products', product.id, 
+                  Object.assign({}, 
+                    ...Object.keys(this.refs).map(key => 
+                      { return { [key]: this.refs[key].value }}
+                    ))
+                ).then(() => browserHistory.push('/dashboard/products'))
               }}
             >
             <label htmlFor='id'>編號</label><br/>
@@ -38,6 +39,11 @@ class DashboardProductForm extends Component {
             <br/>
             <label htmlFor='name'>名稱</label>
             <input ref='name' type='text' name='name' placeholder='輸入名稱' style={{width: '100%'}} defaultValue={product.name} />
+            <br/>
+            <br/>
+            <label htmlFor='subtitle'>副標題</label>
+            <textarea ref='subtitle' name='subtitle' placeholder='輸入副標題' rows='5' style={{width: '100%'}} defaultValue={product.subtitle}>
+            </textarea>
             <br/>
             <br/>
             <h4>場次列表</h4>
@@ -82,6 +88,32 @@ class DashboardProductForm extends Component {
             <label htmlFor='description'>說明</label>
             <textarea ref='description' name='description' placeholder='輸入說明' rows='5' style={{width: '100%'}} defaultValue={product.description}>
             </textarea>
+            <br/>
+            <br/>
+            <label htmlFor='dimension'>向度</label>
+            <textarea ref='dimension' name='dimension' placeholder='輸入向度' rows='5' style={{width: '100%'}} defaultValue={product.dimension}>
+            </textarea>
+            <br/>
+            <br/>
+            <label htmlFor='pricing'>報名費用說明</label>
+            <textarea ref='pricing' name='pricing' placeholder='輸入報名費用說明' rows='5' style={{width: '100%'}} defaultValue={product.pricing}>
+            </textarea>
+            <br/>
+            <br/>
+            <label htmlFor='target'>對象</label>
+            <input ref='target' type='text' name='target' placeholder='輸入對象' style={{width: '100%'}} defaultValue={product.target} />
+            <br/>
+            <br/>
+            <label htmlFor='cover_image_url'>封面圖片連結</label>
+            <input ref='cover_image_url' type='text' name='cover_image_url' placeholder='輸入封面圖片連結' style={{width: '100%'}} defaultValue={product.cover_image_url} />
+            <br/>
+            <br/>
+            <label htmlFor='outline_image_url'>大綱圖片連結</label>
+            <input ref='outline_image_url' type='text' name='outline_image_url' placeholder='輸入大綱圖片連結' style={{width: '100%'}} defaultValue={product.outline_image_url} />
+            <br/>
+            <br/>
+            <label htmlFor='dimension_image_url'>向度圖片連結</label>
+            <input ref='dimension_image_url' type='text' name='dimension_image_url' placeholder='輸入大綱圖片連結' style={{width: '100%'}} defaultValue={product.dimension_image_url} />
             <br/>
             <br/>
             <input className='btn btn-success btn-block' type='submit' value='確定' />

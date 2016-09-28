@@ -103,9 +103,11 @@ body {
 }
 
 .product-item {
-  background-color: #8bc34a;
-  min-height: 200px;
+  margin-top: 20px;
   margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
 }
 
 .login-form, .applicant-form, .orderinfo-form {
@@ -152,4 +154,13 @@ textarea.orderinfo-form-input {
 
 .product-cover {
   width: 100%;
+}
+
+.product-form-section {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.product-form-section h3 {
+  margin-top: 0px;
 }
