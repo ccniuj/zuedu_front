@@ -92,8 +92,8 @@ export default class Product extends Component {
               </ol>
             </div>
             <div className="modal-footer">
-              <button className="btn btn-default" data-dismiss="modal" onClick={addProducts}>同意</button>
               <button className="btn btn-danger" data-dismiss="modal">不同意</button>
+              <button className="btn btn-default" data-dismiss="modal" onClick={addProducts}>同意</button>
             </div>
           </div>
         </div>

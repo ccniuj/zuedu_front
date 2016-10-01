@@ -353,6 +353,7 @@ export function submitForm(type, resource, id, payload) {
         const redirect_url = res.headers.get('Location')
         if (redirect_url) {
           dispatch(getAllpayForm(redirect_url))
+          throw new Error('redirection');
         }
         return res
       }).
@@ -366,12 +367,16 @@ export function submitForm(type, resource, id, payload) {
         return res
       }).
       catch(err => {
-        dispatch({
-          type: `SUBMIT_${resource.toUpperCase()}_FORM_FAILURE`,
-          message: err,
-          alert_type: 'failure'
-        })
-        return Promise.reject(err)
+        if (err.message == 'redirection') {
+          console.log('redirection')
+        } else {
+          dispatch({
+            type: `SUBMIT_${resource.toUpperCase()}_FORM_FAILURE`,
+            message: err,
+            alert_type: 'failure'
+          })
+          return Promise.reject(err)
+        }
       })
   }
 }
