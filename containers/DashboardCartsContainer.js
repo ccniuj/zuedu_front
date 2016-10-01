@@ -21,7 +21,6 @@ class DashboardCartsContainer extends Component {
                 <th>編號</th>
                 <th>項數</th>
                 <th>金額</th>
-                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -34,11 +33,6 @@ class DashboardCartsContainer extends Component {
                   </td>
                   <td>{cart.count}</td>
                   <td>{cart.price}</td>
-                  <td><a className='btn btn-danger btn-sm' 
-                         onClick={
-                           () => deleteDashboardForm('carts', cart.id).
-                             then(() => getDashboardList('carts'))
-                         }>刪除</a></td>
                 </tr>
               )}
             </tbody>

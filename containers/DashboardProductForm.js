@@ -77,14 +77,6 @@ class DashboardProductForm extends Component {
                 )}
               </tbody>
             </Table>
-            <label htmlFor='price'>價格</label>
-            <input ref='price' type='text' name='price' placeholder='輸入價格' style={{width: '100%'}} defaultValue={product.price} />
-            <br/>
-            <br/>
-            <label htmlFor='inventory'>庫存</label>
-            <input ref='inventory' type='text' name='inventory' placeholder='輸入庫存' style={{width: '100%'}} defaultValue={product.inventory} />
-            <br/>
-            <br/>
             <label htmlFor='description'>說明</label>
             <textarea ref='description' name='description' placeholder='輸入說明' rows='5' style={{width: '100%'}} defaultValue={product.description}>
             </textarea>
@@ -130,7 +122,6 @@ DashboardProductForm.propTypes = {
       type: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
       inventory: PropTypes.number.isRequired
     })
   })

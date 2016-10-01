@@ -14,7 +14,17 @@ body {
 #alert > span {
   width: 100px;
   height:20px;
-  background-color: #ff8e8e;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+#alert-success-message {
+  background-color: #58c358;
+}
+
+#alert-failure-message {
+  background-color: #ff7575;
 }
 
 .row {

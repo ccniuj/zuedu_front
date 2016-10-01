@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link, browserHistory } from 'react-router'
 import { addToCart, submitForm, deleteForm, getAllProducts, getCart, clientRender } from '../actions'
-import { getTotal, getCartProducts } from '../reducers'
+import { getCartProducts } from '../reducers'
 import Cart from '../components/Cart'
 import ApplicantForm from '../components/ApplicantForm'
 
@@ -27,7 +27,6 @@ class CartContainer extends Component {
     const { applicants, submitForm, getCart } = this.props
     const submits = applicants.map(applicant => {
       let attributes = [
-        'product_id',
         'product_detail_id',
         'name', 
         'birth', 
@@ -50,7 +49,7 @@ class CartContainer extends Component {
     return Promise.all(submits).then(() => getCart(), err => Promise.reject(err))
   }
   render() {
-    const { products, applicants, total, addToCart, deleteForm, getCart } = this.props
+    const { products, applicants, addToCart, deleteForm, getCart } = this.props
     const style = {
       paddingTop: '50px',
       minHeight: '600px'
@@ -118,15 +117,13 @@ CartContainer.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     unit_price: PropTypes.number.isRequired
-  })).isRequired,
-  total: PropTypes.string
+  })).isRequired
 }
 
 const mapStateToProps = state => {
   return {
     products: state.products.byId,
     applicants: state.cart.form.line_items,
-    total: getTotal(state),
     serverRender: state.serverRender
   }
 }

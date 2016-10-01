@@ -2,7 +2,6 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 import App from './containers/App'
 import About from './containers/About'
-import Contact from './containers/Contact'
 import Faq from './containers/Faq'
 import Home from './components/Home'
 import Dashboard from './containers/Dashboard'
@@ -31,7 +30,6 @@ export default (
     <Route path='/' component={App}>
       <IndexRoute component={Home} />
       <Route path='/about' component={About} />
-      <Route path='/contact' component={Contact} />
       <Route path='/faq' component={Faq} />
       <Route path='/products' component={ProductsContainer} />
       <Route path="/products/:id" component={ProductForm} />

@@ -33,7 +33,7 @@ class DashboardDiscountsContainer extends Component {
                     </Link>
                   </td>
                   <td>{discount.name}</td>
-                  <td>{discount.discount_type}</td>
+                  <td>{discount.discount_type_t}</td>
                   <td>{discount.prerequisite}</td>
                   <td>{discount.factor}</td>
                   <td><a className='btn btn-danger btn-sm' 

@@ -13,7 +13,7 @@ class NavbarInstance extends Component {
   }
   componentWillReceiveProps(nextProps) {
     if (this.props.alert.timestamp != nextProps.alert.timestamp) {
-      this.refs.alert.innerHTML = `<span>${nextProps.alert.message}</span>`
+      this.refs.alert.innerHTML = `<span id='alert-${nextProps.alert.alert_type}-message'>${nextProps.alert.message}</span>`
       $(this.refs.alert).fadeIn('slow', () => setTimeout(() => $(this.refs.alert).fadeOut('slow'), 2000))
     }
   }
@@ -62,9 +62,6 @@ class NavbarInstance extends Component {
           </LinkContainer>
           <LinkContainer to={{ pathname: '/faq' }}>
             <NavItem eventKey={3} href="#">常見問題</NavItem>
-          </LinkContainer>
-          <LinkContainer to={{ pathname: '/contact' }}>
-            <NavItem eventKey={5} href="#">聯絡我們</NavItem>
           </LinkContainer>
           { loginLink }
           { dropdown }

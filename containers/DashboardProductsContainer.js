@@ -19,8 +19,6 @@ class DashboardProductsContainer extends Component {
               <tr>
                 <th>編號</th>
                 <th>名稱</th>
-                <th>價格</th>
-                <th>庫存</th>
                 <th></th>
               </tr>
             </thead>
@@ -33,8 +31,6 @@ class DashboardProductsContainer extends Component {
                     </Link>
                   </td>
                   <td>{product.name}</td>
-                  <td>{product.price}</td>
-                  <td>{product.inventory}</td>
                   <td><a className='btn btn-danger btn-sm' 
                          onClick={
                            () => deleteDashboardForm('products', product.id).

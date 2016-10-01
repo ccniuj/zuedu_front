@@ -12,7 +12,7 @@ export default class OrderInfo extends Component {
     }
   }
   render() {
-    const { products, orders, total, submitForm } = this.context
+    const { products, orders, submitForm } = this.context
     const _payload = orders.allpay.payload ? orders.allpay.payload : {}
     const disabled = orders.form.type=='show' ? 'disabled' : ''
     const order_name = orders.form.type=='new' ? '新增訂單' : `訂單 ${orders.form.id}`
@@ -89,6 +89,5 @@ export default class OrderInfo extends Component {
 OrderInfo.contextTypes = {
   products: PropTypes.array.isRequired,
   orders: PropTypes.object.isRequired,
-  total: PropTypes.string.isRequired,
   submitForm: PropTypes.func.isRequired
 }

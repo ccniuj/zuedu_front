@@ -16,9 +16,9 @@ class Dashboard extends Component {
         <div style={style}>
           <div className='col-md-3 col-xs-3' style={{padding: '30px'}}>
             <div className="list-group">
+              <Link to="/dashboard/members" className="list-group-item">會員</Link>
               <Link to="/dashboard/products" className="list-group-item">課程</Link>
               <Link to="/dashboard/carts" className="list-group-item">購物車</Link>
-              <Link to="/dashboard/members" className="list-group-item">會員</Link>
               <Link to="/dashboard/orders" className="list-group-item">訂單</Link>
               <Link to="/dashboard/applicants" className="list-group-item">報名資料</Link>
               <Link to="/dashboard/discounts" className="list-group-item">折扣</Link>

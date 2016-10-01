@@ -6,9 +6,14 @@ const formInitialState = {
     type: '',
     id: 0,
     name: '',
-    price: 0,
-    inventory: 0,
+    subtitle: '',
     description: '',
+    dimension: '',
+    target: '',
+    pricing: '',
+    cover_image_url: '',
+    outline_image_url: '',
+    dimension_image_url: '',
     product_details: []
   },
   carts: {
@@ -20,8 +25,12 @@ const formInitialState = {
     type: '',
     id: 0,
     description: '',
-    from: '',
-    to: ''
+    date_from: '',
+    date_to: '',
+    time_from: '',
+    time_to: '',
+    price: 0,
+    inventory: 0
   },
   discounts: {
     type: '',
@@ -29,7 +38,9 @@ const formInitialState = {
     name: '',
     discount_type: 'absolute',
     prerequisite: 0,
-    factor: 0
+    factor: 0,
+    date_from: '',
+    date_to: ''
   }
 }
 

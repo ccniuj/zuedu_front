@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { getForm, submitForm, getAllProducts, getCart, clientRender } from '../actions'
-import { getTotal, getCartProducts } from '../reducers'
+import { getCartProducts } from '../reducers'
 import OrderInfo from '../components/OrderInfo'
 import ApplicantForm from '../components/ApplicantForm'
 
@@ -11,7 +11,6 @@ class OrdersForm extends Component {
     return {
       products: this.props.products,
       orders: this.props.orders,
-      total: this.props.total,
       submitForm: this.props.submitForm
     }
   }
@@ -80,16 +79,13 @@ OrdersForm.propTypes = {
   products: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
     quantity: PropTypes.number.isRequired
-  })).isRequired,
-  total: PropTypes.string
+  })).isRequired
 }
 
 OrdersForm.childContextTypes = {
   products: PropTypes.array.isRequired,
   orders: PropTypes.object.isRequired,
-  total: PropTypes.string.isRequired,
   submitForm: PropTypes.func.isRequired
 }
 
@@ -98,7 +94,6 @@ const mapStateToProps = state => {
     cart: state.cart,
     products: getCartProducts(state),
     orders: state.orders,
-    total: getTotal(state),
     serverRender: state.serverRender
   }
 }

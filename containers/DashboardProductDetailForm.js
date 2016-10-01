@@ -10,13 +10,12 @@ class DashboardProductDetailForm extends Component {
     this.props.getDashboardForm(params.type, 'product_details', params.id)
   }
   componentWillReceiveProps(nextProps) {
-    const { description, place, date_from, date_to, time_from, time_to } = nextProps.productDetail
-    this.refs.description.value = description
-    this.refs.place.value = place
-    this.refs.date_from.value = date_from
-    this.refs.date_to.value = date_to
-    this.refs.time_from.value = time_from
-    this.refs.time_to.value = time_to
+    let exclusion = ['id', 'product_id', 'type']
+    Object.keys(nextProps.productDetail).forEach(key => {
+      if (!exclusion.includes(key)) {
+        this.refs[key].value = nextProps.productDetail[key]
+      }
+    })
   }
   render() {
     const { params, productDetail, submitDashboardForm } = this.props
@@ -26,15 +25,12 @@ class DashboardProductDetailForm extends Component {
           <h3>課程資訊</h3>
           <form onSubmit={ e => {
                 e.preventDefault()
-                submitDashboardForm(productDetail.type, 'product_details', productDetail.id, {
-                  product_id: productDetail.type == 'edit' ? productDetail.product_id : params.id,
-                  description: this.refs.description.value,
-                  place: this.refs.place.value,
-                  date_from: this.refs.date_from.value,
-                  date_to: this.refs.date_to.value,
-                  time_from: this.refs.time_from.value,
-                  time_to: this.refs.time_to.value
-                }).then(() => browserHistory.push(`/dashboard/products/edit/${productDetail.product_id ? productDetail.product_id : params.id}`))
+                submitDashboardForm(productDetail.type, 'product_details', productDetail.id, 
+                  Object.assign({}, 
+                    ...Object.keys(this.refs).map(key => { return { [key]: this.refs[key].value }}),
+                    { product_id: productDetail.type == 'edit' ? productDetail.product_id : params.id }
+                  )
+                ).then(() => browserHistory.push(`/dashboard/products/edit/${productDetail.product_id ? productDetail.product_id : params.id}`))
               }}
             >
             <label htmlFor='id'>編號</label><br/>
@@ -47,6 +43,14 @@ class DashboardProductDetailForm extends Component {
             <br/>
             <label htmlFor='place'>地點</label>
             <input ref='place' type='text' name='place' placeholder='輸入地點' style={{width: '100%'}} defaultValue={productDetail.place} />
+            <br/>
+            <br/>
+            <label htmlFor='price'>價格</label>
+            <input ref='price' type='text' name='price' placeholder='輸入價格' style={{width: '100%'}} defaultValue={productDetail.price} />
+            <br/>
+            <br/>
+            <label htmlFor='inventory'>庫存</label>
+            <input ref='inventory' type='text' name='inventory' placeholder='輸入庫存' style={{width: '100%'}} defaultValue={productDetail.inventory} />
             <br/>
             <br/>
             <label htmlFor='date_from'>開始日期</label>

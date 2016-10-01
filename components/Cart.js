@@ -12,7 +12,6 @@ export default class Cart extends Component {
       products.map(product =>
         <Product
           name={product.name}
-          price={product.price}
           quantity={product.quantity}
           key={product.id}/>
     )

@@ -93,7 +93,7 @@ function addToCartUnsafe(productId, productDetailId) {
 
 export function addToCart(productId, productDetailId) {
   return (dispatch, getState) => {
-    if (getState().products.byId[productId].inventory > 0) {
+    if (getState().products.byId[productId].product_details.filter(pd => pd.id==productDetailId)[0].inventory > 0) {
       return fetch(`${config.domain}/line_items.json`, {
         headers: {
           'Accept': 'application/json',
@@ -107,7 +107,15 @@ export function addToCart(productId, productDetailId) {
               })
       }).
         then(res => res.json()).
-        then(() => dispatch(addToCartUnsafe(productId, productDetailId)))
+        then(res => {
+          dispatch({
+            type: types.SUBMIT_LINE_ITEMS_FORM_SUCCESS,
+            message: res.message,
+            alert_type: 'success'
+          })
+          return res
+        }).
+        then(res => dispatch(addToCartUnsafe(productId, productDetailId)))
     } else {
       return Promise.reject('This product has no inventory.')
     }
@@ -342,22 +350,26 @@ export function submitForm(type, resource, id, payload) {
     }).
       then(handleErrors).
       then(res => {
-        dispatch({
-          type: `SUBMIT_${resource.toUpperCase()}_FORM_SUCCESS`
-        })
-        return res
-      }).
-      then(res => {
         const redirect_url = res.headers.get('Location')
         if (redirect_url) {
           dispatch(getAllpayForm(redirect_url))
         }
         return res
       }).
+      then(res => res.json()).
+      then(res => {
+        dispatch({
+          type: `SUBMIT_${resource.toUpperCase()}_FORM_SUCCESS`,
+          message: res.message,
+          alert_type: 'success'
+        })
+        return res
+      }).
       catch(err => {
         dispatch({
           type: `SUBMIT_${resource.toUpperCase()}_FORM_FAILURE`,
-          message: err
+          message: err,
+          alert_type: 'failure'
         })
         return Promise.reject(err)
       })
@@ -375,9 +387,12 @@ export function deleteForm(resource, id) {
       method: 'DELETE'
     }).
       then(handleErrors).
-      then(() => {
+      then(res => res.json()).
+      then(res => {
         dispatch({
-          type: `DELETE_${resource.toUpperCase()}_FORM_SUCCESS`
+          type: `DELETE_${resource.toUpperCase()}_FORM_SUCCESS`,
+          message: res.message,
+          alert_type: 'success'
         })
       }).
       catch(err => {
