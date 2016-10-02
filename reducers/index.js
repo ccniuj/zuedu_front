@@ -60,3 +60,21 @@ export function getCartProducts(state) {
   ))
 }
 
+export function getCountedApplicants(state) {
+  return state.cart.form.
+           line_items.reduce((res, curr) => {
+                        let cp_id = curr.product_detail_id
+                        if (Object.keys(res).map(k => parseInt(k)).includes(cp_id)) {
+                          return Object.assign({}, res,
+                            {
+                              [cp_id]: Object.assign({}, curr, { count: res[cp_id].count+1 })
+                            }
+                          )
+                        } else {
+                          return Object.assign({}, res,
+                            {
+                              [cp_id]: Object.assign({}, curr, { count: 1 })
+                            })
+                        }
+                      }, {})
+}

@@ -2,8 +2,9 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link, browserHistory } from 'react-router'
 import { addToCart, submitForm, deleteForm, getAllProducts, getCart, clientRender } from '../actions'
-import { getCartProducts } from '../reducers'
+import { getCartProducts, getCountedApplicants } from '../reducers'
 import Cart from '../components/Cart'
+import CartInfo from '../components/CartInfo'
 import ApplicantForm from '../components/ApplicantForm'
 
 class CartContainer extends Component {
@@ -14,6 +15,7 @@ class CartContainer extends Component {
   constructor(props) {
     super(props)
     this.submitApplicants = () => this._submitApplicants()
+    this.renderCart = () => this._renderCart()
   }
   componentDidMount() {
     if (this.props.serverRender) {
@@ -43,13 +45,14 @@ class CartContainer extends Component {
         return { [key]: this.refs[`applicant_${applicant.id}`].refs.form[key].value }
       })
       const payload = Object.assign({}, ...arr)
+
       return submitForm('edit', 'line_items', applicant.id, payload)
     })
-
     return Promise.all(submits).then(() => getCart(), err => Promise.reject(err))
   }
   render() {
-    const { products, applicants, addToCart, deleteForm, getCart } = this.props
+    const { products, applicants, addToCart, deleteForm, getCart,
+            ca, cart_matchable_discount_name, cart_matchable_discount_factor, total } = this.props
     const style = {
       paddingTop: '50px',
       minHeight: '600px'
@@ -94,6 +97,10 @@ class CartContainer extends Component {
             : <div/>
           }
         </div>
+        <CartInfo ca={ca} 
+                  cart_matchable_discount_name={cart_matchable_discount_name}
+                  cart_matchable_discount_factor={cart_matchable_discount_factor}
+                  total={total} />
         { applicants.map(applicant => 
             <div key={applicant.id} className='row'>
               <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 applicant-form'>
@@ -123,7 +130,11 @@ CartContainer.propTypes = {
 const mapStateToProps = state => {
   return {
     products: state.products.byId,
+    total: state.cart.form.price,
     applicants: state.cart.form.line_items,
+    ca: getCountedApplicants(state),
+    cart_matchable_discount_name: state.cart.form.matchable_discount_name,
+    cart_matchable_discount_factor: state.cart.form.matchable_discount_factor,
     serverRender: state.serverRender
   }
 }

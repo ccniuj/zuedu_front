@@ -131,6 +131,14 @@ body {
 .cart-btns {
   background-color: #fff2b0;
   box-shadow: 10px 10px 20px #888888; 
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 10px;
+}
+
+.cart-info {
+  background-color: #dadada;
+  box-shadow: 10px 10px 20px #888888; 
   margin-top: 30px;
   margin-bottom: 30px;
   padding: 10px;

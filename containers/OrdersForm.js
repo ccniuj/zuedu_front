@@ -2,8 +2,9 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { getForm, submitForm, getAllProducts, getCart, clientRender } from '../actions'
-import { getCartProducts } from '../reducers'
+import { getCartProducts, getCountedApplicants } from '../reducers'
 import OrderInfo from '../components/OrderInfo'
+import CartInfo from '../components/CartInfo'
 import ApplicantForm from '../components/ApplicantForm'
 
 class OrdersForm extends Component {
@@ -45,7 +46,9 @@ class OrdersForm extends Component {
       paddingTop: '50px',
       minHeight: '600px'
     }
-    const { cart, orders } = this.props
+    const { cart, orders,
+            ca, cart_matchable_discount_name, cart_matchable_discount_factor, total } = this.props
+
     let line_items = orders.form.type == 'new' 
     ? cart.form.line_items 
     : orders.form.line_items
@@ -54,6 +57,10 @@ class OrdersForm extends Component {
       <div className='container' style={style}>
         <OrderInfo />
         <div style={{ clear: 'both' }} />
+        <CartInfo ca={ca}
+                  cart_matchable_discount_name={cart_matchable_discount_name}
+                  cart_matchable_discount_factor={cart_matchable_discount_factor}
+                  total={total} />
         <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2' style={{textAlign: 'center'}}>
           <h4><center>報名資訊</center></h4>
           <Link to='/cart' className='btn btn-sm btn-warning pull-right' style={{marginTop: '-35px'}}>修改</Link>
@@ -94,6 +101,10 @@ const mapStateToProps = state => {
     cart: state.cart,
     products: getCartProducts(state),
     orders: state.orders,
+    total: state.cart.form.price,
+    ca: getCountedApplicants(state),
+    cart_matchable_discount_name: state.cart.form.matchable_discount_name,
+    cart_matchable_discount_factor: state.cart.form.matchable_discount_factor,
     serverRender: state.serverRender
   }
 }
