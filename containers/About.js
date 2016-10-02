@@ -29,7 +29,7 @@ class About extends Component {
         </div>
         <div className='row'>
           <div className='col-xs-5' style={{marginTop: '30px', marginBottom: '30px'}}>
-            <img src='/images/about_3.png' style={{width: '100%'}} />
+            <iframe width='100%' height='300px' src="https://www.youtube.com/embed/NQ9Se8bH6v4" frameBorder="0" allowFullScreen></iframe>
             <h5>台大葉丙成教授提出，現在的孩子最重要的不再是成績而是能夠擁有“快速學習、接受新事物與搜尋關鍵字”的能力!</h5>
           </div>
           <div className='col-xs-7' style={{marginTop: '30px', marginBottom: '30px'}}>
