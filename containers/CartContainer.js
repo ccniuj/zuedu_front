@@ -127,7 +127,7 @@ CartContainer.propTypes = {
   applicants: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    unit_price: PropTypes.number.isRequired
+    price: PropTypes.number.isRequired
   })).isRequired
 }
 

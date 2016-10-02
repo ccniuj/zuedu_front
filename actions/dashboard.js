@@ -150,10 +150,16 @@ export function notifyMember(resource, type, id) {
   }
 }
 
-export function download_csv(resource, cols) {
+export function download_csv(resource, cols, product_detail_ids) {
   return dispatch => {
-    return fetch(`${config.domain}/dashboard/${resource}/download?cols=${cols.join(',')}`, {
-      credentials: 'include'
+    return fetch(`${config.domain}/dashboard/${resource}/download_csv`, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include',
+      method: 'POST',
+      body: JSON.stringify( { product_detail_ids, cols } )
     }).
       then(handleErrors).
       then(res => res.json())

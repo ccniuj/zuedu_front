@@ -1,21 +1,35 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import { getAllProducts } from '../actions'
 import { getDashboardList, deleteDashboardForm, download_csv } from '../actions/dashboard'
 import { Table } from 'react-bootstrap'
 
 class DashboardApplicantsContainer extends Component {
   componentDidMount() {
-    this.props.getDashboardList('line_items')
+    this.props.getDashboardList('line_items').
+      then(() => this.props.getAllProducts())
   }
-  renderCheckboxes() {
+  renderProductsCheckboxed() {
+    return this.props.products.map(product => 
+             <div key={product.id}>
+             {
+               product.product_details.map(pd => 
+                 <div key={pd.id}>
+                   <input ref={`prd:${pd.id}`} type='checkbox' value={pd.id} defaultChecked /> {product.name} {pd.place}  
+                 </div>
+               )
+             }
+             </div>
+           )
+  }
+  renderColsCheckboxes() {
     let cols = {
       id: '報名編號',
-      product_id: '課程',
-      product_detail_id: '場次',
+      product_detail_id: '課程場次',
       cart_id: '購物車編號',
       order_id: '訂單編號',
-      unit_price: '報名價格',
+      price: '報名價格',
       name: '姓名',
       birth: '生日',
       gender: '性別',
@@ -29,10 +43,10 @@ class DashboardApplicantsContainer extends Component {
       created_at: '建立日期',
       updated_at: '更新日期'
     }
-    return Object.keys(cols).map(key => <div className='col-xs-4' key={key}><input ref={`${key}`} type='checkbox' defaultChecked />&nbsp;{cols[key]}&nbsp;&nbsp;</div>)
+    return Object.keys(cols).map(key => <div className='col-xs-4' key={key}><input ref={`col:${key}`} value={key} type='checkbox' defaultChecked /> {cols[key]}  </div>)
   }
   render() {
-    const { applicants, getDashboardList, deleteDashboardForm, download_csv } = this.props
+    const { products, applicants, getDashboardList, deleteDashboardForm, download_csv } = this.props
     return (
       <div className='container-fluid'>
         <div className='col-md-12 col-xs-12'>
@@ -78,12 +92,17 @@ class DashboardApplicantsContainer extends Component {
               )}
             </tbody>
           </Table>
-          <h3>表單欄位</h3>
-          { this.renderCheckboxes() }
+          <h3>選取課程場次</h3>
+          { this.renderProductsCheckboxed() }
+          <div style={{ clear: 'both' }} /><br/>
+          <h3>選取表單欄位</h3>
+          { this.renderColsCheckboxes() }
           <div style={{ clear: 'both' }} /><br/>
           <input className='btn btn-success' type='submit' value='匯出表單'
                  onClick={
-                   () => download_csv('line_items', Object.keys(this.refs).filter(r => this.refs[r].checked)).
+                   () => download_csv('line_items', 
+                     Object.keys(this.refs).filter(r => r.includes('col') && this.refs[r].checked).map(k => k.split(':')[1]),
+                     Object.keys(this.refs).filter(r => r.includes('prd') && this.refs[r].checked).map(k => parseInt(k.split(':')[1]))).
                      then(data => {
                        let a = document.createElement('a')
                        a.href = `data:attachment/csv,${encodeURI(data.csv)}`
@@ -107,7 +126,9 @@ DashboardApplicantsContainer.propTypes = {
 }
 
 function mapStateToProps(state) {
+  let products = state.products.byId
   return {
+    products: Object.keys(products).map(key => products[key]),
     applicants: state.dashboard.list,
     serverRender: state.serverRender
   }
@@ -115,5 +136,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { getDashboardList, deleteDashboardForm, download_csv }
+  { getAllProducts, getDashboardList, deleteDashboardForm, download_csv }
 )(DashboardApplicantsContainer)

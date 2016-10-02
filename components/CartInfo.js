@@ -10,7 +10,7 @@ export default class CartInfo extends Component {
         {
           applicants.map(applicant => 
             <div key={applicant.id}>
-              <b>{applicant.product_name} {applicant.product_detail_description} ${applicant.unit_price}</b>
+              <b>{applicant.product_name} {applicant.product_detail_description} ${applicant.price}</b>
               <b> 報名學員：{ applicant.name == '' ? '未填姓名' : applicant.name}</b>
             </div>
           )

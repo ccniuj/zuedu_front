@@ -36,7 +36,7 @@ class DashboardCartForm extends Component {
                 { cart.line_items.map(item => 
                   <tr key={item.id}>
                     <td>{item.name}</td>
-                    <td>{item.unit_price}</td>
+                    <td>{item.price}</td>
                     <td>{item.quantity}</td>
                   </tr>
                 )}
