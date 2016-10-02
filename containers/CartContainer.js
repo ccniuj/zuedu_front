@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link, browserHistory } from 'react-router'
 import { addToCart, submitForm, deleteForm, getAllProducts, getCart, clientRender } from '../actions'
-import { getCartProducts, getCountedApplicants } from '../reducers'
+import { getCartProducts } from '../reducers'
 import Cart from '../components/Cart'
 import CartInfo from '../components/CartInfo'
 import ApplicantForm from '../components/ApplicantForm'
@@ -52,7 +52,7 @@ class CartContainer extends Component {
   }
   render() {
     const { products, applicants, addToCart, deleteForm, getCart,
-            ca, cart_matchable_discount_name, cart_matchable_discount_factor, total } = this.props
+            cart_matchable_discount_name, cart_matchable_discount_factor, total } = this.props
     const style = {
       paddingTop: '50px',
       minHeight: '600px'
@@ -97,7 +97,7 @@ class CartContainer extends Component {
             : <div/>
           }
         </div>
-        <CartInfo ca={ca} 
+        <CartInfo applicants={applicants} 
                   cart_matchable_discount_name={cart_matchable_discount_name}
                   cart_matchable_discount_factor={cart_matchable_discount_factor}
                   total={total} />
@@ -132,7 +132,6 @@ const mapStateToProps = state => {
     products: state.products.byId,
     total: state.cart.form.price,
     applicants: state.cart.form.line_items,
-    ca: getCountedApplicants(state),
     cart_matchable_discount_name: state.cart.form.matchable_discount_name,
     cart_matchable_discount_factor: state.cart.form.matchable_discount_factor,
     serverRender: state.serverRender

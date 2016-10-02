@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { getForm, submitForm, getAllProducts, getCart, clientRender } from '../actions'
-import { getCartProducts, getCountedApplicants } from '../reducers'
+import { getCartProducts } from '../reducers'
 import OrderInfo from '../components/OrderInfo'
 import CartInfo from '../components/CartInfo'
 import ApplicantForm from '../components/ApplicantForm'
@@ -47,7 +47,7 @@ class OrdersForm extends Component {
       minHeight: '600px'
     }
     const { cart, orders,
-            ca, cart_matchable_discount_name, cart_matchable_discount_factor, total } = this.props
+            cart_matchable_discount_name, cart_matchable_discount_factor, total } = this.props
 
     let line_items = orders.form.type == 'new' 
     ? cart.form.line_items 
@@ -57,7 +57,7 @@ class OrdersForm extends Component {
       <div className='container' style={style}>
         <OrderInfo />
         <div style={{ clear: 'both' }} />
-        <CartInfo ca={ca}
+        <CartInfo applicants={line_items}
                   cart_matchable_discount_name={cart_matchable_discount_name}
                   cart_matchable_discount_factor={cart_matchable_discount_factor}
                   total={total} />
@@ -102,7 +102,6 @@ const mapStateToProps = state => {
     products: getCartProducts(state),
     orders: state.orders,
     total: state.cart.form.price,
-    ca: getCountedApplicants(state),
     cart_matchable_discount_name: state.cart.form.matchable_discount_name,
     cart_matchable_discount_factor: state.cart.form.matchable_discount_factor,
     serverRender: state.serverRender
