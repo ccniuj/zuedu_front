@@ -97,10 +97,14 @@ class CartContainer extends Component {
             : <div/>
           }
         </div>
-        <CartInfo applicants={applicants} 
-                  cart_matchable_discount_name={cart_matchable_discount_name}
-                  cart_matchable_discount_factor={cart_matchable_discount_factor}
-                  total={total} />
+        {
+          applicants.length > 0
+          ? <CartInfo applicants={applicants} 
+                      cart_matchable_discount_name={cart_matchable_discount_name}
+                      cart_matchable_discount_factor={cart_matchable_discount_factor}
+                      total={total} />
+          : <div/>
+        }
         { applicants.map(applicant => 
             <div key={applicant.id} className='row'>
               <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 applicant-form'>

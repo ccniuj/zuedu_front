@@ -57,10 +57,14 @@ class OrdersForm extends Component {
       <div className='container' style={style}>
         <OrderInfo />
         <div style={{ clear: 'both' }} />
-        <CartInfo applicants={line_items}
-                  cart_matchable_discount_name={cart_matchable_discount_name}
-                  cart_matchable_discount_factor={cart_matchable_discount_factor}
-                  total={total} />
+        {
+          line_items.length > 0
+          ? <CartInfo applicants={line_items}
+                      cart_matchable_discount_name={cart_matchable_discount_name}
+                      cart_matchable_discount_factor={cart_matchable_discount_factor}
+                      total={total} />
+          : <div/>
+        }
         <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2' style={{textAlign: 'center'}}>
           <h4><center>報名資訊</center></h4>
           <Link to='/cart' className='btn btn-sm btn-warning pull-right' style={{marginTop: '-35px'}}>修改</Link>
