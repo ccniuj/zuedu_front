@@ -27,7 +27,7 @@ export default class OrderInfo extends Component {
         break
       default:
         submit_btn = <input className='btn btn-success' type='submit' value='確定' />
-        allpay_form = <form id='allpay' action={orders.allpay.url} method='post' style={{display: 'none'}}>
+        allpay_form = <form id='allpay' target="_blank" action={orders.allpay.url} method='post' style={{display: 'none'}}>
             信用卡測試卡號: 4311-9522-2222-2222<br/>
             信用卡測試安全碼: 222<br/>
             信用卡測試有效年月: 設定在未來時間即可<br/>

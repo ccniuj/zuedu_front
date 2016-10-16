@@ -352,6 +352,11 @@ export function submitForm(type, resource, id, payload) {
       then(res => {
         const redirect_url = res.headers.get('Location')
         if (redirect_url) {
+          dispatch({
+            type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_SUCCESS`,
+            resource,
+            data: { id: parseInt(redirect_url.split('/').pop()) }
+          })
           dispatch(getAllpayForm(redirect_url))
           throw new Error('redirection');
         }
@@ -442,6 +447,12 @@ export function submitAllpayForm(params) {
       data_arr.push(`${key}=${params.payload[key]}`)
     }
     let data = data_arr.join('&')
+  }
+}
+
+export function cleanAllpayForm() {
+  return {
+    type: types.CLEAN_ALLPAY_FORM
   }
 }
 

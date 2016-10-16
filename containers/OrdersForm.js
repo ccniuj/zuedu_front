@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
-import { getForm, submitForm, getAllProducts, getCart, clientRender } from '../actions'
+import { Link, browserHistory } from 'react-router'
+import { getForm, submitForm, getAllProducts, getCart, clientRender, cleanAllpayForm } from '../actions'
 import { getCartProducts } from '../reducers'
 import OrderInfo from '../components/OrderInfo'
 import CartInfo from '../components/CartInfo'
@@ -37,8 +37,19 @@ class OrdersForm extends Component {
   }
 
   componentDidUpdate() {
-    if (Object.keys(this.props.orders.allpay).length != 0 ) {
-      document.getElementById('allpay').submit()
+    const {
+      orders,
+      cleanAllpayForm, 
+      getForm } = this.props
+
+    if (Object.keys(orders.allpay).length != 0 ) {
+      new Promise((resolve, reject) => {
+        document.getElementById('allpay').submit()
+        resolve()
+      }).
+        then(() => cleanAllpayForm(), err => console.log(err)).
+        then(() => browserHistory.push(`/orders/show/${orders.form.id}`), err => console.log(err)).
+        then(() => getForm('show', 'orders', orders.form.id), err => console.log(err))
     }
   }
   render() {
@@ -114,5 +125,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getForm, submitForm, getAllProducts, getCart, clientRender }
+  { getForm, submitForm, getAllProducts, getCart, clientRender, cleanAllpayForm }
 )(OrdersForm)
