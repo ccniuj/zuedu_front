@@ -62,6 +62,7 @@ export default class OrderInfo extends Component {
               <select className='orderinfo-form-input' ref='payment' name='payment' disabled={disabled}>
                 <option value='Credit'>信用卡</option>
                 <option value='CVS'>超商代碼</option>
+                <option value='ATM'>ATM</option>
               </select>
               <div className='orderinfo-form-dropdown-margin' />
               <h6 className='orderinfo-form-label'>信箱<span style={{color: 'red'}}>*</span></h6>
