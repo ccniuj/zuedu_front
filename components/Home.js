@@ -98,29 +98,6 @@ class Home extends Component {
             </div>
           </div>
         </div>
-        <div className='row home-features-container'>
-          <div ref='features' style={{ display: 'none' }}>
-            <center><h2>ZU教學 三大特色</h2></center>
-            <div className='col-xs-4'>
-              <div className='home-feature'>
-                <img src='/images/feature_left.png' />
-              </div>
-              <center><h4>ZUBOX</h4></center>
-            </div>
-            <div className='col-xs-4'>
-              <div className='home-feature'>
-                <img src='/images/feature_middle.png' />
-              </div>
-              <center><h4>圖像思考</h4></center>
-            </div>
-            <div className='col-xs-4'>
-              <div className='home-feature'>
-                <img src='/images/feature_right.png' />
-              </div>
-              <center><h4>沈浸教學</h4></center>
-            </div>
-          </div>
-        </div>
       </div>
     )
   }

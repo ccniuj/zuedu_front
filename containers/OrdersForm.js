@@ -116,7 +116,7 @@ const mapStateToProps = state => {
     cart: state.cart,
     products: getCartProducts(state),
     orders: state.orders,
-    total: state.cart.form.price,
+    total: state.orders.form.price,
     cart_matchable_discount_name: state.cart.form.matchable_discount_name,
     cart_matchable_discount_factor: state.cart.form.matchable_discount_factor,
     serverRender: state.serverRender

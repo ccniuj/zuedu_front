@@ -30,7 +30,6 @@ export default (
     <Route path='/' component={App}>
       <IndexRoute component={Home} />
       <Route path='/about' component={About} />
-      <Route path='/faq' component={Faq} />
       <Route path='/products' component={ProductsContainer} />
       <Route path="/products/:id" component={ProductForm} />
       <Route path="/cart" component={CartContainer} />

@@ -10,6 +10,7 @@ export default class Footer extends Component {
         <div className='col-xs-4 col-xs-offset-4 text-left'>
           信箱：zubat.nthu@gmail.com<br/>
           LINE：@ebr1368g<br/>
+          客服：0975-467-941<br/>
         </div>
       </footer>
     )

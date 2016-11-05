@@ -60,9 +60,6 @@ class NavbarInstance extends Component {
           <LinkContainer to={{ pathname: '/products' }}>
             <NavItem eventKey={2} href="#">課程介紹</NavItem>
           </LinkContainer>
-          <LinkContainer to={{ pathname: '/faq' }}>
-            <NavItem eventKey={3} href="#">常見問題</NavItem>
-          </LinkContainer>
           { loginLink }
           { dropdown }
         </Nav>
