@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.5.0'
+lock '3.7.2'
 
 set :application, 'zuedu_front'
 set :repo_url, 'git@github.com:davidjuin0519/zuedu_front.git'

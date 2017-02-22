@@ -10,7 +10,9 @@ export default class App extends Component {
       <div>
         <NavbarInstance location={location}  />
         {children}
-        <Footer />
+        <Footer>
+          <button />
+        </Footer>
       </div>
     )
   }
