@@ -1,16 +1,38 @@
-import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
-import { Link, browserHistory } from 'react-router'
-import { addToCart, submitForm, deleteForm, getAllProducts, getCart, clientRender } from '../actions'
-import { getCartProducts } from '../reducers'
+import React, {
+  Component,
+  PropTypes
+} from 'react'
+import {
+  connect
+} from 'react-redux'
+import {
+  Link,
+  browserHistory
+} from 'react-router'
+import {
+  addToCart,
+  submitForm,
+  deleteForm,
+  getAllProducts,
+  getCart,
+  clientRender,
+  step
+} from '../actions'
+import {
+  getCartProducts
+} from '../reducers'
 import Cart from '../components/Cart'
 import CartInfo from '../components/CartInfo'
 import ApplicantForm from '../components/ApplicantForm'
+import OrderStep from '../components/OrderStep'
 
 class CartContainer extends Component {
-  static fetchData({ store, cookie }) {
+  static fetchData({
+    store,
+    cookie
+  }) {
     return store.dispatch(getAllProducts(cookie)).
-             then(() => store.dispatch(getCart(cookie)))
+    then(() => store.dispatch(getCart(cookie)))
   }
   constructor(props) {
     super(props)
@@ -22,27 +44,33 @@ class CartContainer extends Component {
       this.props.clientRender()
     } else {
       this.props.getAllProducts().
-        then(() => this.props.getCart())
+      then(() => this.props.getCart())
     }
   }
   _submitApplicants() {
-    const { applicants, submitForm, getCart } = this.props
+    const {
+      applicants,
+      submitForm,
+      getCart
+    } = this.props
     const submits = applicants.map(applicant => {
       let attributes = [
         'product_detail_id',
-        'name', 
-        'birth', 
-        'gender', 
-        'ss_number', 
-        'school', 
-        'grade', 
-        'food_preference', 
+        'name',
+        'birth',
+        'gender',
+        'ss_number',
+        'school',
+        'grade',
+        'food_preference',
         'note',
         'parent_phone_number',
-        'parent_email' 
+        'parent_email'
       ]
-      let arr = attributes.map( key => {
-        return { [key]: this.refs[`applicant_${applicant.id}`].refs.form[key].value }
+      let arr = attributes.map(key => {
+        return {
+          [key]: this.refs[`applicant_${applicant.id}`].refs.form[key].value
+        }
       })
       const payload = Object.assign({}, ...arr)
 
@@ -51,8 +79,16 @@ class CartContainer extends Component {
     return Promise.all(submits).then(() => getCart(), err => Promise.reject(err))
   }
   render() {
-    const { products, applicants, addToCart, deleteForm, getCart,
-            cart_matchable_discount_name, cart_matchable_discount_factor, total } = this.props
+    const {
+      products,
+      applicants,
+      addToCart,
+      deleteForm,
+      getCart,
+      cart_matchable_discount_name,
+      cart_matchable_discount_factor,
+      total
+    } = this.props
     const style = {
       paddingTop: '50px',
       minHeight: '600px'
@@ -63,6 +99,7 @@ class CartContainer extends Component {
     return (
       <div className='container' style={style}>
         <center><h3>購物車</h3></center>
+        <OrderStep step={this.props.step}/>
         <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 cart-btns'>
           <ul>
             <li>請輸入學生及聯絡人資料，並選擇這位學生要參加的梯次。</li>
@@ -143,6 +180,13 @@ const mapStateToProps = state => {
 }
 
 export default connect(
-  mapStateToProps,
-  { getAllProducts, submitForm, deleteForm, getCart, clientRender, addToCart }
+  mapStateToProps, {
+    getAllProducts,
+    submitForm,
+    deleteForm,
+    getCart,
+    clientRender,
+    addToCart,
+    step
+  }
 )(CartContainer)

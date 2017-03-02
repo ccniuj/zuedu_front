@@ -1,8 +1,17 @@
 import * as types from '../constants/ActionTypes'
-import { browserHistory } from 'react-router'
+import {
+  browserHistory
+} from 'react-router'
 import request from 'superagent'
 import config from '../config'
 
+export function step() {
+  console.log("yes");
+  return {
+    type: step,
+    payload: "1"
+  }
+}
 export function receiveProducts(products) {
   return {
     type: types.RECEIVE_PRODUCTS,
@@ -40,18 +49,18 @@ export function getAllProducts(cookie) {
         headers['cookie'] = cookie
       }
       request.
-        get(`${config.domain}/products.json`).
-        withCredentials().
-        set(headers).
-        end((err, res) => {
-          if (!err) {
-            let data = JSON.parse(res.text)
-            dispatch(receiveProducts(data))
-            resolve(receiveProducts(data))
-          } else {
-            reject(err)
-          }
-        })
+      get(`${config.domain}/products.json`).
+      withCredentials().
+      set(headers).
+      end((err, res) => {
+        if (!err) {
+          let data = JSON.parse(res.text)
+          dispatch(receiveProducts(data))
+          resolve(receiveProducts(data))
+        } else {
+          reject(err)
+        }
+      })
     })
   }
 }
@@ -67,18 +76,18 @@ export function getCart(cookie) {
         headers['cookie'] = cookie
       }
       request.
-        get(`${config.domain}/carts.json`).
-        withCredentials().
-        set(headers).
-        end((err, res) => {
-          if (!err) {
-            let data = JSON.parse(res.text)
-            dispatch(receiveCart(data))
-            resolve(receiveCart(data))
-          } else {
-            reject(err)
-          }
-        })
+      get(`${config.domain}/carts.json`).
+      withCredentials().
+      set(headers).
+      end((err, res) => {
+        if (!err) {
+          let data = JSON.parse(res.text)
+          dispatch(receiveCart(data))
+          resolve(receiveCart(data))
+        } else {
+          reject(err)
+        }
+      })
     })
   }
 }
@@ -93,7 +102,7 @@ function addToCartUnsafe(productId, productDetailId) {
 
 export function addToCart(productId, productDetailId) {
   return (dispatch, getState) => {
-    if (getState().products.byId[productId].product_details.filter(pd => pd.id==productDetailId)[0].inventory > 0) {
+    if (getState().products.byId[productId].product_details.filter(pd => pd.id == productDetailId)[0].inventory > 0) {
       return fetch(`${config.domain}/line_items.json`, {
         headers: {
           'Accept': 'application/json',
@@ -102,20 +111,20 @@ export function addToCart(productId, productDetailId) {
         credentials: 'include',
         method: 'POST',
         body: JSON.stringify({
-                product_id: productId,
-                product_detail_id: productDetailId
-              })
+          product_id: productId,
+          product_detail_id: productDetailId
+        })
       }).
-        then(res => res.json()).
-        then(res => {
-          dispatch({
-            type: types.SUBMIT_LINE_ITEMS_FORM_SUCCESS,
-            message: res.message,
-            alert_type: 'success'
-          })
-          return res
-        }).
-        then(res => dispatch(addToCartUnsafe(productId, productDetailId)))
+      then(res => res.json()).
+      then(res => {
+        dispatch({
+          type: types.SUBMIT_LINE_ITEMS_FORM_SUCCESS,
+          message: res.message,
+          alert_type: 'success'
+        })
+        return res
+      }).
+      then(res => dispatch(addToCartUnsafe(productId, productDetailId)))
     } else {
       return Promise.reject('This product has no inventory.')
     }
@@ -136,29 +145,27 @@ export function login(user_id, password) {
       },
       credentials: 'include',
       method: 'POST',
-      body: JSON.stringify(
-        {
-          user: 
-            {
-              email: user_id,
-              password: password
-            }
-        })
-    }).
-      then(handleErrors).
-      then(() => {
-        dispatch({
-          type: types.LOGIN_SUCCESS,
-          user_id
-        })
-        browserHistory.push('/dashboard')
-      }).
-      catch((err) => {
-        console.log(err)
-        dispatch({
-          type: types.LOGIN_FAILURE
-        })
+      body: JSON.stringify({
+        user: {
+          email: user_id,
+          password: password
+        }
       })
+    }).
+    then(handleErrors).
+    then(() => {
+      dispatch({
+        type: types.LOGIN_SUCCESS,
+        user_id
+      })
+      browserHistory.push('/dashboard')
+    }).
+    catch((err) => {
+      console.log(err)
+      dispatch({
+        type: types.LOGIN_FAILURE
+      })
+    })
   }
 }
 
@@ -174,22 +181,22 @@ export function checkMemberLogin() {
       },
       credentials: 'include'
     }).
-      then(handleErrors).
-      then(res => res.json()).
-      then(data => {
-        if(data.member) {
-          dispatch({
-            type: types.CHECK_MEMBER_LOGIN_SUCCESS,
-            member: data.member,
-          })
-        }
-      }).
-      catch((err) => {
-        console.log(err)
+    then(handleErrors).
+    then(res => res.json()).
+    then(data => {
+      if (data.member) {
         dispatch({
-          type: types.CHECK_MEMBER_LOGIN_FAILURE
+          type: types.CHECK_MEMBER_LOGIN_SUCCESS,
+          member: data.member,
         })
+      }
+    }).
+    catch((err) => {
+      console.log(err)
+      dispatch({
+        type: types.CHECK_MEMBER_LOGIN_FAILURE
       })
+    })
   }
 }
 
@@ -206,19 +213,19 @@ export function logout() {
       credentials: 'include',
       method: 'DELETE',
     }).
-      then(handleErrors).
-      then(() => {
-        dispatch({
-          type: types.LOGOUT_SUCCESS
-        })
-        browserHistory.push('/')
-      }).
-      catch((err) => {
-        console.log(err)
-        dispatch({
-          type: types.LOGOUT_FAILURE
-        })
+    then(handleErrors).
+    then(() => {
+      dispatch({
+        type: types.LOGOUT_SUCCESS
       })
+      browserHistory.push('/')
+    }).
+    catch((err) => {
+      console.log(err)
+      dispatch({
+        type: types.LOGOUT_FAILURE
+      })
+    })
   }
 }
 
@@ -235,19 +242,19 @@ export function memberLogout() {
       credentials: 'include',
       method: 'DELETE',
     }).
-      then(handleErrors).
-      then(() => {
-        dispatch({
-          type: types.MEMBER_LOGOUT_SUCCESS
-        })
-        browserHistory.push('/')
-      }).
-      catch((err) => {
-        console.log(err)
-        dispatch({
-          type: types.MEMBER_LOGOUT_FAILURE
-        })
+    then(handleErrors).
+    then(() => {
+      dispatch({
+        type: types.MEMBER_LOGOUT_SUCCESS
       })
+      browserHistory.push('/')
+    }).
+    catch((err) => {
+      console.log(err)
+      dispatch({
+        type: types.MEMBER_LOGOUT_FAILURE
+      })
+    })
   }
 }
 
@@ -268,25 +275,25 @@ export function getList(resource, query) {
       },
       credentials: 'include'
     }).
-      then(handleErrors).
-      then(res => res.json()).
-      then(data => dispatch({
-        type: `GET_${resource.toUpperCase()}_LIST_SUCCESS`,
-        data
-      })).
-      catch(err => {
-        console.log(err)
-        dispatch({
-          type: `GET_${resource.toUpperCase()}_LIST_FAILURE`
-        })
+    then(handleErrors).
+    then(res => res.json()).
+    then(data => dispatch({
+      type: `GET_${resource.toUpperCase()}_LIST_SUCCESS`,
+      data
+    })).
+    catch(err => {
+      console.log(err)
+      dispatch({
+        type: `GET_${resource.toUpperCase()}_LIST_FAILURE`
       })
+    })
   }
 }
 
-export function getForm(type, resource, id='', cookie) {
+export function getForm(type, resource, id = '', cookie) {
   return dispatch => {
     return new Promise((resolve, reject) => {
-      if (type=='new') {
+      if (type == 'new') {
         dispatch({
           type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_SUCCESS`,
           resource
@@ -304,26 +311,26 @@ export function getForm(type, resource, id='', cookie) {
           headers['cookie'] = cookie
         }
         request.
-          get(`${config.domain}/${resource}/${id}.json`).
-          withCredentials().
-          set(headers).
-          end((err, res) => {
-            if (!err) {
-              let data = JSON.parse(res.text)
-              dispatch({
-                type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_SUCCESS`,
-                resource,
-                data
-              })
-              resolve()
-            } else {
-              console.log(err)
-              dispatch({
-                type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_FAILURE`
-              })
-              reject(err)
-            }
-          })
+        get(`${config.domain}/${resource}/${id}.json`).
+        withCredentials().
+        set(headers).
+        end((err, res) => {
+          if (!err) {
+            let data = JSON.parse(res.text)
+            dispatch({
+              type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_SUCCESS`,
+              resource,
+              data
+            })
+            resolve()
+          } else {
+            console.log(err)
+            dispatch({
+              type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_FAILURE`
+            })
+            reject(err)
+          }
+        })
       }
     })
   }
@@ -332,7 +339,7 @@ export function getForm(type, resource, id='', cookie) {
 export function submitForm(type, resource, id, payload) {
   return dispatch => {
     let fetch_config = {}
-    if (type=='new') {
+    if (type == 'new') {
       fetch_config['path'] = `/${resource}.json`
       fetch_config['method'] = 'POST'
     } else {
@@ -346,43 +353,47 @@ export function submitForm(type, resource, id, payload) {
       },
       credentials: 'include',
       method: fetch_config.method,
-      body: JSON.stringify( { [resource]: payload } )
-    }).
-      then(handleErrors).
-      then(res => {
-        const redirect_url = res.headers.get('Location')
-        if (redirect_url) {
-          dispatch({
-            type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_SUCCESS`,
-            resource,
-            data: { id: parseInt(redirect_url.split('/').pop()) }
-          })
-          dispatch(getAllpayForm(redirect_url))
-          throw new Error('redirection');
-        }
-        return res
-      }).
-      then(res => res.json()).
-      then(res => {
-        dispatch({
-          type: `SUBMIT_${resource.toUpperCase()}_FORM_SUCCESS`,
-          message: res.message,
-          alert_type: 'success'
-        })
-        return res
-      }).
-      catch(err => {
-        if (err.message == 'redirection') {
-          console.log('redirection')
-        } else {
-          dispatch({
-            type: `SUBMIT_${resource.toUpperCase()}_FORM_FAILURE`,
-            message: err,
-            alert_type: 'failure'
-          })
-          return Promise.reject(err)
-        }
+      body: JSON.stringify({
+        [resource]: payload
       })
+    }).
+    then(handleErrors).
+    then(res => {
+      const redirect_url = res.headers.get('Location')
+      if (redirect_url) {
+        dispatch({
+          type: `GET_${resource.toUpperCase()}_${type.toUpperCase()}_FORM_SUCCESS`,
+          resource,
+          data: {
+            id: parseInt(redirect_url.split('/').pop())
+          }
+        })
+        dispatch(getAllpayForm(redirect_url))
+        throw new Error('redirection');
+      }
+      return res
+    }).
+    then(res => res.json()).
+    then(res => {
+      dispatch({
+        type: `SUBMIT_${resource.toUpperCase()}_FORM_SUCCESS`,
+        message: res.message,
+        alert_type: 'success'
+      })
+      return res
+    }).
+    catch(err => {
+      if (err.message == 'redirection') {
+        console.log('redirection')
+      } else {
+        dispatch({
+          type: `SUBMIT_${resource.toUpperCase()}_FORM_FAILURE`,
+          message: err,
+          alert_type: 'failure'
+        })
+        return Promise.reject(err)
+      }
+    })
   }
 }
 
@@ -396,21 +407,21 @@ export function deleteForm(resource, id) {
       credentials: 'include',
       method: 'DELETE'
     }).
-      then(handleErrors).
-      then(res => res.json()).
-      then(res => {
-        dispatch({
-          type: `DELETE_${resource.toUpperCase()}_FORM_SUCCESS`,
-          message: res.message,
-          alert_type: 'success'
-        })
-      }).
-      catch(err => {
-        dispatch({
-          type: `DELETE_${resource.toUpperCase()}_FORM_FAILURE`
-        })
-        console.log(err)
+    then(handleErrors).
+    then(res => res.json()).
+    then(res => {
+      dispatch({
+        type: `DELETE_${resource.toUpperCase()}_FORM_SUCCESS`,
+        message: res.message,
+        alert_type: 'success'
       })
+    }).
+    catch(err => {
+      dispatch({
+        type: `DELETE_${resource.toUpperCase()}_FORM_FAILURE`
+      })
+      console.log(err)
+    })
   }
 }
 
@@ -423,20 +434,20 @@ export function getAllpayForm(redirect_url) {
       },
       credentials: 'include'
     }).
-      then(handleErrors).
-      then(res => res.json()).
-      then(params => {
-        dispatch({
-          type: types.GET_ALLPAY_FORM_SUCCESS,
-          params
-        })
-      }).
-      catch(err => {
-        dispatch({
-          type: types.GET_ALLPAY_FORM_FAILURE
-        })
-        console.log(err)
+    then(handleErrors).
+    then(res => res.json()).
+    then(params => {
+      dispatch({
+        type: types.GET_ALLPAY_FORM_SUCCESS,
+        params
       })
+    }).
+    catch(err => {
+      dispatch({
+        type: types.GET_ALLPAY_FORM_FAILURE
+      })
+      console.log(err)
+    })
   }
 }
 
