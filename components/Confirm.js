@@ -1,27 +1,30 @@
-import React, { Component, PropTypes } from 'react'
+import React, {
+  Component,
+  PropTypes
+} from 'react'
 
 export default class Product extends Component {
+  constructor() {
+    super();
+    this.state = {
+      submitDisable: true
+    }
+  }
   render() {
-    const { addProducts } = this.props
+    const {
+      addProducts
+    } = this.props
     return (
-      <div id="confirm" className="modal fade" role="dialog">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
+      <div id="confirm" className="modal fade angle" role="dialog">
+        <div className="modal-dialog angle">
+          <div className="modal-content angle">
+            <div className="modal-header gray angle">
               <button type="button" className="close" data-dismiss="modal">&times;</button>
-              <h4 className="modal-title">報名聲明</h4>
+              <h5 className="modal-title">貼心提醒：請使用 Google 瀏覽器，不要用IE瀏覽器進行報名，以確保您的權益。</h5>
             </div>
             <div className="modal-body">
-              <p>
-                我已詳細閱讀並同意以下條款：
-                清大ZU創意教學及各委外服務廠商基於客戶管理、統計及調查分析、會員管理、行銷及其 他合於營業登記項目或章程所定業務需要之特定目的，在此向您蒐集本報名表以上辨識個人資料類別及課程中所拍攝之照片、影片，作為本教育團隊營運期間於台灣、美國地區寄送出版物及各項優惠訊息與調查分析使用。您可向本教育團隊請求查閱、提 供複本、更正或補充個人資訊，及請求刪除或停止處理利用，請您連繫客戶服務中心 0989-722-985。
-                若您填寫資料不完整時，可能會影響您收受出版物或優惠訊息之權利。
-              </p>
-              <h4>注意事項</h4>
+              <h4>【注意事項】</h4>
               <ol>
-                <li>
-                  請使用 Google 瀏覽器，進行報名，不要用IE瀏覽器。
-                </li>
                 <li>
                   提醒您，若年齡不符合該營隊的建議年齡，則不建議參加，築優保有「主動取消」您名額的權利，且手續費10%由您自行負擔。
                 </li>
@@ -53,7 +56,8 @@ export default class Product extends Component {
                   主辦單位保有最終師資、課程與場地異動與解釋之權利，若有更改將另行通知。
                 </li>
               </ol>
-              <h4>團報規範</h4>
+              <hr/>
+              <h4>【團報規範】</h4>
               <ol>
                 <li>
                   提醒您，“團報” 分為 “單人團報” & “多人團報”
@@ -72,7 +76,8 @@ export default class Product extends Component {
                   (ex: A 與 B 2人團報銀河之旅，6400/人，若B臨時退出，A即不符合團報標準，A的票價變為 7200/人，則退給B 6400-800=5600，並扣除人工手續費 10%，最後會退還 5040 給B)
                 </li>
               </ol>
-              <h4>退費</h4>
+              <hr/>
+              <h4>【退費】</h4>
               <ol>
                 <li>
                   提醒您，退費分為，“活動前退費” & “活動進行中退費”
@@ -90,10 +95,29 @@ export default class Product extends Component {
                   提醒您，因個人因素無法參加營隊，可以找人替補，請提供替補人選相關資訊
                 </li>
               </ol>
+              <hr/>
+              <p>
+                我已詳細閱讀並同意以下條款：
+                清大ZU創意教學及各委外服務廠商基於客戶管理、統計及調查分析、會員管理、行銷及其 他合於營業登記項目或章程所定業務需要之特定目的，在此向您蒐集本報名表以上辨識個人資料類別及課程中所拍攝之照片、影片，作為本教育團隊營運期間於台灣、美國地區寄送出版物及各項優惠訊息與調查分析使用。您可向本教育團隊請求查閱、提 供複本、更正或補充個人資訊，及請求刪除或停止處理利用，請您連繫客戶服務中心 0989-722-985。
+                若您填寫資料不完整時，可能會影響您收受出版物或優惠訊息之權利。
+              </p>
+              <div className="checkbox center text-center ">
+                <label>
+                  <input type="checkbox" defaultChecked={!this.state.submitDisable} onClick={(e)=>{
+                    const disable = !e.target.checked;
+                    this.setState({submitDisable:disable});
+                    console.log(this.state.submitDisable);
+                    }
+                    
+                  }
+                  className="block"
+                  ></input><b>我同意以上條款</b>
+                </label>
+              </div>
             </div>
             <div className="modal-footer">
-              <button className="btn btn-danger" data-dismiss="modal">不同意</button>
-              <button className="btn btn-default" data-dismiss="modal" onClick={addProducts}>同意</button>
+              <button className="btn btn-danger" data-dismiss="modal">取消</button>
+              <button className="btn btn-default" data-dismiss="modal" disabled={this.state.submitDisable} onClick={addProducts}>報名</button>
             </div>
           </div>
         </div>

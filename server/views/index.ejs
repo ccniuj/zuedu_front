@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
   <body>
+    
+    
     <div id="root"><%- html %></div>
     <script type="text/javascript" charset="utf-8">
       window.__REDUX_STATE__ = '<%= reduxState %>';
@@ -17,5 +19,38 @@
     <% scriptSrcs.forEach(function(src){ %>
       <script src="<%= src %>"></script>
     <% }) %>
+    <style>
+      .fb-messenger {
+        margin: 30px 5px 20px;
+        position: absolute;
+      }
+
+      .fb-messenger span {
+        border-radius: 4px;
+        background: #0084ff;
+        color: #fff;
+        font-size: 13px;
+        padding: 6px 8px;
+        display:inline-block;
+        font-family: helvetica, arial, sans-serifnn;
+        white-space: nowrap;
+      }
+
+      .fb-messenger a {
+        cursor:pointer;
+        text-decoration:none;
+        
+
+      }
+
+    </style>
+
+    <div class="fb-messenger">
+      <a target="_blank" href="javascript://" onClick="window.open('https://m.me/zubat.edu.88','','menubar=no,status=yes,scrollbars=yes,screenX=0,screenY=0,toolbar=no,width=300,height=500')">
+        <span>
+          我有問題
+        </span>
+      </a>
+    </div>
   </body>
 </html>

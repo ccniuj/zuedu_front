@@ -182,3 +182,20 @@ textarea.orderinfo-form-input {
 .product-form-section h3 {
   margin-top: 0px;
 }
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+
+
+}
+.text-center{
+  text-align: center;
+}
+.gray{
+  background: #777;
+  color:white;
+}
+.angle{
+  border-radius: 0px;
+}

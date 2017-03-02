@@ -1,11 +1,23 @@
-import React, { Component, PropTypes } from 'react'
-import { connect } from 'react-redux'
-import { clientRender } from '../actions'
+import React, {
+  Component,
+  PropTypes
+} from 'react'
+import {
+  connect
+} from 'react-redux'
+import {
+  clientRender
+} from '../actions'
 
 class Home extends Component {
   constructor(props) {
     super(props)
-    this.state = { n1: 0, n2: 0, n3: 0, n4: 0 }
+    this.state = {
+      n1: 0,
+      n2: 0,
+      n3: 0,
+      n4: 0
+    }
     this.countToNumber = (numbers, duration) => this._countToNumber(numbers, duration)
   }
   componentDidMount() {
@@ -14,26 +26,33 @@ class Home extends Component {
     }
     $(this.refs.numbers).fadeIn(500)
     $(this.refs.features).fadeIn(1500)
-    this.countToNumber({n1: 300, n2: 9, n3: 5, n4: 2}, 500)
+    this.countToNumber({
+      n1: 300,
+      n2: 9,
+      n3: 5,
+      n4: 2
+    }, 500)
   }
   _countToNumber(numbers, duration) {
     let ds = {}
     for (let key in numbers) {
-      ds[key] = Math.ceil(duration/numbers[key])
+      ds[key] = Math.ceil(duration / numbers[key])
     }
-    for(let key in ds) { 
+    for (let key in ds) {
       let i = setInterval(() => {
-                this.setState({ [key]: this.state[key]+1 })
-                if (this.state[key] >= numbers[key]) {
-                  clearInterval(i)
-                }
-              }, ds[key])
+        this.setState({
+          [key]: this.state[key] + 1
+        })
+        if (this.state[key] >= numbers[key]) {
+          clearInterval(i)
+        }
+      }, ds[key])
     }
   }
   render() {
     const style = {
       paddingTop: '50px',
-      paddingLeft: '0px', 
+      paddingLeft: '0px',
       paddingRight: '0px',
       marginLeft: '0px',
       marginRight: '0px'
@@ -98,13 +117,19 @@ class Home extends Component {
             </div>
           </div>
         </div>
+        <div class="fb-page" 
+          data-href="https://www.facebook.com/facebook"
+          data-width="380" 
+          data-hide-cover="false"
+          data-show-facepile="false" 
+          data-show-posts="false">
+        </div>
       </div>
     )
   }
 }
 
-Home.propTypes = {
-}
+Home.propTypes = {}
 
 function mapStateToProps(state) {
   return {
@@ -112,4 +137,6 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, { clientRender })(Home)
+export default connect(mapStateToProps, {
+  clientRender
+})(Home)
