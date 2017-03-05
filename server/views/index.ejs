@@ -21,34 +21,43 @@
     <% }) %>
     <style>
       .fb-messenger {
-        margin: 30px 5px 20px;
-        position: absolute;
+        width: 12%;
+        position: fixed;
+        top:80%;
+        left: 87%;
+        border-radius: 4px;
+        background: white;
+        
       }
 
       .fb-messenger span {
-        border-radius: 4px;
-        background: #0084ff;
-        color: #fff;
-        font-size: 13px;
+        color: black;
+        font-size: 18px;
+        font-weight: 900;
         padding: 6px 8px;
         display:inline-block;
         font-family: helvetica, arial, sans-serifnn;
         white-space: nowrap;
+        
       }
 
       .fb-messenger a {
         cursor:pointer;
         text-decoration:none;
-        
-
+        display: inline-block;
+      }
+      .fb-messenger img{
+        width: 25%;
+        display: inline-block;
       }
 
     </style>
 
     <div class="fb-messenger">
+      
       <a target="_blank" href="javascript://" onClick="window.open('https://m.me/zubat.edu.88','','menubar=no,status=yes,scrollbars=yes,screenX=0,screenY=0,toolbar=no,width=300,height=500')">
         <span>
-          我有問題
+        <img src="/images/messenger.png"/> 我有問題
         </span>
       </a>
     </div>

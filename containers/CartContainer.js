@@ -102,7 +102,8 @@ class CartContainer extends Component {
         
         <center><h3>購物車</h3></center>
         <OrderStep step={this.props.step} />
-        <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 cart-btns'>
+        <div className='row'>
+        <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 cart-btns applicant-form'>
           <ul>
             <li>請輸入學生及聯絡人資料，並選擇這位學生要參加的梯次。</li>
             <li>若要團報，請先填寫一位學生的資料，點選“新增”按鈕；再填寫另一位學生的資料。</li>
@@ -128,12 +129,18 @@ class CartContainer extends Component {
             : <div/>
           }
         </div>
+        </div>
         {
           applicants.length > 0
-          ? <CartInfo applicants={applicants} 
+          ? 
+          <div className = 'row'>
+          <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 applicant-form'>
+          <CartInfo applicants={applicants} 
                       cart_matchable_discount_name={cart_matchable_discount_name}
                       cart_matchable_discount_factor={cart_matchable_discount_factor}
                       total={total} />
+          </div>
+          </div>
           : <div/>
         }
         { applicants.map(applicant => 
@@ -149,74 +156,64 @@ class CartContainer extends Component {
               </div>
             </div>
         )}
-        
-        <center>
-        <button
-        style = {
+        <div className = 'row'>
+        <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 cart-add-btn' style={
           {
-            width:'50%',
-            margin: '0 auto',
-            background:'#888',
-            border:'0'
+            marginTop:'10px',
+            marginBottom:'10px'
+          }
+        }>
+        <div className = 'row'>
+        <button
+        className="col-md-12 col-xs-12"
+        style={
+          {
+
+            margin:'0',
+            border:'0',
           }
         }
         onClick={
-          ()=>addToCart(defaultProductId,products[defaultProductId].product_details[0].id).then(() => getCart(), err => console.log(err))
+          ()=>{
+          console.log("FFF");
+          addToCart(defaultProductId,products[defaultProductId].product_details[0].id).
+          then(() => getCart(), err => console.log(err));}
         } >
-        <div style = {
-          {
-            width:'50%',
-            margin: '0 auto',
-            background:'#888'
-          }
-        }
-        
-        >
-        <center>
-          <span className="glyphicon glyphicon-plus" aria-hidden="true"
-          style = {
-            {
-              display: 'inline-block',
-              margin: '0 auto',
-              padding:'0 0 2px 2px',
-              border: '1px solid white',
-              fontSize:'30px',
-              color:'white',
-              background:'#888'
-            }
-          }></span>
-          </center>
-        </div> 
+        <div className='row'>
+          <div className="col-md-12 col-xs-12 cart-add-btn">
+          <div className='row'>
+            <div className="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2">
+              <span className="glyphicon glyphicon-plus cart-add-btn " aria-hidden="true"
+              style = {
+                {
+                  margin: '0',
+                  padding:'0 0 0.06em 0.07em',
+                  border: '0.05em solid white',
+                  fontSize:'2em',
+                  color:'white',
+                }
+              }></span>
+            </div> 
+            </div>
+          </div>
+          </div>
         </button>
-        </center>
-        
-        <center>
-        <div
-        style = {
-          {
-            width:'50%',
-            margin:'20px',
-            padding:'0 0 30px 0'
-          }
-        }
+        </div>
+        </div>
+        </div>
+        <div className = 'row'>
+        <div className="col-md-6 col-md-offset-3"
         >
-          <button type="button" className="btn btn-primary" style = {
-            {
-              display: 'inline-block',
-              float:'left'
-            }
-          }>回上一頁</button>
-          <button type="button" className="btn btn-primary" style = {
-            {
-              display: 'inline-block',
-              float:'right'
-            }
-          }
+        <div className='row'>
+          <button type="button" className="col-md-2 btn"
+         >回上一頁</button>
+          <button type="button" className="col-md-2 col-md-offset-8 btn"
           onClick={() => this.submitApplicants().then( null, 
           err => console.log(err) )}
           >下一步</button>
         </div>
-        </center>
+        </div>
+        </div>
       </div>
     )
   }

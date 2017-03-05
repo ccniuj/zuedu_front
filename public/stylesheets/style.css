@@ -27,10 +27,7 @@ body {
   background-color: #ff7575;
 }
 
-.row {
-  margin-right: 0px;
-  margin-left: 0px;
-}
+
 
 .carousel-caption > h1, h2 {
   color: black;
@@ -120,7 +117,7 @@ body {
   background-color: white;
 }
 
-.login-form, .applicant-form, .orderinfo-form {
+.login-form, .orderinfo-form,  {
   background-color: #fff;
   box-shadow: 10px 10px 20px #888888; 
   margin-top: 30px;
@@ -130,18 +127,21 @@ body {
 
 .cart-btns {
   background-color: #fff2b0;
-  box-shadow: 10px 10px 20px #888888; 
+
   margin-top: 0px;
   margin-bottom: 0px;
   padding: 10px;
 }
 
-.cart-info {
+.cart-info,.applicant-form {
   background-color: #dadada;
-  box-shadow: 10px 10px 20px #888888; 
-  margin-top: 30px;
-  margin-bottom: 30px;
-  padding: 10px;
+
+  border-width: 30px;
+  border-color:  #EFEFEF;
+
+}
+.cart-add-btn{
+  background-color: #dadada;
 }
 
 .orderinfo-form {
@@ -186,8 +186,6 @@ textarea.orderinfo-form-input {
     margin: auto;
     width: 50%;
     padding: 10px;
-
-
 }
 .text-center{
   text-align: center;
