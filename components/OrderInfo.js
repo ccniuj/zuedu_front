@@ -42,8 +42,7 @@ export default class OrderInfo extends Component {
 
     return (
       <div className='row'>
-        <center><h3>{order_name}</h3></center>
-        <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 orderinfo-form'>
+        <div className='col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1 orderinfo-form'>
           <form onSubmit={ e => {
                 e.preventDefault()
                 submitForm(orders.form.type, 'orders', null, {

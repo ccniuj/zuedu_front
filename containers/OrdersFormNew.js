@@ -48,7 +48,7 @@ class OrdersForm extends Component {
         resolve()
       }).
         then(() => cleanAllpayForm(), err => console.log(err)).
-        then(() => browserHistory.push(`/orders/show/${orders.form.id}`), err => console.log(err)).
+        then(() => browserHistory.push(`/cart/show/${orders.form.id}`), err => console.log(err)).
         then(() => getForm('show', 'orders', orders.form.id), err => console.log(err))
     }
   }
@@ -61,38 +61,11 @@ class OrdersForm extends Component {
             cart_matchable_discount_name, cart_matchable_discount_factor, total } = this.props
 
     let line_items = orders.form.type == 'new' 
-    ? cart.form.line_items
+    ? cart.form.line_items 
     : orders.form.line_items
 
     return (
-      <div className='container' style={style}>
         <OrderInfo />
-        <div style={{ clear: 'both' }} />
-        {
-          line_items.length > 0
-          ? <CartInfo applicants={line_items}
-                      cart_matchable_discount_name={cart_matchable_discount_name}
-                      cart_matchable_discount_factor={cart_matchable_discount_factor}
-                      total={total} />
-          : <div/>
-        }
-        <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2' style={{textAlign: 'center'}}>
-          <h4><center>報名資訊</center></h4>
-          <Link to='/cart' className='btn btn-sm btn-warning pull-right' style={{marginTop: '-35px'}}>修改</Link>
-        </div>
-        <div style={{ clear: 'both' }} />
-        { 
-          line_items.map(applicant => 
-            <div key={applicant.id} className='row'>
-              <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 applicant-form'>
-                <ApplicantForm
-                  type='show'
-                  applicant={applicant} />
-              </div>
-            </div>
-          )
-        }
-      </div>
     )
   }
 }

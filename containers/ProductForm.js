@@ -12,7 +12,7 @@ class ProductForm extends Component {
              then(() => store.dispatch(getCart(cookie)))
   }
 
-  constructor(props) {
+  constructor(props){
     super(props)
     this.addProducts = () => this._addProducts()
     this.loadFbBtn = () => this._loadFbBtn()
