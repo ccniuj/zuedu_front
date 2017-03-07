@@ -39,6 +39,13 @@ class CartContainer extends Component {
     super(props)
     this.submitApplicants = () => this._submitApplicants()
     this.renderCart = () => this._renderCart()
+    this.state={
+      progress:1,
+      detail:{
+        nextBottom:"確認",
+        lastBottom:"這是第一步"
+      }
+    }
   }
   componentDidMount() {
     if (this.props.serverRender) {
@@ -73,6 +80,7 @@ class CartContainer extends Component {
           [key]: this.refs[`applicant_${applicant.id}`].refs.form[key].value
         }
       })
+      console.log(arr)
       const payload = Object.assign({}, ...arr)
 
       return submitForm('edit', 'line_items', applicant.id, payload)
@@ -95,15 +103,62 @@ class CartContainer extends Component {
       minHeight: '600px'
     }
     const hasProducts = applicants.length > 0
-    const defaultProductId = parseInt(Object.keys(products)[0])
-    
+    const defaultProductId = parseInt(Object.keys(products)[3])
+    const nextStep = ()=>{
+      
+      console.log(this.state.progress);
+      let detail = Object.assign({},this.state.detail);
+      if (this.state.progress==1){
+        this.submitApplicants().then( null, err => console.log(err));
+        detail={nextBottom:"確認無誤並結帳",lastBottom:"回上一步"}
+        this.setState({detail});
+        this.setState({progress:this.state.progress+1});
+      }
+      else if (this.state.progress==2){
+        detail={nextBottom:"付款",lastBottom:"回上一步"};
+        this.setState({detail});
+        this.submitApplicants().then(() => browserHistory.push('/orders/new'), err => console.log(err));
+        this.setState({progress:this.state.progress+1});
+      }
+
+      
+      console.log(this.state.progress);
+    }
+    const lastStep=()=>{
+      console.log(this.state.progress);
+      
+      let detail = Object.assign({},this.state.detail);
+
+      if (this.state.progress==2){
+        detail={nextBottom:"確認",lastBottom:"這是第一步"}
+        this.setState({detail});
+        this.setState({progress:this.state.progress-1});
+      }
+      else if (this.state.progress==3){
+        detail={nextBottom:"確認無誤並結帳",lastBottom:"回上一步"}
+        this.setState({detail});
+        this.setState({progress:this.state.progress-1});
+      }
+
+      console.log(this.state.progress);
+    }
     return (
       <div className='container' style={style}>
         
         <center><h3>購物車</h3></center>
-        <OrderStep step={this.props.step} />
         <div className='row'>
-        <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 cart-btns applicant-form'>
+        <div className = "col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1" 
+        style={{
+          padding:'0',
+          paddingTop:'20px',
+          paddingBottom:'20px',
+        }}
+        >
+        <OrderStep progress={this.state.progress} />
+        </div>
+        </div>
+        <div className='row'>
+        <div className='col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1 cart-btns applicant-form'>
           <ul>
             <li>請輸入學生及聯絡人資料，並選擇這位學生要參加的梯次。</li>
             <li>若要團報，請先填寫一位學生的資料，點選“新增”按鈕；再填寫另一位學生的資料。</li>
@@ -131,33 +186,38 @@ class CartContainer extends Component {
         </div>
         </div>
         {
-          applicants.length > 0
-          ? 
-          <div className = 'row'>
-          <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 applicant-form'>
-          <CartInfo applicants={applicants} 
-                      cart_matchable_discount_name={cart_matchable_discount_name}
-                      cart_matchable_discount_factor={cart_matchable_discount_factor}
-                      total={total} />
-          </div>
-          </div>
-          : <div/>
+          this.state.progress == 2 ?
+          (applicants.length > 0
+                    ? 
+                    <div className = 'row'>
+                    <div className='col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1 applicant-form'>
+                    <CartInfo applicants={applicants} 
+                                cart_matchable_discount_name={cart_matchable_discount_name}
+                                cart_matchable_discount_factor={cart_matchable_discount_factor}
+                                total={total} />
+                    </div>
+                    </div>
+                    : <div/>)
+          :<div/>
         }
-        { applicants.map(applicant => 
-            <div key={applicant.id} className='row'>
-              <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 applicant-form'>
-                <ApplicantForm ref={`applicant_${applicant.id}`} 
-                               type='edit'
-                               products={products} 
-                               applicant={applicant}
-                               showDeleteBtn={true}
-                               onDelete={deleteForm}
-                               onDeleteCallback={getCart} />
-              </div>
-            </div>
-        )}
+        { this.state.progress == 1 ?
+          (applicants.map(applicant => 
+                      <div key={applicant.id} className='row'>
+                        <div className='col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1 applicant-form'>
+                          <ApplicantForm ref={`applicant_${applicant.id}`} 
+                                         type='edit'
+                                         products={products} 
+                                         applicant={applicant}
+                                         showDeleteBtn={true}
+                                         onDelete={deleteForm}
+                                         onDeleteCallback={getCart} />
+                        </div>
+                      </div>))
+          :<div/>
+
+        }
         <div className = 'row'>
-        <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 cart-add-btn' style={
+        <div className='col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1 cart-add-btn' style={
           {
             marginTop:'10px',
             marginBottom:'10px'
@@ -175,7 +235,6 @@ class CartContainer extends Component {
         }
         onClick={
           ()=>{
-          console.log("FFF");
           addToCart(defaultProductId,products[defaultProductId].product_details[0].id).
           then(() => getCart(), err => console.log(err));}
         } >
@@ -202,17 +261,16 @@ class CartContainer extends Component {
         </div>
         </div>
         <div className = 'row'>
-        <div className="col-md-6 col-md-offset-3"
-        >
-        <div className='row'>
-          <button type="button" className="col-md-2 btn"
-         >回上一頁</button>
-          <button type="button" className="col-md-2 col-md-offset-8 btn"
-          onClick={() => this.submitApplicants().then( null, 
-          err => console.log(err) )}
-          >下一步</button>
-        </div>
-        </div>
+          <div className="col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1">
+            <div className='row'>
+              <button type="button" className="col-md-4 col-md-offset-0 col-xs-4 cart-next-btn"
+              onClick={lastStep}
+              >{this.state.detail.lastBottom}</button>
+              <button type="button" className="col-md-4 col-md-offset-4 col-xs-4 col-xs-offset-4 cart-next-btn"
+              onClick={nextStep}
+              >{this.state.detail.nextBottom}</button>
+            </div>
+          </div>
         </div>
       </div>
     )
@@ -245,7 +303,6 @@ export default connect(
     deleteForm,
     getCart,
     clientRender,
-    addToCart,
-    step
+    addToCart
   }
 )(CartContainer)

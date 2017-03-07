@@ -3,38 +3,11 @@ import React, {
 } from 'react';
 
 export default class OrderStep extends Component {
-	constructor() {
-		super();
-		this.state = {
-			step: 1
-		}
-	}
 	render() {
 		return (
-			<div className = "center">
-			<button 
-			onClick = {
-				e => {
-					let step = this.state.step + 1;
-					if (step == 4){
-						step = 1;
-					}
-					this.setState({
-						step: step
-					});
-				}
 
-			} 
-			style={
-			{
-				border: '0px',
-				margin:'0px',
-				padding:'0px',
-			}
-			}
-			>
-			< img src = {
-				`/images/bar${this.state.step}.png`
+			<img  src = {
+				`/images/bar${this.props.progress}.png`
 			}
 			style = {
 				{
@@ -43,10 +16,8 @@ export default class OrderStep extends Component {
 					margin:'0px',
 					width: '100%'
 				}
-			}
-			on />
-			</button>
-			</div>
+			}/>
+
 		);
 	}
 }

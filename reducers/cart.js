@@ -46,6 +46,7 @@ export default function form(state = initialState, action) {
          return res
       }, {})
       let ids = Object.keys(quantities).map(q => parseInt(q))
+      console.log(ids)
       return Object.assign({}, { addedIds: ids }, { quantityById: quantities }, { form: action.cart })
     case CHECKOUT_REQUEST:
       return state

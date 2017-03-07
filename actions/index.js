@@ -5,13 +5,7 @@ import {
 import request from 'superagent'
 import config from '../config'
 
-export function step() {
-  console.log("yes");
-  return {
-    type: step,
-    payload: "1"
-  }
-}
+
 export function receiveProducts(products) {
   return {
     type: types.RECEIVE_PRODUCTS,

@@ -27,8 +27,6 @@ body {
   background-color: #ff7575;
 }
 
-
-
 .carousel-caption > h1, h2 {
   color: black;
 }
@@ -133,9 +131,11 @@ body {
   padding: 10px;
 }
 
+
 .cart-info,.applicant-form {
   background-color: #dadada;
-
+  margin-top:10px;
+  margin-bottom: 10px;
   border-width: 30px;
   border-color:  #EFEFEF;
 
@@ -196,4 +196,24 @@ textarea.orderinfo-form-input {
 }
 .angle{
   border-radius: 0px;
+}
+.cart-next-btn{
+  background: none;
+  border:2px solid #dadada;
+  font-family:"Microsoft JhengHei";
+  font-size:18px;
+  font-weight: 900;
+  color: #dadada;
+  padding-top:5px;
+  padding-bottom: 5px;
+}
+.cart-next-btn:hover{
+  background:blue;
+  border:2px solid none;
+  font-family:"Microsoft JhengHei";
+  font-size:18px;
+  font-weight: 900;
+  color: white;
+  padding-top:5px;
+  padding-bottom: 5px;
 }
