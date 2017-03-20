@@ -25,8 +25,7 @@ class ProductsContainer extends Component {
     }
     return (
       <div className='container' style={style}>
-        <div style={{ display: 'none' }} ref='products'>
-          <center><h3>課程</h3></center>
+        <div style={{ display: 'none'}} ref='products'>
           { products.map(product => <ProductItem product={product} key={product.id} />)}
         </div>
       </div>

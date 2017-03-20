@@ -10,14 +10,14 @@ class About extends Component {
   }
   render() {
     const style = {
-      paddingTop: '50px',
+      paddingTop: '30px',
       paddingLeft: '0px',
       paddingRight: '0px',
       minHeight: '600px'
     }
     return (
       <div className='container-fluid' style={style}>
-        <div className='row' style={{position: 'relative'}}>
+        <div className='row' style={{position: 'relative'},style}>
           <img src='/images/about_1.png' style={{width: '100%'}} />
           <div style={{position: 'absolute', top: '120px', left: '100px'}}>
             <h1>我們的願景</h1>

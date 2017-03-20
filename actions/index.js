@@ -42,6 +42,7 @@ export function getAllProducts(cookie) {
       if (cookie) {
         headers['cookie'] = cookie
       }
+      
       request.
       get(`${config.domain}/products.json`).
       withCredentials().

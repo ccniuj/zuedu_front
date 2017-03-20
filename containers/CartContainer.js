@@ -41,6 +41,7 @@ class CartContainer extends Component {
     this.renderCart = () => this._renderCart()
     this.lastStep=()=>this._lastStep()
     this.nextStep=()=>this._nextStep()
+
     this.state={
       progress:1,
       style:{display:"block"},
@@ -140,6 +141,12 @@ class CartContainer extends Component {
 
       console.log(this.state.progress);
     }
+    _plusItem(products,time = 0){
+
+          defaultProductId = parseInt(Object.keys(products)[0])
+    
+    }
+    //尚未把有兩個場次的情況考慮進去
   render() {
     const {
       products,
@@ -156,8 +163,8 @@ class CartContainer extends Component {
       minHeight: '600px'
     }
     const hasProducts = applicants.length > 0
-    const defaultProductId = parseInt(Object.keys(products)[0])
-
+    let defaultProductId = parseInt(Object.keys(products)[0])
+    //
     return (
       <div className='container' style={style}>
         
@@ -273,7 +280,9 @@ class CartContainer extends Component {
         onClick={
           ()=>{
           this.submitApplicants().then(()=>{addToCart(defaultProductId,products[defaultProductId].product_details[0].id).
-                              then(() => getCart(), err => console.log(err))},null)
+                              then(() => getCart(), err => {
+                                console.log(err)
+                              })},null)
         }
         } >
         <div className='row'>

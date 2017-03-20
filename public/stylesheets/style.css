@@ -44,16 +44,31 @@ body {
 }
 
 .footer-container {
-  min-height: 200px;
-  color: white;
-  background-color: #404040;
-  padding-top: 50px;
+    min-height: 100px;
+    color: white;
+    background-color: #404040;
 }
 
 .footer-logo {
-  height: 100px;
+}
+.footer-logo img{
+      padding-right: 15%;
+      border-right: 1px solid white;
+      height: 60px;
+}
+.footer-slogan{
+vertical-align: middle;
 }
 
+.footer-slogan h5{
+  size: 15px;
+  line-height: 2.1;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.footer-detail{
+
+}
 .home-landing > img {
   width: 100%;
   opacity: 0.5;

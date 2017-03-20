@@ -47,13 +47,17 @@ class NavbarInstance extends Component {
         </NavDropdown>
 
     return (
-      <Navbar fixedTop>
+      <Navbar fixedTop collapseOnSelect>
         <Navbar.Header>
             <Link to="/">
               <img className='navbar-logo' src='/images/logo.png' />
             </Link>
+            
+            <Navbar.Toggle />
+            
         </Navbar.Header>
-        <Nav pullRight>
+        <Navbar.Collapse fluid>
+          <Nav pullRight>
           <LinkContainer to={{ pathname: '/about' }}>
             <NavItem eventKey={1} href="#">關於我們</NavItem>
           </LinkContainer>
@@ -62,7 +66,9 @@ class NavbarInstance extends Component {
           </LinkContainer>
           { loginLink }
           { dropdown }
-        </Nav>
+          </Nav>
+        </Navbar.Collapse>
+        
         <div id='alert' ref='alert'/>
       </Navbar>
     )

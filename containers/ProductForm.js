@@ -17,12 +17,17 @@ class ProductForm extends Component {
     this.addProducts = () => this._addProducts()
     this.loadFbBtn = () => this._loadFbBtn()
     this.loadLineBtn = () => this._loadLineBtn()
+    this.detailChange=e=>this._detailChange(e)
+    this.state={
+      productDetail:0
+    }
+    console.log(this.state.productDetail)
   }
 
   _addProducts() {
     const { product, addToCart, location } = this.props
     let n = parseInt(this.refs.quantity.value)
-    let d = parseInt(this.refs.product_detail.value)
+    let d = product.product_details[parseInt(this.refs.product_detail.value)].id
     let adds = Array(n).fill().map( _ => addToCart(product.id, d))
 
     Promise.all(adds).then(() => browserHistory.push('/cart')) 
@@ -65,6 +70,12 @@ class ProductForm extends Component {
 
     this.loadFbBtn()
     this.loadLineBtn()
+  }
+  _detailChange(e){
+    console.log('hi')
+    console.log(this.state)
+    this.setState({productDetail:e.target.value})
+    
   }
   render() {
     const { addToCart, product, cart, member, submitForm, location } = this.props
@@ -158,16 +169,36 @@ class ProductForm extends Component {
                   </div>
                 :
                   <div>
-                    剩餘名額：{ product.inventory }<br/>
-                    <select ref='product_detail'>
+                    <div className="input-group col-md-4">
+
+                    
+                    </div>
+                    
+                    <div className="input-group col-md-8">
+                    <span className="input-group-addon">
+                    場次
+                    </span>
+                    <select className="form-control"ref='product_detail' onChange={this.detailChange}>
                       {
-                        product.product_details.map(pd =>
-                          <option key={pd.id} value={pd.id}>{pd.description}</option>
+                        product.product_details.map((pd,key) =>
+                          <option key={key} value={key}>{pd.description}</option>
                         )
                       }
-                    </select>&nbsp;
-                    人數：<input ref='quantity' type='text' defaultValue='1' />
-                    <button className="btn btn-sm btn-info" data-toggle="modal" data-target="#confirm">報名</button>
+                    </select>
+                    <span className="input-group-addon">
+                    人數
+                    </span>
+                    <input className="form-control"ref='quantity' type='number' min='1' max={product.product_details[this.state.productDetail].inventory} defaultValue='1' />
+                    <span className="input-group-btn">
+                    <button className="btn btn-default btn-info" data-toggle="modal" data-target="#confirm">報名</button>
+                    </span>
+                    </div>
+                    {
+                       product.product_details[this.state.productDetail].inventory>15?<div/>:
+                       <div>
+                        剩餘名額：{product.product_details[this.state.productDetail].inventory}
+                       </div>
+                    }
                   </div>
             }
           </div>

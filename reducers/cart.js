@@ -41,10 +41,12 @@ function quantityById(state = initialState.quantityById, action) {
 export default function form(state = initialState, action) {
   switch (action.type) {
     case RECEIVE_CART:
+      console.log( action.cart.line_items);
       let quantities = action.cart.line_items.reduce((res, cur) => {
          res[cur.product_id] = res[cur.product_id] ? res[cur.product_id]+1 : 1
          return res
       }, {})
+      console.log(quantities);
       let ids = Object.keys(quantities).map(q => parseInt(q))
       console.log(ids)
       return Object.assign({}, { addedIds: ids }, { quantityById: quantities }, { form: action.cart })

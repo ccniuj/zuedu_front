@@ -46,7 +46,9 @@ export default class ApplicantForm extends Component {
                        </select>
         product_detail = <select ref='product_detail_id' className='applicant-form-dropdown' name='product_detail_id' defaultValue={applicant.product_detail_id} disabled={disabled}>
                            { products[this.state.product_id].product_details.map(pd => 
-                               <option key={pd.id} value={pd.id}>{pd.description}</option>
+                             {
+                              return (<option key={pd.id} value={pd.id} disabled={pd.inventory>0?false:true} style={pd.inventory>0?{}:{color:'red'}}>{pd.description}{pd.inventory>0?"":"已額滿"}</option>)
+                             }
                            )}
                          </select>
         delette_btn = showDeleteBtn ? <input type='submit' className='btn btn-danger btn-xs pull-right' onClick={() => onDelete('line_items', applicant.id).then(() => onDeleteCallback())} value='刪除' /> : <div/>
@@ -63,7 +65,7 @@ export default class ApplicantForm extends Component {
       <div>
         { delette_btn }
         <div style={{ clear: 'both' }} />
-        <form ref='form'>
+        <form ref='form' style={{ color:'black' }}>
           <div className='col-xs-6'>
             <h6 className='applicant-form-label'>報名營隊<span style={{color: 'red'}}>*</span></h6>
             { product_name }
