@@ -13,6 +13,7 @@ export default class App extends Component {
         <Footer>
           <button />
         </Footer>
+
       </div>
     )
   }

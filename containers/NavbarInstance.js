@@ -48,10 +48,14 @@ class NavbarInstance extends Component {
 
     return (
       <Navbar fixedTop collapseOnSelect>
+  
         <Navbar.Header>
-            <Link to="/">
-              <img className='navbar-logo' src='/images/logo.png' />
-            </Link>
+                <Navbar.Brand>
+        <Link to="/">
+              <img className='navbar-logo' src='/images/pic1.png' />
+        </Link>
+      </Navbar.Brand>
+            
             
             <Navbar.Toggle />
             

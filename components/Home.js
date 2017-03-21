@@ -8,7 +8,7 @@ import {
 import {
   clientRender
 } from '../actions'
-
+import Slider from 'react-slick'
 class Home extends Component {
   constructor(props) {
     super(props)
@@ -57,44 +57,63 @@ class Home extends Component {
       marginLeft: '0px',
       marginRight: '0px'
     }
+    var settings = {
+      dots: true,
+      arrows:false,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 1,
+      
+    };
     return (
+
       <div className='container-fluid' style={style}>
         <div className='row'>
-          <div id="carousel-example-generic" className="carousel slide" data-ride="carousel">
-            {/* Indicators */}
-            {
-            // <ol className="carousel-indicators">
-            //   <li data-target="#carousel-example-generic" data-slide-to={0} className="active" />
-            //   <li data-target="#carousel-example-generic" data-slide-to={1} />
-            //   <li data-target="#carousel-example-generic" data-slide-to={2} />
-            // </ol>
-            }
-            {/* Wrapper for slides */}
-            <div className="carousel-inner" role="listbox">
-              <div className="item active">
-                <img src="/images/landing.png" alt="..." />
-                <div className="carousel-caption">
-                  <h1>ZU築優教育</h1>
-                  <h1>首創整合教學</h1>
-                  <h2>程式 x 電路 x 3D繪圖 x 實驗</h2>
+        <div className="col-md-12  pic-slider" >
+          <Slider {...settings}>
+            <div><img src="/images/pic2.png" alt=""/></div>
+            <div><img src="/images/pic2.png" alt=""/></div>
+          </Slider>          
+        </div>
+        </div>
+        <img src="/images/yellow-radius.png" style={{width:"100%",zIndex:3}} alt=""/>
+        <div className="home-blocks col-xs-12">
+          <div className="col-xs-10 col-xs-offset-1  home-pic" >
+            <div className ="row home-pic">
+              <div className= "col-xs-4  home-block">
+                <div className="home-block-detail">
+                <img src="/images/PIC21.png" alt=""/>
+                <h1 className="col-xs-10 col-xs-offset-1">ZUBOX</h1>
+                <p>
+                  
+                </p>
+                </div>
+              </div>
+              <div className= "col-xs-4  home-block">
+                <div className="home-block-detail">
+                  <img src="/images/PIC22.png" alt=""/>
+                   <h1 className="col-xs-10 col-xs-offset-1">圖像式思考</h1>
+                  <p>
+                  
+                  </p>
+                </div>
+              </div>
+              <div className= "col-xs-4  home-block">
+                <div className="home-block-detail">
+                  <img src="/images/PIC23.png" alt=""/>
+                   <h1 className="col-xs-10 col-xs-offset-1">沈浸式教學</h1>
+                  <p>
+                  
+                  </p>
                 </div>
               </div>
             </div>
-            {/* Controls */}
-            {
-            // <a className="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            //   <span className="glyphicon glyphicon-chevron-left" aria-hidden="true" />
-            //   <span className="sr-only">Previous</span>
-            // </a>
-            // <a className="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            //   <span className="glyphicon glyphicon-chevron-right" aria-hidden="true" />
-            //   <span className="sr-only">Next</span>
-            // </a>
-            }
           </div>
         </div>
+        {
+          /*
         <div className='row text-center home-numbers-container'>
-          <div ref='numbers' style={{ display: 'none' }}>
+          <div className="col-md-12"ref='numbers' style={{ display: 'none' }}>
             <div className='col-xs-3 home-number'>
               <span>{this.state.n1}+</span>
               <span>學員</span>
@@ -117,13 +136,26 @@ class Home extends Component {
             </div>
           </div>
         </div>
-        <div class="fb-page" 
-          data-href="https://www.facebook.com/facebook"
-          data-width="380" 
-          data-hide-cover="false"
-          data-show-facepile="false" 
-          data-show-posts="false">
+          */
+        }
+        <div className="home-product">
+          <div className="row home-product-block">
+            <h1 className="left">dwaaewdaw</h1>
+            <div className="col-xs-8 home-product-detail">
+              <div className="header-polgan-left"><h1 className="left">jiewjoidj</h1></div>
+            </div>
+            <img className="col-xs-4" src="/images/pic5.png" alt=""/>
+          </div>
+          <div className="row product-block ">
+          <h1 className="right">dwaaewdaw</h1>
+            <img className="col-xs-4" src="/images/pic6.png" alt=""/>
+            <div className="col-xs-8 home-product-detail">
+              <div className="header-polgan-right "><h1 className="right">jiewjoidj</h1></div>
+            </div>
+            
+          </div>
         </div>
+
       </div>
     )
   }

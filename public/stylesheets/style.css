@@ -18,6 +18,15 @@ body {
   border-radius: 5px;
   color: white;
 }
+.navbar-fixed-top{
+  border-bottom-width:0px;
+}
+
+.navbar-logo {
+  height: 50px;
+  margin:0;
+  margin-left: -30px;
+}
 
 #alert-success-message {
   background-color: #58c358;
@@ -37,10 +46,6 @@ body {
 
 .item > img {
   opacity: 0.5;
-}
-
-.navbar-logo {
-  height: 50px;
 }
 
 .footer-container {
@@ -69,6 +74,33 @@ vertical-align: middle;
 .footer-detail{
 
 }
+.pic-slider img{
+  width:100%;
+
+}
+.pic-slider{
+  background: black;
+  padding-bottom: 2%;
+  padding-right:0;
+
+}
+
+.slick-dots{
+  background: black;
+
+}
+.slick-dots li button:before {
+    opacity: 1;
+}
+.slick-dots li.slick-active button:before {
+    opacity: 100;
+    color: white;
+}
+.slick-dots li button:before {
+    opacity: 1;
+    color: #777;
+}
+
 .home-landing > img {
   width: 100%;
   opacity: 0.5;
@@ -121,7 +153,63 @@ vertical-align: middle;
   margin-bottom: 50px;
   min-height: 200px;
 }
+.home-pic{
+  padding: 0;
+  height: 100%;
+}
+.home-blocks{
+  background: #777;
+  padding-bottom: 2%; 
+  height: 500px;
+}
+.home-block{
+ 
+  height: 95%;
+  margin-top:-12%; 
+  padding-left: 2%;
+  padding-right: 2%;
 
+}
+.home-block-detail{
+   background: white;
+   width: 100%;
+   height:120%;
+}
+.home-block-detail img{
+  width: 100%;
+}
+.home-block-detail h1{
+  border-left: 3px solid #fdb825;
+  text-align: left;
+}
+.home-product{
+  background: #1aaaeb;
+}
+
+
+ .header-polgan-left{
+  background: #fdb825;
+  
+  clip-path: polygon(0 0, 100% 0, 98% 100%, 0% 100%);
+  z-index:1;
+  width: 110%;
+ }
+ .right{
+    text-align: right;
+    padding-right: 10%;
+ }
+ .left{
+   text-align: left;
+  padding-left: 10%; 
+ }
+  .header-polgan-right{
+  background: #fdb825;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 2% 100%);
+  z-index:1;
+  width: 110%;
+  margin-left:-10%; 
+
+ }
 .product-item {
   margin-top: 20px;
   margin-bottom: 20px;
