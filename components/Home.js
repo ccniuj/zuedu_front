@@ -166,17 +166,27 @@ class Home extends Component {
             <img className="col-xs-4" src="/images/pic5.png" alt=""/>
           </div>
           <div className="row product-block ">
-          <h1 className="right">dwaaewdaw</h1>
+          <h1 className="right">強調動手做的Z-Create</h1>
             <img className="col-xs-4" src="/images/pic6.png" alt=""/>
             <div className="col-xs-8 home-product-detail">
               <div className="header-polgan-right ">
-                <h1 className="right">jiewjoidj</h1>
-                <div className="col-xs-4"><img src="" alt=""/></div>
-                <div className="col-xs-4"></div>
-                <div className="col-xs-4"></div>
+                <h1 className="right">全台首創程式實境教學，科學結合程式邏輯應用</h1>
+                幫助孩子們發覺自己的興趣，<br/>
+                    增強未來學習的動機以及培養自發。
               </div>
             </div>
-            
+            <div className="col-xs-4">
+                  <img src="/images/PIC11.png" alt=""/>
+                  <h5>廣泛接觸不同的事情</h5>
+                </div>
+                <div className="col-xs-4">
+                  <img src="/images/PIC11.png" alt=""/>
+                  <h5>藉由興趣統計量表分析</h5>
+                </div>
+                <div className="col-xs-4">
+                  <img src="/images/PIC11.png" alt=""/>
+                  <h5>實際動手參與</h5>
+                </div>
           </div>
         </div>
 
