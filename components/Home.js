@@ -66,7 +66,6 @@ class Home extends Component {
       
     };
     return (
-
       <div className='container-fluid' style={style}>
         <div className='row'>
         <div className="col-md-12  pic-slider" >
@@ -92,16 +91,17 @@ class Home extends Component {
               <div className= "col-xs-4  home-block">
                 <div className="home-block-detail">
                   <img src="/images/PIC22.png" alt=""/>
-                   <h1 className="col-xs-10 col-xs-offset-1">圖像式思考</h1>
+                  <h1 className="col-xs-10 col-xs-offset-1">圖像式思考</h1>
                   <p>
                   
                   </p>
+
                 </div>
               </div>
               <div className= "col-xs-4  home-block">
                 <div className="home-block-detail">
                   <img src="/images/PIC23.png" alt=""/>
-                   <h1 className="col-xs-10 col-xs-offset-1">沈浸式教學</h1>
+                  <h1 className="col-xs-10 col-xs-offset-1">沈浸式教學</h1>
                   <p>
                   
                   </p>
@@ -140,9 +140,28 @@ class Home extends Component {
         }
         <div className="home-product">
           <div className="row home-product-block">
-            <h1 className="left">dwaaewdaw</h1>
+            <h1 className="left">強調程式教學的Z-Code</h1>
             <div className="col-xs-8 home-product-detail">
-              <div className="header-polgan-left"><h1 className="left">jiewjoidj</h1></div>
+              <div className="header-polgan-left">
+                <h1 className="left">美式 PBL 教學、精緻15人小班 1 : 4 高師生比</h1>
+              </div>
+                <p>讓孩子提早掌握 Z 世代的必備工具，
+                  並藉由 Z 世代的思維讓他們有能力創造出
+                  下一個改變世界大生態的服務及產品。
+                </p>
+                <div className="col-xs-4">
+                  <img src="/images/PIC11.png" alt=""/>
+                  <span>Project based learning</span>
+                </div>
+                <div className="col-xs-4">
+                  <img src="/images/PIC11.png" alt=""/>
+                  <h5>培養邏輯思維</h5>
+                </div>
+                <div className="col-xs-4">
+                  <img src="/images/PIC11.png" alt=""/>
+                  <h5>Peer learning<br />同儕間的學習交流
+                  </h5>
+                </div>
             </div>
             <img className="col-xs-4" src="/images/pic5.png" alt=""/>
           </div>
@@ -150,7 +169,12 @@ class Home extends Component {
           <h1 className="right">dwaaewdaw</h1>
             <img className="col-xs-4" src="/images/pic6.png" alt=""/>
             <div className="col-xs-8 home-product-detail">
-              <div className="header-polgan-right "><h1 className="right">jiewjoidj</h1></div>
+              <div className="header-polgan-right ">
+                <h1 className="right">jiewjoidj</h1>
+                <div className="col-xs-4"><img src="" alt=""/></div>
+                <div className="col-xs-4"></div>
+                <div className="col-xs-4"></div>
+              </div>
             </div>
             
           </div>

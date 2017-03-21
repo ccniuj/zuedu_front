@@ -2,7 +2,9 @@ body {
   background-color: #EFEFEF;
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif', 'Meiryo';
 }
-
+img{
+  width:100%;
+}
 #alert {
   position: fixed;
   width: 100%;
@@ -21,11 +23,15 @@ body {
 .navbar-fixed-top{
   border-bottom-width:0px;
 }
-
+.container{
+  margin-left:0px; 
+}
+.container-fix{
+  margin-left:auto;
+}
 .navbar-logo {
   height: 50px;
-  margin:0;
-  margin-left: -30px;
+  margin:-15px; 
 }
 
 #alert-success-message {
@@ -204,7 +210,7 @@ vertical-align: middle;
  }
   .header-polgan-right{
   background: #fdb825;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 2% 100%);
+  clip-path: polygon(2% 0, 100% 0, 100% 100%, 0% 100%);
   z-index:1;
   width: 110%;
   margin-left:-10%; 

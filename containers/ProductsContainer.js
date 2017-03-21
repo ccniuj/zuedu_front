@@ -24,7 +24,7 @@ class ProductsContainer extends Component {
       minHeight: '600px'
     }
     return (
-      <div className='container' style={style}>
+      <div className='container container-fix' style={style}>
         <div style={{ display: 'none'}} ref='products'>
           { products.map(product => <ProductItem product={product} key={product.id} />)}
         </div>

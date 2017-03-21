@@ -8,6 +8,7 @@ export default class App extends Component {
     const { children, location } = this.props
     return (
       <div>
+        <img className='navbar-logo' src='/images/pic1.png' />
         <NavbarInstance location={location}  />
         {children}
         <Footer>

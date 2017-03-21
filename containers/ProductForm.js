@@ -86,7 +86,7 @@ class ProductForm extends Component {
     const redirect_url = location.pathname
 
     return (
-      <div className='container' style={style}>
+      <div className='container container-fix' style={style}>
         <center><h3>{ product.name }</h3></center>
         <img className='product-cover' src={product.cover_image_url} />
         <div id="fb-root"></div>
