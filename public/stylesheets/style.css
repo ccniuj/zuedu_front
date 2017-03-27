@@ -75,12 +75,11 @@ img{
 .footer-slogan{
 padding:0 auto;
 }
-.footer-icon{
-   display: inline-block;
-}
 .footer-icon img{
-  height:10%;
- 
+  
+  max-height: 100px;
+}
+
 }
 .footer-slogan h5{
   size: 15px;
