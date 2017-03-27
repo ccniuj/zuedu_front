@@ -30,7 +30,8 @@ img{
   margin-left:auto;
 }
 .navbar-logo {
-  height: 50px;
+  max-height: 50px;
+  width: auto;
   margin:-15px; 
 }
 
@@ -59,26 +60,35 @@ img{
     color: white;
     background-color: #404040;
 }
+.footer-container div{
 
+}
 .footer-logo {
+  
+  
 }
 .footer-logo img{
-      padding-right: 15%;
-      border-right: 1px solid white;
-      height: 60px;
+  max-height:120px;
+  padding-right: 15%;
+  border-right: 1px solid white;
 }
 .footer-slogan{
-vertical-align: middle;
+padding:0 auto;
 }
-
+.footer-icon{
+   display: inline-block;
+}
+.footer-icon img{
+  height:10%;
+ 
+}
 .footer-slogan h5{
   size: 15px;
   line-height: 2.1;
-  margin-top: 5px;
-  margin-bottom: 10px;
+
 }
 .footer-detail{
-
+  padding: 10px;
 }
 .pic-slider img{
   width:100%;
@@ -166,33 +176,43 @@ vertical-align: middle;
 .home-blocks{
   background: #777;
   padding-bottom: 2%; 
-  height: 500px;
+  height: auto;
+  margin-bottom: 25px;
 }
-.home-block{
- 
-  height: 95%;
-  margin-top:-12%; 
-  padding-left: 2%;
-  padding-right: 2%;
-
-}
-.home-block-detail{
-   background: white;
-   width: 100%;
-   height:120%;
-}
-.home-block-detail img{
-  width: 100%;
-}
-.home-block-detail h1{
-  border-left: 3px solid #fdb825;
-  text-align: left;
-}
+  .home-block{
+    height: 95%;
+    margin-top:-12%; 
+    padding-top: 2%
+    padding-left:2%;
+  }
+    .home-block-detail{
+     background: white;
+     width: 100%;
+     text-align:center;
+    }
+      .home-block-detail img{
+        width: 100%;
+      }
+      .home-block-detail h1{
+        border-left: 3px solid #fdb825;
+        text-align: left;
+      }
 .home-product{
-  background: #1aaaeb;
+  background: #1aaaeb;  
 }
-
-
+  .home-product-spec{
+    text-align: center;
+  }
+    .home-product-spec img{
+      min-height: 74px;
+    }
+.home-product-block{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.home-product-detail p{
+  font-size: 17px;
+}
  .header-polgan-left{
   background: #fdb825;
   
@@ -202,11 +222,11 @@ vertical-align: middle;
  }
  .right{
     text-align: right;
-    padding-right: 10%;
+    padding-right: 3%;
  }
  .left{
    text-align: left;
-  padding-left: 10%; 
+  padding-left: 3%; 
  }
   .header-polgan-right{
   background: #fdb825;
@@ -322,4 +342,7 @@ textarea.orderinfo-form-input {
 .font-stlye h4{
   font-family:"Microsoft JhengHei";
   font-weight:900;
+}
+@media (max-width: 700px){
+
 }
