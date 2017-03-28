@@ -73,7 +73,7 @@ img{
   border-right: 1px solid white;
 }
 .footer-slogan{
-padding:0 auto;
+
 }
 .footer-icon img{
   padding: 0;
@@ -87,7 +87,7 @@ padding:0 auto;
 
 }
 .footer-detail{
-  padding: 10px;
+  padding: 0;
 }
 .pic-slider img{
   width:100%;
@@ -341,7 +341,4 @@ textarea.orderinfo-form-input {
 .font-stlye h4{
   font-family:"Microsoft JhengHei";
   font-weight:900;
-}
-@media (max-width: 700px){
-
 }

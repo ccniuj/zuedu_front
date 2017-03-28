@@ -18,7 +18,7 @@ export default class Footer extends Component {
           </div>
           <div className='col-md-6 col-xs-6 footer-slogan'>
             <br/>
-            <h5>Where creativity meets</h5><h5>next generation.</h5>
+            <h4>Where creativity meets</h4><h4>next generation.</h4>
           </div>
         </div>
       </div>
@@ -28,12 +28,12 @@ export default class Footer extends Component {
           <img className="col-xs-6"src="images/line.png" alt=""/>
         </div>
         <div className='col-md-8 col-md-offset-0 col-xs-6 col-xs-offset-0 footer-detail'>
-        <h5>
+        <h4>
           信箱：zubat.nthu@gmail.com<br/>
           LINE：@ebr1368g<br/>
           客服：0975-467-941<br/>
           辦公室地址:<br/>
-        </h5>
+        </h4>
           
         </div>
         </div>
