@@ -144,24 +144,24 @@ class Home extends Component {
             <h1 className="left">強調程式教學的Z-Code</h1>
             <div className="col-xs-8 home-product-detail">
               <div className="header-polgan-left">
-                <h1 className="left">美式 PBL 教學、1 : 15 高師生比</h1>
+                <h2 className="left">美式 PBL 教學、1 : 15 高師生比</h2>
               </div>
-                <p className="left">讓孩子提早掌握 Z 世代的必備工具，
+                <h2 className="left">讓孩子提早掌握 Z 世代的必備工具，
                   並藉由 Z 世代的思維讓他們有能力創造出
                   下一個改變世界大生態的服務及產品。
-                </p>
+                </h2>
                 <div className="col-xs-4 home-product-spec" >
                   <img src="/images/takenote.png" alt=""/>
-                  <span>Project based learning</span>
+                  <h3>Project based learning</h3>
                 </div>
                 <div className="col-xs-4 home-product-spec">
                   <img src="/images/brain.png" alt=""/>
-                  <h5>培養邏輯思維</h5>
+                  <h3>培養邏輯思維</h3>
                 </div>
                 <div className="col-xs-4 home-product-spec">
                   <img src="/images/theremen.png" alt=""/>
-                  <h5>Peer learning<br />同儕間的學習交流
-                  </h5>
+                  <h3>Peer learning<br />同儕間的學習交流
+                  </h3>
                 </div>
             </div>
             <img className="col-xs-4" src="/images/pic5.png" alt=""/>
@@ -171,22 +171,22 @@ class Home extends Component {
             <img className="col-xs-4" src="/images/pic6.png" alt=""/>
             <div className="col-xs-8 home-product-detail">
               <div className="header-polgan-right ">
-                <h1 className="right">全台首創程式實境教學，科學結合程式邏輯應用</h1>
+                <h2 className="right">全台首創程式實境教學，科學結合程式邏輯應用</h2>
                 
               </div>
-                <p className="right">幫助孩子們發覺自己的興趣，
-                    增強未來學習的動機以及培養自發。</p>
+                <h2 className="right">幫助孩子們發覺自己的興趣，
+                    增強未來學習的動機以及培養自發。</h2>
                 <div className="col-xs-4 home-product-spec">
                   <img src="/images/threeRoad.png" alt=""/>
-                  <h5>廣泛接觸不同的事情</h5>
+                  <h3>廣泛接觸不同的事情</h3>
                 </div>
                 <div className="col-xs-4 home-product-spec">
                   <img src="/images/chart.png" alt=""/>
-                  <h5>藉由興趣統計量表分析</h5>
+                  <h3>藉由興趣統計量表分析</h3>
                 </div>
                 <div className="col-xs-4 home-product-spec">
                   <img src="/images/maker.png" alt=""/>
-                  <h5>實際動手參與</h5>
+                  <h3>實際動手參與</h3>
                 </div>
             </div>
 
