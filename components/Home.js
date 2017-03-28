@@ -146,10 +146,13 @@ class Home extends Component {
               <div className="header-polgan-left">
                 <h2 className="left">美式 PBL 教學、1 : 15 高師生比</h2>
               </div>
-                <h2 className="left">讓孩子提早掌握 Z 世代的必備工具，
-                  並藉由 Z 世代的思維讓他們有能力創造出
-                  下一個改變世界大生態的服務及產品。
+                <h2 className="left">
+                  讓孩子提早掌握 Z 世代的必備工具，<br/>
+                  並藉由 Z 世代的思維讓他們有能力創造出<br/>
+                  下一個改變世界大生態的服務及產品。<br/>
+
                 </h2>
+                <br/>
                 <div className="col-xs-4 home-product-spec" >
                   <img src="/images/takenote.png" alt=""/>
                   <h3>Project based learning</h3>
@@ -171,11 +174,17 @@ class Home extends Component {
             <img className="col-xs-4" src="/images/pic6.png" alt=""/>
             <div className="col-xs-8 home-product-detail">
               <div className="header-polgan-right ">
-                <h2 className="right">全台首創程式實境教學，科學結合程式邏輯應用</h2>
-                
-              </div>
-                <h2 className="right">幫助孩子們發覺自己的興趣，
-                    增強未來學習的動機以及培養自發。</h2>
+                <h2 className="right">
+                全台首創程式實境教學，
+                科學結合程式邏輯應用
+                </h2>
+                </div>
+                <h2 className="right">
+                    幫助孩子們發覺自己的興趣，<br/>
+                    增強未來學習的動機以及培養自發。<br/>
+
+                </h2>
+                <br/>
                 <div className="col-xs-4 home-product-spec">
                   <img src="/images/threeRoad.png" alt=""/>
                   <h3>廣泛接觸不同的事情</h3>
