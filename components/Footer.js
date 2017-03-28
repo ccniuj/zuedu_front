@@ -14,7 +14,7 @@ export default class Footer extends Component {
         <div className="col-md-5 col-xs-5 footerlogo ">
           <div className="row ">
           <div className='col-md-6 footer-logo'>
-            <img className='col-md-10 col-md-offset-1 col-xs-6' src='/images/logo_footer.png' />
+            <img className='col-md-9 col-md-offset-1 col-xs-6' src='/images/logo_footer.png' />
           </div>
           <div className='col-md-6 col-xs-6 footer-slogan'>
             <br/>
