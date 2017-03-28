@@ -9,7 +9,7 @@ export default class Footer extends Component {
   }
   render() {
     return (
-      <footer className='footer-container'>
+      <footer className='row footer-container'>
       <div className="row">
         <div className="col-md-5 col-xs-5 footerlogo ">
           <div className="row ">

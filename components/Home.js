@@ -75,37 +75,43 @@ class Home extends Component {
           </Slider>          
         </div>
         </div>
-        <img src="/images/yellow-radius.png" style={{width:"100%",zIndex:3}} alt=""/>
-        <div className="home-blocks col-xs-12">
+        
+        <div className="home-blocks row">
+        <img src="/images/yellow-radius.png" style={{width:"100%",zIndex:3,marginBottom:"-6%"}} alt=""/>
           <div className="col-xs-10 col-xs-offset-1  home-pic" >
             <div className ="row home-pic">
+
               <div className= "col-md-4  home-block">
-                <div className="home-block-detail">
-                <img src="/images/PIC21.png" alt=""/>
-                <h1 className="col-xs-12 ">ZUBOX</h1>
-                <p>
-                   為孩子特別設計的教材，讓孩子透過教材發揮出無限想像力。
-                </p>
+                  <div className="col-md-12  home-block-detail">
+                    <img src="/images/PIC21.png" alt=""/>
+                    <h2>ZUBOX</h2>
+                    <h4>
+                       為孩子特別設計的教材，讓孩子透過教材發揮出無限想像力。
+                    </h4>
+
+                
                 </div>
               </div>
               <div className= "col-md-4  home-block">
-                <div className="home-block-detail">
+                <div className="col-md-12  home-block-detail">
                   <img src="/images/PIC22.png" alt=""/>
-                  <span><h1 className="col-xs-12">圖像式思考</h1></span>
-                  
-                  <p>
+                  <h2>圖像式思考</h2>
+                  <h4>
                   透過圖像是思考教學，讓孩子的想像力不再受限。
-                  </p>
+                  </h4>
 
                 </div>
+
               </div>
               <div className= "col-md-4  home-block">
-                <div className="home-block-detail">
+
+                <div className="col-md-12 home-block-detail">
+
                   <img src="/images/PIC23.png" alt=""/>
-                  <h1 className="col-xs-12">沈浸式教學</h1>
-                  <p>
+                  <h2>沈浸式教學</h2>
+                  <h4>
                   設計多種程式設計的遊戲，讓孩子在遊玩的過程中輕鬆學習程式的精隨。
-                  </p>
+                  </h4>
                 </div>
               </div>
             </div>
@@ -139,8 +145,8 @@ class Home extends Component {
         </div>
           */
         }
-        <div className="home-product">
-          <div className="row home-product-block">
+        <div className="row home-product">
+          <div className=" home-product-block">
             <h1 className="left">強調程式教學的Z-Code</h1>
             <div className="col-xs-8 home-product-detail">
               <div className="header-polgan-left">

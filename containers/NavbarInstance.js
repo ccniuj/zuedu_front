@@ -48,19 +48,16 @@ class NavbarInstance extends Component {
 
     return (
       <Navbar fixedTop collapseOnSelect>
-  
         <Navbar.Header>
-                <Navbar.Brand>
-        <Link to="/">
+          <Navbar.Brand>
+            <Link to="/">
               <img className='navbar-logo' src='/images/pic1.png' />
-        </Link>
-      </Navbar.Brand>
-            
-            
-            <Navbar.Toggle />
-            
+            </Link>
+          </Navbar.Brand>
+          <Navbar.Toggle />
         </Navbar.Header>
-        <Navbar.Collapse fluid>
+
+        <Navbar.Collapse>
           <Nav pullRight>
           <LinkContainer to={{ pathname: '/about' }}>
             <NavItem eventKey={1} href="#">關於我們</NavItem>
@@ -71,14 +68,13 @@ class NavbarInstance extends Component {
           { loginLink }
           { dropdown }
           </Nav>
+          <div id='alert' ref='alert'/>
         </Navbar.Collapse>
         
-        <div id='alert' ref='alert'/>
       </Navbar>
     )
   }
 }
-
 const mapStateToProps = state => {
   return {
     member: state.member,
