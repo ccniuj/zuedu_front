@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap'
 import { checkMemberLogin, memberLogout } from '../actions'
 import config from '../config'
 
@@ -34,44 +33,34 @@ class NavbarInstance extends Component {
       ? <div />
       : 
         <NavDropdown eventKey={4} title={member.name} id="basic-nav-dropdown">
-          <LinkContainer to={{ pathname: '/cart' }}>
-            <MenuItem eventKey={4.1} >購物車</MenuItem>
-          </LinkContainer>
-          <LinkContainer to={{ pathname: '/orders' }}>
-            <MenuItem eventKey={4.2} >訂單</MenuItem>
-          </LinkContainer>
-          <MenuItem divider />
-          <LinkContainer to={{ pathname: '/login' }}>
-            <MenuItem eventKey={4.3}>管理者登入</MenuItem>
-          </LinkContainer>
+
+            <MenuItem eventKey={4.1} href="/cart">購物車</MenuItem>
+            <MenuItem eventKey={4.2} href="/orders">訂單</MenuItem>
+            <MenuItem divider />
+            <MenuItem eventKey={4.3} href="/login">管理者登入</MenuItem>
         </NavDropdown>
 
     return (
-      <Navbar fixedTop collapseOnSelect>
+      
+      <Navbar fixedTop={true}  collapseOnSelect={true}>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to="/">
-              <img className='navbar-logo' src='/images/pic1.png' />
-            </Link>
+            <a href="/"><img className='navbar-logo' src='/images/pic1.png' /></a>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
 
         <Navbar.Collapse>
           <Nav pullRight>
-          <LinkContainer to={{ pathname: '/about' }}>
-            <NavItem eventKey={1} href="#">關於我們</NavItem>
-          </LinkContainer>
-          <LinkContainer to={{ pathname: '/products' }}>
-            <NavItem eventKey={2} href="#">課程介紹</NavItem>
-          </LinkContainer>
-          { loginLink }
-          { dropdown }
+            <NavItem eventKey={1} href="/about">關於我們</NavItem>
+            <NavItem eventKey={2} href="/products">課程介紹</NavItem>
+            { loginLink }
+            { dropdown }
+
           </Nav>
-          <div id='alert' ref='alert'/>
         </Navbar.Collapse>
-        
       </Navbar>
+
     )
   }
 }

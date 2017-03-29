@@ -21,14 +21,15 @@ img{
   border-radius: 5px;
   color: white;
 }
+.about-view {
+    margin-top: -250px;
+}
 .navbar-fixed-top{
   border-bottom-width:0px;
 }
-.container{
-  margin-left:0px; 
-}
-.container-fix{
-  margin-left:auto;
+
+.navbar div{
+  margin-left: 0px;
 }
 .navbar-logo {
   max-height: 50px;
@@ -348,4 +349,12 @@ textarea.orderinfo-form-input {
 .font-stlye h4{
   font-family:"Microsoft JhengHei";
   font-weight:900;
+}
+@media(max-width: 425px){
+.navbar-logo {
+    max-height: 35px;
+    }
+.about-view {
+    margin-top: 0;
+}
 }

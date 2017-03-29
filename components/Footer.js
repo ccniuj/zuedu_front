@@ -9,7 +9,7 @@ export default class Footer extends Component {
   }
   render() {
     return (
-      <footer className='row footer-container'>
+      <div className='container-fluid footer-container'>
       <div className="row">
         <div className="col-md-5 col-xs-5 footerlogo ">
           <div className="row ">
@@ -28,17 +28,20 @@ export default class Footer extends Component {
           <img className="col-xs-6"src="images/line.png" alt=""/>
         </div>
         <div className='col-md-8 col-md-offset-0 col-xs-6 col-xs-offset-0 footer-detail'>
-        <h4>
+        
+          
+        </div>
+        </div>
+      </div>
+      </div>
+    )
+  }
+}
+/**
+<h4>
           信箱：zubat.nthu@gmail.com<br/>
           LINE：@ebr1368g<br/>
           客服：0975-467-941<br/>
           辦公室地址:<br/>
         </h4>
-          
-        </div>
-        </div>
-      </div>
-      </footer>
-    )
-  }
-}
+**/

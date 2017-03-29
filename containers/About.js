@@ -11,15 +11,14 @@ class About extends Component {
   render() {
     const style = {
       paddingTop: '30px',
-      paddingLeft: '0px',
-      paddingRight: '0px',
+
       minHeight: '600px'
     }
     return (
       <div className='container-fluid' style={style}>
-        <div className='row' style={{position: 'relative'},style}>
+        <div className='row' >
           <img src='/images/about_1.png' style={{width: '100%'}} />
-          <div style={{position: 'absolute', top: '120px', left: '100px'}}>
+          <div className="about-view col-md-5 col-md-offset-1 col-xs-10 col-xs-offset-1">
             <h1>我們的願景</h1>
             <br/>
             <h4>隨著科技的發展，這個世界每一秒都在劇烈的改變，</h4>

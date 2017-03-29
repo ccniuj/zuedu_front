@@ -52,10 +52,7 @@ class Home extends Component {
   render() {
     const style = {
       paddingTop: '50px',
-      paddingLeft: '0px',
-      paddingRight: '0px',
-      marginLeft: '0px',
-      marginRight: '0px'
+
     }
     var settings = {
       dots: true,
@@ -68,9 +65,8 @@ class Home extends Component {
     return (
       <div className='container-fluid' style={style}>
         <div className='row'>
-        <div className="col-md-12  pic-slider" >
+        <div className="pic-slider" >
           <Slider {...settings}>
-            <div><img src="/images/pic2.png" alt=""/></div>
             <div><img src="/images/pic2.png" alt=""/></div>
           </Slider>          
         </div>
@@ -146,7 +142,8 @@ class Home extends Component {
           */
         }
         <div className="row home-product">
-          <div className=" home-product-block">
+        <div className="col-md-12">
+          <div className=" row home-product-block">
             <h1 className="left">強調程式教學的Z-Code</h1>
             <div className="col-xs-8 home-product-detail">
               <div className="header-polgan-left">
@@ -175,7 +172,7 @@ class Home extends Component {
             </div>
             <img className="col-xs-4" src="/images/pic5.png" alt=""/>
           </div>
-          <div className="row home-product-block ">
+          <div className=" row home-product-block ">
           <h1 className="right">強調動手做的Z-Create</h1>
             <img className="col-xs-4" src="/images/pic6.png" alt=""/>
             <div className="col-xs-8 home-product-detail">
@@ -206,8 +203,9 @@ class Home extends Component {
             </div>
 
           </div>
-        </div>
 
+        </div>
+        </div>
       </div>
     )
   }
