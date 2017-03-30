@@ -11,24 +11,28 @@ export default class Footer extends Component {
     return (
       <div className='container-fluid footer-container'>
       <div className="row">
-        <div className="col-md-5 col-xs-5 footerlogo ">
+        <div className="col-md-5 col-xs-6 col-sm-3 footerlogo ">
           <div className="row ">
           <div className='col-md-6 footer-logo'>
-            <img className='col-md-9 col-md-offset-1 col-xs-6' src='/images/logo_footer.png' />
+            <img className='col-md-9 col-md-offset-1 col-xs-12 col-sm-12' src='/images/logo_footer.png' />
           </div>
-          <div className='col-md-6 col-xs-6 footer-slogan'>
-            <br/>
-            <h4>Where creativity meets</h4><h4>next generation.</h4>
+          <div className='col-md-6 hidden-xs hidden-sm footer-slogan'>
+            <h4 className="h4">Where creativity meets</h4><h4>next generation.</h4>
           </div>
         </div>
       </div>
-      <div className="col-md-7 col-xs-7">
-        <div className="col-md-4 col-xs-6 footer-icon">
-          <img className="col-xs-6 "src="images/facebook.png" alt=""/>
-          <img className="col-xs-6"src="images/line.png" alt=""/>
+      <div className="col-md-7 col-xs-6 col-sm-9">
+        <div className="col-md-4 hidden-xs col-sm-6">
+          <img className="col-xs-6 footer-icon"src="images/facebook.png" alt=""/>
+          <img className="col-xs-6 footer-icon"src="images/line.png" alt=""/>
         </div>
-        <div className='col-md-8 col-md-offset-0 col-xs-6 col-xs-offset-0 footer-detail'>
-        
+        <div className='col-md-8 col-md-offset-0 col-xs-12 col-sm-6 footer-detail'>
+        <address>
+          信箱：<br/>
+          zubat.nthu@gmail.com<br/>
+          LINE：@ebr1368g<br/>
+          客服：0975-467-941<br/>
+        </address>
           
         </div>
         </div>
@@ -39,9 +43,6 @@ export default class Footer extends Component {
 }
 /**
 <h4>
-          信箱：zubat.nthu@gmail.com<br/>
-          LINE：@ebr1368g<br/>
-          客服：0975-467-941<br/>
-          辦公室地址:<br/>
+
         </h4>
 **/

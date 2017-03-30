@@ -3,8 +3,10 @@ body {
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif', 'Meiryo';
 }
 img{
-  width:100%;
-  
+  width:80%;
+}
+.white {
+  color: white
 }
 #alert {
   position: fixed;
@@ -31,6 +33,7 @@ img{
 .navbar div{
   margin-left: 0px;
 }
+
 .navbar-logo {
   max-height: 50px;
   width: auto;
@@ -58,7 +61,7 @@ img{
 }
 
 .footer-container {
-    min-height: 100px;
+    min-height: 80px;
     color: white;
     background-color: #404040;
 }
@@ -77,9 +80,10 @@ img{
 .footer-slogan{
 
 }
-.footer-icon img{
-  padding: 0;
-
+.footer-icon{
+  padding: 10px;
+    padding-top: 15px;
+    width: 45%;
 }
 
 }
@@ -101,7 +105,11 @@ img{
   padding-right:0;
 
 }
-
+address {
+    margin-bottom: 0px;
+    font-style: normal;
+    line-height: 1.42857143;
+}
 .slick-dots{
   background: black;
   padding-bottom:0;
@@ -222,7 +230,7 @@ img{
 }
  .header-polgan-left{
   background: #fdb825;
-  
+  margin-left:-15px;
   clip-path: polygon(0 0, 100% 0, 98% 100%, 0% 100%);
   z-index:1;
   width: 110%;
@@ -239,9 +247,8 @@ img{
   background: #fdb825;
   clip-path: polygon(2% 0, 100% 0, 100% 100%, 0% 100%);
   z-index:1;
-  width: 110%;
-  margin-left:-10%; 
-
+      margin-right: -15px;
+    text-align: right;
  }
 .product-item {
   margin-top: 20px;

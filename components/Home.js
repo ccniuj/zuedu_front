@@ -144,12 +144,12 @@ class Home extends Component {
         <div className="row home-product">
         <div className="col-md-12">
           <div className=" row home-product-block">
-            <h1 className="left">強調程式教學的Z-Code</h1>
+            <h1 className="left white">強調程式教學的Z-Code</h1>
             <div className="col-xs-8 home-product-detail">
               <div className="header-polgan-left">
-                <h2 className="left">美式 PBL 教學、1 : 15 高師生比</h2>
+                <h2 className="left white">美式 PBL 教學、1 : 15 高師生比</h2>
               </div>
-                <h2 className="left">
+                <h2 className="left white">
                   讓孩子提早掌握 Z 世代的必備工具，<br/>
                   並藉由 Z 世代的思維讓他們有能力創造出<br/>
                   下一個改變世界大生態的服務及產品。<br/>
@@ -158,31 +158,31 @@ class Home extends Component {
                 <br/>
                 <div className="col-xs-4 home-product-spec" >
                   <img src="/images/takenote.png" alt=""/>
-                  <h3>Project based learning</h3>
+                  <h3 className="white">Project based learning</h3>
                 </div>
                 <div className="col-xs-4 home-product-spec">
                   <img src="/images/brain.png" alt=""/>
-                  <h3>培養邏輯思維</h3>
+                  <h3 className="white">培養邏輯思維</h3>
                 </div>
                 <div className="col-xs-4 home-product-spec">
                   <img src="/images/theremen.png" alt=""/>
-                  <h3>Peer learning<br />同儕間的學習交流
+                  <h3 className="white">Peer learning<br />同儕間的學習交流
                   </h3>
                 </div>
             </div>
             <img className="col-xs-4" src="/images/pic5.png" alt=""/>
           </div>
           <div className=" row home-product-block ">
-          <h1 className="right">強調動手做的Z-Create</h1>
+          <h1 className="right white">強調動手做的Z-Create</h1>
             <img className="col-xs-4" src="/images/pic6.png" alt=""/>
             <div className="col-xs-8 home-product-detail">
               <div className="header-polgan-right ">
-                <h2 className="right">
+                <h2 className="white right">
                 全台首創程式實境教學，
                 科學結合程式邏輯應用
                 </h2>
                 </div>
-                <h2 className="right">
+                <h2 className="white right">
                     幫助孩子們發覺自己的興趣，<br/>
                     增強未來學習的動機以及培養自發。<br/>
 
@@ -190,15 +190,15 @@ class Home extends Component {
                 <br/>
                 <div className="col-xs-4 home-product-spec">
                   <img src="/images/threeRoad.png" alt=""/>
-                  <h3>廣泛接觸不同的事情</h3>
+                  <h3 className="white">廣泛接觸不同的事情</h3>
                 </div>
                 <div className="col-xs-4 home-product-spec">
                   <img src="/images/chart.png" alt=""/>
-                  <h3>藉由興趣統計量表分析</h3>
+                  <h3 className="white">藉由興趣統計量表分析</h3>
                 </div>
                 <div className="col-xs-4 home-product-spec">
                   <img src="/images/maker.png" alt=""/>
-                  <h3>實際動手參與</h3>
+                  <h3 className="white">實際動手參與</h3>
                 </div>
             </div>
 
