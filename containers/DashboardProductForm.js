@@ -107,6 +107,10 @@ class DashboardProductForm extends Component {
             <label htmlFor='dimension_image_url'>向度圖片連結</label>
             <input ref='dimension_image_url' type='text' name='dimension_image_url' placeholder='輸入大綱圖片連結' style={{width: '100%'}} defaultValue={product.dimension_image_url} />
             <br/>
+            <label htmlFor='activityUrl'> 活動圖片連結</label>
+            <input ref='activityUrl' type='text' name='activityUrl' placeholder='輸入活動圖片連結' style={{width: '100%'}} defaultValue={product.activityUrl} />
+            {console.log(product)}
+            <br/>
             <br/>
             <input className='btn btn-success btn-block' type='submit' value='確定' />
           </form>

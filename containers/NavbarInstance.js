@@ -30,9 +30,7 @@ class NavbarInstance extends Component {
           <h4>fb登出</h4>
         </NavItem>
 
-    const dropdown = (member.id == '')
-      ? <div />
-      : 
+    const dropdown = 
         <NavDropdown eventKey={4} title={member.name} id="basic-nav-dropdown">
 
             <MenuItem eventKey={4.1} href="/cart">購物車</MenuItem>
