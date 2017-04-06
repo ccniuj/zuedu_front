@@ -179,7 +179,9 @@ export function checkMemberLogin() {
     then(handleErrors).
     then(res => res.json()).
     then(data => {
+      console.log("yes1")
       if (data.member) {
+        console.log("yes2")
         dispatch({
           type: types.CHECK_MEMBER_LOGIN_SUCCESS,
           member: data.member,
@@ -187,11 +189,13 @@ export function checkMemberLogin() {
       }
     }).
     catch((err) => {
+      console.log("yes3")
       console.log(err)
       dispatch({
         type: types.CHECK_MEMBER_LOGIN_FAILURE
       })
     })
+    console.log("yes4")
   }
 }
 

@@ -9,6 +9,7 @@ export default class App extends Component {
     return (
       <div>
         <NavbarInstance location={location}  />
+        {console.log(location)}
         {children}
         <Footer>
           <button />
