@@ -35,7 +35,7 @@ img{
 }
 
 .navbar-logo {
-  max-height: 50px;
+  max-height: 69px;
   width: auto;
   margin:-15px; 
 }
@@ -78,7 +78,7 @@ img{
   border-right: 1px solid white;
 }
 .footer-slogan{
-
+      padding-top: 2%;
 }
 .footer-icon{
   padding: 10px;
@@ -93,7 +93,7 @@ img{
 
 }
 .footer-detail{
-  padding: 0;
+  
 }
 .pic-slider img{
   width:100%;
@@ -106,6 +106,7 @@ img{
 
 }
 address {
+
     margin-bottom: 0px;
     font-style: normal;
     line-height: 1.42857143;
@@ -196,7 +197,7 @@ address {
     .home-block-detail{
      background: white;
      width: 100%;
-     text-align:center;
+     text-align:left;
      padding-left: 0;
     padding-right: 0;
     }
@@ -206,7 +207,8 @@ address {
       .home-block-detail h2{
         border-left: 3px solid #fdb825;
         text-align: left;
-        margin-left: 10px;
+        margin-left: 27px;
+        padding-left: 15px;
       }
       .home-block-detail h4{
             margin: 10px;
@@ -219,7 +221,7 @@ address {
     text-align: center;
   }
     .home-product-spec img{
-      min-height: 74px;
+      min-height: 20px;
     }
 .home-product-block{
   padding-top: 20px;
@@ -230,10 +232,10 @@ address {
 }
  .header-polgan-left{
   background: #fdb825;
-  margin-left:-15px;
+  margin-left:-30px;
   clip-path: polygon(0 0, 100% 0, 98% 100%, 0% 100%);
   z-index:1;
-  width: 110%;
+  width: 100%;
  }
  .right{
     text-align: right;
@@ -241,7 +243,7 @@ address {
  }
  .left{
    text-align: left;
-  padding-left: 3%; 
+  padding-left: 10%; 
  }
   .header-polgan-right{
   background: #fdb825;
@@ -363,5 +365,32 @@ textarea.orderinfo-form-input {
     }
 .about-view {
     margin-top: 0;
+}
+}
+@media(max-width: 767px){
+  .navbar-logo {
+  max-height: 50px;
+
+}
+}
+@media(max-width: 320px){
+  .navbar-logo {
+  max-height:40px;
+
+}
+}
+@media(max-width: 768px){
+.footer-detail {
+    padding-top: 15px;
+}
+}
+@media(max-width: 428px){
+.footer-detail {
+    padding-top: 0px;
+}
+}
+@media(max-width: 320px){
+.address {
+    padding-top: 0px;
 }
 }

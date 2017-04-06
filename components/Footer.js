@@ -11,17 +11,17 @@ export default class Footer extends Component {
     return (
       <div className='container-fluid footer-container'>
       <div className="row">
-        <div className="col-md-5 col-xs-6 col-sm-3 footerlogo ">
+        <div className="col-md-5 col-xs-5 col-sm-3 footerlogo ">
           <div className="row ">
           <div className='col-md-6 footer-logo'>
             <img className='col-md-9 col-md-offset-1 col-xs-12 col-sm-12' src='/images/logo_footer.png' />
           </div>
           <div className='col-md-6 hidden-xs hidden-sm footer-slogan'>
-            <h4 className="h4">Where creativity meets</h4><h4>next generation.</h4>
+            <h5>Where creativity meets</h5><h5>next generation.</h5>
           </div>
         </div>
       </div>
-      <div className="col-md-7 col-xs-6 col-sm-9">
+      <div className="col-md-7 col-xs-7 col-sm-9">
         <div className="col-md-4 hidden-xs col-sm-6">
           <img className="col-xs-6 footer-icon"src="images/facebook.png" alt=""/>
           <img className="col-xs-6 footer-icon"src="images/line.png" alt=""/>
