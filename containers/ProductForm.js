@@ -31,6 +31,7 @@ class ProductForm extends Component {
     let adds = Array(n).fill().map( _ => addToCart(product.id, d))
 
     Promise.all(adds).then(() => browserHistory.push('/cart')) 
+
   }
 
   _loadFbBtn() {
@@ -203,6 +204,7 @@ class ProductForm extends Component {
             }
           </div>
         </div>
+         
         <Confirm addProducts={this.addProducts}/>
       </div>
     )

@@ -109,7 +109,7 @@ class DashboardProductForm extends Component {
             <br/>
             <label htmlFor='activityUrl'> 活動圖片連結</label>
             <input ref='activityUrl' type='text' name='activityUrl' placeholder='輸入活動圖片連結' style={{width: '100%'}} defaultValue={product.activityUrl} />
-            {console.log(product)}
+            
             <br/>
             <br/>
             <input className='btn btn-success btn-block' type='submit' value='確定' />

@@ -11,11 +11,15 @@ class NavbarInstance extends Component {
     $(this.refs.alert).hide()
   }
   componentWillReceiveProps(nextProps) {
+    /**
     if (this.props.alert.timestamp != nextProps.alert.timestamp) {
       this.refs.alert.innerHTML = `<span id='alert-${nextProps.alert.alert_type}-message'>${nextProps.alert.message}</span>`
       $(this.refs.alert).fadeIn('slow', () => setTimeout(() => $(this.refs.alert).fadeOut('slow'), 2000))
     }
+    //why????
+    **/
   }
+
   render() {
     const { location, member, memberLogout } = this.props
     const redirect_url = location.pathname
@@ -30,7 +34,11 @@ class NavbarInstance extends Component {
           <h4>fb登出</h4>
         </NavItem>
 
-    const dropdown = 
+    const dropdown = (member.id == '')
+
+      ?
+      <div />
+      :
         <NavDropdown eventKey={4} title={member.name} id="basic-nav-dropdown">
 
             <MenuItem eventKey={4.1} href="/cart">購物車</MenuItem>
