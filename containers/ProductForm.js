@@ -81,15 +81,16 @@ class ProductForm extends Component {
   render() {
     const { addToCart, product, cart, member, submitForm, location } = this.props
     const style = {
-      paddingTop: '50px',
-      minHeight: '600px'
+      minHeight: '600px',
+
     }
     const redirect_url = location.pathname
 
     return (
+      <div>
+      <img className='product-cover' src={product.cover_image_url} />
       <div className='container container-fix' style={style}>
-        <center><h3>{ product.name }</h3></center>
-        <img className='product-cover' src={product.cover_image_url} />
+        
         <div id="fb-root"></div>
         {
         // <div className="fb-share-button" 
@@ -108,50 +109,57 @@ class ProductForm extends Component {
              data-type="share-b" 
              data-lang="zh-Hant" /></div>
         <div className='row product-form-section'>
-          <div className='col-xs-3'>
-            <h3>為什麼要參加此課程？</h3>
+          <div className='col-xs-12'>
+            <h3 className="yellow-bar">為什麼要參加此課程？</h3>
           </div>
-          <div className='col-xs-9'>
+          <div className='col-xs-12'>
             <div dangerouslySetInnerHTML={{ __html: product.description }} />
           </div>
+          
         </div>
-        <div className='row product-form-section'>
-          <div className='col-xs-3'>
-            <h3>課程指標金三角</h3>
+        <div className='row product-form-section-blue'>
+          <div className='col-xs-12'>
+            <h3 className="yellow-bar">活動照片</h3>
           </div>
-          <div className='col-xs-9'>
+          </div>
+        <div className='row product-form-section'>
+          <div className='col-xs-12'>
+            <h3 className="yellow-bar">課程指標金三角</h3>
+          </div>
+          <div className='col-xs-12'>
             <div dangerouslySetInnerHTML={{ __html: product.dimension }} />
             <img src={product.dimension_image_url} style={{width: '100%'}} />
           </div>
         </div>
-        <div className='row product-form-section'>
-          <div className='col-xs-3'>
-            <h3>課程大綱</h3>
+        <div className='row product-form-section-blue'>
+          <div className='col-xs-12'>
+            <h3 className="yellow-bar">課程大綱</h3>
           </div>
-          <div className='col-xs-9'>
+          <div className='col-xs-12'>
             <img src={product.outline_image_url} style={{width: '100%'}} />
           </div>
         </div>
         <div className='row product-form-section'>
-          <div className='col-xs-3'>
-            <h3>詳細資訊</h3>
+          <div className='col-xs-12'>
+            <h3 className="yellow-bar">詳細資訊</h3>
           </div>
-          <div className='col-xs-9'>
+          <div className='col-xs-12'>
             <h4>適合對象</h4>
-            { product.target }
+            <div className="row"><div className="col-xs-11 col-xs-offset-1" >{ product.target }</div></div>
+            
             <h4>場次</h4>
-            { product.product_details.map(pd => <div key={pd.id}>【{pd.description}】{pd.date_from}~{pd.date_to}</div>)}
+            { product.product_details.map(pd => <div className="row"><div className="col-xs-11 col-xs-offset-1" key={pd.id}>【{pd.description}】{pd.date_from}~{pd.date_to}</div></div>)}
             <h4>地點</h4>
-            { product.product_details.map(pd => <div key={pd.id}>【{pd.description}】{pd.place}</div>)}
+            { product.product_details.map(pd => <div className="row"><div className="col-xs-11 col-xs-offset-1" key={pd.id}>【{pd.description}】{pd.place}</div></div>)}
             <h4>方案</h4>
-            <div dangerouslySetInnerHTML={{ __html: product.pricing }} />
+            <div className="row"><div className="col-xs-11 col-xs-offset-1"  dangerouslySetInnerHTML={{ __html: product.pricing }} /></div>
           </div>
         </div>
         <div className='row product-form-section'>
-          <div className='col-xs-3'>
-            <h3>我要報名</h3>
+          <div className='col-xs-12'>
+            <h3 className="yellow-bar">我要報名</h3>
           </div>
-          <div className='col-xs-9'>
+          <div className='col-xs-12'>
             {
               member.id == '' 
               ? 
@@ -207,6 +215,8 @@ class ProductForm extends Component {
          
         <Confirm addProducts={this.addProducts}/>
       </div>
+    
+    </div>
     )
   }
 }

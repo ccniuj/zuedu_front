@@ -23,6 +23,7 @@ import ProductForm from './containers/ProductForm'
 import CartContainer from './containers/CartContainer'
 import OrdersContainer from './containers/OrdersContainer'
 import OrdersFormNew from './containers/OrdersFormNew'
+import OrdersForm from './containers/OrdersForm'
 import LoginContainer from './containers/LoginContainer'
 
 export default (
@@ -36,7 +37,7 @@ export default (
         <Route path="/cart/:type(/:id)" component={OrdersFormNew} />
       </Route>
       <Route path="/orders" component={OrdersContainer} />
-      
+      <Route path="/orders/:type(/:id)" component={OrdersForm} />
       <Route path='/login' component={LoginContainer} />
     </Route>
     <Route path='/dashboard' component={Dashboard}>
