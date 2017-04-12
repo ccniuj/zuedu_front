@@ -10,47 +10,23 @@ import {
 } from '../actions'
 import Slider from 'react-slick'
 import { Link } from 'react-router'
-
+import loader from 'react-loader'
 class Home extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      n1: 0,
-      n2: 0,
-      n3: 0,
-      n4: 0
+    this.state={
+      windowWidth:""
     }
-    this.countToNumber = (numbers, duration) => this._countToNumber(numbers, duration)
+    
   }
+  
   componentDidMount() {
     if (this.props.serverRender) {
       this.props.clientRender()
     }
-    $(this.refs.numbers).fadeIn(500)
-    $(this.refs.features).fadeIn(1500)
-    this.countToNumber({
-      n1: 300,
-      n2: 9,
-      n3: 5,
-      n4: 2
-    }, 500)
+    this.setState({windowWidth:window.innerWidth})
   }
-  _countToNumber(numbers, duration) {
-    let ds = {}
-    for (let key in numbers) {
-      ds[key] = Math.ceil(duration / numbers[key])
-    }
-    for (let key in ds) {
-      let i = setInterval(() => {
-        this.setState({
-          [key]: this.state[key] + 1
-        })
-        if (this.state[key] >= numbers[key]) {
-          clearInterval(i)
-        }
-      }, ds[key])
-    }
-  }
+
   render() {
     const style = {
       paddingTop: '50px',
@@ -59,12 +35,12 @@ class Home extends Component {
     var settings = {
       dots: true,
       arrows:false,
-      infinite: true,
+      infinite: false,
       speed: 300,
       slidesToShow: 1,
       dotsClass: "home-slick-dot slick-dots black"
     };
-    let homepic = (window.innerWidth>768) ?
+    let homepic = (this.state.windowWidth>768)?
                 <div><img src="/images/pic2.png" alt=""/></div>
                 :
                 <div><img src="/images/pic2-2.png" alt=""/></div>
@@ -72,9 +48,12 @@ class Home extends Component {
       <div className='container-fluid' style={style}>
         <div className='row'>
         <div className="pic-slider" >
+        <loader>
           <Slider {...settings}>
-            {homepic}
-          </Slider>          
+              {homepic}
+          </Slider> 
+        </loader>
+                   
         </div>
         </div>
         
