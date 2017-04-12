@@ -27,7 +27,6 @@ class NavbarInstance extends Component {
     const { location, member, memberLogout,products } = this.props
     const redirect_url = location.pathname
     const loginLink = (member.id == '') 
-
       ? 
         <NavItem eventKey={3} href={`${config.domain}/members/auth/facebook?redirect_url=${redirect_url}`}>
           <h4>fb登入</h4>
@@ -38,9 +37,8 @@ class NavbarInstance extends Component {
         </NavItem>
 
     const dropdown = (member.id == '')
-
       ?
-      <div />
+      ""
       :
         <NavDropdown eventKey={4} title={member.name} id="basic-nav-dropdown">
 
