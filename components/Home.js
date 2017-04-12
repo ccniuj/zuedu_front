@@ -10,6 +10,7 @@ import {
 } from '../actions'
 import Slider from 'react-slick'
 import { Link } from 'react-router'
+
 class Home extends Component {
   constructor(props) {
     super(props)
@@ -63,13 +64,16 @@ class Home extends Component {
       slidesToShow: 1,
       dotsClass: "home-slick-dot slick-dots black"
     };
+    let homepic = (window.innerWidth>768) ?
+                <div><img src="/images/pic2.png" alt=""/></div>
+                :
+                <div><img src="/images/pic2-2.png" alt=""/></div>
     return (
       <div className='container-fluid' style={style}>
         <div className='row'>
         <div className="pic-slider" >
           <Slider {...settings}>
-          <div className="hidden-xs"><img src="/images/pic2.png" alt=""/></div>
-          <div className="hidden-sm"><img src="/images/pic2-2.png" alt=""/></div>
+            {homepic}
           </Slider>          
         </div>
         </div>

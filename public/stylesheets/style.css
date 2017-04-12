@@ -395,6 +395,12 @@ textarea.orderinfo-form-input {
 .angle{
   border-radius: 0px;
 }
+.pic-small{
+  display: block;
+}
+.pic-big{
+  display: none;
+}
 .cart-next-btn{
   background: none;
   border:2px solid  #a0a0a0;
@@ -501,11 +507,16 @@ textarea.orderinfo-form-input {
   border-right: 6px solid #fdb825;
   padding-right: 12px;
   text-align: right;
-}
-.dimension-url{
-  margin-top: -25px;
-}
-
+  }
+  .dimension-url{
+    margin-top: -25px;
+  }
+  .pic-small{
+    display: none;
+  }
+  .pic-big{
+    display: block;
+  }
 }
 
 .more-about-right{
