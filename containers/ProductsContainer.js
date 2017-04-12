@@ -20,7 +20,7 @@ class ProductsContainer extends Component {
   render() {
     const { products } = this.props
     const style = {
-      paddingTop: '50px',
+      paddingTop: '115px',
       minHeight: '600px'
     }
     return (

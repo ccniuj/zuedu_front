@@ -5,7 +5,7 @@ import { addToCart, getCart, getForm, submitForm, clientRender, getAllProducts }
 import Confirm from '../components/Confirm'
 import config from '../config'
 import LineIt from '../lib/lineit'
-
+import Slider from 'react-slick'
 class ProductForm extends Component {
   static fetchData({ store, cookie, params }) {
     return store.dispatch(getForm('show', 'products', params, cookie)).
@@ -85,7 +85,18 @@ class ProductForm extends Component {
 
     }
     const redirect_url = location.pathname
-
+    var settings = {
+      customPaging: function(i) {
+        return <a><img src={`${baseUrl}/abstract0${i+1}.jpg`}/></a>
+      },
+      dots: true,
+      arrows:false,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 1,
+      lazyLoad: false,
+      dotsClass: "home-slick-dot slick-dots big-dots"
+    };
     return (
       <div>
       <img className='product-cover' src={product.cover_image_url} />
@@ -109,41 +120,50 @@ class ProductForm extends Component {
              data-type="share-b" 
              data-lang="zh-Hant" /></div>
         <div className='row product-form-section'>
-          <div className='col-xs-12'>
-            <h3 className="yellow-bar">為什麼要參加此課程？</h3>
+          <div className='col-xs-12 col-sm-4'>
+            <h2 className="yellow-bar">為什麼要參加此課程？</h2>
           </div>
-          <div className='col-xs-12'>
+          <div className='col-xs-12 col-sm-6 lot-text'>
             <div dangerouslySetInnerHTML={{ __html: product.description }} />
           </div>
           
         </div>
         <div className='row product-form-section-blue'>
-          <div className='col-xs-12'>
-            <h3 className="yellow-bar">活動照片</h3>
+          <div className='col-xs-12 col-sm-4'>
+            <h2 className="yellow-bar">活動照片</h2>
           </div>
-          </div>
-        <div className='row product-form-section'>
-          <div className='col-xs-12'>
-            <h3 className="yellow-bar">課程指標金三角</h3>
-          </div>
-          <div className='col-xs-12'>
-            <div dangerouslySetInnerHTML={{ __html: product.dimension }} />
-            <img src={product.dimension_image_url} style={{width: '100%'}} />
+          <div className='col-sm-6 activity-slider col-xs-10 col-xs-offset-1'>
+            <Slider {...settings}>
+              <div><img src="/images/pic2.png" alt="" style={{width:"100%"}} /></div>
+              <div><img src="/images/pic2.png" alt="" style={{width:"100%"}} /></div>
+            </Slider>   
           </div>
         </div>
-        <div className='row product-form-section-blue'>
-          <div className='col-xs-12'>
-            <h3 className="yellow-bar">課程大綱</h3>
+        <div className='row product-form-section'>
+          <div className='col-xs-12 col-sm-4'>
+            <h2 className="yellow-bar">課程指標金三角</h2>
           </div>
-          <div className='col-xs-12'>
+          <div className='col-xs-12 col-sm-6'>
+            <div dangerouslySetInnerHTML={{ __html: product.dimension }} />
+          </div>
+        </div>
+        <div className='row product-form-section'>
+          <img className="col-sm-6 col-sm-offset-1 col-xs-10 col-xs-offset-1" src="/images/product-icons.png"  />
+          <img className="col-sm-4 dimension-url col-xs-10 col-xs-offset-1" src={product.dimension_image_url}  />
+        </div>
+        <div className='row product-form-section-blue'>
+          <div className='col-xs-12 col-sm-4'>
+            <h2 className="yellow-bar">課程大綱</h2>
+          </div>
+          <div className='col-xs-12 col-sm-7'>
             <img src={product.outline_image_url} style={{width: '100%'}} />
           </div>
         </div>
         <div className='row product-form-section'>
-          <div className='col-xs-12'>
-            <h3 className="yellow-bar">詳細資訊</h3>
+          <div className='col-xs-12 col-sm-4'>
+            <h2 className="yellow-bar">詳細資訊</h2>
           </div>
-          <div className='col-xs-12'>
+          <div className='col-xs-12 col-sm-7'>
             <h4>適合對象</h4>
             <div className="row"><div className="col-xs-11 col-xs-offset-1" >{ product.target }</div></div>
             
@@ -156,10 +176,10 @@ class ProductForm extends Component {
           </div>
         </div>
         <div className='row product-form-section'>
-          <div className='col-xs-12'>
-            <h3 className="yellow-bar">我要報名</h3>
+          <div className='col-xs-12 col-sm-4'>
+            <h2 className="yellow-bar">我要報名</h2>
           </div>
-          <div className='col-xs-12'>
+          <div className='col-xs-12 col-sm-7'>
             {
               member.id == '' 
               ? 
@@ -183,7 +203,7 @@ class ProductForm extends Component {
                     
                     </div>
                     
-                    <div className="input-group col-md-8">
+                    <div className="input-group col-md-8" style={{paddingTop:"20px"}}>
                     <span className="input-group-addon">
                     場次
                     </span>

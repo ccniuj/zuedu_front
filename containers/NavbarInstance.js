@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
-import { checkMemberLogin, memberLogout } from '../actions'
+import { checkMemberLogin, memberLogout,getAllProducts } from '../actions'
+import { getVisibleProducts } from '../reducers/products'
 import config from '../config'
 
 class NavbarInstance extends Component {
+
   componentDidMount() {
     this.props.checkMemberLogin()
     $(this.refs.alert).hide()
+    this.props.getAllProducts()
   }
   componentWillReceiveProps(nextProps) {
     /**
@@ -21,7 +24,7 @@ class NavbarInstance extends Component {
   }
 
   render() {
-    const { location, member, memberLogout } = this.props
+    const { location, member, memberLogout,products } = this.props
     const redirect_url = location.pathname
     const loginLink = (member.id == '') 
 
@@ -60,9 +63,16 @@ class NavbarInstance extends Component {
         <Navbar.Collapse>
           <Nav >
             <NavItem eventKey={1} href="/about"><h4>關於我們</h4></NavItem>
-            <NavItem eventKey={2} href="/products"><h4>課程介紹</h4></NavItem>
-            { loginLink }
+            <NavDropdown eventKey={2}  title="課程介紹" id="basic-nav-dropdown">
+            <MenuItem eventkey={2.1} href="/products"><h4>總覽</h4></MenuItem>
+            <MenuItem divider />
+            { 
+              products.map(product => <MenuItem key={product.id} href={`/products/${product.id}`}>{product.name}</MenuItem>)
+            }
+            </NavDropdown>
             { dropdown }
+            { loginLink }
+            
 
           </Nav>
         </Navbar.Collapse>
@@ -73,6 +83,7 @@ class NavbarInstance extends Component {
 }
 const mapStateToProps = state => {
   return {
+    products: getVisibleProducts(state.products),
     member: state.member,
     serverRender: state.serverRender,
     alert: state.alert
@@ -81,5 +92,6 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, {
   checkMemberLogin,
-  memberLogout
+  memberLogout,
+  getAllProducts
 })(NavbarInstance)

@@ -23,8 +23,8 @@ export default class Footer extends Component {
       </div>
       <div className="col-md-7 col-xs-7 col-sm-9">
         <div className="col-md-4 hidden-xs col-sm-6">
-          <img className="col-xs-6 footer-icon"src="images/facebook.png" alt=""/>
-          <img className="col-xs-6 footer-icon"src="images/line.png" alt=""/>
+          <img className="col-xs-6 footer-icon"src="/images/facebook.png" alt=""/>
+          <img className="col-xs-6 footer-icon"src="/images/line.png" alt=""/>
         </div>
         <div className='col-md-8 col-md-offset-0 col-xs-12 col-sm-6 footer-detail'>
         <address>
