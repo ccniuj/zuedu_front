@@ -1,9 +1,9 @@
 var path = require('path')
 var webpack = require('webpack')
 var env = process.env.ENV ? process.env.ENV : 'production'
-
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
   entry: [
     'webpack-hot-middleware/client',
     './client/index.js'
@@ -23,7 +23,8 @@ module.exports = {
       compress: {
         warnings: false
       }
-    })
+    }),
+    new HtmlWebpackPlugin()
   ],
   module: {
     loaders: [
