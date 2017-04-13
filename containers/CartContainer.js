@@ -47,7 +47,7 @@ class CartContainer extends Component {
       style:{display:"block"},
       detail:{
         nextBottom:"確認",
-        lastBottom:"這是第一步"
+        lastBottom:""
       }
     }
   }
@@ -127,7 +127,7 @@ class CartContainer extends Component {
       let detail = Object.assign({},this.state.detail);
 
       if (this.state.progress==2){
-        detail={nextBottom:"確認",lastBottom:"這是第一步"}
+        detail={nextBottom:"確認",lastBottom:""}
         this.setState({detail});
         this.setState({progress:this.state.progress-1});
         this.setState({style:{display:"block"}});

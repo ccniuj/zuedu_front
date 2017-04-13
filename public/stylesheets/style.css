@@ -341,14 +341,27 @@ address {
 .applicant-form-label, .orderinfo-form-label {
   font-weight: 900;
   margin-bottom: 0px;
+  padding-top: 3px;
+
 }
 
+
+.form-line{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
 .applicant-form-input, .orderinfo-form-input {
-  width: 100%;
+  padding-right: 0px;
+  padding-left: 0px;
   height: 25px;
+}
+.applicant-form-input-long{
+  margin-top: 12px;
 }
 .applicant-form-dropdown {
   width: 50%;
+  background: white;
+  padding: 1px 0px 4px 2px;
 }
 
 .applicant-form-dropdown-margin, .orderinfo-form-dropdown-margin {

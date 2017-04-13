@@ -148,8 +148,8 @@ class ProductForm extends Component {
           </div>
         </div>
         <div className='row product-form-section'>
-          <img className="col-sm-6 col-sm-offset-1 col-xs-10 col-xs-offset-1" src="/images/product-icons.png"  />
-          <img className="col-sm-4 dimension-url col-xs-10 col-xs-offset-1" src={product.dimension_image_url}  />
+          <img className="col-sm-6 col-sm-offset-1 col-xs-12" src="/images/product-icons.png"  />
+          <img className="col-sm-4 dimension-url col-xs-12" src={product.dimension_image_url}  />
         </div>
         <div className='row product-form-section-blue'>
           <div className='col-xs-12 col-sm-4'>
@@ -204,7 +204,7 @@ class ProductForm extends Component {
                     </div>
                     
                     <div className="input-group col-md-8" style={{paddingTop:"20px"}}>
-                    <span className="input-group-addon">
+                    <span className="input-group-addon hidden-xs">
                     場次
                     </span>
                     <select className="form-control"ref='product_detail' onChange={this.detailChange}>
@@ -223,10 +223,10 @@ class ProductForm extends Component {
                     </span>
                     </div>
                     {
-                       product.product_details[this.state.productDetail].inventory>15?<div/>:
-                       <div>
-                        剩餘名額：{product.product_details[this.state.productDetail].inventory}
-                       </div>
+                      product.product_details[this.state.productDetail].inventory>15?<div/>:
+                      <div>
+                      剩餘名額：{product.product_details[this.state.productDetail].inventory}
+                      </div>
                     }
                   </div>
             }

@@ -14,13 +14,12 @@ class NavbarInstance extends Component {
     this.props.getAllProducts()
   }
   componentWillReceiveProps(nextProps) {
-    /**
+
     if (this.props.alert.timestamp != nextProps.alert.timestamp) {
       this.refs.alert.innerHTML = `<span id='alert-${nextProps.alert.alert_type}-message'>${nextProps.alert.message}</span>`
       $(this.refs.alert).fadeIn('slow', () => setTimeout(() => $(this.refs.alert).fadeOut('slow'), 2000))
     }
-    //why????
-    **/
+
   }
 
   render() {
@@ -74,6 +73,7 @@ class NavbarInstance extends Component {
 
           </Nav>
         </Navbar.Collapse>
+        <div id='alert' ref='alert'/>
       </Navbar>
 
     )
