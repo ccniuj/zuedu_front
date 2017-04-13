@@ -27,6 +27,7 @@ export default class ApplicantForm extends Component {
     }
     attributes.map( col => {
       this.refs[col].value = nextProps.applicant[col]
+      console.log(col);
     })
   }
   render() {
@@ -123,7 +124,7 @@ export default class ApplicantForm extends Component {
           </div>
           <div className="col-xs-12 form-line">
             <label className='col-xs-6 applicant-form-label'>飲食需求<span style={{color: 'red'}}>*</span></label>
-            <select ref='col-xs-6 food_preference' className='applicant-form-dropdown' name='food_preference' defaultValue={applicant.food_preference} disabled={disabled}>
+            <select ref='food_preference' className='col-xs-6 applicant-form-dropdown' name='food_preference' defaultValue={applicant.food_preference} disabled={disabled}>
               <option value='normal'>正常</option>
               <option value='veggie'>素食</option>
               <option value='no_beef'>不吃牛肉</option>

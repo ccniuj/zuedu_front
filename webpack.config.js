@@ -3,7 +3,7 @@ var webpack = require('webpack')
 var env = process.env.ENV ? process.env.ENV : 'production'
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-  devtool: 'source-map',
+  devtool: 'eval',
   entry: [
     'webpack-hot-middleware/client',
     './client/index.js'

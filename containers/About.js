@@ -27,11 +27,11 @@ class About extends Component {
           </div>
         </div>
         <div className='row'>
-          <div className='col-xs-5' style={{marginTop: '30px', marginBottom: '30px'}}>
+          <div className='col-sm-5' style={{marginTop: '30px', marginBottom: '30px'}}>
             <iframe width='100%' height='300px' src="https://www.youtube.com/embed/NQ9Se8bH6v4" frameBorder="0" allowFullScreen></iframe>
             <h5>台大葉丙成教授提出，現在的孩子最重要的不再是成績而是能夠擁有“快速學習、接受新事物與搜尋關鍵字”的能力!</h5>
           </div>
-          <div className='col-xs-7' style={{marginTop: '30px', marginBottom: '30px'}}>
+          <div className='col-sm-7' style={{marginTop: '30px', marginBottom: '30px'}}>
             <h3>巨變的世代，從何學起?</h3>
 相較於從前，雖然現今的世代多彩萬變，卻也不再那麼黑白是非分明了。
 這個世代猶如一片充滿珍寶卻未知的海域，無法預測何時會遇到一條價值不斐的大魚，也無法預測該用什麼工具去捕捉這些珍寶。與其替小孩擔心該給小孩什麼好的抓寶工具，不如讓小孩更早體驗到這片海域有多麼的有趣與珍貴，並從心開始的想要靠自己的能力打造專屬自己的抓寶工具! 
@@ -43,7 +43,7 @@ class About extends Component {
         </div>
         <div className='row' style={{position: 'relative'}}>
           <img src='/images/about_2.png' style={{width: '100%'}} />
-          <div style={{position: 'absolute', top: '120px', left: '100px'}}>
+          <div className="about-view col-md-5 col-md-offset-1 col-xs-10 col-xs-offset-1">
             <h1>我們的目標</h1>
             <br/>
             <h4>協助孩子提早搜尋”內心關鍵字”，</h4>
@@ -52,7 +52,7 @@ class About extends Component {
           </div>
         </div>
         <div className='row'>
-          <div className='col-xs-10 col-xs-offset-1' style={{marginTop: '30px', marginBottom: '30px'}}>
+          <div className='col-xs-12' style={{marginTop: '30px', marginBottom: '30px'}}>
           <h4>所有的ZU創意課程，不論是結合 MIT Scratch 以及科學實作教育的 Z-Create ，以及培養一流軟體思維的主題課程 Z-Code，目的都是把學生培養成有創造力以及提早發現內心關鍵字的一流人才。</h4>
           <br/>
           <h4 style={{color: '#7cc8d0'}}>富有創造力以及邏輯思維的軟體人才，能夠細膩的觀察周遭，發現人們的需求，提出並有能力完成實際的解決方法。</h4>
