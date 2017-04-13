@@ -95,6 +95,9 @@ export default class ApplicantForm extends Component {
               <option value={4}>4</option>
               <option value={5}>5</option>
               <option value={6}>6</option>
+              <option value={7}>7</option>
+              <option value={8}>8</option>
+              <option value={9}>9</option>
             </select>
           </div>
           <div className="col-xs-12 form-line">
@@ -116,20 +119,18 @@ export default class ApplicantForm extends Component {
             <label className='col-xs-8 applicant-form-label'>家長電子信箱<span style={{color: 'red'}}>*</span></label>
             <input ref='parent_email' className='col-xs-11 col-xs-offset-1 applicant-form-input applicant-form-input-long' type='text' name='parent_email' defaultValue={applicant.parent_email} disabled={disabled} /><br/>
           </div>
-
-          <div className="col-xs-12 form-line">
-            <label className='col-xs-6 applicant-form-label'>備註</label>
-            <input ref='note' className='col-xs-6 applicant-form-input' type='textarea' name='note' defaultValue={applicant.note} disabled={disabled} />
-            
-          </div>
           <div className="col-xs-12 form-line">
             <label className='col-xs-6 applicant-form-label'>飲食需求<span style={{color: 'red'}}>*</span></label>
             <select ref='food_preference' className='col-xs-6 applicant-form-dropdown' name='food_preference' defaultValue={applicant.food_preference} disabled={disabled}>
               <option value='normal'>正常</option>
               <option value='veggie'>素食</option>
               <option value='no_beef'>不吃牛肉</option>
-              <option value='other'>其他</option>
+              <option value='other'>其他,請於備註說明</option>
             </select>
+          </div>
+          <div className="col-xs-12 form-line">
+            <label className='col-xs-6 applicant-form-label'>備註</label>
+            <input ref='note' className='col-xs-6 applicant-form-input' type='textarea' name='note' defaultValue={applicant.note} disabled={disabled} />
           </div>
         </form>
         { delette_btn }

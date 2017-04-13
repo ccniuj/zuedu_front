@@ -6,9 +6,9 @@ export default class CartInfo extends Component {
     const { applicants, cart_matchable_discount_name, cart_matchable_discount_factor, total } = this.props
 
     return (
-      <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 cart-info'>
+      <div className='col-md-6 col-md-offset-3 col-xs-12 cart-info'>
         <h4>您已報名的課程</h4>
-        <Table responsive condensed>
+        <table className="col-xs-12 table table-responsive table-condensed">
           <thead>
             <tr>
               <th>姓名</th>
@@ -22,7 +22,7 @@ export default class CartInfo extends Component {
             {
               applicants.map(applicant => 
                 <tr key={applicant.id}>
-                  <td>{ applicant.name == '' ? '未填姓名' : applicant.name}</td>
+                  <td>{applicant.name == '' ? '未填姓名' : applicant.name}</td>
                   <td>{applicant.product_name}</td>
                   <td>{applicant.product_detail_description}</td>
                   <td>${applicant.price}</td>
@@ -31,7 +31,8 @@ export default class CartInfo extends Component {
               )
             }
           </tbody>
-        </Table>
+        </table>
+
         <h4>折扣方案</h4>
         <b>{ cart_matchable_discount_name || '無' }</b>
         <br/>

@@ -46,7 +46,7 @@ class CartContainer extends Component {
       progress:1,
       style:{display:"block"},
       detail:{
-        nextBottom:"確認",
+        nextBottom:"下一步",
         lastBottom:""
       }
     }
@@ -98,7 +98,7 @@ class CartContainer extends Component {
       if (this.state.progress==1){
         this.submitApplicants().then(()=>{
           
-          detail={nextBottom:"確認無誤並結帳",lastBottom:"回上一步"}
+          detail={nextBottom:"結帳",lastBottom:"回上步"}
           this.setState({detail});
           this.setState({progress:this.state.progress+1});
           this.setState({style:{display:"none"}});
@@ -111,7 +111,7 @@ class CartContainer extends Component {
         this.setState({style:{display:"none"}});
         this.setState({detail});
         this.setState({progress:this.state.progress+1});
-        detail={nextBottom:"付款",lastBottom:"回上一步"};
+        detail={nextBottom:"付款",lastBottom:"回上步"};
         browserHistory.push('/cart/new')
         }
         , err => console.log(err));
@@ -167,8 +167,6 @@ class CartContainer extends Component {
     //
     return (
       <div className='container' style={style}>
-        
-        <center><h3>購物車</h3></center>
         <div className='row'>
         <div className = "col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1" 
         style={{
@@ -311,7 +309,7 @@ class CartContainer extends Component {
           <div className="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
             <div className='row'>
               <button type="button" className="col-md-4 col-md-offset-0 col-xs-4 cart-next-btn"
-              onClick={this.lastStep}
+              onClick={this.lastStep} style={(this.state.progress==1)?{visibility: 'hidden'}:{display:'block'}}
               >{this.state.detail.lastBottom}</button>
               <button type="button" className="col-md-4 col-md-offset-4 col-xs-4 col-xs-offset-4 cart-next-btn"
               onClick={this.nextStep}

@@ -41,8 +41,8 @@ class NavbarInstance extends Component {
       :
         <NavDropdown eventKey={4} title={member.name} id="basic-nav-dropdown">
 
-            <MenuItem eventKey={4.1} href="/cart">購物車</MenuItem>
-            <MenuItem eventKey={4.2} href="/orders">訂單</MenuItem>
+            <MenuItem eventKey={4.1} href="/cart">報名填寫</MenuItem>
+            <MenuItem eventKey={4.2} href="/orders">報名紀錄</MenuItem>
             <MenuItem divider />
             <MenuItem eventKey={4.3} href="/login">管理者登入</MenuItem>
         </NavDropdown>

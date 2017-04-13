@@ -54,12 +54,11 @@ class OrdersForm extends Component {
   }
   render() {
     const style = {
-      paddingTop: '50px',
+      paddingTop: '100px',
       minHeight: '600px'
     }
     const { cart, orders,
             cart_matchable_discount_name, cart_matchable_discount_factor, total } = this.props
-
     let line_items = orders.form.type == 'new' 
     ? cart.form.line_items
     : orders.form.line_items
@@ -67,7 +66,7 @@ class OrdersForm extends Component {
     return (
       <div className='container' style={style}>
         <OrderInfo />
-        <div style={{ clear: 'both' }} />
+        <div className="row">
         {
           line_items.length > 0
           ? <CartInfo applicants={line_items}
@@ -76,6 +75,7 @@ class OrdersForm extends Component {
                       total={total} />
           : <div/>
         }
+        </div>
         <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2' style={{textAlign: 'center'}}>
           <h4><center>報名資訊</center></h4>
           <Link to='/cart' className='btn btn-sm btn-warning pull-right' style={{marginTop: '-35px'}}>修改</Link>

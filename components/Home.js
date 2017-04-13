@@ -156,16 +156,15 @@ class Home extends Component {
                   <br/>
                   <div className="col-xs-4  home-product-spec" >
                     <img src="/images/takenote.png" alt=""/>
-                    <h3 className="white">Project based learning</h3>
+                    <h3 className="white">專案導向PBL教學</h3>
                   </div>
                   <div className="col-xs-4  home-product-spec">
                     <img src="/images/brain.png" alt=""/>
-                    <h3 className="white">培養邏輯思維</h3>
+                    <h3 className="white">訓練邏輯<br/>養成運算思維</h3>
                   </div>
                   <div className="col-xs-4 home-product-spec">
                     <img src="/images/theremen.png" alt=""/>
-                    <h3 className="white">Peer learning<br />同儕間的學習交流
-                    </h3>
+                    <h3 className="white">同儕學習互相成長</h3>
                   </div>                  
                 </div>
                 <Link to="/products/1">
