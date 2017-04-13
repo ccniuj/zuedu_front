@@ -63,8 +63,6 @@ export default class ApplicantForm extends Component {
 
     return (
       <div>
-        
-        
         <form ref='form' style={{ color:'black' }}>
           <div className="col-xs-12 form-line">
             <label className='col-xs-6  applicant-form-label'>參加營隊<span style={{color: 'red'}}>*</span></label>
@@ -112,7 +110,6 @@ export default class ApplicantForm extends Component {
           <div className="col-xs-12 form-line">
             <label className='col-xs-6 applicant-form-label'>家長電話<span style={{color: 'red'}}>*</span></label>
             <input ref='parent_phone_number' className='col-xs-6 applicant-form-input' type='text' name='parent_phone_number' defaultValue={applicant.parent_phone_number} disabled={disabled} /><br/>
-            
           </div>
           <div className="col-xs-12 form-line">
             <label className='col-xs-8 applicant-form-label'>家長電子信箱<span style={{color: 'red'}}>*</span></label>

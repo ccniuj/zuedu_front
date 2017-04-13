@@ -35,15 +35,22 @@ class Home extends Component {
     var settings = {
       dots: true,
       arrows:false,
-      infinite: false,
+      infinite: true,
       speed: 300,
       slidesToShow: 1,
+      adaptiveHeight:true,
+      autoplay:true,
+      autoplaySpeed:1500,
       dotsClass: "home-slick-dot slick-dots black"
     };
-    let homepic = (this.state.windowWidth>768)?
+    let homepic = (this.state.windowWidth=="")?
+                ""
+                :
+                (this.state.windowWidth>768)?
                 <div><img src="/images/pic2.png" alt=""/></div>
                 :
                 <div><img src="/images/pic2-2.png" alt=""/></div>
+
     return (
       <div className='container-fluid' style={style}>
         <div className='row'>
@@ -51,6 +58,7 @@ class Home extends Component {
         <loader>
           <Slider {...settings}>
               {homepic}
+              <div><img src="/images/superman.jpg" alt=""/></div>
           </Slider> 
         </loader>
                    
@@ -138,9 +146,9 @@ class Home extends Component {
                 </div>
               </div>
               <div className="row">
-                <img className="col-sm-5 col-sm-push-7 col-sm-offset-0 col-xs-8 col-xs-offset-2 home-product-pic" src="/images/pic5.png" alt=""/>
+                <img className="col-sm-5 col-sm-push-7 col-sm-offset-0 hidden-xs home-product-pic" src="/images/pic5.png" alt=""/>
                 <div className="col-xs-12 col-sm-7 col-sm-pull-5 ">
-                  <h4 className="white left">
+                  <h4 className="white left product-detail">
                     讓孩子提早掌握 Z 世代的必備工具，<br/>
                     並藉由 Z 世代的思維讓他們有能力創造出<br/>
                     下一個改變世界大生態的服務及產品。<br/>
@@ -161,7 +169,7 @@ class Home extends Component {
                   </div>                  
                 </div>
                 <Link to="/products/1">
-                <div className="col-sm-3 col-sm-offset-9 col-xs-9 col-xs-offset-3 more-about-right">了解更多<span className="glyphicon glyphicon-menu-right"></span><span className="glyphicon glyphicon-menu-right"></span></div>
+                <div className="col-sm-3 col-sm-offset-9 col-xs-5 col-xs-offset-7 more-about-right">了解更多<span className="glyphicon glyphicon-menu-right"></span><span className="glyphicon glyphicon-menu-right"></span></div>
                 </Link>
               </div>
               
@@ -182,9 +190,9 @@ class Home extends Component {
                 </div>
               </div>
                 <div className="row">
-                  <img className="col-sm-5 col-xs-8 col-sm-offset-0 col-xs-offset-2 home-product-pic" src="/images/pic6.png" alt=""/>
+                  <img className="col-sm-5 col-sm-offset-0 hidden-xs home-product-pic" src="/images/pic6.png" alt=""/>
                   <div className="col-sm-7 col-xs-12">
-                    <h4 className="white right">
+                    <h4 className="white right product-detail">
                     幫助孩子們發覺自己的興趣，<br/>
                     增強未來學習的動機以及培養自發。<br/>
                     </h4>
@@ -203,7 +211,7 @@ class Home extends Component {
                     </div>
                   </div>
                   <Link to="/products/2">
-                  <div className="col-sm-3 col-xs-9 col-lg-3 col-lg-pull-5 more-about-left"><span className="glyphicon glyphicon-menu-left"></span><span className="glyphicon glyphicon-menu-left"></span>了解更多</div>
+                  <div className="col-sm-3 col-xs-5 col-lg-3 col-lg-pull-5 more-about-left"><span className="glyphicon glyphicon-menu-left"></span><span className="glyphicon glyphicon-menu-left"></span>了解更多</div>
                   </Link>
                 </div>
             </div>

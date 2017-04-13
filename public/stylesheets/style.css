@@ -5,7 +5,7 @@ body {
 
 }
 img{
-  width:80%;
+  width: 80%;
 }
 .white {
   color: white
@@ -72,6 +72,9 @@ img{
     min-height: 80px;
     color: white;
     background-color: #404040;
+    padding: auto 10px auto 10px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 .footer-container div{
 
@@ -113,12 +116,7 @@ img{
   padding-right:0;
 
 }
-address {
-
-    margin-bottom: 0px;
-    font-style: normal;
-    line-height: 1.42857143;
-}
+address {margin-bottom: 0px;font-style: normal;line-height: 1.428571;font-size: 13px;}
 .black{
   background: black;
 }
@@ -243,12 +241,17 @@ address {
 }
   .home-product-spec{
     text-align: center;
+    padding: 7px;
+    padding-top: 0;
+    margin-top: -12px;
   }
     .home-product-spec img{
       min-height: 20px;
+      width: 90%;
+      /* margin-left: -10px; */
     }
 .home-product-block{
-  padding-top: 20px;
+  padding-top: 0px;
   padding-bottom: 20px;
 }
 .home-product-detail p{
@@ -260,16 +263,17 @@ address {
   clip-path: polygon(0 0, 100% 0, 98% 100%, 0% 100%);
   z-index:1;
   width: 100%;
-  padding-bottom: 1px;
-  padding-top: 1px;
+  /* padding-bottom: 0px; */
+  margin-top: -7px;
+  /* padding-top: 0px; */
  }
  .right{
     text-align: right;
-    padding-right: 3%;
+    padding-right: 25px;
  }
  .left{
    text-align: left;
-  padding-left: 10%; 
+   padding-left: 10px;
  }
   .header-polgan-right{
   background: #fdb825;
@@ -277,8 +281,9 @@ address {
   z-index:1;
   margin-right: -15px;
   text-align: right;
-  padding-bottom: 1px;
-  padding-top: 1px;
+  margin-top: -7px;
+  /* padding-bottom: 1px; */
+  /* padding-top: 1px; */
  }
 .product-item {
   margin-top: 0px;
@@ -543,19 +548,46 @@ textarea.orderinfo-form-input {
 .more-about-right{
     background-color: white;
     color: #1aaaeb;
-    border-bottom: 7px solid #fdb825;
+    border-bottom: 5px solid #fdb825;
     height: 50px;
-    font-size: 21px;
-    padding: 8px;
-    padding-left: 21px;
+    font-size: 19px;
+    padding: 11px;
+    padding-left: 8px;
 }
 .more-about-left{
     background-color: white;
     color: #1aaaeb;
     border-bottom: 7px solid #fdb825;
     height: 50px;
-    font-size: 21px;
-    padding: 8px;
-    padding-right: 21px;
+    /* font-size: 21px; */
+    /* padding: 8px; */
+    /* padding-right: 21px; */
     text-align: right;
+    font-size: 18px;
+    padding: 11px;
+    padding-left: 8px;
+}
+.home-product-block h1{font-size: 29px;padding-left: 24px;padding-right: 42px;margin-bottom: 0;}
+.header-polgan-left h4{
+  padding-left: 40px;
+  margin-bottom: auto;
+  padding-top: 3px;
+  font-size: 17px;
+  padding-bottom: 2px;
+}
+.product-detail{
+  line-height: 28px;
+  margin-top: 0px;
+  font-size: 17px;
+  margin-bottom: 0px;
+}
+.home-product-spec h3{
+  font-size: 13px;
+}
+.header-polgan-right h4{
+  padding-right: 43px;
+  margin-bottom: auto;
+  padding-top: 3px;
+  font-size: 17px;
+  padding-bottom: 2px;
 }
