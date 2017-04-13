@@ -19,7 +19,7 @@ class Home extends Component {
     }
     
   }
-  
+
   componentDidMount() {
     if (this.props.serverRender) {
       this.props.clientRender()
@@ -131,7 +131,7 @@ class Home extends Component {
             
             <div className="col-sm-12 col-xs-12 home-product-detail">
               <div className="row">
-                <div className="col-sm-10">
+                <div className="col-sm-8">
                   <div className="header-polgan-left">
                     <h4 className="left white">美式 PBL 教學、1 : 15 高師生比</h4>
                   </div>
@@ -173,11 +173,10 @@ class Home extends Component {
             
             <div className="col-sm-12 col-xs-12 home-product-detail">
               <div className="row">
-                <div className="col-sm-10 col-sm-offset-2">
+                <div className="col-sm-8 col-sm-offset-4">
                   <div className="header-polgan-right ">
                     <h4 className="white right">
-                    全台首創程式實境教學，
-                    科學結合程式邏輯應用
+                    全台首創程式實境教學，科學結合程式邏輯應用
                     </h4>
                   </div>
                 </div>
@@ -204,7 +203,7 @@ class Home extends Component {
                     </div>
                   </div>
                   <Link to="/products/2">
-                  <div className="col-sm-3 col-xs-9 more-about-left"><span className="glyphicon glyphicon-menu-left"></span><span className="glyphicon glyphicon-menu-left"></span>了解更多</div>
+                  <div className="col-sm-3 col-xs-9 col-lg-3 col-lg-pull-5 more-about-left"><span className="glyphicon glyphicon-menu-left"></span><span className="glyphicon glyphicon-menu-left"></span>了解更多</div>
                   </Link>
                 </div>
             </div>

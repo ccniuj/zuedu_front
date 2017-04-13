@@ -132,7 +132,7 @@ class ProductForm extends Component {
           <div className='col-xs-12 col-sm-4'>
             <h2 className="yellow-bar">活動照片</h2>
           </div>
-          <div className='col-sm-6 activity-slider col-xs-10 col-xs-offset-1'>
+          <div className='col-sm-6 activity-slider col-xs-12'>
             <Slider {...settings}>
               <div><img src="/images/pic2.png" alt="" style={{width:"100%"}} /></div>
               <div><img src="/images/pic2.png" alt="" style={{width:"100%"}} /></div>

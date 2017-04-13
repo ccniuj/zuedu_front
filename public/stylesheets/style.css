@@ -141,9 +141,10 @@ address {
 .activity-slider{
   margin-bottom: 20px;
   margin-top: 20px;
+  padding: 0;
 }
 .big-dots li button:before {
-    font-size: 18px;
+    font-size: 15px;
     line-height: 30px;
 }
 .big-dots li {
@@ -276,6 +277,8 @@ address {
   z-index:1;
   margin-right: -15px;
   text-align: right;
+  padding-bottom: 1px;
+  padding-top: 1px;
  }
 .product-item {
   margin-top: 0px;
@@ -478,6 +481,10 @@ textarea.orderinfo-form-input {
 }
 .product-item-descipt{
   font-size: 18px;
+}
+.activity-slider {
+
+    margin-top: -10px;
 
 }
 }
@@ -494,7 +501,7 @@ textarea.orderinfo-form-input {
 
 @media(min-width:768px ){
   .home-product-pic{
-    margin-top: -100px;
+    margin-top: -145px;
   }
   .more-about-right{
     margin-top: -80px;
@@ -517,6 +524,7 @@ textarea.orderinfo-form-input {
   .pic-big{
     display: block;
   }
+
 }
 
 .more-about-right{
