@@ -52,14 +52,11 @@ class Home extends Component {
       <div className='container-fluid' style={style}>
         <div className='row'>
         <div className="pic-slider" >
-
           <Slider {...settings}>
               <div><img src="/images/pic29.jpg" alt=""/></div>
               <div><img src="/images/AD10.jpg" alt=""/></div>
               <div><img src="/images/AD14.jpg" alt=""/></div>
           </Slider> 
-
-                   
         </div>
         </div>
         
@@ -139,7 +136,7 @@ class Home extends Component {
               <div className="row">
                 <div className="col-sm-8">
                   <div className="header-polgan-left">
-                    <h4 className="left white">美式 PBL 教學、1 : 15 高師生比</h4>
+                    <h4 className="left white">美式PBL教學，培養運算思維，掌握未來競爭力</h4>
                   </div>
                 </div>
               </div>
@@ -152,15 +149,15 @@ class Home extends Component {
                     下一個改變世界大生態的服務及產品。<br/>
                   </h4>
                   <br/>
-                  <div className="col-xs-4  home-product-spec" >
+                  <div className="col-xs-4  home-product-spec-left" >
                     <img src="/images/takenote.png" alt=""/>
                     <h3 className="white">專案導向PBL教學</h3>
                   </div>
-                  <div className="col-xs-4  home-product-spec">
+                  <div className="col-xs-4  home-product-spec-left">
                     <img src="/images/brain.png" alt=""/>
                     <h3 className="white">訓練邏輯<br/>養成運算思維</h3>
                   </div>
-                  <div className="col-xs-4 home-product-spec">
+                  <div className="col-xs-4 home-product-spec-left">
                     <img src="/images/theremen.png" alt=""/>
                     <h3 className="white">同儕學習互相成長</h3>
                   </div>                  
