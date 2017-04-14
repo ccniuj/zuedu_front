@@ -15,11 +15,12 @@ import configureStore from '../store/configureStore'
 import { match, RouterContext } from 'react-router'
 import routes from '../routes'
 import { serverRender } from '../actions'
-
+import compression from 'compression'
 const app = new Express()
 const port = 3001
 
 const compiler = webpack(webpackConfig)
+app.use(compression());//add this as the 1st middlewares
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }))
 app.use(webpackHotMiddleware(compiler))
 app.use(Express.static(path.join(__dirname, '..', 'public')))

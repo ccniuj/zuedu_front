@@ -15,10 +15,9 @@ export default class Footer extends Component {
             <img className='' src='/images/logo_footer.png' />
           </div>
           <div className='col-sm-4 hidden-xs footer-slogan'>
-          <h4>
-            Where creativity meets<br/>next generation.
-          </h4>
-                     
+            <h4>
+              Where creativity meets<br/>next generation.
+            </h4>
           </div>
         <div className="col-sm-3 col-xs-6">
           <a href="https://www.facebook.com/zu.edu.tw/?ref=bookmarks">

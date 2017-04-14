@@ -60,7 +60,6 @@ class NavbarInstance extends Component {
         <Navbar.Collapse>
           <Nav >
             <NavItem eventKey={1} href="/about"><h4>關於我們</h4></NavItem>
-            
             <NavItem 
             eventkey={2.1} 
             href="https://docs.google.com/forms/d/e/1FAIpQLSeyyu5oBNCDEyqyIusL-f8gP-t1leEphzlEuHJC7jyOviuscA/viewform"
