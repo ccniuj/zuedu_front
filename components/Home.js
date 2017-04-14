@@ -10,7 +10,7 @@ import {
 } from '../actions'
 import Slider from 'react-slick'
 import { Link } from 'react-router'
-import loader from 'react-loader'
+
 class Home extends Component {
   constructor(props) {
     super(props)
@@ -52,12 +52,13 @@ class Home extends Component {
       <div className='container-fluid' style={style}>
         <div className='row'>
         <div className="pic-slider" >
-        <loader>
+
           <Slider {...settings}>
-              <div><img src="/images/pic27.png" alt=""/></div>
+              <div><img src="/images/pic29.jpg" alt=""/></div>
               <div><img src="/images/AD10.jpg" alt=""/></div>
+              <div><img src="/images/AD14.jpg" alt=""/></div>
           </Slider> 
-        </loader>
+
                    
         </div>
         </div>
