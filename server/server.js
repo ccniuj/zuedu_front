@@ -20,7 +20,12 @@ const app = new Express()
 const port = 3001
 
 const compiler = webpack(webpackConfig)
-app.use(compression());//add this as the 1st middlewares
+//app.use(compression());//add this as the 1st middlewares
+app.get('*.js',function(req,res,next){
+  req.url = req.url + '.gz';
+  res.set('Content-Encoding', 'gzip');
+  next();
+});
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }))
 app.use(webpackHotMiddleware(compiler))
 app.use(Express.static(path.join(__dirname, '..', 'public')))

@@ -2,6 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 var env = process.env.ENV ? process.env.ENV : 'production'
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CompressionPlugin = require('compression-webpack-plugin');
 module.exports = {
   devtool: 'cheap-module-source-map',
   entry: [
@@ -24,7 +25,14 @@ module.exports = {
         warnings: false
       }
     }),
-    new HtmlWebpackPlugin()
+    new HtmlWebpackPlugin(),
+    new CompressionPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8
+    })
   ],
   module: {
     loaders: [
