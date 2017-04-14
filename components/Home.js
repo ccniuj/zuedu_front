@@ -164,9 +164,9 @@ class Home extends Component {
                     <h3 className="white">同儕學習互相成長</h3>
                   </div>                  
                 </div>
-                <Link to="https://docs.google.com/forms/d/e/1FAIpQLSeyyu5oBNCDEyqyIusL-f8gP-t1leEphzlEuHJC7jyOviuscA/viewform">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeyyu5oBNCDEyqyIusL-f8gP-t1leEphzlEuHJC7jyOviuscA/viewform">
                 <div className="col-sm-3 col-sm-offset-9 col-xs-5 col-xs-offset-7 more-about-right">了解更多<span className="glyphicon glyphicon-menu-right"></span><span className="glyphicon glyphicon-menu-right"></span></div>
-                </Link>
+                </a>
               </div>
               
             </div>
@@ -206,9 +206,9 @@ class Home extends Component {
                       <h3 className="white">實際動手參與</h3>
                     </div>
                   </div>
-                  <Link to="https://docs.google.com/forms/d/e/1FAIpQLSeyyu5oBNCDEyqyIusL-f8gP-t1leEphzlEuHJC7jyOviuscA/viewform">
+                  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeyyu5oBNCDEyqyIusL-f8gP-t1leEphzlEuHJC7jyOviuscA/viewform">
                   <div className="col-sm-3 col-xs-5 col-lg-3 col-lg-pull-5 more-about-left"><span className="glyphicon glyphicon-menu-left"></span><span className="glyphicon glyphicon-menu-left"></span>了解更多</div>
-                  </Link>
+                  </a>
                 </div>
             </div>
 
