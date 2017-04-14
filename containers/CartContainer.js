@@ -32,6 +32,7 @@ class CartContainer extends Component {
     store,
     cookie
   }) {
+    
     return store.dispatch(getAllProducts(cookie)).
     then(() => store.dispatch(getCart(cookie)))
   }
@@ -40,8 +41,7 @@ class CartContainer extends Component {
     this.submitApplicants = () => this._submitApplicants()
     this.renderCart = () => this._renderCart()
     this.lastStep=()=>this._lastStep()
-    this.nextStep=()=>this._nextStep()
-
+    this.nextStep=(products,defaultProductId)=>this._nextStep(products,defaultProductId)
     this.state={
       progress:1,
       style:{display:"block"},
@@ -52,12 +52,11 @@ class CartContainer extends Component {
     }
   }
   componentDidMount() {
-    if (this.props.serverRender) {
-      this.props.clientRender()
-    } else {
+
+    
       this.props.getAllProducts().
       then(() => this.props.getCart())
-    }
+    
   }
   _submitApplicants() {
     const {
@@ -91,19 +90,22 @@ class CartContainer extends Component {
     })
     return Promise.all(submits).then(() => getCart(), err => Promise.reject(err))
   }
-  _nextStep(){
+  _nextStep(products,defaultProductId){
       
       console.log(this.state.progress);
       let detail = Object.assign({},this.state.detail);
       if (this.state.progress==1){
-        this.submitApplicants().then(()=>{
-          
-          detail={nextBottom:"結帳",lastBottom:"回上步"}
-          this.setState({detail});
-          this.setState({progress:this.state.progress+1});
-          this.setState({style:{display:"none"}});
-        }
-        , err => console.log(err));
+
+        this.submitApplicants()
+        .then(()=>{addToCart(defaultProductId,products[defaultProductId].product_details[0].id)},null)
+          .then(() => getCart(), err => {console.log(err)})
+            .then(()=>{
+            detail={nextBottom:"結帳",lastBottom:"回上步"}
+            this.setState({detail});
+            this.setState({progress:this.state.progress+1});
+            this.setState({style:{display:"none"}});
+            }
+            , err => console.log(err));
        
       }
       else if (this.state.progress==2){
@@ -117,8 +119,6 @@ class CartContainer extends Component {
         , err => console.log(err));
         
       }
-
-      
       console.log(this.state.progress);
     }
   _lastStep(){
@@ -258,14 +258,18 @@ class CartContainer extends Component {
           )
         }
         
-        <div className = 'row'>
+        
+        {
+          this.state.progress == 1 
+          ?
+          <div className = 'row'>
         <div className='col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1 cart-add-btn' style={
           {
             marginTop:'10px',
             marginBottom:'10px'
           }
         }>
-        <div className = 'row'>
+          <div className = 'row'>
         <button
         className="col-md-12 col-xs-12"
         style={
@@ -282,7 +286,7 @@ class CartContainer extends Component {
                                 console.log(err)
                               })},null)
         }
-        } >
+        }>
         <div className='row'>
           <div className="col-md-12 col-xs-12 cart-add-btn">
           <div className='row'>
@@ -305,6 +309,11 @@ class CartContainer extends Component {
         </div>
         </div>
         </div>
+        :
+        <div></div>
+        }
+        
+        
         <div className = 'row' style={{marginBottom:'10px'}}>
           <div className="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
             <div className='row'>
@@ -312,7 +321,7 @@ class CartContainer extends Component {
               onClick={this.lastStep} style={(this.state.progress==1)?{visibility: 'hidden'}:{display:'block'}}
               >{this.state.detail.lastBottom}</button>
               <button type="button" className="col-md-4 col-md-offset-4 col-xs-4 col-xs-offset-4 cart-next-btn"
-              onClick={this.nextStep}
+              onClick={()=>this.nextStep(products,defaultProductId)}
               >{this.state.detail.nextBottom}</button>
             </div>
           </div>

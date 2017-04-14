@@ -180,6 +180,38 @@ class ProductForm extends Component {
             <h2 className="yellow-bar">我要報名</h2>
           </div>
           <div className='col-xs-12 col-sm-7'>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeyyu5oBNCDEyqyIusL-f8gP-t1leEphzlEuHJC7jyOviuscA/viewform" className="btn btn-info btn-lg">立即報名</a>
+          </div>
+        </div>
+         
+        <Confirm addProducts={this.addProducts}/>
+      </div>
+    
+    </div>
+    )
+  }
+}
+
+ProductForm.propTypes = {
+  addToCart: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => {
+  return {
+    member: state.member,
+    product: state.products.form,
+    products: state.products.byId,
+    cart: state.cart,
+    serverRender: state.serverRender
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  { addToCart, clientRender, getForm, getCart, getAllProducts }
+)(ProductForm)
+
+/**
             {
               member.id == '' 
               ? 
@@ -230,32 +262,4 @@ class ProductForm extends Component {
                     }
                   </div>
             }
-          </div>
-        </div>
-         
-        <Confirm addProducts={this.addProducts}/>
-      </div>
-    
-    </div>
-    )
-  }
-}
-
-ProductForm.propTypes = {
-  addToCart: PropTypes.func.isRequired
-}
-
-const mapStateToProps = state => {
-  return {
-    member: state.member,
-    product: state.products.form,
-    products: state.products.byId,
-    cart: state.cart,
-    serverRender: state.serverRender
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  { addToCart, clientRender, getForm, getCart, getAllProducts }
-)(ProductForm)
+**/

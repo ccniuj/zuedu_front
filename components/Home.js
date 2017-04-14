@@ -32,24 +32,21 @@ class Home extends Component {
       paddingTop: '50px',
 
     }
-    var settings = {
+    let autoplay = (this.state.windowWidth>768)
+                    ?
+                    {autoplay:true}
+                    :
+                    {autoplay:true}
+    var settings = Object.assign({},{
       dots: true,
       arrows:false,
       infinite: true,
       speed: 300,
       slidesToShow: 1,
       adaptiveHeight:true,
-      autoplay:true,
-      autoplaySpeed:1500,
-      dotsClass: "home-slick-dot slick-dots black"
-    };
-    let homepic = (this.state.windowWidth=="")?
-                ""
-                :
-                (this.state.windowWidth>768)?
-                <div><img src="/images/pic2.png" alt=""/></div>
-                :
-                <div><img src="/images/pic2-2.png" alt=""/></div>
+      autoplaySpeed:3000,
+      dotsClass: "home-slick-dot slick-dots black",
+    },autoplay);
 
     return (
       <div className='container-fluid' style={style}>
@@ -57,8 +54,8 @@ class Home extends Component {
         <div className="pic-slider" >
         <loader>
           <Slider {...settings}>
-              {homepic}
-              <div><img src="/images/superman.jpg" alt=""/></div>
+              <div><img src="/images/pic27.png" alt=""/></div>
+              <div><img src="/images/AD10.jpg" alt=""/></div>
           </Slider> 
         </loader>
                    
@@ -167,7 +164,7 @@ class Home extends Component {
                     <h3 className="white">同儕學習互相成長</h3>
                   </div>                  
                 </div>
-                <Link to="/products/1">
+                <Link to="https://docs.google.com/forms/d/e/1FAIpQLSeyyu5oBNCDEyqyIusL-f8gP-t1leEphzlEuHJC7jyOviuscA/viewform">
                 <div className="col-sm-3 col-sm-offset-9 col-xs-5 col-xs-offset-7 more-about-right">了解更多<span className="glyphicon glyphicon-menu-right"></span><span className="glyphicon glyphicon-menu-right"></span></div>
                 </Link>
               </div>
@@ -209,7 +206,7 @@ class Home extends Component {
                       <h3 className="white">實際動手參與</h3>
                     </div>
                   </div>
-                  <Link to="/products/2">
+                  <Link to="https://docs.google.com/forms/d/e/1FAIpQLSeyyu5oBNCDEyqyIusL-f8gP-t1leEphzlEuHJC7jyOviuscA/viewform">
                   <div className="col-sm-3 col-xs-5 col-lg-3 col-lg-pull-5 more-about-left"><span className="glyphicon glyphicon-menu-left"></span><span className="glyphicon glyphicon-menu-left"></span>了解更多</div>
                   </Link>
                 </div>

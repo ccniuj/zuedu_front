@@ -1,28 +1,26 @@
 import React, { Component, PropTypes} from 'react'
-import { connect } from 'react-redux'
-import { Link, browserHistory } from 'react-router'
-import { submitForm} from '../actions'
-import { getCartProducts } from '../reducers'
 
-class OrderInfo extends Component {
+export default class OrderInfo extends Component {
   constructor(props) {
     super(props)
    
   }
-  componentWillReceiveProps(nextContext) {
+  componentWillReceiveProps(_, nextContext) {
     const form = nextContext.orders.form
     const attrs = [ 'first_name', 'last_name', 'email', 'address', 'payment', 'discount_key']
-    console.log(nextContext.orders.form.type)
+ console.log(nextContext.orders.form.type)
     if (nextContext.orders.form.type!='new') {
-        attrs.forEach(attr => {
+
+      attrs.forEach(attr => {
         this.refs[attr].value = form[attr]
+        console.log("yes")
+        console.log(attr)
       })
     }
   }
   render() {
-    const {orders, submitForm} = this.props
+    const { products, orders, submitForm } = this.context
     const _payload = orders.allpay.payload ? orders.allpay.payload : {}
-    console.log(_payload)
     const disabled = orders.form.type=='show' ? 'disabled' : ''
     const order_name = orders.form.type=='new' ? '新增訂單' : `訂單 ${orders.form.id}`
 
@@ -30,7 +28,10 @@ class OrderInfo extends Component {
     let allpay_form
     
     switch(orders.form.type) {
-      
+      case 'show':
+        submit_btn = <div/>
+        allpay_form = <div/>
+        break
       default:
         submit_btn =  <input className='btn btn-success' type='submit' value='確定' />
         allpay_form = <form id='allpay' action={orders.allpay.url} method='post' style={{display: 'none'}}>
@@ -48,12 +49,10 @@ class OrderInfo extends Component {
 
     return (
       <div className='row'>
-      
+      {order_name}
         <div className='col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1 orderinfo-form'>
-          <h4>{order_name}</h4>
           <form onSubmit={ e => {
                 e.preventDefault()
-                console.log("no")
                 submitForm(orders.form.type, 'orders', null, {
                   last_name: this.refs.last_name.value,
                   first_name: this.refs.first_name.value,
@@ -106,13 +105,3 @@ OrderInfo.contextTypes = {
   submitForm: PropTypes.func.isRequired
 }
 
-const mapStateToProps = state => {
-  return {
-    orders: state.orders,
-  }
-}
-
-export default connect(
-  mapStateToProps,
-  {submitForm}
-)(OrderInfo)

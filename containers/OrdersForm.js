@@ -8,6 +8,7 @@ import CartInfo from '../components/CartInfo'
 import ApplicantForm from '../components/ApplicantForm'
 
 class OrdersForm extends Component {
+
   getChildContext() {
     return {
       products: this.props.products,
@@ -57,8 +58,7 @@ class OrdersForm extends Component {
       paddingTop: '100px',
       minHeight: '600px'
     }
-    const { cart, orders,
-            cart_matchable_discount_name, cart_matchable_discount_factor, total } = this.props
+    const { cart, orders,cart_matchable_discount_name, cart_matchable_discount_factor, total } = this.props
     let line_items = orders.form.type == 'new' 
     ? cart.form.line_items
     : orders.form.line_items
@@ -76,15 +76,15 @@ class OrdersForm extends Component {
           : <div/>
         }
         </div>
-        <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2' style={{textAlign: 'center'}}>
+        <div className='col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1' style={{textAlign: 'center'}}>
           <h4><center>報名資訊</center></h4>
-          <Link to='/cart' className='btn btn-sm btn-warning pull-right' style={{marginTop: '-35px'}}>修改</Link>
+          <Link to={`/cart/edit/${orders.form.id}`} className='btn btn-sm btn-warning pull-right' style={{marginTop: '-35px'}}>修改</Link>
         </div>
         <div style={{ clear: 'both' }} />
         { 
           line_items.map(applicant => 
             <div key={applicant.id} className='row'>
-              <div className='col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 applicant-form'>
+              <div className='col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1 applicant-form'>
                 <ApplicantForm
                   type='show'
                   applicant={applicant} />

@@ -27,7 +27,6 @@ export default class ApplicantForm extends Component {
     }
     attributes.map( col => {
       this.refs[col].value = nextProps.applicant[col]
-      console.log(col);
     })
   }
   render() {

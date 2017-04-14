@@ -6,7 +6,7 @@ export default class CartInfo extends Component {
     const { applicants, cart_matchable_discount_name, cart_matchable_discount_factor, total } = this.props
 
     return (
-      <div className='col-md-6 col-md-offset-3 col-xs-12 cart-info'>
+      <div className='col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1 cart-info'>
         <h4>您已報名的課程</h4>
         <table className="col-xs-12 table table-responsive table-condensed">
           <thead>
@@ -37,7 +37,7 @@ export default class CartInfo extends Component {
         <b>{ cart_matchable_discount_name || '無' }</b>
         <br/>
         <h4>需付金額</h4>
-        <b>${ total }{cart_matchable_discount_name ? ` - $${cart_matchable_discount_factor} x ${applicants.length}` : ''}</b>
+        <b>${ total }={total+(cart_matchable_discount_factor*applicants.length)}{cart_matchable_discount_name ? ` - $${cart_matchable_discount_factor} x ${applicants.length}` : ''}</b>
       </div>
     )
   }
