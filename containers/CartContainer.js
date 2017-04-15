@@ -318,9 +318,9 @@ class CartContainer extends Component {
           <div className="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
             <div className='row'>
               <button type="button" className="col-md-4 col-md-offset-0 col-xs-4 cart-next-btn"
-              onClick={this.lastStep} style={(this.state.progress==1)?{visibility: 'hidden'}:{display:'block'}}
+              onClick={this.lastStep} style={(this.state.progress==1)||(this.state.progress==3)?{visibility: 'hidden'}:{display:'block'}}
               >{this.state.detail.lastBottom}</button>
-              <button type="button" className="col-md-4 col-md-offset-4 col-xs-4 col-xs-offset-4 cart-next-btn"
+              <button type="button" style={(this.state.progress==3)?{visibility: 'hidden'}:{display:'block'}} className="col-md-4 col-md-offset-4 col-xs-4 col-xs-offset-4 cart-next-btn"
               onClick={()=>this.nextStep(products,defaultProductId)}
               >{this.state.detail.nextBottom}</button>
             </div>

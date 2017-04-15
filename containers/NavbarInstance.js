@@ -60,15 +60,8 @@ class NavbarInstance extends Component {
         <Navbar.Collapse>
           <Nav >
             <NavItem eventKey={1} href="/about"><h4>關於我們</h4></NavItem>
-            <NavItem 
-            eventkey={2.1} 
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeyyu5oBNCDEyqyIusL-f8gP-t1leEphzlEuHJC7jyOviuscA/viewform"
-            >
-              <h4>課程介紹</h4>
-            </NavItem>
-            {
-              /**
-              <NavDropdown eventKey={2}  title="課程介紹" id="basic-nav-dropdown">
+
+            <NavDropdown eventKey={2}  title="課程介紹" id="basic-nav-dropdown">
 <MenuItem eventkey={2.1} href="/products"><h4>總覽</h4></MenuItem>
             <MenuItem divider />
             { 
@@ -77,8 +70,6 @@ class NavbarInstance extends Component {
 </NavDropdown>
             { dropdown }
             { loginLink }
-**/
-            }
           </Nav>
         </Navbar.Collapse>
         <div id='alert' ref='alert'/>

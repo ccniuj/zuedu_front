@@ -290,7 +290,7 @@ address {margin-bottom: 0px;font-style: normal;line-height: 1.428571;font-size: 
 }
 .product-item-back{
   background-color: #1aaaeb;
-  height: 90px;
+  height: 130px;
 }
 .product-item-white{
   background-color: white;
@@ -309,7 +309,7 @@ address {margin-bottom: 0px;font-style: normal;line-height: 1.428571;font-size: 
   padding-left: 15px;
 }
 .product-item-title h1{
-  font-size: 39px;
+  font-size: 35px;
   margin:0px;
 }
 .product-item-descipt{
@@ -447,36 +447,21 @@ textarea.orderinfo-form-input {
   font-family:"Microsoft JhengHei";
   font-weight:900;
 }
-@media(max-width: 425px){
-.navbar-logo {
-    max-height: 35px;
-    }
-.about-view {
-    margin-top: 0;
-}
-}
-@media(max-width: 991px){
+
+@media(max-width: 1014px){
 .product-cover {
   padding-top: 69px;
   width: 100%;
 }
-}
-@media(max-width: 767px){
-  .navbar-logo {
-  max-height: 50px;
-}
-}
-@media(max-width: 343px){
-  .navbar-logo {
-  max-height:40px;
-}
-}
-@media(min-width: 768px){
-  .container{
-  width:auto;
+.product-item-title h1 {
+    font-size: 32px;
+
 }
 }
 @media(max-width: 768px){
+    .navbar-logo {
+  max-height: 50px;
+}
 
 .footer-detail {
     padding-top: 15px;
@@ -499,12 +484,19 @@ textarea.orderinfo-form-input {
   font-size: 18px;
 }
 .activity-slider {
-
-    margin-top: -10px;
+  margin-top: -10px;
+}
+.product-item-title h1 {
 
 }
 }
 @media(max-width: 428px){
+  .navbar-logo {
+    max-height: 35px;
+    }
+.about-view {
+    margin-top: 0;
+}
 .footer-icon {
     padding: 3px;
     padding-top: 10px;
@@ -519,9 +511,20 @@ textarea.orderinfo-form-input {
     border-right: 1px solid white;
 }
 
+.product-item-title h1 {
+    font-size: 26px;
+}
 }
 
-
+@media(max-width: 343px){
+  .navbar-logo {
+  max-height:40px;
+}
+.product-item-title h1 {
+    font-size: 23px;
+    margin: 0px;
+}
+}
 
 .more-about-right{
     background-color: white;
@@ -573,6 +576,9 @@ textarea.orderinfo-form-input {
       margin: 15px;
 }
 @media(min-width:768px ){
+    .container{
+  width:auto;
+}
   .home-product-pic{
     margin-top: -145px;
   }
@@ -630,4 +636,10 @@ textarea.orderinfo-form-input {
       width: 80%;
       /* margin-left: -10px; */
   }
+}
+.product-form-section > .col-sm-7, .product-form-section >.col-sm-6{
+  margin-top: 20px;
+}
+.space-text{
+  white-space: pre-wrap;
 }

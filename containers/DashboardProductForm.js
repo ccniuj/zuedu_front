@@ -104,10 +104,10 @@ class DashboardProductForm extends Component {
             <input ref='outline_image_url' type='text' name='outline_image_url' placeholder='輸入大綱圖片連結' style={{width: '100%'}} defaultValue={product.outline_image_url} />
             <br/>
             <br/>
-            <label htmlFor='dimension_image_url'>向度圖片連結</label>
+            <label htmlFor='dimension_image_url'>向度圖片連結(right,left bigger picture)</label>
             <input ref='dimension_image_url' type='text' name='dimension_image_url' placeholder='輸入大綱圖片連結' style={{width: '100%'}} defaultValue={product.dimension_image_url} />
             <br/>
-            <label htmlFor='activityUrl'> 活動圖片連結</label>
+            <label htmlFor='activityUrl'> 活動圖片連結(多張照片請用","分隔)</label>
             <input ref='activityUrl' type='text' name='activityUrl' placeholder='輸入活動圖片連結' style={{width: '100%'}} defaultValue={product.activityUrl} />
             
             <br/>

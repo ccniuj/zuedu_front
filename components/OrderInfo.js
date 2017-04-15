@@ -32,7 +32,7 @@ class OrderInfo extends Component {
     switch(orders.form.type) {
       
       default:
-        submit_btn =  <input className='btn btn-success' type='submit' value='確定' />
+        submit_btn =  <input className='col-xs-offset-5 btn btn-success btn-lg' type='submit' value='確認付款' />
         allpay_form = <form id='allpay' action={orders.allpay.url} method='post' style={{display: 'none'}}>
             信用卡測試卡號: 4311-9522-2222-2222<br/>
             信用卡測試安全碼: 222<br/>
