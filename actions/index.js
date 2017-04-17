@@ -467,6 +467,7 @@ export function cleanAllpayForm() {
 }
 
 export function handleErrors(res) {
+  console.log(res)
   if (!res.ok) {
     return res.json().then(err => Promise.reject(err.message));
   }

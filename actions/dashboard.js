@@ -125,15 +125,16 @@ export function deleteDashboardForm(resource, id) {
 }
 
 export function notifyMember(resource, type, id) {
+  console.log(id)
   return dispatch => {
     return fetch(`${config.domain}/dashboard/${resource}/${type}.json`, {
       headers: {
-        'Accept': 'application/json',
+        'Accept': 'text/plain',
         'Content-Type': 'application/json'
       },
       credentials: 'include',
       method: 'POST',
-      body: JSON.stringify( { id } )
+      body: JSON.stringify({id})
     }).
       then(handleErrors).
       then(() => {

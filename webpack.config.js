@@ -4,7 +4,7 @@ var env = process.env.ENV ? process.env.ENV : 'production'
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CompressionPlugin = require('compression-webpack-plugin');
 module.exports = {
-  devtool: 'cheap-module-source-map',
+  devtool: 'cheap-module-eval',
   entry: [
     'webpack-hot-middleware/client',
     './client/index.js'

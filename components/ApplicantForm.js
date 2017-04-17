@@ -65,28 +65,28 @@ export default class ApplicantForm extends Component {
       <div>
         <form ref='form' style={{ color:'black' }}>
           <div className="col-xs-12 form-line">
-            <label className='col-xs-6  applicant-form-label'>參加營隊<span style={{color: 'red'}}>*</span></label>
+            <label className='col-xs-6  applicant-form-label white'>參加營隊<span style={{color: '#fdb825'}}>*</span></label>
             { product_name }
             <div className='applicant-form-dropdown-margin' />
           </div>
           <div className="col-xs-12 form-line">
-            <label className='col-xs-6 applicant-form-label'>報名場次<span style={{color: 'red'}}>*</span></label>
+            <label className='col-xs-6 applicant-form-label  white'>報名場次<span style={{color: '#fdb825'}}>*</span></label>
             { product_detail }
           </div>
           <div className="col-xs-12 form-line">
-            <label className='col-xs-6 applicant-form-label'>學生姓名<span style={{color: 'red'}}>*</span></label>
+            <label className='col-xs-6 applicant-form-label  white'>學生姓名<span style={{color: '#fdb825'}}>*</span></label>
             <input ref='name' className='col-xs-6 applicant-form-input' type='text' name='name' defaultValue={applicant.name} disabled={disabled} /><br/>
           </div>
           <div className="col-xs-12 form-line">
-            <label className='col-xs-4 applicant-form-label'>生日<span style={{color: 'red'}}>*</span></label>
+            <label className='col-xs-4 applicant-form-label white'>生日<span style={{color: '#fdb825'}}>*</span></label>
             <input ref='birth' className='col-xs-8 applicant-form-input applicant-form-bir' type='date' name='birth' defaultValue={applicant.birth} disabled={disabled} /><br/>
           </div>
           <div className="col-xs-12 form-line">
-            <label className='col-xs-6 applicant-form-label'>學校<span style={{color: 'red'}}>*</span></label>
+            <label className='col-xs-6 applicant-form-label white'>學校<span style={{color: '#fdb825'}}>*</span></label>
             <input ref='school' className='col-xs-6 applicant-form-input' type='text' name='school' defaultValue={applicant.school} disabled={disabled} /><br/>
           </div>
           <div className="col-xs-12 form-line">
-            <label className='col-xs-6 applicant-form-label'>年級<span style={{color: 'red'}}>*</span></label>
+            <label className='col-xs-6 applicant-form-label white'>年級<span style={{color: '#fdb825'}}>*</span></label>
             <select ref='grade' className='col-xs-6 applicant-form-dropdown' name='grade' defaultValue={applicant.grade} disabled={disabled}>
               <option value={1}>1</option>
               <option value={2}>2</option>
@@ -100,26 +100,26 @@ export default class ApplicantForm extends Component {
             </select>
           </div>
           <div className="col-xs-12 form-line">
-            <label className='col-xs-6 applicant-form-label'>性別<span style={{color: 'red'}}>*</span></label>
+            <label className='col-xs-6 applicant-form-label white'>性別<span style={{color: '#fdb825'}}>*</span></label>
             <select ref='gender' className='col-xs-6 applicant-form-dropdown' name='gender' defaultValue={applicant.gender} disabled={disabled}>
               <option value="male">男</option>
               <option value="female">女</option>
             </select>
           </div>
           <div className="col-xs-12 form-line">
-            <label className='col-xs-6 applicant-form-label'>身分證字號<span style={{color: 'red'}}>*</span></label>
+            <label className='col-xs-6 applicant-form-label white'>身分證字號<span style={{color: '#fdb825'}}>*</span></label>
             <input ref='ss_number' className='col-xs-6 applicant-form-input' type='text' name='ss_number' defaultValue={applicant.ss_number} disabled={disabled} /><br/>
           </div>
           <div className="col-xs-12 form-line">
-            <label className='col-xs-6 applicant-form-label'>家長電話<span style={{color: 'red'}}>*</span></label>
+            <label className='col-xs-6 applicant-form-label white'>家長電話<span style={{color: '#fdb825'}}>*</span></label>
             <input ref='parent_phone_number' className='col-xs-6 applicant-form-input' type='text' name='parent_phone_number' defaultValue={applicant.parent_phone_number} disabled={disabled} /><br/>
           </div>
           <div className="col-xs-12 form-line">
-            <label className='col-xs-8 applicant-form-label'>家長電子信箱<span style={{color: 'red'}}>*</span></label>
+            <label className='col-xs-8 applicant-form-label white'>家長電子信箱<span style={{color: '#fdb825'}}>*</span></label>
             <input ref='parent_email' className='col-xs-11 col-xs-offset-1 applicant-form-input applicant-form-input-long' type='text' name='parent_email' defaultValue={applicant.parent_email} disabled={disabled} /><br/>
           </div>
           <div className="col-xs-12 form-line">
-            <label className='col-xs-6 applicant-form-label'>飲食需求<span style={{color: 'red'}}>*</span></label>
+            <label className='col-xs-6 applicant-form-label white'>飲食需求<span style={{color: '#fdb825'}}>*</span></label>
             <select ref='food_preference' className='col-xs-6 applicant-form-dropdown' name='food_preference' defaultValue={applicant.food_preference} disabled={disabled}>
               <option value='normal'>正常</option>
               <option value='veggie'>素食</option>
@@ -128,7 +128,7 @@ export default class ApplicantForm extends Component {
             </select>
           </div>
           <div className="col-xs-12 form-line">
-            <label className='col-xs-6 applicant-form-label'>備註</label>
+            <label className='col-xs-6 applicant-form-label white'>備註</label>
             <input ref='note' className='col-xs-6 applicant-form-input' type='textarea' name='note' defaultValue={applicant.note} disabled={disabled} />
           </div>
         </form>

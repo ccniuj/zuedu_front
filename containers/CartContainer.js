@@ -97,18 +97,18 @@ class CartContainer extends Component {
       if (this.state.progress==1){
 
         this.submitApplicants()
-        .then(()=>{addToCart(defaultProductId,products[defaultProductId].product_details[0].id)},null)
-          .then(() => getCart(), err => {console.log(err)})
+        .then(()=>{addToCart(defaultProductId,products[defaultProductId].product_details[0].id)})
+          .then(() => getCart())
             .then(()=>{
             detail={nextBottom:"結帳",lastBottom:"回上步"}
             this.setState({detail});
             this.setState({progress:this.state.progress+1});
             this.setState({style:{display:"none"}});
-            }
-            , err => console.log(err));
+            }).catch(err=>console(err));
        
       }
       else if (this.state.progress==2){
+        console.log("4")
         this.submitApplicants().then(() =>{
         this.setState({style:{display:"none"}});
         this.setState({detail});
@@ -117,7 +117,6 @@ class CartContainer extends Component {
         browserHistory.push('/cart/new')
         }
         , err => console.log(err));
-        
       }
       console.log(this.state.progress);
     }

@@ -37,7 +37,7 @@ export default class CartInfo extends Component {
         <b>{ cart_matchable_discount_name || '無' }</b>
         <br/>
         <h4>需付金額</h4>
-        <b>${ total }={total+(cart_matchable_discount_factor*applicants.length)}{cart_matchable_discount_name ? ` - $${cart_matchable_discount_factor} x ${applicants.length}` : ''}</b>
+        <b>${total}={total+(cart_matchable_discount_factor*applicants.length)}{cart_matchable_discount_name ? ` - $${cart_matchable_discount_factor} x ${applicants.length}` : ''}</b>
       </div>
     )
   }
