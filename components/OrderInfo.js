@@ -21,7 +21,7 @@ class OrderInfo extends Component {
         this.refs[attr].value = form[attr]
       })
     }
-    
+    console.log(nextContext.orders)
 
   }
   render() {
@@ -32,8 +32,12 @@ class OrderInfo extends Component {
     const order_name = orders.form.type=='new' ? '新增訂單' : `訂單 ${orders.form.id}`
     let submit_btn
     let allpay_form
-    console.log(orders.allpay.url)
+
     switch(orders.form.type) {
+       case 'show':
+
+        submit_btn =  <div></div>
+        break;
       default:
         submit_btn =  <input className='col-xs-offset-5 btn btn-success btn-lg' type='submit' value='確認付款' />
         allpay_form = <form id='allpay' action={orders.allpay.url} method='post' style={{display: 'block'}}>

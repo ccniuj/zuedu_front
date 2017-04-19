@@ -21,11 +21,10 @@ class ProductForm extends Component {
     this.loadLineBtn = () => this._loadLineBtn()
     this.detailChange=e=>this._detailChange(e)
     this.state={
-      productDetail:0
-    }
-    this.state={
+      productDetail:0,
       start:1
     }
+
   }
 
   _addProducts() {
@@ -91,6 +90,7 @@ class ProductForm extends Component {
       minHeight: '600px',
 
     }
+    console.log(this.state.productDetail)
     const redirect_url = location.pathname
     var settings = {
       customPaging: function(i) {

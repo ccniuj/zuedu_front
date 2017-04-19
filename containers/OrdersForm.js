@@ -6,9 +6,15 @@ import { getCartProducts } from '../reducers'
 import OrderInfo from '../components/OrderInfo'
 import CartInfo from '../components/CartInfo'
 import ApplicantForm from '../components/ApplicantForm'
-
+import PaymentDetail from '../components/PaymentDetail'
 class OrdersForm extends Component {
-
+  constructor(){
+    super();
+    this.state={
+      paidStatus:false,
+      paidMessage:""
+    }
+  }
   getChildContext() {
     return {
       products: this.props.products,
@@ -35,8 +41,17 @@ class OrdersForm extends Component {
         then(() => getCart())
     }
     getForm(params.type, 'orders', params.id)
+    
   }
-
+  componentWillReceiveProps(nextProps){
+    this.setState({paidStatus:nextProps.orders.form.payment=="Credit"?false:true})
+    if((nextProps.orders.form.transactions[0].params==null)){
+      this.setState({paidMessage:"付款失敗請重新下單"})
+    }
+    else{
+      this.setState({paidMessage:nextProps.orders.form.transactions[0].params.RtnMsg})
+    }
+  }
   componentDidUpdate() {
     const {
       orders,
@@ -65,6 +80,15 @@ class OrdersForm extends Component {
 
     return (
       <div className='container' style={style}>
+        {
+          this.state.paidStatus?
+            <PaymentDetail/>
+            :
+            <div>
+              {this.props.paidMessage}
+            </div>
+        }
+        
         <OrderInfo />
         <div className="row">
         {
