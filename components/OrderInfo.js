@@ -43,6 +43,7 @@ class OrderInfo extends Component {
         allpay_form = <form id='allpay' action={orders.allpay.url} method='post' style={{display: 'block'}}>
             {
               Object.keys(_payload).map( (key, i) => {
+                console.log(key,_payload[key])
                 return  <input key={i} type="text" name={key} defaultValue={_payload[key]} />
               })
             }

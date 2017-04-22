@@ -139,7 +139,14 @@ class ProductForm extends Component {
           </div>
           
         </div>
-       
+       <div>
+       {
+        product.slideshareUrl==""?
+        <div></div>
+        :<iframe src={product.slideshareUrl} width="100%" height="auto" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style={{border:'1px solid #CCC' ,borderWidth:'1px',marginBottom:'5px',maxWidth: '100%'}} allowfullscreen></iframe>
+       }
+          
+       </div>
           {
             product.activityUrl.split(",")==""?
           <div/>

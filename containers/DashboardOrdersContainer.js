@@ -5,6 +5,9 @@ import { getDashboardList, deleteDashboardForm, notifyMember } from '../actions/
 import { Table } from 'react-bootstrap'
 
 class DashboardOrdersContainer extends Component {
+  componentWillReceiveProps(nextProps){
+    console.log(nextProps)
+  }
   componentDidMount() {
     this.props.getDashboardList('orders')
   }
@@ -43,7 +46,7 @@ class DashboardOrdersContainer extends Component {
                     : '' }</td>
                   <td><a className='btn btn-primary btn-sm' 
                          onClick={
-                           () => notifyMember('orders', 'remind', order.id)
+                           () => notifyMember('orders', 'remind',order.id)
                          }>寄信</a>&nbsp;&nbsp;
                   <a className='btn btn-danger btn-sm' 
                          onClick={

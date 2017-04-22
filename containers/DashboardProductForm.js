@@ -96,6 +96,8 @@ class DashboardProductForm extends Component {
             <input ref='target' type='text' name='target' placeholder='輸入對象' style={{width: '100%'}} defaultValue={product.target} />
             <br/>
             <br/>
+            
+            <br/>
             <label htmlFor='cover_image_url'>封面圖片連結</label>
             <input ref='cover_image_url' type='text' name='cover_image_url' placeholder='輸入封面圖片連結' style={{width: '100%'}} defaultValue={product.cover_image_url} />
             <br/>
