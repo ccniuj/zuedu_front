@@ -25,7 +25,7 @@ import OrdersContainer from './containers/OrdersContainer'
 import OrdersFormNew from './containers/OrdersFormNew'
 import OrdersForm from './containers/OrdersForm'
 import LoginContainer from './containers/LoginContainer'
-
+import GoogleForm from './containers/GoogleForm'
 export default (
   <Route>
     <Route path='/' component={App}>
