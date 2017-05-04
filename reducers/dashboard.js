@@ -15,7 +15,8 @@ const formInitialState = {
     outline_image_url: '',
     dimension_image_url: '',
     activityUrl: '',
-    product_details: []
+    product_details: [],
+    detailimage:''
   },
   carts: {
     type: '',

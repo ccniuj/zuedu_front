@@ -10,10 +10,12 @@ class DashboardProductForm extends Component {
     this.props.getDashboardForm(params.type, 'products', params.id)
   }
   componentWillReceiveProps(nextProps) {
+    console.log(nextProps.product)
     let exclusion = ['id', 'product_details', 'type']
     Object.keys(nextProps.product).forEach(key => {
       if (!exclusion.includes(key)) {
         this.refs[key].value = nextProps.product[key]
+
       }
     })
   }
@@ -96,7 +98,10 @@ class DashboardProductForm extends Component {
             <input ref='target' type='text' name='target' placeholder='輸入對象' style={{width: '100%'}} defaultValue={product.target} />
             <br/>
             <br/>
-            
+            <br/>
+            <label htmlFor='detailimage'>解說圖片連結</label>
+            <input ref='detailimage' type='text' name='detailimage' placeholder='輸入解說圖片連結' style={{width: '100%'}} defaultValue={product.detailimage} />
+            <br/>
             <br/>
             <label htmlFor='cover_image_url'>封面圖片連結</label>
             <input ref='cover_image_url' type='text' name='cover_image_url' placeholder='輸入封面圖片連結' style={{width: '100%'}} defaultValue={product.cover_image_url} />

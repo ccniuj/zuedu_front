@@ -29,7 +29,7 @@ import GoogleForm from './containers/GoogleForm'
 export default (
   <Route>
     <Route path='/' component={App}>
-      <IndexRoute component={Home} />
+      <IndexRoute component={ProductsContainer} />
       <Route path='/about' component={About} />
       <Route path='/products' component={ProductsContainer} />
       <Route path="/products/:id" component={ProductForm} />

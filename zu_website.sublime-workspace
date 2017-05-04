@@ -1,0 +1,1117 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"bu",
+				"button\tstatement"
+			],
+			[
+				"e",
+				"elif"
+			],
+			[
+				"ev",
+				"event\tforstmt"
+			],
+			[
+				"y",
+				"y_control"
+			],
+			[
+				"M",
+				"MOUSEBUTTONDOWN\tinstance"
+			],
+			[
+				"x",
+				"x\tstatement"
+			],
+			[
+				"an",
+				"angles"
+			],
+			[
+				"pr",
+				"productDetail"
+			],
+			[
+				"pa",
+				"paidMessage"
+			],
+			[
+				"com",
+				"componentDidUpdate"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"ca",
+				"case"
+			],
+			[
+				"P",
+				"PaymentType"
+			],
+			[
+				"t",
+				"transaction"
+			],
+			[
+				"produ",
+				"productDetail"
+			],
+			[
+				"b",
+				"begin\tbegin … rescue … end"
+			],
+			[
+				"sc",
+				"scrollToRight"
+			],
+			[
+				"S",
+				"Scrollbars"
+			],
+			[
+				"dimen",
+				"dimension_image_url"
+			],
+			[
+				"btn",
+				"btn-default"
+			],
+			[
+				"p",
+				"products"
+			],
+			[
+				"de",
+				"defaultProductId"
+			],
+			[
+				"st",
+				"state\tReact: this.state"
+			],
+			[
+				"m",
+				"margin-top"
+			],
+			[
+				"col",
+				"col-xs-12"
+			],
+			[
+				"bl",
+				"inline-block"
+			],
+			[
+				"l",
+				"left"
+			],
+			[
+				"ma",
+				"margin-left"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"fo",
+				"font-weight"
+			],
+			[
+				"col-xs-of",
+				"col-xs-offset-1"
+			],
+			[
+				"co",
+				"col-xs-8"
+			],
+			[
+				"col-xs",
+				"col-xs-8"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"home-p",
+				"home-product"
+			],
+			[
+				"N",
+				"NavDropdown"
+			],
+			[
+				"cos",
+				"col-xs-6"
+			],
+			[
+				"hi",
+				"hidden-sm"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"pad",
+				"padding-top"
+			],
+			[
+				"max-",
+				"max-height"
+			],
+			[
+				"in",
+				"inline"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"cal",
+				"className"
+			],
+			[
+				"bo",
+				"border-left"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"h",
+				"height"
+			],
+			[
+				"im",
+				"images"
+			],
+			[
+				"Ar",
+				"Article"
+			],
+			[
+				"A",
+				"Article"
+			],
+			[
+				"cla",
+				"className"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "routes.js",
+			"settings":
+			{
+				"buffer_size": 3481,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "containers/DashboardProductForm.js",
+			"settings":
+			{
+				"buffer_size": 6366,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "containers/ProductForm.js",
+			"settings":
+			{
+				"buffer_size": 13797,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "reducers/products.js",
+			"settings":
+			{
+				"buffer_size": 1582,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/daniel840829/zuedu/db/schema.rb",
+			"settings":
+			{
+				"buffer_size": 7007,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/daniel840829/zuedu/app/controllers/dashboard/products_controller.rb",
+			"settings":
+			{
+				"buffer_size": 1065,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/daniel840829/zuedu/app/controllers/dashboard/carts_controller.rb",
+			"settings":
+			{
+				"buffer_size": 390,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "reducers/dashboard.js",
+			"settings":
+			{
+				"buffer_size": 1464,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server/server.js",
+			"settings":
+			{
+				"buffer_size": 2736,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/daniel840829/zuedu/db/migrate/20170504133547_add_detailimage_to_products.rb",
+			"settings":
+			{
+				"buffer_size": 127,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/daniel840829/zuedu/app/serializers/product_serializer.rb",
+			"settings":
+			{
+				"buffer_size": 516,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/daniel840829/zuedu/app/models/product.rb",
+			"settings":
+			{
+				"buffer_size": 90,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 350.0,
+		"last_filter": "Package Control: i",
+		"selected_items":
+		[
+			[
+				"Package Control: i",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Install Package Control"
+			],
+			[
+				"pack",
+				"Install Package Control"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/daniel840829/zuedu_front",
+		"/home/daniel840829/zuedu_front/containers",
+		"/home/daniel840829/zuedu_front/reducers",
+		"/home/daniel840829/zuedu_front/server",
+		"/home/daniel840829/zuedu",
+		"/home/daniel840829/zuedu/app",
+		"/home/daniel840829/zuedu/app/controllers",
+		"/home/daniel840829/zuedu/app/controllers/dashboard",
+		"/home/daniel840829/zuedu/app/controllers/members",
+		"/home/daniel840829/zuedu/app/models",
+		"/home/daniel840829/zuedu/app/serializers",
+		"/home/daniel840829/zuedu/bin",
+		"/home/daniel840829/zuedu/config",
+		"/home/daniel840829/zuedu/config/initializers",
+		"/home/daniel840829/zuedu/config/locales",
+		"/home/daniel840829/zuedu/db",
+		"/home/daniel840829/zuedu/db/migrate",
+		"/home/daniel840829/zuedu/log"
+	],
+	"file_history":
+	[
+		"/home/daniel840829/Pygame/pgu-master/examples/gui9.py",
+		"/home/daniel840829/Pygame/main.py",
+		"/home/daniel840829/Pygame/pgu-master/examples/gui17.py",
+		"/home/daniel840829/Kivy/main.py",
+		"/home/daniel840829/Kivy/pong.kv",
+		"/home/daniel840829/Pygame/embedtkinker.py",
+		"/home/daniel840829/Pygame/Qt_test.py",
+		"/home/daniel840829/Pygame/test.py",
+		"/home/daniel840829/ESP8266-micropython-mearm/meArm.py",
+		"/home/daniel840829/ESP8266-micropython-mearm/main.py",
+		"/home/daniel840829/webrepl-master/term.js",
+		"/home/daniel840829/webrepl-master/webrepl.html",
+		"/home/daniel840829/ESP8266-micropython-mearm/kinematics.py",
+		"/home/daniel840829/ESP8266-micropython-mearm/arm.py",
+		"/home/daniel840829/zuedu_front/server/server.js",
+		"/home/daniel840829/zuedu_front/components/Home.js",
+		"/home/daniel840829/zuedu/app/services/cart_service.rb",
+		"/home/daniel840829/zuedu_front/components/OrderInfo.js",
+		"/home/daniel840829/zuedu_front/components/PaymentDetail.js",
+		"/home/daniel840829/zuedu_front/containers/DashboardProductForm.js",
+		"/home/daniel840829/zuedu_front/containers/OrdersForm.js",
+		"/home/daniel840829/zuedu_front/actions/dashboard.js",
+		"/home/daniel840829/zuedu_front/actions/index.js",
+		"/home/daniel840829/zuedu_front/containers/ProductForm.js",
+		"/home/daniel840829/zuedu/app/controllers/dashboard/orders_controller.rb",
+		"/home/daniel840829/zuedu_front/containers/DashboardOrdersContainer.js",
+		"/home/daniel840829/zuedu/log/capistrano.log",
+		"/home/daniel840829/zuedu/log/development.log",
+		"/home/daniel840829/zuedu/app/services/discount_matcher.rb",
+		"/home/daniel840829/zuedu/app/controllers/orders_controller.rb",
+		"/home/daniel840829/zuedu/app/models/transaction.rb",
+		"/home/daniel840829/zuedu/db/migrate/20160629090520_create_transactions.rb",
+		"/home/daniel840829/zuedu/db/migrate/20160629090443_create_orders.rb",
+		"/home/daniel840829/zuedu/config/application.rb",
+		"/home/daniel840829/zuedu/app/models/allpay/form.rb",
+		"/home/daniel840829/zuedu/app/models/product.rb",
+		"/home/daniel840829/zuedu/app/models/order.rb",
+		"/home/daniel840829/zuedu/app/models/line_item.rb",
+		"/home/daniel840829/zuedu/config/environments/development.rb",
+		"/home/daniel840829/zuedu/config/environments/production.rb",
+		"/home/daniel840829/zuedu/app/serializers/transaction_serializer.rb",
+		"/home/daniel840829/zuedu/app/controllers/dashboard/products_controller.rb",
+		"/home/daniel840829/zuedu_front/containers/DashboardOrderForm.js",
+		"/home/daniel840829/zuedu_front/components/CartInfo.js",
+		"/home/daniel840829/zuedu_front/containers/CartContainer.js",
+		"/home/daniel840829/zuedu_front/containers/OrdersFormNew.js",
+		"/home/daniel840829/zuedu_front/containers/DashboardMembersContainer.js",
+		"/home/daniel840829/zuedu/config/routes.rb",
+		"/home/daniel840829/zuedu_front/components/ApplicantForm.js",
+		"/home/daniel840829/zuedu_front/webpack.config.js",
+		"/home/daniel840829/zuedu_front/containers/ProductsContainer.js",
+		"/home/daniel840829/zuedu_front/public/stylesheets/style.css",
+		"/home/daniel840829/zuedu_front/containers/DashboardApplicantForm.js",
+		"/home/daniel840829/zuedu_front/containers/DashboardApplicantsContainer.js",
+		"/home/daniel840829/zuedu_front/containers/DashboardCartForm.js",
+		"/home/daniel840829/zuedu_front/containers/DashboardCartsContainer.js",
+		"/home/daniel840829/zuedu_front/components/Footer.js",
+		"/home/daniel840829/zuedu_front/containers/NavbarInstance.js",
+		"/home/daniel840829/zuedu_front/reducers/dashboard.js",
+		"/home/daniel840829/zuedu_front/routes.js",
+		"/home/daniel840829/zuedu_front/components/OrderInfoOld.js",
+		"/home/daniel840829/zuedu_front/containers/OrderInfoOld.js",
+		"/home/daniel840829/zuedu_front/components/ApplicantFormOld.js",
+		"/home/daniel840829/notify_by Mail do |mail|",
+		"/home/daniel840829/zuedu_front/containers/About.js",
+		"/home/daniel840829/zuedu_front/server/views/index.ejs",
+		"/home/daniel840829/zuedu_front/containers/OrdersContainer.js",
+		"/home/daniel840829/zuedu_front/.babelrc",
+		"/home/daniel840829/zuedu_front/package.json",
+		"/home/daniel840829/zuedu_front/components/ProductItem.js",
+		"/home/daniel840829/桌面/product-icons.png",
+		"/home/daniel840829/zuedu_front/containers/App.js",
+		"/home/daniel840829/zuedu/app/models/member.rb",
+		"/home/daniel840829/zuedu/app/controllers/members/omniauth_callbacks_controller.rb",
+		"/home/daniel840829/zuedu/config/initializers/filter_parameter_logging.rb",
+		"/home/daniel840829/zuedu/db/migrate/20170406133603_add_activity_url_to_products.rb",
+		"/home/daniel840829/zuedu/config/environment.rb",
+		"/home/daniel840829/zuedu/config/initializers/devise.rb",
+		"/home/daniel840829/zuedu/app/serializers/product_serializer.rb",
+		"/home/daniel840829/zuedu/db/migrate/20160629090442_create_products.rb",
+		"/home/daniel840829/zuedu/db/migrate/20160629090444_create_product_details.rb",
+		"/home/daniel840829/zuedu/db/migrate/20170406130624_add_activity_image_url_to_products.rb",
+		"/home/daniel840829/zuedu_front/node_modules/express/lib/response.js",
+		"/home/daniel840829/zuedu/db/seeds.rb",
+		"/home/daniel840829/zuedu/config/secrets.yml",
+		"/home/daniel840829/zuedu/config/deploy.rb",
+		"/home/daniel840829/zuedu/app/controllers/members_controller.rb",
+		"/home/daniel840829/zuedu/config/database.yml",
+		"/home/daniel840829/zuedu_front/public/images/pic7.png",
+		"/home/daniel840829/zuedu_front/public/images/threeRoad.png",
+		"/home/daniel840829/zuedu_front/public/images/pic5.png",
+		"/home/daniel840829/.config/sublime-text-3/Packages/Emmet/Emmet.sublime-settings",
+		"/home/daniel840829/prac/app/views/articles/new.html.erb",
+		"/home/daniel840829/prac/app/views/articles/show.html.erb",
+		"/home/daniel840829/prac/app/views/articles/index.html.erb",
+		"/home/daniel840829/prac/app/views/welcome/index.html.erb",
+		"/home/daniel840829/prac/app/controllers/articles_controller.rb",
+		"/home/daniel840829/prac/app/models/article.rb",
+		"/home/daniel840829/prac/config/routes.rb",
+		"/home/daniel840829/blog/app/views/welcome/index.html.erb",
+		"/home/daniel840829/blog/app/controllers/articles_controller.rb",
+		"/home/daniel840829/.config/sublime-text-3/Packages/User/Emmet.sublime-settings",
+		"/home/daniel840829/blog/config/routes.rb",
+		"/home/daniel840829/blog/app/views/articles/new.html.erb",
+		"/home/daniel840829/blog/app/controllers/welcome_controller.rb",
+		"/home/daniel840829/blog/config/boot.rb"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"decode_resp",
+			"binary_state",
+			"prepare_for_connect",
+			"term",
+			"#define ",
+			"fetch_transactions",
+			"productDetail",
+			"this.state.productDetail",
+			"handleErrors",
+			"fetch",
+			"fetch_config",
+			"getAllpayForm",
+			"submitAllpayForm",
+			"getAllpayForm",
+			".product-item-title h1",
+			".product-item-title h1 ",
+			"product-item",
+			".activity-slider",
+			"pec",
+			"home-product-spec",
+			"home-produc",
+			"uct-sp",
+			"home-product-sp",
+			"home-product",
+			"footerlogo",
+			"footer-container",
+			"products",
+			"submitAllpayForm",
+			"cleanAllpayForm",
+			"submitForm",
+			"total",
+			"applicant.id",
+			"defaultProductId",
+			"withCredentials",
+			"receiveCart",
+			"submitApplicants",
+			"fetchData",
+			"_renderCart()",
+			"renderCart",
+			"matchable_discount_factor",
+			"cart_matchable_discount_factor",
+			"h6",
+			"<input",
+			")\n",
+			"food_preference",
+			"name",
+			"parent_email",
+			"body",
+			".home-product-block",
+			"applicant-form-input-long",
+			"applicant-form-input",
+			"h6",
+			"applicant-form-label",
+			"header-polgan-right",
+			"],\n",
+			"\",\n",
+			".black",
+			"  ",
+			"product-form-section-blue",
+			"yellow-bar",
+			"#",
+			"home-bl",
+			"#ba",
+			"product-form-section",
+			"section",
+			"768px",
+			"@media(min-width: 768px)",
+			"@media (min-width: 768px)",
+			"product-cover",
+			"container-fix",
+			"product-cover",
+			"alert",
+			"product-ite",
+			"white",
+			"product-item",
+			"user.rb",
+			"secret_key_base",
+			"domain",
+			"header-polgan-left",
+			".home-product-spec img {\n    min-height: 21px;\n}",
+			"NAVBAR",
+			"md",
+			"white",
+			"header-polgan-left",
+			"@",
+			"container",
+			"footer-detail",
+			"footer-",
+			"footer-icon",
+			".home-blocks",
+			"home-block-de",
+			"left",
+			"home-product-detail",
+			"right",
+			"navbar-logo",
+			"home-product-block",
+			"product-block",
+			"home-block-detail",
+			"navbar-logo",
+			"right",
+			"%; ",
+			"home-numbers-container"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "routes.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3481,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2906,
+								2906
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 420.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "containers/DashboardProductForm.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6366,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1045,
+								1045
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 240.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "containers/ProductForm.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13797,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4626,
+								4626
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6331.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "reducers/products.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1582,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 420.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/daniel840829/zuedu/db/schema.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7007,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5330,
+								5330
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 1740.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/home/daniel840829/zuedu/app/controllers/dashboard/products_controller.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1065,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								472,
+								472
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/daniel840829/zuedu/app/controllers/dashboard/carts_controller.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 390,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								186,
+								186
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "reducers/dashboard.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1464,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								407,
+								407
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "server/server.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2736,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								937,
+								937
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/home/daniel840829/zuedu/db/migrate/20170504133547_add_detailimage_to_products.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 127,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								127,
+								127
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/home/daniel840829/zuedu/app/serializers/product_serializer.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 516,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								511,
+								511
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "/home/daniel840829/zuedu/app/models/product.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 90,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								90,
+								90
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 42.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 205.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/Python/Python.sublime-build",
+	"project": "zu_website.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 509.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

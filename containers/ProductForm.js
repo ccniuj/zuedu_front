@@ -141,6 +141,25 @@ class ProductForm extends Component {
         </div>
        <div>
        {
+          product.detailimage.split(",")==""?
+          <div/>
+          :
+          <div className='row product-form-section'>
+          <div className='col-xs-12 col-sm-4'>
+            <h2 className="yellow-bar">活動照片</h2>
+          </div>
+          <div className='col-sm-6 activity-slider col-xs-12'>
+
+            <Slider {...settings}>
+            {
+              product.detailimage.split(",").map((url,index)=>{
+              return <div key={index}><img src={url} alt="" style={{width:"100%"}}/></div>})
+            }
+            </Slider>
+          </div>
+          </div>
+        }
+       {
         product.slideshareUrl==""?
         <div></div>
         :<iframe src={product.slideshareUrl} width="100%" height="auto" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style={{border:'1px solid #CCC' ,borderWidth:'1px',marginBottom:'5px',maxWidth: '100%'}} allowfullscreen></iframe>
@@ -165,7 +184,7 @@ class ProductForm extends Component {
             </Slider>   
           </div>
           </div>
-        }
+          }
         
         <div className='row product-form-section'>
           <div className='col-xs-12 col-sm-4'>
