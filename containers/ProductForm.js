@@ -146,7 +146,7 @@ class ProductForm extends Component {
           :
           <div className='row product-form-section'>
           <div className='col-xs-12 col-sm-4'>
-            <h2 className="yellow-bar">活動照片</h2>
+            <h2 className="yellow-bar">課程解說</h2>
           </div>
           <div className='col-sm-6 activity-slider col-xs-12'>
 
@@ -159,10 +159,11 @@ class ProductForm extends Component {
           </div>
           </div>
         }
-       {
+       {/**
         product.slideshareUrl==""?
         <div></div>
         :<iframe src={product.slideshareUrl} width="100%" height="auto" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style={{border:'1px solid #CCC' ,borderWidth:'1px',marginBottom:'5px',maxWidth: '100%'}} allowfullscreen></iframe>
+       **/
        }
           
        </div>
@@ -263,10 +264,16 @@ class ProductForm extends Component {
           </div>
         </div>
         <div className='row product-form-section'>
+        {
+          /**
           <div className='col-xs-12 col-sm-4'>
             <h2 className="yellow-bar">我要報名</h2>
           </div>
-          {
+          **/
+        }
+          
+          <a className="btn btn-default btn-info goolge-form-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeyyu5oBNCDEyqyIusL-f8gP-t1leEphzlEuHJC7jyOviuscA/viewform">我要報名</a>
+          {/**
               member.id == '' 
               ? 
                 <div>
@@ -303,14 +310,14 @@ class ProductForm extends Component {
                     <button className="btn btn-default btn-info" data-toggle="modal" data-target="#confirm">報名</button>
                     </span>
                     </div>
-                    {/**
+                    {
                       product.product_details[this.state.productDetail].inventory>15?<div/>:
                       <div>
                       剩餘名額：{product.product_details[this.state.productDetail].inventory}
                       </div>
-                      **/
                     }
                   </div>
+            **/
             }
         </div>
          

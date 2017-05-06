@@ -643,3 +643,7 @@ textarea.orderinfo-form-input {
 .space-text{
   white-space: pre-wrap;
 }
+.goolge-form-btn{
+    width: 100%;
+    font-size: 31px;
+}
