@@ -141,6 +141,9 @@ class ProductForm extends Component {
         </div>
        <div>
        {
+          product.detailimage==undefined?
+          <div></div>
+          :
           product.detailimage.split(",")==""?
           <div/>
           :
@@ -168,7 +171,10 @@ class ProductForm extends Component {
           
        </div>
           {
-            product.activityUrl.split(",")==""?
+          product.activityUrl==undefined?
+          <div></div>
+          :
+          product.activityUrl.split(",")==""?
           <div/>
           :
            <div className='row product-form-section-blue'>
@@ -197,6 +203,9 @@ class ProductForm extends Component {
         </div>
         
             {
+              product.dimension_image_url==undefined?
+              <div></div>
+              :
               product.dimension_image_url.split(",").length == 2?
               <div className='row product-form-section'>
               <img className="col-sm-6 col-sm-offset-1 col-xs-12" src={product.dimension_image_url.split(",")[1]}  />
