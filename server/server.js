@@ -21,11 +21,11 @@ const port = 3001
 
 const compiler = webpack(webpackConfig)
 //app.use(compression());//add this as the 1st middlewares
-
+/*
 app.get('/', (req, res) => {
   res.redirect('https://docs.google.com/forms/d/e/1FAIpQLSeyyu5oBNCDEyqyIusL-f8gP-t1leEphzlEuHJC7jyOviuscA/viewform');
 });
-
+*/
 
 app.get('*.js',function(req,res,next){
   req.url = req.url + '.gz';
