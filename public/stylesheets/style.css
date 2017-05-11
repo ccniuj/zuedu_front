@@ -2,7 +2,7 @@ body {
   background-color: #EFEFEF;
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif', 'Meiryo';
   font-weight: 600;
-
+  font-size: 16px;
 }
 img{
   width: 80%;
