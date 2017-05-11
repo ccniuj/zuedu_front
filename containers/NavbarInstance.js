@@ -68,8 +68,10 @@ class NavbarInstance extends Component {
               products.map(product => <MenuItem key={product.id} href={`/products/${product.id}`}>{product.name}</MenuItem>)
             }
 </NavDropdown>
-            { dropdown }
-            { loginLink }
+            { //dropdown 
+            }
+            { //loginLink 
+            }
           </Nav>
         </Navbar.Collapse>
         <div id='alert' ref='alert'/>
