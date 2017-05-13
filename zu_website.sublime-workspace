@@ -241,6 +241,24 @@
 			}
 		},
 		{
+			"file": "containers/NavbarInstance.js",
+			"settings":
+			{
+				"buffer_size": 2959,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "webpack.config.js",
+			"settings":
+			{
+				"buffer_size": 1275,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "containers/DashboardProductForm.js",
 			"settings":
 			{
@@ -254,78 +272,6 @@
 			"settings":
 			{
 				"buffer_size": 14288,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/daniel840829/zuedu/db/schema.rb",
-			"settings":
-			{
-				"buffer_size": 7007,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/daniel840829/zuedu/app/controllers/dashboard/products_controller.rb",
-			"settings":
-			{
-				"buffer_size": 1065,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/daniel840829/zuedu/app/controllers/dashboard/carts_controller.rb",
-			"settings":
-			{
-				"buffer_size": 390,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "reducers/dashboard.js",
-			"settings":
-			{
-				"buffer_size": 1464,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "server/server.js",
-			"settings":
-			{
-				"buffer_size": 2736,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/daniel840829/zuedu/db/migrate/20170504133547_add_detailimage_to_products.rb",
-			"settings":
-			{
-				"buffer_size": 127,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/daniel840829/zuedu/app/serializers/product_serializer.rb",
-			"settings":
-			{
-				"buffer_size": 516,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/daniel840829/zuedu/app/models/product.rb",
-			"settings":
-			{
-				"buffer_size": 90,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -396,6 +342,7 @@
 	"expanded_folders":
 	[
 		"/home/daniel840829/zuedu_front",
+		"/home/daniel840829/zuedu_front/components",
 		"/home/daniel840829/zuedu_front/containers",
 		"/home/daniel840829/zuedu_front/public",
 		"/home/daniel840829/zuedu_front/public/stylesheets",
@@ -419,6 +366,14 @@
 	],
 	"file_history":
 	[
+		"/home/daniel840829/zuedu/db/schema.rb",
+		"/home/daniel840829/zuedu/app/models/product.rb",
+		"/home/daniel840829/zuedu/app/serializers/product_serializer.rb",
+		"/home/daniel840829/zuedu/db/migrate/20170504133547_add_detailimage_to_products.rb",
+		"/home/daniel840829/zuedu_front/server/server.js",
+		"/home/daniel840829/zuedu_front/reducers/dashboard.js",
+		"/home/daniel840829/zuedu/app/controllers/dashboard/carts_controller.rb",
+		"/home/daniel840829/zuedu/app/controllers/dashboard/products_controller.rb",
 		"/home/daniel840829/zuedu_front/public/stylesheets/style.css",
 		"/home/daniel840829/Pygame/pgu-master/examples/gui9.py",
 		"/home/daniel840829/Pygame/main.py",
@@ -434,7 +389,6 @@
 		"/home/daniel840829/webrepl-master/webrepl.html",
 		"/home/daniel840829/ESP8266-micropython-mearm/kinematics.py",
 		"/home/daniel840829/ESP8266-micropython-mearm/arm.py",
-		"/home/daniel840829/zuedu_front/server/server.js",
 		"/home/daniel840829/zuedu_front/components/Home.js",
 		"/home/daniel840829/zuedu/app/services/cart_service.rb",
 		"/home/daniel840829/zuedu_front/components/OrderInfo.js",
@@ -455,13 +409,11 @@
 		"/home/daniel840829/zuedu/db/migrate/20160629090443_create_orders.rb",
 		"/home/daniel840829/zuedu/config/application.rb",
 		"/home/daniel840829/zuedu/app/models/allpay/form.rb",
-		"/home/daniel840829/zuedu/app/models/product.rb",
 		"/home/daniel840829/zuedu/app/models/order.rb",
 		"/home/daniel840829/zuedu/app/models/line_item.rb",
 		"/home/daniel840829/zuedu/config/environments/development.rb",
 		"/home/daniel840829/zuedu/config/environments/production.rb",
 		"/home/daniel840829/zuedu/app/serializers/transaction_serializer.rb",
-		"/home/daniel840829/zuedu/app/controllers/dashboard/products_controller.rb",
 		"/home/daniel840829/zuedu_front/containers/DashboardOrderForm.js",
 		"/home/daniel840829/zuedu_front/components/CartInfo.js",
 		"/home/daniel840829/zuedu_front/containers/CartContainer.js",
@@ -477,7 +429,6 @@
 		"/home/daniel840829/zuedu_front/containers/DashboardCartsContainer.js",
 		"/home/daniel840829/zuedu_front/components/Footer.js",
 		"/home/daniel840829/zuedu_front/containers/NavbarInstance.js",
-		"/home/daniel840829/zuedu_front/reducers/dashboard.js",
 		"/home/daniel840829/zuedu_front/routes.js",
 		"/home/daniel840829/zuedu_front/components/OrderInfoOld.js",
 		"/home/daniel840829/zuedu_front/containers/OrderInfoOld.js",
@@ -497,7 +448,6 @@
 		"/home/daniel840829/zuedu/db/migrate/20170406133603_add_activity_url_to_products.rb",
 		"/home/daniel840829/zuedu/config/environment.rb",
 		"/home/daniel840829/zuedu/config/initializers/devise.rb",
-		"/home/daniel840829/zuedu/app/serializers/product_serializer.rb",
 		"/home/daniel840829/zuedu/db/migrate/20160629090442_create_products.rb",
 		"/home/daniel840829/zuedu/db/migrate/20160629090444_create_product_details.rb",
 		"/home/daniel840829/zuedu/db/migrate/20170406130624_add_activity_image_url_to_products.rb",
@@ -678,8 +628,8 @@
 						"selection":
 						[
 							[
-								2906,
-								2906
+								1691,
+								1691
 							]
 						],
 						"settings":
@@ -689,14 +639,74 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 420.0,
+						"translation.y": 302.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "containers/NavbarInstance.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2959,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2538,
+								2538
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 1254.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "webpack.config.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1275,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								279,
+								279
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
 					"file": "containers/DashboardProductForm.js",
 					"semi_transient": false,
 					"settings":
@@ -722,11 +732,11 @@
 						"translation.y": 576.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 4,
 					"file": "containers/ProductForm.js",
 					"semi_transient": false,
 					"settings":
@@ -738,8 +748,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								9511,
+								9511
 							]
 						],
 						"settings":
@@ -749,246 +759,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6331.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/daniel840829/zuedu/db/schema.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7007,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5330,
-								5330
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": -0.0,
-						"translation.y": 1740.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/home/daniel840829/zuedu/app/controllers/dashboard/products_controller.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1065,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								472,
-								472
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/home/daniel840829/zuedu/app/controllers/dashboard/carts_controller.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 390,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								186,
-								186
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "reducers/dashboard.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1464,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								407,
-								407
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "server/server.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2736,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								937,
-								937
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "/home/daniel840829/zuedu/db/migrate/20170504133547_add_detailimage_to_products.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 127,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								127,
-								127
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "/home/daniel840829/zuedu/app/serializers/product_serializer.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 516,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								511,
-								511
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 4945.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "/home/daniel840829/zuedu/app/models/product.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 90,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								90,
-								90
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
 					"type": "text"
 				}
 			]
